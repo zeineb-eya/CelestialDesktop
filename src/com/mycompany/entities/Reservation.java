@@ -12,9 +12,8 @@ import java.util.Comparator;
  * @author HP
  */
 public class Reservation {
-    private int id,user;
+    private int id,user,billet;
     private String date_reservation,Etat_reservation;
-    int billet;
     public Reservation(int id,String date_reservation,String Etat_reservation,int user,int billet) {
         this.id = id;
         this.date_reservation = date_reservation;
@@ -28,6 +27,9 @@ public class Reservation {
         this.user = user;
         this.billet = billet;
         
+    }
+     public Reservation(int id) {
+        this.id = id;    
     }
     public Reservation(String date_reservation,String Etat_reservation,int user,int billet) {
         this.date_reservation = date_reservation;
@@ -81,7 +83,7 @@ public class Reservation {
     public int getBillet() {
         return billet;
     }
-    public void setBillet(int Billet) {
+    public void setBillet(int billet) {
         this.billet = billet;
     }
     
