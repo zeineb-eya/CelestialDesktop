@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class MyConnection {
     
-    public String url="jdbc:mysql://localhost:3306/celestial_desktop";
+    public String url="jdbc:mysql://localhost:3306/celestial";
     public String login="root";
     public String pwd="";
     Connection cnx;

@@ -24,25 +24,56 @@ public class MainClass {
         BilletService bs = new BilletService();
         ReservationService rs = new ReservationService();
         //******************************************ajout statique******************************************//
+        //**Billet**//
         //bs.ajouterBillet();
+        
+        //**Reservation**//
         //rs.ajouterReservation();
         //******************************************ajout dynamique******************************************//
-        //Billet b = new Billet(2,2,2,2,"2022-04-26",2);
-        //bs.ajouterBiller2(b);
-        //Reservation r = new Reservation("2022-04-26","pending",1,1);
-        //rs.ajouterReservation2(r);
-        //******************************************affichage******************************************//
-        //System.out.println(bs.afficherBillets());
-        //System.out.println(rs.afficherReservations());
+        
+        //**Billet**//
+//        System.out.println("Agouter Billet");
+//       Billet b = new Billet(5,5,5,5,"2022-05-26",1);
+//       bs.ajouterBiller2(b);
+        
+        //**Reservation**//
+//        System.out.println("Ajouter Reservation");
+//        Reservation r = new Reservation("2022-04-26","waiting for a confirmation",4,16);
+//        rs.ajouterReservation2(r);
+        
+     
         //******************************************modification******************************************//
-        //Billet b = new Billet(2,2,25,25,25,"2022-04-26",2);
-       // bs.modifierBillet(b);
-       //Reservation r = new Reservation(2,"2022-04-26","pending",2,1);
-       //rs.modifierReservation(r);
+        
+        //**Billet**//
+//        System.out.println("Modification Billet");
+//        Billet b = new Billet(22,2,25,25,25,"2022-04-26",2);
+//        bs.modifierBillet(b);
+       
+       //**Reservation**//
+//       System.out.println("Modification Reservation");
+//       Reservation r = new Reservation(13,"2022-04-26","valider",4,19);
+//       rs.modifierReservation(r);
+       
        //******************************************suppression******************************************//
-        //Billet b = new Billet(2);
-       // bs.supprimerBillet(b);
-      // Reservation r = new Reservation(2);
-        //rs.supprimerReservation(r);
+       
+       //**Billet**//
+//       System.out.println("Suppression Billet");
+//        Billet b = new Billet(22);
+//       bs.supprimerBillet(b);
+       
+       //**Reservation**//
+//       System.out.println("Suppression Reservation");
+//      Reservation r = new Reservation(20);
+//        rs.supprimerReservation(r);
+        //******************************************affichage******************************************//
+        
+        //**Billet**//
+        System.out.println("Affichage Billet");
+        System.out.println(bs.afficherBillets());
+        
+        //**Reservation**//
+        System.out.println("Affichage Reservation");
+        System.out.println(rs.afficherReservations());
+        
     }
 }
