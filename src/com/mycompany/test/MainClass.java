@@ -11,6 +11,10 @@ import com.mycompany.utils.MyConnection;
  */
 public class MainClass {
     public static void main(String[] args) {
-        MyConnection mc = new MyConnection();
+                //******************************************Test Connection******************************************//
+        // MyConnection mc = new MyConnection();
+        MyConnection mc = MyConnection.getInstance();
+        MyConnection mc2 = MyConnection.getInstance();
+        System.out.println(mc.hashCode()+ " - " +mc2.hashCode());
     }
 }
