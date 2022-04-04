@@ -36,6 +36,9 @@ public class Billet {
     }
       public Billet() {  
     }
+       public Billet(int id) {
+        this.id = id;
+    }
     public int getId() {
         return id;
     }
