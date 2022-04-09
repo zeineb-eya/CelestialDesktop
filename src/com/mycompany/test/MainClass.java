@@ -9,12 +9,51 @@ import com.mycompany.entities.Reservation;
 import com.mycompany.services.BilletService;
 import com.mycompany.services.ReservationService;
 import com.mycompany.utils.MyConnection;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
 /**
  *
  * @author HP
  */
-public class MainClass {
+public class MainClass /*extends Application */{
+//     private double xOffset = 0;
+//    private double yOffset = 0;
+//
+//    @Override
+//    public void start(Stage stage) throws Exception {
+//        Font.loadFont(MainClass.class.getResource("/com/mycompany/gui/fonts/Roboto-Bold.ttf").toExternalForm(), 10);
+//        stage.getIcons().add(new Image("/com/mycompany/gui/img/icon.png"));
+//        stage.setTitle("Celestial");
+//
+////        Parent root = FXMLLoader.load(getClass().getResource("/com/mycompany/gui/profile.fxml"));
+//        //Parent root = FXMLLoader.load(getClass().getResource("/com/mycompany/gui/login.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/com/mycompany/gui/addbillet.fxml"));
+//
+//        Scene scene = new Scene(root, 1280, 720);
+////        stage.initStyle(StageStyle.UNDECORATED);
+//
+//        root.setOnMousePressed((MouseEvent event) -> {
+//            xOffset = event.getSceneX();
+//            yOffset = event.getSceneY();
+//        });
+//        root.setOnMouseDragged((MouseEvent event) -> {
+//            stage.setX(event.getScreenX() - xOffset);
+//            stage.setY(event.getScreenY() - yOffset);
+//        });
+//
+//        stage.setScene(scene);
+////        stage.setResizable(false);
+//        stage.show();
+//    }
+
     public static void main(String[] args) {
+         //Application.launch(args);
         //******************************************Test Connection******************************************//
         // MyConnection mc = new MyConnection();
 //        MyConnection mc = MyConnection.getInstance();
@@ -22,7 +61,7 @@ public class MainClass {
 //        System.out.println(mc.hashCode()+ " - " +mc2.hashCode());
 
         BilletService bs = new BilletService();
-        ReservationService rs = new ReservationService();
+      ReservationService rs = new ReservationService();
         //******************************************ajout statique******************************************//
         //**Billet**//
         //bs.ajouterBillet();
@@ -32,7 +71,7 @@ public class MainClass {
         //******************************************ajout dynamique******************************************//
         
         //**Billet**//
-//        System.out.println("Agouter Billet");
+//        System.out.println("Ajouter Billet");
 //       Billet b = new Billet(5,5,5,5,"2022-05-26",1);
 //       bs.ajouterBiller2(b);
         
@@ -63,17 +102,33 @@ public class MainClass {
        
        //**Reservation**//
 //       System.out.println("Suppression Reservation");
-//      Reservation r = new Reservation(20);
-//        rs.supprimerReservation(r);
+//       Reservation r = new Reservation(21);
+//       rs.supprimerReservation(r);
         //******************************************affichage******************************************//
         
         //**Billet**//
-        System.out.println("Affichage Billet");
-        System.out.println(bs.afficherBillets());
+//        System.out.println("Affichage Billet");
+//        System.out.println(bs.afficherBillets());
+//        
+//        //**Reservation**//
+//        System.out.println("Affichage Reservation");
+//        System.out.println(rs.afficherReservations());
+         //******************************************Service******************************************//
         
+        //**Billet**//
+//        System.out.println("Recherche Billet");
+//        System.out.println(bs.findBillet_ByDate("2022-03-20"));
+          
+//        System.out.println("Tri Billet");
+//        System.out.println(bs.sortByDate());
         //**Reservation**//
-        System.out.println("Affichage Reservation");
-        System.out.println(rs.afficherReservations());
-        
+//        System.out.println("Recherche Reservation Par Date");
+//        System.out.println(rs.findReservation_ByDate("2022-03-14"));
+//        System.out.println("Recherche Reservation Par Etat");
+//        System.out.println(rs.findReservation_ByEtat("confirmed"));
+//        System.out.println("Tri Reservation Par Date");
+//        System.out.println(rs.sortByDate());
+//        System.out.println("Tri Reservation Par Etat");
+//        System.out.println(rs.sortByEtat());
     }
 }

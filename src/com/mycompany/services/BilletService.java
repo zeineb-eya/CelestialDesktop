@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -41,6 +42,9 @@ public class BilletService {
     }
     //requete dynamique
     public void ajouterBiller2(Billet b){
+       
+//        int find;
+//        find = "select chair_billet from billet where chair_billet = '" + b.getChairBillet() +"'";
 //        String req = "insert into billet(chair_billet,voyage_num,terminal,portail,embarquement,localisation_id)"
 //                    + "values( '" + b.getChairBillet() + "', '" + b.getVoyageNum() + "',"+ "" + b.getTerminal() + "', '" + b.getPortail() + "', '" ++ "', '" + b.getEmbarquement() + "', '" + b.getLocalisation()  + ")";
         try {
@@ -109,5 +113,17 @@ public class BilletService {
             System.out.println(ex.getMessage());
         }
     }
+          //serach  
+     public Billet findBillet_ByDate(String embarquement) {
+
+	return afficherBillets().stream().filter(Billet -> embarquement.equals(Billet.getEmbarquement())).findFirst().get();
+
+    }
+        //sort
+      public List<Billet> sortByDate() {
+
+	return afficherBillets().stream().sorted((a, b) -> a.getEmbarquement().compareTo(b.getEmbarquement())).collect(Collectors.toList());
+    }
+
     
 }

@@ -5,6 +5,7 @@
  */
 package com.mycompany.services;
 
+
 import com.mycompany.entities.Reservation;
 import com.mycompany.utils.MyConnection;
 import java.sql.Connection;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -100,5 +102,25 @@ public class ReservationService {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+        //serach  
+     public Reservation findReservation_ByDate(String date_reservation) {
+
+	return afficherReservations().stream().filter(Reservation -> date_reservation.equals(Reservation.getDateReservation())).findFirst().get();
+
+    }
+     public Reservation findReservation_ByEtat(String etat_reservation) {
+
+	return afficherReservations().stream().filter(Reservation -> etat_reservation.equals(Reservation.getEtatReservation())).findFirst().get();
+
+    }
+        //sort
+      public List<Reservation> sortByDate() {
+
+	return afficherReservations().stream().sorted((a, b) -> a.getDateReservation().compareTo(b.getDateReservation())).collect(Collectors.toList());
+    }
+      public List<Reservation> sortByEtat() {
+
+	return afficherReservations().stream().sorted((a, b) -> a.getEtatReservation().compareTo(b.getEtatReservation())).collect(Collectors.toList());
     }
 }
