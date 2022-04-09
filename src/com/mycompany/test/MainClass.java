@@ -19,7 +19,7 @@ public class MainClass{
     public static void main(String[] args) {
         //******************************************Test Connection******************************************//
         // MyConnection mc = new MyConnection();
-//        MyConnection mc = MyConnection.getInstance();
+//       MyConnection mc = MyConnection.getInstance();
 //        MyConnection mc2 = MyConnection.getInstance();
 //        System.out.println(mc.hashCode()+ " - " +mc2.hashCode());
 
