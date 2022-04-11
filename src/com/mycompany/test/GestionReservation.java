@@ -238,7 +238,7 @@ public class GestionReservation extends javax.swing.JFrame {
 
         try{
             stm.executeUpdate(requete);
-JOptionPane.showMessageDialog(null,"Billet bien ajoute");
+            JOptionPane.showMessageDialog(null,"Billet bien ajoute");
 
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null,ex.getMessage());

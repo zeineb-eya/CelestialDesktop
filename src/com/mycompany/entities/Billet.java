@@ -5,6 +5,7 @@
  */
 package com.mycompany.entities;
 
+import java.sql.Date;
 import java.util.Comparator;
 
 /**
@@ -15,6 +16,7 @@ public class Billet {
     
     private int id,chair_billet,voyage_num,terminal,portail,localisation;
     private String embarquement;
+   // private Date embarquement;
    // Localisation localisation;
     
     public Billet(int id, int chair_billet, int voyage_num, int terminal, int portail, String embarquement, int localisation) {
@@ -94,10 +96,10 @@ public class Billet {
     }
     
 
-    public static Comparator<Billet> DateComparator = new Comparator<Billet>() {
-        @Override
-        public int compare(Billet o1, Billet o2) {
-            return (int) (o1.getEmbarquement().toLowerCase().compareTo(o2.getEmbarquement().toLowerCase()));
-        }
-    };
+//    public static Comparator<Billet> DateComparator = new Comparator<Billet>() {
+//        @Override
+//        public int compare(Billet o1, Billet o2) {
+//            return (int) (o1.getEmbarquement().toLowerCase().compareTo(o2.getEmbarquement().toLowerCase()));
+//        }
+//    };
 }
