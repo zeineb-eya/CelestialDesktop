@@ -9,12 +9,12 @@
    <children>
       <TableView fx:id="tablelocalisation" layoutX="24.0" layoutY="92.0" prefHeight="200.0" prefWidth="556.0">
         <columns>
-          <TableColumn fx:id="heure_depart_localisationn" prefWidth="75.0" text="HeureD" />
+            <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="heure_depart_localisation" prefWidth="75.0" text="HeureD" />
           <TableColumn fx:id="heure_arrivee_loacalisation" prefWidth="75.0" text="HeureA" />
             <TableColumn fx:id="position_depart_localisation" prefWidth="75.0" text="PositionD" />
             <TableColumn fx:id="position_arivee_planning" prefWidth="75.0" text="PositionA" />
             <TableColumn fx:id="fusee" prefWidth="75.0" text="Fussee" />
-            <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
         </columns>
       </TableView>
       <Button layoutX="266.0" layoutY="319.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />

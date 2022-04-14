@@ -57,7 +57,7 @@ public class LocalisationService {
         try {
          
         String requete3 = "SELECT * FROM localisation";
-        Statement st = connection.createStatement();;
+        Statement st = connection.createStatement();
         ResultSet rs =  st.executeQuery(requete3);
         while(rs.next()){
             Localisation l = new Localisation();

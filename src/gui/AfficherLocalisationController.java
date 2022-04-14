@@ -41,8 +41,9 @@ public class AfficherLocalisationController implements Initializable {
     @FXML
     private TableColumn<?, ?> id;
 ObservableList list;
-    @FXML
     private TableColumn<?, ?> heure_depart_localisationn;
+    @FXML
+    private TableColumn<?, ?> heure_depart_localisation;
     /**
      * Initializes the controller class.
      */
@@ -99,12 +100,13 @@ ObservableList list;
        LocalisationService ls = new LocalisationService();
         ObservableList<Localisation> localisations = FXCollections.observableArrayList(ls.afficherLocalisations());
          
-        heure_depart_localisationn.setCellValueFactory(new PropertyValueFactory<>("heure_depart_localisation"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        heure_depart_localisation.setCellValueFactory(new PropertyValueFactory<>("heure_depart_localisation"));
        heure_arrivee_loacalisation.setCellValueFactory(new PropertyValueFactory<>("heure_arrivee_loacalisation"));
        position_depart_localisation.setCellValueFactory(new PropertyValueFactory<>("position_depart_localisation"));
-         position_arivee_planning.setCellValueFactory(new PropertyValueFactory<>("positionArivee_planning"));
+         position_arivee_planning.setCellValueFactory(new PropertyValueFactory<>("position_arivee_planning"));
          fusee.setCellValueFactory(new PropertyValueFactory<>("fusee"));
-        //date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date reclamation"));
+        
         list = FXCollections.observableList(localisations);
         tablelocalisation.setItems(list);
       

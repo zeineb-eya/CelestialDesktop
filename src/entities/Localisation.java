@@ -17,26 +17,26 @@ import java.util.Comparator;
 public class Localisation {
     
     private int id;
-    private String positionDepart_localisation,positionArivee_planning,fusee;
-    private String heureDepart_localisation, heureArrivee_loacalisation;
+    private String heureDepart_localisation, heureArrivee_loacalisation,positionDepart_localisation,positionArivee_planning,fusee;
    // Localisation localisation;
     
-    public Localisation(int id,String positionDepart_localisation, String positionArivee_planning, String fusee, String heureDepart_localisation, String heureArrivee_loacalisation) {
+    public Localisation(int id,String heureDepart_localisation, String heureArrivee_loacalisation, String positionDepart_localisation, String positionArivee_planning, String fusee) {
         this.id = id;
+        this.heureDepart_localisation = heureDepart_localisation;
+        this.heureArrivee_loacalisation = heureArrivee_loacalisation;
         this.positionDepart_localisation = positionDepart_localisation;
         this.positionArivee_planning = positionArivee_planning;
         this.fusee = fusee;
-        this.heureDepart_localisation = heureDepart_localisation;
-        this.heureArrivee_loacalisation = heureArrivee_loacalisation;
+
 
 
     }
      public Localisation(String positionDepart_localisation, String positionArivee_planning, String fusee, String heureDepart_localisation, String heureArrivee_loacalisation) {
-          this.positionDepart_localisation = positionDepart_localisation;
+         this.heureDepart_localisation = heureDepart_localisation;
+        this.heureArrivee_loacalisation = heureArrivee_loacalisation;
+        this.positionDepart_localisation = positionDepart_localisation;
         this.positionArivee_planning = positionArivee_planning;
         this.fusee = fusee;
-        this.heureDepart_localisation = heureDepart_localisation;
-        this.heureArrivee_loacalisation = heureArrivee_loacalisation;
     }
       public Localisation() {  
     }
@@ -49,6 +49,19 @@ public class Localisation {
     public void setId(int id) {
         this.id = id;
     }
+      public String getHeureDepartLocalisation() {
+        return heureDepart_localisation;
+    }
+    public void setHeureDepartLocalisation(String heureDepart_localisation) {
+        this.heureDepart_localisation = heureDepart_localisation;
+    }
+    public String getHeureArriveeLoacalisation() {
+        return heureArrivee_loacalisation;
+    }
+    public void setHeureArriveeLoacalisation(String heureArrivee_loacalisation) {
+        this.heureArrivee_loacalisation = heureArrivee_loacalisation;
+    }
+    
     
     public String getPositionDepartLocalisation() {
         return positionDepart_localisation;
@@ -69,19 +82,7 @@ public class Localisation {
     public void setFusee(String fusee) {
         this.fusee = fusee;
     }
-    public String getHeureDepartLocalisation() {
-        return heureDepart_localisation;
-    }
-    public void setHeureDepartLocalisation(String heureDepart_localisation) {
-        this.heureDepart_localisation = heureDepart_localisation;
-    }
-    public String getHeureArriveeLoacalisation() {
-        return heureArrivee_loacalisation;
-    }
-    public void setHeureArriveeLoacalisation(String heureArrivee_loacalisation) {
-        this.heureArrivee_loacalisation = heureArrivee_loacalisation;
-    }
-    
+  
     @Override
     public String toString() {
         return "Localisation{" + "id=" + id + ", positionDepart_localisation=" + positionDepart_localisation + ", positionArivee_planning=" + positionArivee_planning +", fusee=" + fusee + ", heureDepart_localisation=" + heureDepart_localisation +", heureArrivee_loacalisation=" + heureArrivee_loacalisation +"\n";
