@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="471.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouPlaninngController">
+   <children>
+      <Label layoutX="150.0" layoutY="14.0" prefHeight="53.0" prefWidth="321.0" text="Ajout Planinng">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nom_planning" layoutX="47.0" layoutY="88.0" prefHeight="25.0" prefWidth="174.0" promptText="Nom Planinng" />
+      <TextField fx:id="periode_planning" layoutX="47.0" layoutY="314.0" prefHeight="25.0" prefWidth="174.0" promptText="Periode " />
+      <TextField fx:id="prix_planning" layoutX="47.0" layoutY="349.0" prefHeight="25.0" prefWidth="174.0" promptText="Prix" />
+      <DatePicker fx:id="dateDebut_planning" layoutX="47.0" layoutY="124.0" promptText="Date Debut" />
+      <DatePicker fx:id="dateFin_planning" layoutX="47.0" layoutY="157.0" promptText="Date Fin " />
+      <TextField fx:id="destination_planning" layoutX="47.0" layoutY="279.0" prefHeight="25.0" prefWidth="174.0" promptText="Destination" />
+      <TextArea fx:id="description_planning" layoutX="47.0" layoutY="196.0" prefHeight="70.0" prefWidth="174.0" promptText="Description du Planinng" />
+      <Button layoutX="417.0" layoutY="349.0" mnemonicParsing="false" onAction="#Ajouter" text="Ajouter" />
+      <Button layoutX="485.0" layoutY="349.0" mnemonicParsing="false" onAction="#Afficher" text="Afficher" />
+   </children>
+</AnchorPane>
