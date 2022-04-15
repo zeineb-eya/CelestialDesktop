@@ -212,11 +212,9 @@ public class ServiceReclamation {
      
       
      public List<Reclamation> TrouveEtatReclam(String etat_reclamation) throws SQLException
-        
-         {
+          {
                     List<Reclamation>myList = new ArrayList<>();
              String requete5="SELECT * FROM `reclamation` WHERE `etat_reclamation`=?";
-               
               //Statement st = cnx2.createStatement();;
               PreparedStatement pst = cnx2.prepareStatement(requete5);
               //PreparedStatement stm=cnx.prepareStatement(req);
@@ -242,7 +240,37 @@ public class ServiceReclamation {
     }
      
      
-    
+    public List<Reclamation> refreshReclam(){
+                    List<Reclamation>myList = new ArrayList<>();
+
+        try{
+        String requete3 = "SELECT * FROM reclamation";
+        Statement st = cnx2.createStatement();
+        ResultSet rs =  st.executeQuery(requete3);
+        
+        
+         /* PreparedStatement pst = cnx2.prepareStatement(requete2);
+              Connexion c= MyConnection.getInstance().getCnx();
+          PreparedStatement pt;
+              pt = c.prepareStatement("SELECT id,email,sujet,description,etat from reclamation");
+             // String requete = "select id_utilisateur,username,nom,prenom,email,tel,adresse,id_role,etat from utilisateur";
+              ResultSet rs=pt.executeQuery();*/
+               
+              while(rs.next()){
+                Reclamation r = new Reclamation();
+                r.setId(rs.getInt("id"));
+                 r.setDescription_reclamation(rs.getString("description_reclamation"));
+               // r.setDescription_reclamation(rs.getString(2));
+                r.setEtat_reclamation(rs.getString(3));
+                r.setDate_reclamation(rs.getString(4));
+            
+                myList.add(r);}   
+              
+          } catch (SQLException ex) {
+              System.out.println(ex.getMessage());
+          };
+          return myList;
+    }
  
     }
     

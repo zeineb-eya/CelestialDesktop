@@ -45,11 +45,11 @@ public class ModifierReclamationFXMLController implements Initializable {
     private void modifier(ActionEvent event) throws FileNotFoundException, IOException {
         if (rec == null) {
 
-            System.out.println("choisir un evenement");
+            System.out.println("Choisir une réclamation");
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Modify event");
+            alert.setTitle("Modifier réclamation");
             alert.setHeaderText(null);
-            alert.setContentText("the event is not modified !");
+            alert.setContentText("La réclamation n'est pas modifié!");
 
             alert.showAndWait();
         }else {
@@ -69,7 +69,7 @@ public class ModifierReclamationFXMLController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Modification terminée avec succès.");
         alert.setHeaderText(null);
-    alert.setContentText("Your complaint has been modified.");
+    alert.setContentText("Votre réclamation a été modifié avec succés.");
         alert.showAndWait();
         javafx.scene.Parent tableview = FXMLLoader.load(getClass().getResource("AfficherReclamationFXML.fxml"));
         Scene sceneview = new Scene(tableview);

@@ -22,7 +22,7 @@
         </columns>
       </TableView>
       <Button layoutX="361.0" layoutY="302.0" mnemonicParsing="false" onAction="#delete" text="Supprimer" />
-      <Button layoutX="460.0" layoutY="302.0" mnemonicParsing="false" text="Actualiser" />
+      <Button fx:id="refreshButton" layoutX="460.0" layoutY="302.0" mnemonicParsing="false" onAction="#refresh" text="Actualiser" />
       <Button layoutX="274.0" layoutY="302.0" mnemonicParsing="false" onAction="#modifierReclam" text="Modifier" />
    </children>
 </AnchorPane>

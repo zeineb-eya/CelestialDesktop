@@ -7,8 +7,10 @@ package gui;
 
 import com.mycompany.entities.Reclamation;
 import com.mycompany.services.ServiceReclamation;
+import com.mycompany.utils.MyConnection;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
 import static java.util.Collections.list;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -22,6 +24,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -45,6 +48,8 @@ public class AfficherReclamationFXMLController implements Initializable {
     private TableColumn<?, ?> date_reclamcol;
     
     ObservableList myList ;
+    @FXML
+    private Button refreshButton;
 
     /**
      * Initializes the controller class.
@@ -102,7 +107,7 @@ if(r==null){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur");
             alert.setHeaderText(null);
-            alert.setContentText("Aucune reclamaation séléctionné");
+            alert.setContentText("Aucune reclamation séléctionné");
 
             alert.showAndWait();
      
@@ -139,17 +144,40 @@ if(r==null){
 }
         }
 
-     
-  /*  private void Show(ActionEvent event) {
-       ServiceReclamation sr = new ServiceReclamation();
-        ObservableList<Reclamation> oc = FXCollections.observableArrayList(sr.afficherReclamation());
-       description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description reclamation"));
-       etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat reclamation"));
-        date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date reclamation"));
-        
-        tableaureclam.setItems(oc);
-    }*/
-   
-  
 }
+     
+        /* public void refresh(boolean x){
+    if(x==true){
+        
+             ServiceReclamation sr = new ServiceReclamation();
+        List<Reclamation> reclam = sr.refreshReclam();
+        myList = FXCollections.observableList(reclam);
+        tableaureclam.setItems(myList);
+       
+           description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
+        etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
+         date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
+                  
+         tableaureclam.setItems(myList);
+        }
+    else
+    {}
+    }*/
+
+    @FXML
+    private void refresh(ActionEvent event) {
+       
+        
+             ServiceReclamation sr = new ServiceReclamation();
+        List<Reclamation> reclam = sr.refreshReclam();
+        myList = FXCollections.observableList(reclam);
+        tableaureclam.setItems(myList);
+       
+           description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
+        etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
+         date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
+                  
+         tableaureclam.setItems(myList);
+    
+    }
 }
