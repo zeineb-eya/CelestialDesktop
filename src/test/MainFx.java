@@ -23,8 +23,17 @@ public class MainFx extends Application{
     
     @Override
     public void start(Stage primaryStage) {
-        try {
+      /*  try {
             Parent root = FXMLLoader.load(getClass().getResource("/gui/AjoutReclamationFXML.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        */
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/AjoutOffreFXML.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
