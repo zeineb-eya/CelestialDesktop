@@ -8,6 +8,9 @@ package gui;
 import com.mycompany.entities.Offre;
 import com.mycompany.services.ServiceOffre;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,13 +36,11 @@ public class AjoutOffreFXMLController implements Initializable {
     @FXML
     private TextField reduction;
     @FXML
-    private TextField date_debut_offre;
+    private DatePicker date_debut_offre;
     @FXML
-    private TextField date_fin_offre;
+    private DatePicker date_fin_offre;
     @FXML
     private Button ajouterOffreButton;
-    @FXML
-    private DatePicker date_debut_offrePicker;
 
     /**
      * Initializes the controller class.
@@ -57,9 +58,11 @@ public class AjoutOffreFXMLController implements Initializable {
        o.setDescription_offre(description_offre.getText());
        o.setPrix_offre(Double.parseDouble(prix_offre.getText()));
        o.setReduction(Double.parseDouble(reduction.getText()));
-       o.setDate_debut_offre(date_debut_offre.getText());
-       o.setDate_fin_offre(date_fin_offre.getText());
-       // r.setDate_reclamation(Date.valueOf(date_reclamation.getValue()));
+     //  o.setDate_debut_offre(date_debut_offre.getText());
+      o.setDate_debut_offre(date_debut_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+      o.setDate_fin_offre(date_fin_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+  //   o.setDate_debut_offre(LocalDate.parse(date_debut_offre,formatter));
+    //   o.setDate_fin_offre(date_fin_offre.getText());
         ServiceOffre pst = new ServiceOffre();
         pst.ajouterOffre(o);
        /*Alert a = new Alert(Alert.AlertType.CONFIRMATION);
