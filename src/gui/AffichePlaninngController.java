@@ -6,29 +6,31 @@
 package gui;
 
 import entities.Planinng;
-import static java.awt.PageAttributes.MediaType.C;
+import util.MyDB;
+import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
-import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import static java.util.Collections.list;
 import java.util.List;
-import java.util.Observable;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import static javafx.print.Paper.C;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.SortEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import services.PlaninngService;
+import gui.ModifierPlaninngController;
 
 /**
  * FXML Controller class
@@ -58,6 +60,8 @@ public class AffichePlaninngController implements Initializable {
     private TableColumn<?, ?> prixplanning;
     @FXML
     private TableView<?> tableplaninng;
+    @FXML
+    private Button refreshButton;
    
                        
 
@@ -115,6 +119,76 @@ public class AffichePlaninngController implements Initializable {
 
 
     }
+
+    @FXML
+    private void modifierPlaninng(ActionEvent event) {
+        
+        Planinng p = (Planinng) tableplaninng.getSelectionModel().getSelectedItem();
+         
+
+if(p==null){
+        
+           System.out.println("Aucun planinng séléctionné");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Aucun planinng séléctionné");
+
+            alert.showAndWait();
+     
+        }else {
+          try {   
+        FXMLLoader loader = new FXMLLoader
+                        (getClass()
+                         .getResource("ModifierPlaninng.fxml"));
+        Scene scene=new Scene(loader.load());
+        
+
+       ModifierPlaninngController mp= loader.getController();
+        Stage stageAff=new Stage();
+        stageAff.setScene(scene);
+        stageAff.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+       //int as=tableplaninng.getSelectionModel().getSelectedItem().getId();
+       // String sub = tableplaninng.getSelectionModel().getSelectedItem().getNomPlanning();
+        
+       // String content = tableaureclam.getSelectionModel().getSelectedItem().getContent();
+        
+       
+        
+                //   mp.setData(tableplaninng.getSelectionModel().getSelectedItem().getId(),
+                  // tableplaninng.getSelectionModel().getSelectedItem().getNomPlanning());
+                 
+                 
+       
+        } catch(IOException ex)
+    {
+     System.out.println("eer");
+}
+        }
+
+}
+
+    @FXML
+    private void refresh(ActionEvent event) {
+             PlaninngService ps = new PlaninngService();
+        List<Planinng> planinngs = ps.refreshPlaninng();
+        myList = FXCollections.observableList(planinngs);
+        tableplaninng.setItems(myList);
+       
+            id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nomplanning.setCellValueFactory(new PropertyValueFactory<>("nomPlanning"));
+        dateDebutplanning.setCellValueFactory(new PropertyValueFactory<>("dateDebutPlanning"));
+        dateFinplanning.setCellValueFactory(new PropertyValueFactory<>("dateFinPlanning"));
+         descriptionplanning.setCellValueFactory(new PropertyValueFactory<>("descriptionPlanning"));
+         destinationplanning.setCellValueFactory(new PropertyValueFactory<>("destinationPlanning"));
+         periodeplanning.setCellValueFactory(new PropertyValueFactory<>("periodePlanning"));
+         prixplanning.setCellValueFactory(new PropertyValueFactory<>("prixPlanning"));
+                  
+         tableplaninng.setItems(myList);
+    
+    }
+    }
    
     
-}
+

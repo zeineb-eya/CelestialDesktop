@@ -155,7 +155,57 @@ public void ajouter(Planinng p) {
              Logger.getLogger(PlaninngService.class.getName()).log(Level.SEVERE, null, ex);
          }
     }
+   public void updatePlaninng( Planinng p){
+        String requete2="update planinng set nom_planning=? where id=?";
+        try {
+            
+            PreparedStatement ps = connection.prepareStatement(requete2);
+            ps.setInt(2,p.getId());
+            ps.setString(1,p.getNomPlanning());
+            
+           
+            System.out.println(ps);
+            ps.executeUpdate();
+             System.out.println("votre planinng a ete bien modife");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
+    }
+     public List<Planinng> refreshPlaninng(){
+                    List<Planinng>myList = new ArrayList<>();
+
+        try{
+        String requete3 = "SELECT * FROM planinng";
+        Statement st = connection.createStatement();
+        ResultSet rs =  st.executeQuery(requete3);
+        
+        
+         /* PreparedStatement pst = cnx2.prepareStatement(requete2);
+              Connexion c= MyConnection.getInstance().getCnx();
+          PreparedStatement pt;
+              pt = c.prepareStatement("SELECT id,email,sujet,description,etat from reclamation");
+             // String requete = "select id_utilisateur,username,nom,prenom,email,tel,adresse,id_role,etat from utilisateur";
+              ResultSet rs=pt.executeQuery();*/
+               
+              while(rs.next()){
+                Planinng p = new Planinng();
+                p.setId(rs.getInt("id"));
+                  p.setNomPlanning(rs.getString("nom_planning"));
+                p.setDateDebutPlanning(rs.getDate("date_debut_planning"));
+                p.setDateFinPlanning(rs.getDate("date_fin_planning"));
+                p.setDestinationPlanning(rs.getString("destination_planning"));
+                p.setDescriptionPlanning(rs.getString("description_planning"));
+                p.setPeriodePlanning(rs.getInt("periode_planning"));
+                p.setPrixPlanning(rs.getInt("prix_planning"));
+            
+                myList.add(p);}   
+              
+          } catch (SQLException ex) {
+              System.out.println(ex.getMessage());
+          };
+          return myList;
+    }
 
     @Override
     public void modifier(Planinng p) {

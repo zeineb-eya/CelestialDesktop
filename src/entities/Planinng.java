@@ -51,9 +51,7 @@ public class Planinng {
     }
       public Planinng() {  
     }
-       public Planinng(int id) {
-        this.id = id;
-    }
+      
 
     
     

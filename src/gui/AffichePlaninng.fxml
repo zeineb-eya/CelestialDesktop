@@ -20,5 +20,7 @@
             <TableColumn fx:id="prixplanning" prefWidth="75.0" text="Prix" />
         </columns>
       </TableView>
+      <Button layoutX="362.0" layoutY="350.0" mnemonicParsing="false" onAction="#modifierPlaninng" prefHeight="25.0" prefWidth="88.0" text="Modifier" />
+      <Button fx:id="refreshButton" layoutX="590.0" layoutY="350.0" mnemonicParsing="false" onAction="#refresh" text="Actualiser" />
    </children>
 </AnchorPane>
