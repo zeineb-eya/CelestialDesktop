@@ -78,21 +78,22 @@ public class LocalisationService {
         return list;
     }
 
-    public void modifierPlaninng(Localisation l) {
+    public void modifierLocalistaion(Localisation l) {
+       String requete11="update localisation set position_depart_localisation =? where id=?";
         try {
-            String req4 = "update localisation set positionDepart_localisation= ?, positionArivee_planning = ?, fusee = ?,heureDepart_localisation= ?, heureArrivee_loacalisation = ?   where id = ?";
-            PreparedStatement pst = connection.prepareStatement(req4);
-            pst.setString(1, l.getPositionDepartLocalisation());
-            pst.setString(2, l.getPositionAriveePlanning());
-            pst.setString(3, l.getFusee());
-            pst.setString(4, l.getPositionDepartLocalisation());
-            pst.setString(5, l.getPositionAriveePlanning());
-            pst.setInt(6, l.getId());
-            pst.executeUpdate();
-            System.out.println("Localisation modifiee avec succes");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            
+            PreparedStatement ps = connection.prepareStatement(requete11);
+            ps.setInt(2,l.getId());
+            ps.setString(1,l.getPositionDepartLocalisation());
+            
+           
+            System.out.println(ps);
+            ps.executeUpdate();
+             System.out.println("votre localisation a ete bien modife");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
     }
 
     public void supprimerPlaninng(Localisation l) {
@@ -128,6 +129,39 @@ public class LocalisationService {
         } catch (SQLException ex) {
             Logger.getLogger(LocalisationService.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public List<Localisation> refreshLocalisation(){
+                    List<Localisation>list = new ArrayList<>();
+
+        try{
+        String requete3 = "SELECT * FROM localisation";
+        Statement st = connection.createStatement();
+        ResultSet rs =  st.executeQuery(requete3);
+        
+        
+         /* PreparedStatement pst = cnx2.prepareStatement(requete2);
+              Connexion c= MyConnection.getInstance().getCnx();
+          PreparedStatement pt;
+              pt = c.prepareStatement("SELECT id,email,sujet,description,etat from reclamation");
+             // String requete = "select id_utilisateur,username,nom,prenom,email,tel,adresse,id_role,etat from utilisateur";
+              ResultSet rs=pt.executeQuery();*/
+               
+              while(rs.next()){
+                Localisation l = new Localisation();
+               l.setId(rs.getInt(1));
+                l.setHeureDepartLocalisation(rs.getString("heuredepartlocalisation"));
+                l.setHeureArriveeLoacalisation(rs.getString("heure_arrivee_loacalisation"));
+                l.setPositionDepartLocalisation(rs.getString("position_depart_localisation"));
+                l.setPositionAriveePlanning(rs.getString("position_arivee_planning"));
+                l.setFusee(rs.getString("fusee"));
+            
+                list.add(l);}   
+              
+          } catch (SQLException ex) {
+              System.out.println(ex.getMessage());
+          };
+          return list;
     }
 
 }

@@ -13,7 +13,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="115.0" layoutY="170.0" prefHeight="17.0" prefWidth="106.0" text="nom_planinng" />
+      <Label layoutX="115.0" layoutY="170.0" prefHeight="17.0" prefWidth="106.0" text="NomP" />
       <TextField fx:id="nomplaninngmodif" layoutX="275.0" layoutY="138.0" prefHeight="111.0" prefWidth="282.0" />
       <Button layoutX="505.0" layoutY="285.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" />
    </children>

@@ -18,5 +18,7 @@
       </columns>
       </TableView>
       <Button layoutX="269.0" layoutY="317.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
+      <Button layoutX="157.0" layoutY="317.0" mnemonicParsing="false" onAction="#modifierLocalisation" prefHeight="25.0" prefWidth="88.0" text="Modifier" />
+      <Button fx:id="refreshButton" layoutX="385.0" layoutY="317.0" mnemonicParsing="false" onAction="#refresh" text="Actualiser" />
    </children>
 </AnchorPane>

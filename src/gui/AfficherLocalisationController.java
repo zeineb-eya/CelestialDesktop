@@ -22,6 +22,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -56,6 +57,8 @@ public class AfficherLocalisationController implements Initializable {
     private TableColumn<?, ?> colposition_depart_localisation;
     @FXML
     private TableColumn<?, ?> position_arivee_planning;
+    @FXML
+    private Button refreshButton;
     /**
      * Initializes the controller class.
      */
@@ -105,5 +108,68 @@ public class AfficherLocalisationController implements Initializable {
                 tableloca.setItems(list);
 
 
+    }
+    
+    @FXML
+    private void modifierLocalisation(ActionEvent event) {
+        
+        Localisation l = (Localisation) tableloca.getSelectionModel().getSelectedItem();
+         
+
+if(l==null){
+        
+           System.out.println("Aucune localisation séléctionné");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Aucune localisation séléctionné");
+
+            alert.showAndWait();
+     
+        }else {
+          try {   
+        FXMLLoader loader = new FXMLLoader
+                        (getClass()
+                         .getResource("ModifierLocalisation.fxml"));
+        Scene scene=new Scene(loader.load());
+        
+
+        ModifierLocalisationController lc = loader.getController();
+        Stage stageAff=new Stage();
+        stageAff.setScene(scene);
+        stageAff.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+      // int as=tableloca.getSelectionModel().getSelectedItem().getId();
+     //  String sub =tableloca.getSelectionModel().getSelectedItem().getPositionDepartLocalisation();
+        
+
+         //          pc.setData(tableplaninng.getSelectionModel().getSelectedItem(),getId(),
+           //        tableplaninng.getSelectionModel().getSelectedItem().getNomPlanning());
+                 
+                 
+       
+        } catch(IOException ex)
+    {
+     System.out.println("eer");
+}
+        }
+
+}
+
+    @FXML
+    private void refresh(ActionEvent event) {
+             LocalisationService ps = new LocalisationService();
+        List<Localisation> localisations = ps.refreshLocalisation();
+        list = FXCollections.observableList(localisations);
+        tableloca.setItems(list);
+       
+         id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        heuredepartlocalisationcol.setCellValueFactory(new PropertyValueFactory<>("heureDepartLocalisation"));
+       colheure_arrivee_loacalisation.setCellValueFactory(new PropertyValueFactory<>("heureArriveeLoacalisation"));
+       colposition_depart_localisation.setCellValueFactory(new PropertyValueFactory<>("positionDepartLocalisation"));
+         position_arivee_planning.setCellValueFactory(new PropertyValueFactory<>("positionAriveePlanning"));
+         fusee.setCellValueFactory(new PropertyValueFactory<>("fusee"));
+         tableloca.setItems(list);
+    
     }
 }

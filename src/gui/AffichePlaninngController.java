@@ -6,6 +6,7 @@
 package gui;
 
 import entities.Planinng;
+
 import util.MyDB;
 import java.io.IOException;
 import java.net.URL;
@@ -30,7 +31,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import services.PlaninngService;
-import gui.ModifierPlaninngController;
 
 /**
  * FXML Controller class
@@ -144,20 +144,17 @@ if(p==null){
         Scene scene=new Scene(loader.load());
         
 
-       ModifierPlaninngController mp= loader.getController();
+        ModifierPlaninngController pc = loader.getController();
         Stage stageAff=new Stage();
         stageAff.setScene(scene);
         stageAff.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
        //int as=tableplaninng.getSelectionModel().getSelectedItem().getId();
-       // String sub = tableplaninng.getSelectionModel().getSelectedItem().getNomPlanning();
+       //String sub =tableplaninng.getSelectionModel().getSelectedItem().getNomPlanning();
         
-       // String content = tableaureclam.getSelectionModel().getSelectedItem().getContent();
-        
-       
-        
-                //   mp.setData(tableplaninng.getSelectionModel().getSelectedItem().getId(),
-                  // tableplaninng.getSelectionModel().getSelectedItem().getNomPlanning());
+
+         //          pc.setData(tableplaninng.getSelectionModel().getSelectedItem(),getId(),
+           //        tableplaninng.getSelectionModel().getSelectedItem().getNomPlanning());
                  
                  
        
