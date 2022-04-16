@@ -43,6 +43,9 @@ public class AjoutLocalisationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    public void setUsername(String s) {
+        fusee.setText(s);
+    }
 
     @FXML
        private void Ajouter(ActionEvent event) {
@@ -69,5 +72,6 @@ public class AjoutLocalisationController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
+
     
 }

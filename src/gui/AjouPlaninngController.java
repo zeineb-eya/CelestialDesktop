@@ -54,7 +54,9 @@ public class AjouPlaninngController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+public void setUsername(String s) {
+        description_planning.setText(s);
+    }
     @FXML
        private void Ajouter(ActionEvent event) {
         Planinng p = new Planinng();
