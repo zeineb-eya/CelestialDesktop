@@ -17,75 +17,80 @@ import java.util.Comparator;
 public class Localisation {
     
     private int id;
-    private String heureDepart_localisation, heureArrivee_loacalisation,positionDepart_localisation,positionArivee_planning,fusee;
+    private String heureDepartLocalisation;
+   private String heureArriveeLoacalisation;
+    private    String positionDepartLocalisation;
+         private   String positionAriveePlanning;
+        private    String fusee;
    // Localisation localisation;
+
+    public Localisation() {
+    }
     
-    public Localisation(int id,String heureDepart_localisation, String heureArrivee_loacalisation, String positionDepart_localisation, String positionArivee_planning, String fusee) {
+    public Localisation(int id,String heureDepartLocalisation, String heureArriveeLoacalisation, String positionDepartLocalisation, String positionAriveePlanning, String fusee) {
         this.id = id;
-        this.heureDepart_localisation = heureDepart_localisation;
-        this.heureArrivee_loacalisation = heureArrivee_loacalisation;
-        this.positionDepart_localisation = positionDepart_localisation;
-        this.positionArivee_planning = positionArivee_planning;
-        this.fusee = fusee;
-
-
-
-    }
-     public Localisation(String positionDepart_localisation, String positionArivee_planning, String fusee, String heureDepart_localisation, String heureArrivee_loacalisation) {
-         this.heureDepart_localisation = heureDepart_localisation;
-        this.heureArrivee_loacalisation = heureArrivee_loacalisation;
-        this.positionDepart_localisation = positionDepart_localisation;
-        this.positionArivee_planning = positionArivee_planning;
+        this.heureDepartLocalisation = heureDepartLocalisation;
+        this.heureArriveeLoacalisation = heureArriveeLoacalisation;
+        this.positionDepartLocalisation = positionDepartLocalisation;
+        this.positionAriveePlanning = positionAriveePlanning;
         this.fusee = fusee;
     }
-      public Localisation() {  
+
+    public Localisation(String heureDepartLocalisation, String heureArriveeLoacalisation, String positionDepartLocalisation, String positionAriveePlanning, String fusee) {
+        this.heureDepartLocalisation = heureDepartLocalisation;
+        this.heureArriveeLoacalisation = heureArriveeLoacalisation;
+        this.positionDepartLocalisation = positionDepartLocalisation;
+        this.positionAriveePlanning = positionAriveePlanning;
+        this.fusee = fusee;
     }
-       public Localisation(int id) {
-        this.id = id;
-    }
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
-      public String getHeureDepartLocalisation() {
-        return heureDepart_localisation;
+
+    public String getHeureDepartLocalisation() {
+        return heureDepartLocalisation;
     }
-    public void setHeureDepartLocalisation(String heureDepart_localisation) {
-        this.heureDepart_localisation = heureDepart_localisation;
+
+    public void setHeureDepartLocalisation(String heureDepartLocalisation) {
+        this.heureDepartLocalisation = heureDepartLocalisation;
     }
+
     public String getHeureArriveeLoacalisation() {
-        return heureArrivee_loacalisation;
+        return heureArriveeLoacalisation;
     }
-    public void setHeureArriveeLoacalisation(String heureArrivee_loacalisation) {
-        this.heureArrivee_loacalisation = heureArrivee_loacalisation;
+
+    public void setHeureArriveeLoacalisation(String heureArriveeLoacalisation) {
+        this.heureArriveeLoacalisation = heureArriveeLoacalisation;
     }
-    
-    
+
     public String getPositionDepartLocalisation() {
-        return positionDepart_localisation;
+        return positionDepartLocalisation;
     }
-    public void setPositionDepartLocalisation(String positionDepart_localisation) {
-        this.positionDepart_localisation = positionDepart_localisation;
+
+    public void setPositionDepartLocalisation(String positionDepartLocalisation) {
+        this.positionDepartLocalisation = positionDepartLocalisation;
     }
-    
+
     public String getPositionAriveePlanning() {
-        return positionArivee_planning;
+        return positionAriveePlanning;
     }
-    public void setPositionAriveePlanning(String positionArivee_planning) {
-        this.positionArivee_planning = positionArivee_planning;
+
+    public void setPositionAriveePlanning(String positionAriveePlanning) {
+        this.positionAriveePlanning = positionAriveePlanning;
     }
-     public String getFusee() {
+
+    public String getFusee() {
         return fusee;
     }
+
     public void setFusee(String fusee) {
         this.fusee = fusee;
     }
-  
-    @Override
-    public String toString() {
-        return "Localisation{" + "id=" + id + ", positionDepart_localisation=" + positionDepart_localisation + ", positionArivee_planning=" + positionArivee_planning +", fusee=" + fusee + ", heureDepart_localisation=" + heureDepart_localisation +", heureArrivee_loacalisation=" + heureArrivee_loacalisation +"\n";
-    }
-
+    
+     
 }

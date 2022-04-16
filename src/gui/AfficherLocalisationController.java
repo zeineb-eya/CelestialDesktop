@@ -6,18 +6,27 @@
 package gui;
 
 import entities.Localisation;
+
+import java.io.IOException;
 import java.net.URL;
+import static java.util.Collections.list;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import services.LocalisationService;
 
@@ -28,22 +37,25 @@ import services.LocalisationService;
  */
 public class AfficherLocalisationController implements Initializable {
 
-    @FXML
-    private TableView<?> tablelocalisation;
-    @FXML
-    private TableColumn<?, ?> heure_arrivee_loacalisation;
-    @FXML
-    private TableColumn<?, ?> position_depart_localisation;
-    @FXML
-    private TableColumn<?, ?> position_arivee_planning;
+    
+       ObservableList list;
+
+    
     @FXML
     private TableColumn<?, ?> fusee;
     @FXML
     private TableColumn<?, ?> id;
-ObservableList list;
-    private TableColumn<?, ?> heure_depart_localisationn;
+     
     @FXML
-    private TableColumn<?, ?> heure_depart_localisation;
+    private TableView<?> tableloca;
+    @FXML
+    private TableColumn<?, ?> heuredepartlocalisationcol;
+    @FXML
+    private TableColumn<?, ?> colheure_arrivee_loacalisation;
+    @FXML
+    private TableColumn<?, ?> colposition_depart_localisation;
+    @FXML
+    private TableColumn<?, ?> position_arivee_planning;
     /**
      * Initializes the controller class.
      */
@@ -55,7 +67,7 @@ ObservableList list;
     @FXML
     private void supprimer(ActionEvent event) {
          LocalisationService ps = new LocalisationService();
-        Localisation l = (Localisation) tablelocalisation.getSelectionModel().getSelectedItem();
+        Localisation l = (Localisation) tableloca.getSelectionModel().getSelectedItem();
         ps.SupprimerLocalisation(l);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
            /* alert.setTitle("suppression");
@@ -79,47 +91,19 @@ ObservableList list;
     
     }
     private void afficherlocalisation() {
-      /* ServiceReclamation sr = new ServiceReclamation();
-        ObservableList<Reclamation> o = FXCollections.observableArrayList(sr.afficherReclamation());*/
-      /* LocalisationService ls = new LocalisationService();
-        List<Localisation> localisations = ls.afficherLocalisations();
-        list = FXCollections.observableList(localisations);
-        tablelocalisation.setItems(list);
-        
-       heure_depart_localisationn.setCellValueFactory(new PropertyValueFactory<>("heure_depart_localisation"));
-        heure_arrivee_loacalisation.setCellValueFactory(new PropertyValueFactory<>("heure_arrivee_loacalisation"));
-         position_depart_localisation.setCellValueFactory(new PropertyValueFactory<>("position_depart_localisation"));
-         position_arivee_planning.setCellValueFactory(new PropertyValueFactory<>("position_arivee_planning"));
-         fusee.setCellValueFactory(new PropertyValueFactory<>("fusee"));
 
-    }
-    
-    */
-      
-       
        LocalisationService ls = new LocalisationService();
         ObservableList<Localisation> localisations = FXCollections.observableArrayList(ls.afficherLocalisations());
-         
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        heure_depart_localisation.setCellValueFactory(new PropertyValueFactory<>("heure_depart_localisation"));
-       heure_arrivee_loacalisation.setCellValueFactory(new PropertyValueFactory<>("heure_arrivee_loacalisation"));
-       position_depart_localisation.setCellValueFactory(new PropertyValueFactory<>("position_depart_localisation"));
-         position_arivee_planning.setCellValueFactory(new PropertyValueFactory<>("position_arivee_planning"));
+        heuredepartlocalisationcol.setCellValueFactory(new PropertyValueFactory<>("heureDepartLocalisation"));
+       colheure_arrivee_loacalisation.setCellValueFactory(new PropertyValueFactory<>("heureArriveeLoacalisation"));
+       colposition_depart_localisation.setCellValueFactory(new PropertyValueFactory<>("positionDepartLocalisation"));
+         position_arivee_planning.setCellValueFactory(new PropertyValueFactory<>("positionAriveePlanning"));
          fusee.setCellValueFactory(new PropertyValueFactory<>("fusee"));
         
         list = FXCollections.observableList(localisations);
-        tablelocalisation.setItems(list);
-      
-  /*  private void Show(ActionEvent event) {
-       ServiceReclamation sr = new ServiceReclamation();
-        ObservableList<Reclamation> oc = FXCollections.observableArrayList(sr.afficherReclamation());
-       description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description reclamation"));
-       etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat reclamation"));
-        date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date reclamation"));
-        
-        tableaureclam.setItems(oc);
-    }*/
-   
-  
+                tableloca.setItems(list);
+
+
     }
 }

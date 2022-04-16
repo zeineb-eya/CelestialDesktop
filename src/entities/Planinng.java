@@ -16,31 +16,36 @@ import java.util.Comparator;
  */
 public class Planinng {
     
-    private int id,periode_planning,prix_planning;
-    private String nom_planning,destination_planning,description_planning;
-    private Date dateDebut_planning, dateFin_planning;
+    private int id;
+    private int   periodePlanning;
+    private int  prixPlanning;
+    private String nomPlanning;
+    private String destinationPlanning;
+    private String descriptionPlanning;
+    private Date dateDebutPlanning; 
+    private Date  dateFinPlanning;
    // Localisation localisation;
     
-    public Planinng(int id, int periode_planning, int prix_planning, String nom_planning, Date dateDebut_planning, Date dateFin_planning, String destination_planning, String description_planning) {
+    public Planinng(int id, int periodePlanning, int prixPlanning, String nomPlanning, Date dateDebutPlanning, Date dateFinPlanning, String destinationPlanning, String descriptionPlanning) {
         this.id = id;
-        this.periode_planning = periode_planning;
-        this.prix_planning = prix_planning;
-        this.nom_planning = nom_planning;
-        this.dateDebut_planning = dateDebut_planning;
-        this.dateFin_planning = dateFin_planning;
-        this.destination_planning = destination_planning;
-        this.description_planning = description_planning;
+        this.periodePlanning = periodePlanning;
+        this.prixPlanning = prixPlanning;
+        this.nomPlanning = nomPlanning;
+        this.dateDebutPlanning = dateDebutPlanning;
+        this.dateFinPlanning = dateFinPlanning;
+        this.destinationPlanning = destinationPlanning;
+        this.descriptionPlanning = descriptionPlanning;
 
 
     }
-     public Planinng(int periode_planning, int prix_planning,String nom_planning, Date dateDebut_planning, Date dateFin_planning, String destination_planning, String description_planning) {
-        this.periode_planning = periode_planning;
-        this.prix_planning = prix_planning;
-        this.nom_planning = nom_planning;
-        this.dateDebut_planning = dateDebut_planning;
-        this.dateFin_planning = dateFin_planning;
-        this.destination_planning = destination_planning;
-        this.description_planning = description_planning;
+     public Planinng(int periodePlanning, int prixPlanning, String nomPlanning, Date dateDebutPlanning, Date dateFinPlanning, String destinationPlanning, String descriptionPlanning) {
+        this.periodePlanning = periodePlanning;
+        this.prixPlanning = prixPlanning;
+        this.nomPlanning = nomPlanning;
+        this.dateDebutPlanning = dateDebutPlanning;
+        this.dateFinPlanning = dateFinPlanning;
+        this.destinationPlanning = destinationPlanning;
+        this.descriptionPlanning = descriptionPlanning;
 
 
     }
@@ -60,57 +65,57 @@ public class Planinng {
     }
     
     public int getPeriodePlanning() {
-        return periode_planning;
+        return periodePlanning;
     }
-    public void setPeriodePlanning(int periode_planning) {
-        this.periode_planning = periode_planning;
+    public void setPeriodePlanning(int periodePlanning) {
+        this.periodePlanning = periodePlanning;
     }
     
     public int getPrixPlanning() {
-        return prix_planning;
+        return prixPlanning;
     }
-    public void setPrixPlanning(int prix_planning) {
-        this.prix_planning = prix_planning;
+    public void setPrixPlanning(int prixPlanning) {
+        this.prixPlanning = prixPlanning;
     }
     
     public String getNomPlanning() {
-        return nom_planning;
+        return nomPlanning;
     }
-    public void setNomPlanning(String nom_planning) {
-        this.nom_planning = nom_planning;
+    public void setNomPlanning(String nomPlanning) {
+        this.nomPlanning = nomPlanning;
     }
     
     public Date getDateDebutPlanning() {
-        return dateDebut_planning;
+        return dateDebutPlanning;
     }
-    public void setDateDebutPlanning(Date dateDebut_planning) {
-        this.dateDebut_planning = dateDebut_planning;
+    public void setDateDebutPlanning(Date dateDebutPlanning) {
+        this.dateDebutPlanning = dateDebutPlanning;
     }
     
    public Date getDateFinPlanning() {
-        return dateFin_planning;
+        return dateFinPlanning;
     }
-    public void setDateFinPlanning(Date dateFin_planning) {
-        this.dateFin_planning = dateFin_planning;
+    public void setDateFinPlanning(Date dateFinPlanning) {
+        this.dateFinPlanning = dateFinPlanning;
     }
     
     public String getDestinationPlanning() {
-        return destination_planning;
+        return destinationPlanning;
     }
-    public void setDestinationPlanning(String destination_planning) {
-        this.destination_planning = destination_planning;
+    public void setDestinationPlanning(String destinationPlanning) {
+        this.destinationPlanning = destinationPlanning;
     }
      public String getDescriptionPlanning() {
-        return description_planning;
+        return descriptionPlanning;
     }
-    public void setDescriptionPlanning(String description_planning) {
-        this.description_planning = description_planning;
+    public void setDescriptionPlanning(String descriptionPlanning) {
+        this.descriptionPlanning = descriptionPlanning;
     }
    
     
     @Override
     public String toString() {
-        return "Planinng{" + "id=" + id + ", periode_planning=" + periode_planning + ", prix_planning=" + prix_planning +", nom_planning=" + nom_planning + ", dateDebut_planning=" + dateDebut_planning +", dateFin_planning=" + dateFin_planning +", destination_planning=" + destination_planning + ", description_planning=" + description_planning +"\n";
+        return "Planinng{" + "id=" + id + ", periodePlanning=" + periodePlanning + ", prixPlanning=" + prixPlanning +", nomPlanning=" + nomPlanning + ", dateDebutPlanning=" + dateDebutPlanning +", dateFinPlanning=" + dateFinPlanning +", destinationPlanning=" + destinationPlanning + ", descriptionPlanning=" + descriptionPlanning +"\n";
     }
 
 }

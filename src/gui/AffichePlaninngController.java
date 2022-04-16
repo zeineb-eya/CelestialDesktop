@@ -37,26 +37,27 @@ import services.PlaninngService;
  */
 public class AffichePlaninngController implements Initializable {
     
-     @FXML
-    private TableView<?> tableplaninng;
-    @FXML
-    private TableColumn<? , ?> nom_planning;
-    @FXML
-    private TableColumn<? , ?> dateDebut_planning;
-    @FXML
-    private TableColumn<? , ?> dateFin_planning;
-    @FXML
-    private TableColumn<? , ?> description_planning;
-    @FXML
-    private TableColumn<? , ?> destination_planning;
-    @FXML
-    private TableColumn<? , ?> periode_planning;
+
     
     ObservableList myList;
     @FXML
     private TableColumn<? , ?> id;
     @FXML
-    private TableColumn<? , ?>prix_planning;
+    private TableColumn<?, ?> nomplanning;
+    @FXML
+    private TableColumn<?, ?> dateDebutplanning;
+    @FXML
+    private TableColumn<?, ?> dateFinplanning;
+    @FXML
+    private TableColumn<?, ?> descriptionplanning;
+    @FXML
+    private TableColumn<?, ?> destinationplanning;
+    @FXML
+    private TableColumn<?, ?> periodeplanning;
+    @FXML
+    private TableColumn<?, ?> prixplanning;
+    @FXML
+    private TableView<?> tableplaninng;
    
                        
 
@@ -96,24 +97,24 @@ public class AffichePlaninngController implements Initializable {
     
     }
         private void afficherPlaninng() {
-        PlaninngService ps = new PlaninngService();
-        List<Planinng> planinngs = ps.afficherPlaninng();
-        myList = FXCollections.observableList(planinngs);
-        tableplaninng.setItems(myList);
-        
+
+       PlaninngService ps = new PlaninngService();
+        ObservableList<Planinng> Planinngs = FXCollections.observableArrayList(ps.afficherPlaninng());
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nom_planning.setCellValueFactory(new PropertyValueFactory<>("nom_planning"));
-        dateDebut_planning.setCellValueFactory(new PropertyValueFactory<>("date_debut_planning"));
-        dateFin_planning.setCellValueFactory(new PropertyValueFactory<>("date_fin_planning"));
-        description_planning.setCellValueFactory(new PropertyValueFactory<>("description_planning"));
-        destination_planning.setCellValueFactory(new PropertyValueFactory<>("destination_planning"));
-        periode_planning.setCellValueFactory(new PropertyValueFactory<>("periode_planning"));
-        prix_planning.setCellValueFactory(new PropertyValueFactory<>("prix_planning"));
+        nomplanning.setCellValueFactory(new PropertyValueFactory<>("nomPlanning"));
+        dateDebutplanning.setCellValueFactory(new PropertyValueFactory<>("dateDebutPlanning"));
+        dateFinplanning.setCellValueFactory(new PropertyValueFactory<>("dateFinPlanning"));
+         descriptionplanning.setCellValueFactory(new PropertyValueFactory<>("descriptionPlanning"));
+         destinationplanning.setCellValueFactory(new PropertyValueFactory<>("destinationPlanning"));
+         periodeplanning.setCellValueFactory(new PropertyValueFactory<>("periodePlanning"));
+         prixplanning.setCellValueFactory(new PropertyValueFactory<>("prixPlanning"));
+
         
+        myList = FXCollections.observableList(Planinngs);
+                tableplaninng.setItems(myList);
 
 
-    }    
-
+    }
    
     
 }

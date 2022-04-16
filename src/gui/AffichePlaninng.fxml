@@ -11,13 +11,13 @@
       <TableView fx:id="tableplaninng" layoutX="62.0" layoutY="67.0" prefHeight="200.0" prefWidth="724.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="IDP" />
-          <TableColumn fx:id="nom_planning" prefWidth="75.0" text="NomP" />
-            <TableColumn fx:id="dateDebut_planning" prefWidth="75.0" text="DateD" />
-            <TableColumn fx:id="dateFin_planning" prefWidth="75.0" text="DateF" />
-            <TableColumn fx:id="description_planning" prefWidth="75.0" text="Descrp" />
-            <TableColumn fx:id="destination_planning" prefWidth="75.0" text="Dest" />
-            <TableColumn fx:id="periode_planning" prefWidth="75.0" text="Periode" />
-            <TableColumn fx:id="prix_planning" prefWidth="75.0" text="Prix" />
+          <TableColumn fx:id="nomplanning" prefWidth="75.0" text="NomP" />
+            <TableColumn fx:id="dateDebutplanning" prefWidth="75.0" text="DateD" />
+            <TableColumn fx:id="dateFinplanning" prefWidth="75.0" text="DateF" />
+            <TableColumn fx:id="descriptionplanning" prefWidth="75.0" text="Descrp" />
+            <TableColumn fx:id="destinationplanning" prefWidth="75.0" text="Dest" />
+            <TableColumn fx:id="periodeplanning" prefWidth="75.0" text="Periode" />
+            <TableColumn fx:id="prixplanning" prefWidth="75.0" text="Prix" />
         </columns>
       </TableView>
    </children>

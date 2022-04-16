@@ -27,7 +27,8 @@ public class NewFXMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../gui/AjoutLocalisation.fxml"));
+         
+            Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouPlaninng.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();

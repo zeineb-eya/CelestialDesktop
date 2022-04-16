@@ -76,8 +76,8 @@ public class AjouPlaninngController implements Initializable {
     @FXML
     private void Afficher(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("AffichePlaninng.fxml"));
-                       prix_planning.getScene().setRoot(root);
+            Parent root2 = FXMLLoader.load(getClass().getResource("AffichePlaninng.fxml"));
+                       prix_planning.getScene().setRoot(root2);
 
 
         } catch (IOException ex) {
