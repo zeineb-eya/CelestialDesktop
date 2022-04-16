@@ -6,13 +6,13 @@
 package gui;
 
 import com.mycompany.entities.Offre;
-import com.mycompany.entities.Reclamation;
 import com.mycompany.services.ServiceOffre;
 import com.mycompany.services.ServiceReclamation;
 import static com.sun.media.jfxmediaimpl.MediaUtils.error;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
@@ -33,10 +33,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javax.swing.JOptionPane;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+
+
+
 // import org.controlsfx.control.Notifications;
 /**
  * FXML Controller class
@@ -49,10 +56,6 @@ public class AfficherOffreFXMLController implements Initializable {
     private TableView<?> tableauOffre;
     @FXML
     private Button modifierButoon;
-    @FXML
-    private Button supprimerButton;
-    @FXML
-    private Button actualiserButton;
     
      ObservableList myList ;
     @FXML
@@ -67,6 +70,8 @@ public class AfficherOffreFXMLController implements Initializable {
     private TableColumn<Offre, String> date_debut_offrecol;
     @FXML
     private TableColumn<?, ?> date_fin_offrecol;
+    @FXML
+    private AnchorPane Offre;
      
     /**
      * Initializes the controller class.
@@ -78,7 +83,7 @@ public class AfficherOffreFXMLController implements Initializable {
     }    
     
      @FXML
-    private void deleteOffre(ActionEvent event) {
+    private void deleteOffre(MouseEvent event) {
        /*   if (tableauOffre.getSelectionModel().isEmpty() ){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         JOptionPane.showMessageDialog(null,"veuillez choisir uen offre a supprimer");
@@ -268,12 +273,11 @@ if(o==null){
 }
         }
      
-   */
+   */  
         
     }
-    
     @FXML
-    private void actualiserOffre(ActionEvent event) {
+    private void actualiserOffre(MouseEvent event) {
        
         
              ServiceOffre sr = new ServiceOffre();
@@ -291,7 +295,9 @@ if(o==null){
  
          tableauOffre.setItems(myList);
     
-    }}     
+    }     
+
+}     
 
     
        

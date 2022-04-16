@@ -9,6 +9,8 @@ import com.mycompany.entities.Offre;
 import com.mycompany.services.ServiceOffre;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -80,7 +82,9 @@ public class AjoutOffreFXMLController implements Initializable {
             alert.setContentText("Votre offre a ete bien ajoute");
             alert.showAndWait();
     }
-
+    
+        
+    
     private void afficherOffre(ActionEvent event) {
            try {
             Parent root = FXMLLoader.load(getClass().getResource("AfficherOffreFXMLController.fxml"));

@@ -83,9 +83,7 @@ Offre rv=new Offre();
            //  rv.setPrix_offre((double) prix_offre_modif.getValue());
              rv.setReduction(Double.parseDouble(prix_offre_modif.getText()));
               rv.setPrix_offre(Double.parseDouble(reduction_modif.getText()));
-
-
-             //rv.setReducton(reductioncol.getValue());
+  //rv.setReducton(reductioncol.getValue());
             // rv.setDate_debut_offre(date_debut_offre_modif.getText());
              rv.setDate_debut_offre(date_debut_offre_modif.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
              rv.setDate_fin_offre(date_debut_offre_modif.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
@@ -93,12 +91,10 @@ Offre rv=new Offre();
              //rv.setDate_fin_offre(date_fin_offre_modif.getText());
 
              ServiceOffre es = new ServiceOffre();
-             try{
-             es.updateOffre(o);
-             System.out.println("ok");}
-             catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+             
+           //  es.updateOffre();
+             System.out.println("ok");
+             
             System.out.println("Modification terminé");}
              
            
