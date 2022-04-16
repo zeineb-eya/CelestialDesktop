@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 
@@ -86,9 +88,9 @@ public class ServiceOffre {
    
     }
       
-      public void deleteOffre(int id) {
-        String req = "delete from offre where id=" + id;
-        try {
+      public void deleteOffre(Offre o) {
+        String req = "delete from offre where id= ?";
+       /* try {
             PreparedStatement pst = cnx2.prepareStatement(req);
            // pst = Connection.createStatement();
             pst.executeUpdate(req);
@@ -97,11 +99,30 @@ public class ServiceOffre {
         } catch (SQLException ex) {
             //Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
              System.err.println(ex.getMessage());
-        }
+        }*/
+       try {
+            PreparedStatement pst=cnx2.prepareStatement(req);
+             int id = o.getId();
+             pst.setInt(1,id);
+             pst.executeUpdate();
+             
+         } catch (SQLException ex) {
+             Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
+         }
     }
       
-      public void updateOffre( Offre o){
-        String requete2="update offre set nom_offre=?,description_offre=?,prix_offre=?,reduction=? where id=?";
+      public void updateOffre(Offre o) throws SQLException{
+
+          //String requete2="UPDATE offre SET nom_offre='"+nom_offre+"',description_offre='"+description_offre+"', prix_offre='"+prix_offre+"',reduction='"+reduction+"' ,date_debut_offre='"+date_debut_offre+"' ,date_fin_offre='"+date_fin_offre+"'  WHERE id='"+id+"'";
+ /*  try{
+          PreparedStatement pst = cnx2.prepareStatement(requete2);
+   pst.executeUpdate(requete2);
+            System.out.println("annoncerepas modifié");
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }    */
+   
+      String requete2="update offre set nom_offre=?,description_offre=?,prix_offre=?,reduction=? where id=?";
         try {
             
            // pst=connection.prepareStatement(req);
@@ -196,7 +217,30 @@ public class ServiceOffre {
     }
       
     
+               public List<Offre> refreshOffre(){
+         List<Offre>myList = new ArrayList<>();
 
+        try{
+        String requete3 = "SELECT * FROM offre";
+        Statement st = cnx2.createStatement();
+        ResultSet rs =  st.executeQuery(requete3);
+            while(rs.next()){
+                Offre o = new Offre();
+               o.setId(rs.getInt("id"));
+               o.setNom_offre(rs.getString("nom_offre"));
+               o.setDescription_offre(rs.getString(3));
+               o.setPrix_offre(rs.getDouble(4));
+               o.setReduction(rs.getDouble(5));
+               o.setDate_debut_offre(rs.getString(6));
+               o.setDate_fin_offre(rs.getString(7));
+
+                myList.add(o);}   
+              
+          } catch (SQLException ex) {
+              System.out.println(ex.getMessage());
+          };
+          return myList;
+    }
      
 }
     

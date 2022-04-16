@@ -61,7 +61,7 @@ public class AfficherReclamationFXMLController implements Initializable {
     }    
     
       @FXML
-    private void delete(ActionEvent event) {
+    private void deleteReclam(ActionEvent event) {
          ServiceReclamation sr = new ServiceReclamation();
         Reclamation r = (Reclamation) tableaureclam.getSelectionModel().getSelectedItem();
         sr.deleteReclamation(r);

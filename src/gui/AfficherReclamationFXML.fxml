@@ -21,7 +21,7 @@
             <TableColumn fx:id="date_reclamcol" prefWidth="136.0" text="date reclamation" />
         </columns>
       </TableView>
-      <Button layoutX="361.0" layoutY="302.0" mnemonicParsing="false" onAction="#delete" text="Supprimer" />
+      <Button layoutX="361.0" layoutY="302.0" mnemonicParsing="false" onAction="#deleteReclam" text="Supprimer" />
       <Button fx:id="refreshButton" layoutX="460.0" layoutY="302.0" mnemonicParsing="false" onAction="#refresh" text="Actualiser" />
       <Button layoutX="274.0" layoutY="302.0" mnemonicParsing="false" onAction="#modifierReclam" text="Modifier" />
    </children>

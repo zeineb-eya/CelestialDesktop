@@ -24,8 +24,8 @@
             <TableColumn fx:id="date_fin_offrecol" prefWidth="135.0" text="Date fin" />
         </columns>
       </TableView>
-      <Button fx:id="modifierButoon" layoutX="202.0" layoutY="316.0" mnemonicParsing="false" text="Modifier" />
-      <Button fx:id="supprimerButton" layoutX="307.0" layoutY="316.0" mnemonicParsing="false" text="Supprimer" />
-      <Button fx:id="actualiserButton" layoutX="412.0" layoutY="316.0" mnemonicParsing="false" text="Actualiser" />
+      <Button fx:id="modifierButoon" layoutX="202.0" layoutY="316.0" mnemonicParsing="false" onAction="#updateOffre" text="Modifier" />
+      <Button fx:id="supprimerButton" layoutX="307.0" layoutY="316.0" mnemonicParsing="false" onAction="#deleteOffre" text="Supprimer" />
+      <Button fx:id="actualiserButton" layoutX="412.0" layoutY="316.0" mnemonicParsing="false" onAction="#actualiserOffre" text="Actualiser" />
    </children>
 </AnchorPane>
