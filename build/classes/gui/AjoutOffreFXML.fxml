@@ -27,6 +27,6 @@
       <Button fx:id="ajouterOffreButton" layoutX="448.0" layoutY="355.0" mnemonicParsing="false" onAction="#AjouterOffre" text="Ajouter" />
       <DatePicker fx:id="date_debut_offre" layoutX="226.0" layoutY="293.0" prefHeight="25.0" prefWidth="149.0" />
       <DatePicker fx:id="date_fin_offre" layoutX="226.0" layoutY="351.0" prefHeight="25.0" prefWidth="149.0" />
-      <Button layoutX="537.0" layoutY="355.0" mnemonicParsing="false" text="Consulter les offres" />
+      <Button fx:id="displayOffreButton" layoutX="537.0" layoutY="355.0" mnemonicParsing="false" onAction="#displayOffre" text="Consulter les offres" />
    </children>
 </AnchorPane>
