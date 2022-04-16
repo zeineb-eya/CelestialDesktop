@@ -28,6 +28,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
@@ -61,7 +62,7 @@ public class AfficherReclamationFXMLController implements Initializable {
     }    
     
       @FXML
-    private void deleteReclam(ActionEvent event) {
+    private void deleteReclam(MouseEvent event) {
          ServiceReclamation sr = new ServiceReclamation();
         Reclamation r = (Reclamation) tableaureclam.getSelectionModel().getSelectedItem();
         sr.deleteReclamation(r);
@@ -97,7 +98,7 @@ public class AfficherReclamationFXMLController implements Initializable {
     }
     
     @FXML
-     private void modifierReclam(ActionEvent event) {
+     private void modifierReclam(MouseEvent event) {
      Reclamation r = tableaureclam.getSelectionModel().getSelectedItem();
          
 
@@ -165,7 +166,7 @@ if(r==null){
     }*/
 
     @FXML
-    private void refresh(ActionEvent event) {
+    private void refresh(MouseEvent event) {
        
         
              ServiceReclamation sr = new ServiceReclamation();
@@ -180,4 +181,7 @@ if(r==null){
          tableaureclam.setItems(myList);
     
     }
+
+   
+  
 }

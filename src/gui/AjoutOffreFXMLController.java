@@ -26,6 +26,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -47,10 +48,6 @@ public class AjoutOffreFXMLController implements Initializable {
     private DatePicker date_debut_offre;
     @FXML
     private DatePicker date_fin_offre;
-    @FXML
-    private Button ajouterOffreButton;
-    @FXML
-    private Button displayOffreButton;
 
     /**
      * Initializes the controller class.
@@ -61,7 +58,7 @@ public class AjoutOffreFXMLController implements Initializable {
     }    
 
     @FXML
-    private void AjouterOffre(ActionEvent event) {
+    private void AjouterOffre(MouseEvent event) {
             
         Offre o = new Offre();
        o.setNom_offre(nom_offre.getText());
@@ -85,7 +82,7 @@ public class AjoutOffreFXMLController implements Initializable {
     
         
     
-    private void afficherOffre(ActionEvent event) {
+    private void afficherOffre(MouseEvent event) {
            try {
             Parent root = FXMLLoader.load(getClass().getResource("AfficherOffreFXMLController.fxml"));
             description_offre.getScene().setRoot(root);
@@ -96,11 +93,13 @@ public class AjoutOffreFXMLController implements Initializable {
         
   
        @FXML
-    private void displayOffre(ActionEvent event) throws IOException {
+    private void displayOffre(MouseEvent event) throws IOException {
            javafx.scene.Parent tableview = FXMLLoader.load(getClass().getResource("AfficherOffreFXML.fxml"));
         Scene sceneview = new Scene(tableview);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(sceneview);
         window.show();
     }
+
+  
 }

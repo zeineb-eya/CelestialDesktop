@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutOffreFXMLController">
    <children>
-      <Label layoutX="248.0" layoutY="39.0" prefHeight="21.0" prefWidth="104.0" text="Ajouter Offre">
+      <Label layoutX="20.0" layoutY="14.0" prefHeight="30.0" prefWidth="179.0" text="Ajouter Offre" textFill="#3417dd">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
       <Label layoutX="62.0" layoutY="112.0" prefHeight="17.0" prefWidth="74.0" text="Nom Offre:" />
@@ -25,10 +25,10 @@
       <TextField fx:id="description_offre" layoutX="226.0" layoutY="159.0" />
       <TextField fx:id="prix_offre" layoutX="226.0" layoutY="205.0" />
       <TextField fx:id="reduction" layoutX="226.0" layoutY="246.0" />
-      <Button fx:id="ajouterOffreButton" layoutX="504.0" layoutY="267.0" mnemonicParsing="false" onAction="#AjouterOffre" prefHeight="25.0" prefWidth="90.0" text="Ajouter" />
       <DatePicker fx:id="date_debut_offre" layoutX="226.0" layoutY="293.0" prefHeight="25.0" prefWidth="149.0" />
       <DatePicker fx:id="date_fin_offre" layoutX="226.0" layoutY="351.0" prefHeight="25.0" prefWidth="149.0" />
-      <Button fx:id="displayOffreButton" layoutX="537.0" layoutY="355.0" mnemonicParsing="false" onAction="#displayOffre" text="Consulter les offres" />
-      <FontAwesomeIconView glyphName="PLUS" layoutX="578.0" layoutY="286.0" size="15" text="" />
+      <Pane layoutY="52.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <FontAwesomeIconView fill="#02f222" glyphName="PLUS" layoutX="605.0" layoutY="38.0" onMouseClicked="#AjouterOffre" size="15" text="" />
+      <FontAwesomeIconView fill="#1207ee" glyphName="EYE" layoutX="634.0" layoutY="39.0" onMouseClicked="#displayOffre" size="18" />
    </children>
 </AnchorPane>

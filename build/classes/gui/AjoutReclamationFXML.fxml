@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutReclamationFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="370.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutReclamationFXMLController">
    <children>
-      <Label layoutX="76.0" layoutY="126.0" text="Objet reclamation :" />
-      <TextField fx:id="description_reclamation" layoutX="252.0" layoutY="110.0" prefHeight="101.0" prefWidth="318.0" />
-      <Label layoutX="236.0" layoutY="32.0" maxHeight="1.7976931348623157E308" prefHeight="17.0" prefWidth="200.0" text="Réclamer" textAlignment="CENTER">
+      <Label layoutX="78.0" layoutY="177.0" text="Objet reclamation :" />
+      <TextField fx:id="description_reclamation" layoutX="258.0" layoutY="143.0" prefHeight="101.0" prefWidth="318.0" />
+      <Label layoutX="20.0" layoutY="14.0" maxHeight="1.7976931348623157E308" prefHeight="47.0" prefWidth="217.0" text="Réclamer" textAlignment="CENTER">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <Button fx:id="reclamerButton" layoutX="454.0" layoutY="253.0" mnemonicParsing="false" onAction="#AjouterReclam" prefHeight="26.0" prefWidth="101.0" text="réclamer" />
-      <Button layoutX="236.0" layoutY="254.0" mnemonicParsing="false" onAction="#retour" text="consulter les réclamations" />
+      <Button fx:id="reclamerButton" layoutX="576.0" layoutY="290.0" mnemonicParsing="false" onAction="#AjouterReclam" prefHeight="26.0" prefWidth="101.0" text="réclamer" />
+      <Button layoutX="358.0" layoutY="291.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="189.0" text="consulter les réclamations" />
+      <FontAwesomeIconView glyphName="PLUS" layoutX="657.0" layoutY="307.0" wrappingWidth="12.428571701049805" />
+      <FontAwesomeIconView fill="#0972fc" glyphName="EYE" layoutX="525.0" layoutY="308.0" size="15" text="" />
+      <Pane layoutY="68.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
 </AnchorPane>
