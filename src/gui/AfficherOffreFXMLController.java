@@ -7,7 +7,6 @@ package gui;
 
 import com.mycompany.entities.Offre;
 import com.mycompany.services.ServiceOffre;
-import com.mycompany.services.ServiceReclamation;
 import static com.sun.media.jfxmediaimpl.MediaUtils.error;
 import java.io.IOException;
 import java.net.URL;
@@ -54,12 +53,10 @@ public class AfficherOffreFXMLController implements Initializable {
 
     @FXML
     private TableView<?> tableauOffre;
-    @FXML
-    private Button modifierButoon;
     
      ObservableList myList ;
     @FXML
-    private TableColumn<?, ?> nom_offrecol;
+    private TableColumn<Offre, String> nom_offrecol;
     @FXML
     private TableColumn<?, ?> description_offrecol;
     @FXML
@@ -80,7 +77,7 @@ public class AfficherOffreFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         afficherOffre();
-    }    
+      }    
     
      @FXML
     private void deleteOffre(MouseEvent event) {
@@ -144,138 +141,8 @@ public class AfficherOffreFXMLController implements Initializable {
        date_fin_offrecol.setCellValueFactory(new PropertyValueFactory<>("date_fin_offre"));
     }
      
-   /*  @FXML
-     private void modifierOffre(ActionEvent event) {
-     Offre o = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
-         
-
-if(o==null){
-        
-           System.out.println("Aucune reclamation séléctionné");
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Erreur");
-            alert.setHeaderText(null);
-            alert.setContentText("Aucune reclamation séléctionné");
-
-            alert.showAndWait();
-     
-        }else {
-          try {   
-        FXMLLoader loader = new FXMLLoader
-                        (getClass()
-                         .getResource("ModifierOffreFXML.fxml"));
-        Scene scene=new Scene(loader.load());
-        
-       ModifierReclamationFXMLController mr= loader.getController();
-        Stage stageAff=new Stage();
-        stageAff.setScene(scene);
-        stageAff.show();
-        ((Node) (event.getSource())).getScene().getWindow().hide();
-        int asm=tableauOffre.getSelectionModel().getSelectedItem().getId();
-        String sub = tableauOffre.getSelectionModel().getSelectedItem().getNom_offre();
-        
-       // String content = tableaureclam.getSelectionModel().getSelectedItem().getContent();
-      
-       
-        
-        mr.setData(tableauOffre.getSelectionModel().getSelectedItem().getId(),
-                tableauOffre.getSelectionModel().getSelectedItem().getNom_offre()
-                // tableaureclam.getSelectionModel().getSelectedItem().getContent()
-                 );
-                 
-                 
-       
-        } catch(IOException ex)
-    {
-     System.out.println("eer");
-}
-        }
-
-}
     
-     */
-      
-      @FXML
-    private void updateOffre(ActionEvent event) throws SQLException {
-        
-        /*  if (nom_offrecol.getText().isEmpty())
-        { 
-          Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        JOptionPane.showMessageDialog(null,"Aucune offre n'est selectionné ,veuillez choisir une offre");
-        }else {
-        Offre o = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
-        o.setNom_offre(nom_offrecol.getText());
-        o.setDescription_offre(description_offrecol.getText());
-       o.setPrix_offre(Double.parseDouble(prix_offrecol.getText()));
-      o.setReduction(Double.parseDouble(reductioncol.getText()));
-        o.setDate_debut_offre(date_debut_offrecol.getText());
-        o.setDate_fin_offre(date_fin_offrecol.getText());
-
-
-
-        Sc.updateOffre(o);
-      //  Sp.Notificationmanager(2);
-        tableauOffre.refresh();
-    }*/
-        
-      
-     /*  Offre o = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
-         
-
-if(o==null){
-        
-           System.out.println("Aucun événement séléctionné");
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Erreur");
-            alert.setHeaderText(null);
-            alert.setContentText("Aucun événement séléctionné");
-
-            alert.showAndWait();
      
-        }else {
-          try {   
-        FXMLLoader loader = new FXMLLoader
-                        (getClass()
-                         .getResource("EditReview.fxml"));
-        Scene scene=new Scene(loader.load());
-        
-
-       ModifierOffreFXMLController ec= loader.getController();
-        Stage stageAff=new Stage();
-        stageAff.setScene(scene);
-        stageAff.show();
-        ((Node) (event.getSource())).getScene().getWindow().hide();
-        int as=tableauOffre.getSelectionModel().getSelectedItem().getId();
-        String nom_offre = tableauOffre.getSelectionModel().getSelectedItem().getNom_offre();
-       String description_offre = tableauOffre.getSelectionModel().getSelectedItem().getDescription_offre();
-
-        Double n=tableauOffre.getSelectionModel().getSelectedItem().getPrix_offre();
-       Double m=tableauOffre.getSelectionModel().getSelectedItem().getReduction();
-
-        String date_debut_offre = tableauOffre.getSelectionModel().getSelectedItem().getDate_debut_offre();
-       String date_fin_offre = tableauOffre.getSelectionModel().getSelectedItem().getDate_fin_offre();
-
-       
-        
-        ec.setDAta(tableauOffre.getSelectionModel().getSelectedItem().getId(),
-                tableauOffre.getSelectionModel().getSelectedItem().getNom_offre(),
-                tableauOffre.getSelectionModel().getSelectedItem().getDescription_offre(),
-                 tableauOffre.getSelectionModel().getSelectedItem().getPrix_offre(),
-                   tableauOffre.getSelectionModel().getSelectedItem().getReduction(),
-                     tableauOffre.getSelectionModel().getSelectedItem().getDate_debut_offre(),
-                       tableauOffre.getSelectionModel().getSelectedItem().getDate_fin_offre());
-                     
-                 
-       
-        } catch(IOException ex)
-    {
-     System.out.println("eer");
-}
-        }
-     
-   */  
-        
-    }
     @FXML
     private void actualiserOffre(MouseEvent event) {
        
@@ -296,6 +163,77 @@ if(o==null){
          tableauOffre.setItems(myList);
     
     }     
+
+    private void updateOffre(ActionEvent event) throws SQLException {
+         /*   int opt = JOptionPane.showConfirmDialog(null, "Confirmer la modification ?","modifier",JOptionPane.YES_NO_OPTION);
+      if(opt==0){
+        if(id_offre.getText().isEmpty() |nom_offrecol.getText().isEmpty() | description_offrecol.getText().isEmpty()){      
+        
+        Alert al = new Alert(Alert.AlertType.ERROR);
+        al.setHeaderText(null);
+        al.setContentText("remplir les champs vides svp");
+        al.showAndWait();
+        }else{
+ }
+  ServiceOffre a = new ServiceOffre();
+     
+           Offre a1 = new  Offre ( Integer.parseInt(id_offre.getText()),nom_offrecol.getText(),description_offrecol.getText(),Integer.parseInt(reductioncol.getText()),Integer.parseInt(prix_offrecol.getText(),Integer.parseInt(date_debut_offrecol.getText())));
+  JOptionPane.showMessageDialog(null, "offre modifié");
+       a.updateOffre(a1);
+        //afficherOffre();
+    }*/
+Offre r = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
+         
+
+if(r==null){
+        
+           System.out.println("Aucune reclamation séléctionné");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Aucune reclamation séléctionné");
+
+            alert.showAndWait();
+     
+        }else {
+          try {   
+        FXMLLoader loader = new FXMLLoader
+                        (getClass()
+                         .getResource("ModifierOffreFXML.fxml"));
+        Scene scene=new Scene(loader.load());
+        
+
+       ModifierReclamationFXMLController mr= loader.getController();
+        Stage stageAff=new Stage();
+        stageAff.setScene(scene);
+        stageAff.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+     //   int as=tableauOffre.getSelectionModel().getSelectedItem().getId();
+      //  String sub = tableaureclam.getSelectionModel().getSelectedItem().getDescription_reclamation();
+        
+       // String content = tableaureclam.getSelectionModel().getSelectedItem().getContent();
+        
+       
+        
+ /*       mr.setData(tableauOffre.getSelectionModel().getSelectedItem().getId(),
+                tableaureclam.getSelectionModel().getSelectedItem().getDescription_reclamation()*/
+                // tableaureclam.getSelectionModel().getSelectedItem().getContent()
+                 //);
+                 
+                 
+       
+        } catch(IOException ex)
+    {
+     System.out.println("eer");
+}
+        }
+
+   
+    }
+
+    
+    
+    
 
 }     
 

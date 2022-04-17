@@ -110,7 +110,29 @@ public class ServiceOffre {
              Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
          }
     }
-      
+       public Offre getByName(String value) {
+Offre a = null;
+         String requete = " select* from offre where nom_offre='"+value+"'" ;
+        try {
+           
+           Statement stm = cnx2.createStatement();
+            ResultSet rs =stm.executeQuery(requete);
+            if (rs.next())
+            {
+               int id=rs.getInt("id");
+               String nom_offre=rs.getString("nom_offre");
+               String description_offre=rs.getString("description_offre");
+               a= new Offre (id,nom_offre,description_offre);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Offre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return a ;
+    
+
+
+}
       public void updateOffre(Offre o) throws SQLException{
 
           //String requete2="UPDATE offre SET nom_offre='"+nom_offre+"',description_offre='"+description_offre+"', prix_offre='"+prix_offre+"',reduction='"+reduction+"' ,date_debut_offre='"+date_debut_offre+"' ,date_fin_offre='"+date_fin_offre+"'  WHERE id='"+id+"'";
@@ -137,10 +159,13 @@ public class ServiceOffre {
             pst.setInt(5,o.getId());
            
             System.out.println(pst);
-            pst.executeUpdate();
+            pst.execute();
+            //pst.executeUpdate();
+
             System.out.println("votre offre a ete bien modife");
         } catch (SQLException e) {
-            e.printStackTrace();
+           // e.printStackTrace();
+             Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, e);
         }
 
     }

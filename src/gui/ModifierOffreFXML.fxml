@@ -27,5 +27,7 @@
       <DatePicker fx:id="date_debut_offre_modif" layoutX="191.0" layoutY="263.0" prefHeight="25.0" prefWidth="149.0" />
       <DatePicker fx:id="date_fin_offre_modif" layoutX="191.0" layoutY="328.0" prefHeight="25.0" prefWidth="149.0" />
       <Button fx:id="modifOffreButton" layoutX="470.0" layoutY="316.0" mnemonicParsing="false" onAction="#updateOffre" text="Modifier" />
+      <Label layoutX="410.0" layoutY="72.0" text="id" />
+      <TextField fx:id="id_offre_modif" layoutX="437.0" layoutY="76.0" />
    </children>
 </AnchorPane>

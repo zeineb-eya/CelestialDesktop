@@ -21,6 +21,11 @@ public class Offre {
     public Offre() {
     }
 
+    public Offre(String nom_offre, String description_offre) {
+        this.nom_offre = nom_offre;
+        this.description_offre = description_offre;
+    }
+
     public Offre(int id, String nom_offre, String description_offre, double prix_offre, double reduction, String date_debut_offre, String date_fin_offre) {
         this.id = id;
         this.nom_offre = nom_offre;
@@ -41,6 +46,20 @@ public class Offre {
     }
 
     public Offre(String nom_offre, String description_offre, double prix_offre, double reduction) {
+        this.nom_offre = nom_offre;
+        this.description_offre = description_offre;
+        this.prix_offre = prix_offre;
+        this.reduction = reduction;
+    }
+
+    public Offre(int id, String nom_offre, String description_offre) {
+        this.id = id;
+        this.nom_offre = nom_offre;
+        this.description_offre = description_offre;
+    }
+
+    public Offre(int id, String nom_offre, String description_offre, double prix_offre, double reduction) {
+        this.id = id;
         this.nom_offre = nom_offre;
         this.description_offre = description_offre;
         this.prix_offre = prix_offre;

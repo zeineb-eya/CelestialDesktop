@@ -5,10 +5,21 @@
  */
 package com.mycompany.services;
 
+import java.util.List;
+
 /**
  *
  * @author ASUS
  */
-public interface IOffre {
+
+       public interface IOffre <O> {
+    
+    public void ajouterOffre(O o);
+    public List<O>afficherOffre();
+    public void deleteOffre(O o);
+    public void updateOffre(O o);
+    
+    
+    
     
 }

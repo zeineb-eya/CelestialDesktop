@@ -7,6 +7,7 @@ package gui;
 
 import com.mycompany.entities.Offre;
 import com.mycompany.services.ServiceOffre;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -25,9 +26,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -48,6 +51,10 @@ public class AjoutOffreFXMLController implements Initializable {
     private DatePicker date_debut_offre;
     @FXML
     private DatePicker date_fin_offre;
+    @FXML
+    private FontAwesomeIconView editIcon;
+    @FXML
+    private TextField id_offre;
 
     /**
      * Initializes the controller class.
@@ -102,5 +109,48 @@ public class AjoutOffreFXMLController implements Initializable {
         window.show();
     }
 
-  
+    @FXML
+    private void OnModifier(MouseEvent event) throws SQLException, IOException {
+          int opt = JOptionPane.showConfirmDialog(null, "Confirmer la modification ?","modifier",JOptionPane.YES_NO_OPTION);
+        if(opt==0){
+        if(id_offre.getText().isEmpty() |nom_offre.getText().isEmpty() | description_offre.getText().isEmpty()){      
+        
+        Alert al = new Alert(Alert.AlertType.ERROR);
+        al.setHeaderText(null);
+        al.setContentText("remplir les champs vides svp");
+        al.showAndWait();
+        }else{
+ }
+         ServiceOffre a = new ServiceOffre();
+        //Offre a1;
+           //  a1 = new  Offre (Integer.parseInt(id_offre.getText()),nom_offre.getText(),description_offre.getText(),Double.parseDouble(reduction).getText());
+    //  java.sql.Date gettedDatePickerDate = java.sql.Date.valueOf(date_debut_offre.getValue());
+
+           Offre a1 = new  Offre ( Integer.parseInt(id_offre.getText()),nom_offre.getText(),description_offre.getText(),Integer.parseInt(reduction.getText()),Integer.parseInt(prix_offre.getText()));
+
+           /*  date_debut_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+                      
+                      date_fin_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));*/
+
+        JOptionPane.showMessageDialog(null, "offre modifié");
+       a.updateOffre(a1);
+        //afficherOffre();
+        FXMLLoader loader = new FXMLLoader
+                        (getClass()
+                         .getResource("AfficherOffreFXML.fxml"));
+        Scene scene=new Scene(loader.load());
+        
+
+//       AfficherReclamationFXMLController mr= loader.getController();
+        Stage stageAff=new Stage();
+        stageAff.setScene(scene);
+        stageAff.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+    }
+
+   
+    }
+
 }
+
+  
