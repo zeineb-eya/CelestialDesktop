@@ -156,12 +156,24 @@ public void ajouter(Planinng p) {
          }
     }
    public void updatePlaninng( Planinng p){
-        String requete2="update planinng set nom_planning=? where id=?";
+        String requete2="update planinng set nom_planning=?,date_debut_planning=?,date_fin_planning=?,destination_planning=?,description_planning=?,periode_planning=?,prix_planning=? where id=?";
         try {
             
             PreparedStatement ps = connection.prepareStatement(requete2);
-            ps.setInt(2,p.getId());
             ps.setString(1,p.getNomPlanning());
+            ps.setDate(2, (Date) p.getDateDebutPlanning());
+            ps.setDate(3, (Date) p.getDateFinPlanning());
+            ps.setString(4,p.getDestinationPlanning());
+            ps.setString(5,p.getDescriptionPlanning());
+            ps.setInt(6,p.getPeriodePlanning());
+            ps.setInt(7,p.getPrixPlanning());
+            ps.setInt(8,p.getId());
+
+
+
+            
+
+
             
            
             System.out.println(ps);

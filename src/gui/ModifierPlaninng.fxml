@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -13,8 +15,16 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="115.0" layoutY="170.0" prefHeight="17.0" prefWidth="106.0" text="NomP" />
-      <TextField fx:id="nomplaninngmodif" layoutX="275.0" layoutY="138.0" prefHeight="111.0" prefWidth="282.0" />
-      <Button layoutX="505.0" layoutY="285.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" />
+      <Button layoutX="331.0" layoutY="188.0" mnemonicParsing="false" onAction="#modifier" prefHeight="70.0" prefWidth="94.0" text="Modifier" textAlignment="CENTER" textFill="#e80a0a">
+         <font>
+            <Font name="Gabriola" size="23.0" />
+         </font></Button>
+      <TextField fx:id="nomplanningmodif" layoutX="57.0" layoutY="98.0" prefHeight="25.0" prefWidth="174.0" promptText="Nom Planinng" />
+      <TextField fx:id="periodeplanningmodif" layoutX="57.0" layoutY="324.0" prefHeight="25.0" prefWidth="174.0" promptText="Periode " />
+      <TextField fx:id="prixplanningmodif" layoutX="57.0" layoutY="359.0" prefHeight="25.0" prefWidth="174.0" promptText="Prix" />
+      <DatePicker fx:id="dateDebutplanningmodif" layoutX="57.0" layoutY="134.0" promptText="Date Debut" />
+      <DatePicker fx:id="dateFinplanningmodif" layoutX="57.0" layoutY="167.0" promptText="Date Fin " />
+      <TextField fx:id="destinationplanningmodif" layoutX="57.0" layoutY="289.0" prefHeight="25.0" prefWidth="174.0" promptText="Destination" />
+      <TextArea fx:id="descriptionplanningmodif" layoutX="57.0" layoutY="206.0" prefHeight="70.0" prefWidth="174.0" promptText="Description du Planinng" />
    </children>
 </AnchorPane>

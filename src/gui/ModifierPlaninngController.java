@@ -9,6 +9,7 @@ import entities.Planinng;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import services.PlaninngService;
@@ -28,9 +31,22 @@ import services.PlaninngService;
  */
 public class ModifierPlaninngController implements Initializable {
 
-    @FXML
     private TextField nomplaninngmodif;
     Planinng p=new Planinng();
+    @FXML
+    private TextField nomplanningmodif;
+    @FXML
+    private TextField periodeplanningmodif;
+    @FXML
+    private TextField prixplanningmodif;
+    @FXML
+    private DatePicker dateDebutplanningmodif;
+    @FXML
+    private DatePicker dateFinplanningmodif;
+    @FXML
+    private TextField destinationplanningmodif;
+    @FXML
+    private TextArea descriptionplanningmodif;
 
     /**
      * Initializes the controller class.
@@ -53,7 +69,14 @@ public class ModifierPlaninngController implements Initializable {
             alert.showAndWait();
         }else {
             
-             p.setNomPlanning(nomplaninngmodif.getText());
+        p.setNomPlanning(nomplanningmodif.getText());
+        p.setDateDebutPlanning(Date.valueOf(dateDebutplanningmodif.getValue()));
+        p.setDateFinPlanning(Date.valueOf(dateFinplanningmodif.getValue()));
+        p.setDestinationPlanning(destinationplanningmodif.getText());
+        p.setDescriptionPlanning(descriptionplanningmodif.getText());
+        p.setPeriodePlanning(Integer.parseInt(periodeplanningmodif.getText()));
+        p.setPrixPlanning(Integer.parseInt(prixplanningmodif.getText()));
+
             PlaninngService ps = new PlaninngService();
              try{
              ps.updatePlaninng(p);
@@ -76,9 +99,17 @@ public class ModifierPlaninngController implements Initializable {
         window.setScene(sceneview);
         window.show();
     }
-     void setData(int id, String sub) {
-       p.setId(id);
-       nomplaninngmodif.setText(sub);
+     void setData(int id, String sub,Date db,Date df, String content, String des, int pr, int pe) {
+        p.setId(id);
+        nomplaninngmodif.setText(sub);
+       // p.setDateDebutPlanning(Date.valueOf(dateDebutplanningmodif.getValue()));
+       // p.setDateFinPlanning(Date.valueOf(dateFinplanningmodif.getValue()));
+        destinationplanningmodif.setText(content);
+        descriptionplanningmodif.setText(des);
+        p.setPrixPlanning(pr);
+        p.setPeriodePlanning(pe);
+
+
 
     }
 

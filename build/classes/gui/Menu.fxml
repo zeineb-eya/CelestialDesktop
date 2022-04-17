@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="899.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuController">
    <children>
-      <Button layoutX="209.0" layoutY="200.0" mnemonicParsing="false" onAction="#localisationt" prefHeight="25.0" prefWidth="187.0" text="Planinng" />
-      <TextField fx:id="fusee" layoutX="226.0" layoutY="90.0" promptText="Username" />
-      <Button layoutX="213.0" layoutY="143.0" mnemonicParsing="false" onAction="#Login" prefHeight="25.0" prefWidth="187.0" text="Localisation" />
+      <Button layoutX="227.0" layoutY="173.0" mnemonicParsing="false" onAction="#GestionPlaninng" prefHeight="37.0" prefWidth="246.0" text="Gestion Planinngs" textFill="#f82222">
+         <font>
+            <Font name="System Italic" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="227.0" layoutY="281.0" mnemonicParsing="false" onAction="#GestionLoca" prefHeight="37.0" prefWidth="246.0" text="Gestion Localisations" textFill="#1df206">
+         <font>
+            <Font name="System Italic" size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="240.0" layoutY="48.0" prefHeight="35.0" prefWidth="221.0" text="Gestion de Voyage" textFill="#490ee1">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

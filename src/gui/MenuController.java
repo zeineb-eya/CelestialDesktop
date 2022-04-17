@@ -15,7 +15,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 
 /**
@@ -23,11 +27,7 @@ import javafx.scene.control.TextField;
  *
  * @author skanr
  */
-public class MenuController implements Initializable {
-
-    @FXML
-    private TextField fusee;
-   
+public class MenuController implements Initializable {   
 
     /**
      * Initializes the controller class.
@@ -37,27 +37,35 @@ public class MenuController implements Initializable {
         // TODO
     }    
 
+
+
     @FXML
-    private void localisationt(ActionEvent event) {
+    private void GestionPlaninng(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouPlaninng.fxml"));
-            Parent root = loader.load();
-            AjouPlaninngController controller = loader.getController();
-            controller.setUsername(fusee.getText());
-            fusee.getScene().setRoot(root);
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/AjouPlaninng.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
     @FXML
-    private void Login(ActionEvent event) {
-           try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AjoutLocalisation.fxml"));
-            Parent root = loader.load();
-            AjoutLocalisationController controller = loader.getController();
-            controller.setUsername(fusee.getText());
-            fusee.getScene().setRoot(root);
+    private void GestionLoca(ActionEvent event) {
+        try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/AjoutLocalisation.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
