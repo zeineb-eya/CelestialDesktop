@@ -53,7 +53,7 @@ public class MainClass{
        
        //**Reservation**//
 //       System.out.println("Modification Reservation");
-//       Reservation r = new Reservation(13,"2022-04-26","valider",4,19);
+//      Reservation r = new Reservation(13,"confirmed");
 //       rs.modifierReservation(r);
        
        //******************************************suppression******************************************//

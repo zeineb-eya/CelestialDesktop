@@ -5,6 +5,7 @@
  */
 package com.mycompany.test;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -23,10 +24,14 @@ public class FXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception  {
-       Parent root = FXMLLoader.load(getClass().getResource("../gui/GestionReservation.fxml"));
-       Scene scene = new Scene(root);
-       primaryStage.setScene(scene);
-       primaryStage.show();
+       try {
+            Parent root = FXMLLoader.load(getClass().getResource("/com/mycompany/gui/Login.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     /**

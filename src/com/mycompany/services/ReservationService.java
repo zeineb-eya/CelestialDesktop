@@ -47,7 +47,7 @@ public class ReservationService {
             String req2 = "insert into reservation (date_reservation,etat_reservation,user_id,billet_id)"
                     + "values(?,?,?,?)";
             PreparedStatement pst = cnx2.prepareStatement(req2);
-            pst.setString(1, r.getDateReservation());
+            pst.setDate(1, r.getDateReservation());
             pst.setString(2, r.getEtatReservation());
             pst.setInt(3, r.getUser());
             pst.setInt(4, r.getBillet());
@@ -66,7 +66,7 @@ public class ReservationService {
             while (rs.next()){
                 Reservation r = new Reservation();
                 r.setId(rs.getInt("id"));
-                r.setDateReservation(rs.getString("date_reservation"));
+                r.setDateReservation(rs.getDate("date_reservation"));
                 r.setEtatReservation(rs.getString("etat_reservation"));
                 r.setUser(rs.getInt("user_id"));
                 r.setBillet(rs.getInt("billet_id"));
@@ -79,13 +79,10 @@ public class ReservationService {
     }
     public void modifierReservation(Reservation r) {
         try {  
-            String req4 = "update reservation set date_reservation = ? ,etat_reservation = ? ,user_id = ?,billet_id = ? where id = ?";
+            String req4 = "update reservation set Etat_reservation = ? where id = ?";
             PreparedStatement pst = cnx2.prepareStatement(req4);
-            pst.setString(1, r.getDateReservation());
-            pst.setString(2, r.getEtatReservation());
-            pst.setInt(3, r.getUser());
-            pst.setInt(4, r.getBillet());
-            pst.setInt(5, r.getId());
+            pst.setString(1, r.getEtatReservation());
+            pst.setInt(2, r.getId());
             pst.executeUpdate();
             System.out.println("Reservation modifiee avec succes");
         } catch (SQLException ex) {

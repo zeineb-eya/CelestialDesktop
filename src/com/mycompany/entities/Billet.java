@@ -15,11 +15,11 @@ import java.util.Comparator;
 public class Billet {
     
     private int id,chair_billet,voyage_num,terminal,portail,localisation;
-    private String embarquement;
-   // private Date embarquement;
+    //private String embarquement;
+    private Date embarquement;
    // Localisation localisation;
     
-    public Billet(int id, int chair_billet, int voyage_num, int terminal, int portail, String embarquement, int localisation) {
+    public Billet(int id, int chair_billet, int voyage_num, int terminal, int portail, Date embarquement, int localisation) {
         this.id = id;
         this.chair_billet = chair_billet;
         this.voyage_num = voyage_num;
@@ -28,7 +28,7 @@ public class Billet {
         this.embarquement = embarquement;
         this.localisation = localisation;
     }
-     public Billet(int chair_billet, int voyage_num, int terminal, int portail, String embarquement, int localisation) {
+     public Billet(int chair_billet, int voyage_num, int terminal, int portail, Date embarquement, int localisation) {
         this.chair_billet = chair_billet;
         this.voyage_num = voyage_num;
         this.terminal = terminal;
@@ -76,10 +76,10 @@ public class Billet {
         this.portail = portail;
     }
     
-    public String getEmbarquement() {
+    public Date getEmbarquement() {
         return embarquement;
     }
-    public void setEmbarquement(String embarquement) {
+    public void setEmbarquement(Date embarquement) {
         this.embarquement = embarquement;
     }
     
@@ -92,7 +92,7 @@ public class Billet {
     
     @Override
     public String toString() {
-        return "Billet{" + "id=" + id + ", chair_billet=" + chair_billet + ", voyage_num=" + voyage_num +", terminal=" + terminal + ", portail=" + portail +", embarquement=" + embarquement +", localisation=" + localisation + "\n";
+        return "Billet{" + "id=" + id + ", chair_billet=" + chair_billet + ", voyage_num=" + voyage_num +", terminal=" + terminal + ", portail=" + portail +", embarquement=" + embarquement +", localisation=" + localisation + '}';
     }
     
 

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.entities;
-
+import java.sql.Date;
 import java.util.Comparator;
 
 /**
@@ -13,8 +13,9 @@ import java.util.Comparator;
  */
 public class Reservation {
     private int id,user,billet;
-    private String date_reservation,Etat_reservation;
-    public Reservation(int id,String date_reservation,String Etat_reservation,int user,int billet) {
+    private String Etat_reservation;
+    private Date date_reservation;
+    public Reservation(int id,Date date_reservation,String Etat_reservation,int user,int billet) {
         this.id = id;
         this.date_reservation = date_reservation;
         this.Etat_reservation = Etat_reservation;
@@ -31,15 +32,15 @@ public class Reservation {
      public Reservation(int id) {
         this.id = id;    
     }
-    public Reservation(String date_reservation,String Etat_reservation,int user,int billet) {
+    public Reservation(Date date_reservation,String Etat_reservation,int user,int billet) {
         this.date_reservation = date_reservation;
         this.Etat_reservation = Etat_reservation;
         this.user = user;
         this.billet = billet;
         
     }
-    public Reservation(String date_reservation,String Etat_reservation) {
-        this.date_reservation = date_reservation;
+    public Reservation(int id,String Etat_reservation) {
+        this.id = id;
         this.Etat_reservation = Etat_reservation;
 
     }
@@ -59,10 +60,10 @@ public class Reservation {
         this.id = id;
     }
     
-    public String getDateReservation() {
+    public Date getDateReservation() {
         return date_reservation;
     }
-    public void setDateReservation(String date_reservation) {
+    public void setDateReservation(Date date_reservation) {
         this.date_reservation = date_reservation;
     }
     
@@ -100,7 +101,7 @@ public class Reservation {
     public static Comparator<Reservation> DateComparator = new Comparator<Reservation>() {
         @Override
         public int compare(Reservation o1, Reservation o2) {
-            return (int) (o1.getDateReservation().toLowerCase().compareTo(o2.getDateReservation().toLowerCase()));
+            return (int) (o1.getDateReservation().compareTo(o2.getDateReservation()));
         }
     };
 }

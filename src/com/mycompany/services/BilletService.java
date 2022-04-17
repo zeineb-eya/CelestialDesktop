@@ -55,7 +55,7 @@ public class BilletService {
             pst.setInt(2, b.getVoyageNum());
             pst.setInt(3, b.getTerminal());
             pst.setInt(4, b.getPortail());
-            pst.setString(5, b.getEmbarquement());
+            pst.setDate(5, b.getEmbarquement());
             pst.setInt(6, b.getLocalisation());
             pst.executeUpdate();
             System.out.println("Billet ajoutee avec succes");
@@ -76,7 +76,7 @@ public class BilletService {
                 b.setVoyageNum(rs.getInt("voyage_num"));
                 b.setTerminal(rs.getInt("terminal"));
                 b.setPortail(rs.getInt("portail"));
-                b.setEmbarquement(rs.getString("embarquement"));
+                b.setEmbarquement(rs.getDate("embarquement"));
                 b.setLocalisation(rs.getInt("localisation_id"));
                 myList.add(b);
             }
@@ -93,7 +93,7 @@ public class BilletService {
             pst.setInt(2, b.getVoyageNum());
             pst.setInt(3, b.getTerminal());
             pst.setInt(4, b.getPortail());
-            pst.setString(5, b.getEmbarquement());
+            pst.setDate(5, b.getEmbarquement());
             pst.setInt(6, b.getLocalisation());
             pst.setInt(7, b.getId());
             pst.executeUpdate();
