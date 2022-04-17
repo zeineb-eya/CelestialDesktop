@@ -50,7 +50,7 @@ public class AfficherReclamationFXMLController implements Initializable {
     
     ObservableList myList ;
     @FXML
-    private Button refreshButton;
+    private TableColumn<?, ?> user_idcol;
 
     /**
      * Initializes the controller class.
@@ -94,6 +94,7 @@ public class AfficherReclamationFXMLController implements Initializable {
        description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
         etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
          date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
+      //   user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
         
     }
     

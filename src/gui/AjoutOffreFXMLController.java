@@ -68,6 +68,7 @@ public class AjoutOffreFXMLController implements Initializable {
      //  o.setDate_debut_offre(date_debut_offre.getText());
       o.setDate_debut_offre(date_debut_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
       o.setDate_fin_offre(date_fin_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+      
   //   o.setDate_debut_offre(LocalDate.parse(date_debut_offre,formatter));
     //   o.setDate_fin_offre(date_fin_offre.getText());
         ServiceOffre pst = new ServiceOffre();

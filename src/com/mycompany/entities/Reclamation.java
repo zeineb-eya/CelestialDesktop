@@ -12,14 +12,14 @@ package com.mycompany.entities;
 public class Reclamation {
     
     private int id;
-    private int user;
+    private int user_id;
     private String description_reclamation;
     private String etat_reclamation;
     private String date_reclamation;
 
-    public Reclamation(int id, int user, String description_reclamation, String etat_reclamation, String date_reclamation) {
+    public Reclamation(int id, int user_id, String description_reclamation, String etat_reclamation, String date_reclamation) {
         this.id = id;
-        this.user = user;
+        this.user_id = user_id;
         this.description_reclamation = description_reclamation;
         this.etat_reclamation = etat_reclamation;
         this.date_reclamation = date_reclamation;
@@ -65,11 +65,11 @@ public class Reclamation {
     }
 
     public int getUser() {
-        return user;
+        return user_id;
     }
 
-    public void setUser(int user) {
-        this.user = user;
+    public void setUser(int user_id) {
+        this.user_id = user_id;
     }
 
     public String getDescription_reclamation() {
@@ -98,7 +98,7 @@ public class Reclamation {
 
     @Override
     public String toString() {
-        return "Reclamation{" + "id=" + id + ", user=" + user + ", description_reclamation=" + description_reclamation + ", etat_reclamation=" + etat_reclamation + ", date_reclamation=" + date_reclamation + '}';
+        return "Reclamation{" + "id=" + id + ", user_id=" + user_id + ", description_reclamation=" + description_reclamation + ", etat_reclamation=" + etat_reclamation + ", date_reclamation=" + date_reclamation + '}';
     }
     
     

@@ -6,7 +6,11 @@
 package com.mycompany.services;
 
 import com.mycompany.entities.Reclamation;
+import com.mycompany.entities.User;
+
 import com.mycompany.utils.MyConnection;
+import com.mycompany.utils.GlobalConfig;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -56,10 +60,16 @@ public class ServiceReclamation {
         
         try {
            PreparedStatement pst = cnx2.prepareStatement(requete2);  //utilise pour les requete dynamique
+          //pst.setInt(1, GlobalConfig.getInstance().getSession());
+//          pst.setInt(1,r.getUser());
+
            pst.setString(1, r.getDescription_reclamation());
+            
         //  pst.setString(2, r.getEtat_reclamation());
          java.sql.Date date_reclamation = getCurrentDatetime(); 
          pst.setDate(2, date_reclamation);
+       //   pst.setInt(3, r.getUser());
+        // pst.setUser(3, user);
           // pst.setString(2, r.getDate_reclamation());
           
            
@@ -79,7 +89,10 @@ public class ServiceReclamation {
        
         try {
          
-        String requete3 = "SELECT * FROM reclamation";
+      //  String requete3 = "SELECT * FROM reclamation inner join user where reclamation.user_id = user.nom_utilisateur";
+        
+        String requete3 = "SELECT * FROM reclamation ";
+       
         Statement st = cnx2.createStatement();;
         ResultSet rs =  st.executeQuery(requete3);
         while(rs.next()){
@@ -88,7 +101,10 @@ public class ServiceReclamation {
             r.setDescription_reclamation(rs.getString("description_reclamation"));
             r.setEtat_reclamation(rs.getString("etat_reclamation"));
             r.setDate_reclamation(rs.getString("date_reclamation"));
-            myList.add(r);
+            // r.setUser(rs.getInt("user_id"));
+           
+            //r.setUser(rs.getInt("user"));
+    myList.add(r);
         }
          //   st = new MyConnection().getCnx().createStatement();
         } catch (SQLException ex) {

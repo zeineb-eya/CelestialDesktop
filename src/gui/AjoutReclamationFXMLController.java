@@ -6,6 +6,7 @@
 package gui;
 
 import com.mycompany.entities.Reclamation;
+import com.mycompany.entities.User;
 import com.mycompany.services.ServiceReclamation;
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +21,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
@@ -36,6 +38,8 @@ public class AjoutReclamationFXMLController implements Initializable {
     @FXML
     private Button reclamerButton;
     private TextField date_reclamation;
+    @FXML
+    private TextField user_idcol;
 
     /**
      * Initializes the controller class.
@@ -63,9 +67,13 @@ public class AjoutReclamationFXMLController implements Initializable {
     
     @FXML
         private void AjouterReclam(ActionEvent event) {
-                  if(ValidateFields() ){
+               /*   if(ValidateFields() ){
+                      User user = (User) user_idcol.getSelectionModel().getSelectedItem();   
+    */
         Reclamation r = new Reclamation();
         r.setDescription_reclamation(description_reclamation.getText());
+        //r.setUser(Int.parseInt.(user_idcol).getText());
+
        // r.setDate_reclamation(date_reclamation.getText());
        // r.setDate_reclamation(Date.valueOf(date_reclamation.getValue()));
         ServiceReclamation pst = new ServiceReclamation();
@@ -82,8 +90,8 @@ public class AjoutReclamationFXMLController implements Initializable {
             alert.setContentText("Votre réclamation a ete bien ajoute");
             alert.showAndWait();
     }
-        }
-    
+        
+        
     private void afficherReclam(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("AfficherReclamationFXMLController.fxml"));
