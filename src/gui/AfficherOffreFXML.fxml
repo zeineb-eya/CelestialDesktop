@@ -15,14 +15,15 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <TableView fx:id="tableauOffre" layoutX="48.0" layoutY="129.0" prefHeight="200.0" prefWidth="640.0">
+      <TableView fx:id="tableauOffre" layoutX="20.0" layoutY="117.0" prefHeight="200.0" prefWidth="662.0">
         <columns>
-          <TableColumn fx:id="nom_offrecol" prefWidth="75.0" text="Offre" />
-          <TableColumn fx:id="description_offrecol" prefWidth="108.0" text="Details offre" />
-            <TableColumn fx:id="prix_offrecol" prefWidth="87.0" text="Prix" />
-            <TableColumn fx:id="reductioncol" prefWidth="106.0" text="Reduction" />
+          <TableColumn fx:id="id_offrecol" text="Num offre" />
+          <TableColumn fx:id="nom_offrecol" prefWidth="106.0" text="Nom Offre" />
+            <TableColumn fx:id="description_offrecol" prefWidth="116.0" text="Details offre" />
+            <TableColumn fx:id="prix_offrecol" prefWidth="92.0" text="Prix" />
+            <TableColumn fx:id="reductioncol" prefWidth="91.0" text="Reduction" />
             <TableColumn fx:id="date_debut_offrecol" prefWidth="104.0" text="Date debut" />
-            <TableColumn fx:id="date_fin_offrecol" prefWidth="159.0" text="Date fin" />
+            <TableColumn fx:id="date_fin_offrecol" prefWidth="72.0" text="Date fin" />
         </columns>
       </TableView>
       <FontAwesomeIconView glyphName="REFRESH" layoutX="577.0" layoutY="33.0" onMouseClicked="#actualiserOffre" size="20" text="" wrappingWidth="31.285714149475098" />

@@ -68,7 +68,7 @@ public class ServiceReclamation {
         //  pst.setString(2, r.getEtat_reclamation());
          java.sql.Date date_reclamation = getCurrentDatetime(); 
          pst.setDate(2, date_reclamation);
-       //   pst.setInt(3, r.getUser());
+       // pst.setInt(3, r.getUser());
         // pst.setUser(3, user);
           // pst.setString(2, r.getDate_reclamation());
           
@@ -101,6 +101,7 @@ public class ServiceReclamation {
             r.setDescription_reclamation(rs.getString("description_reclamation"));
             r.setEtat_reclamation(rs.getString("etat_reclamation"));
             r.setDate_reclamation(rs.getString("date_reclamation"));
+           //  r.setUser(rs.getInt(5));
             // r.setUser(rs.getInt("user_id"));
            
             //r.setUser(rs.getInt("user"));
@@ -276,9 +277,12 @@ public class ServiceReclamation {
                 Reclamation r = new Reclamation();
                 r.setId(rs.getInt("id"));
                  r.setDescription_reclamation(rs.getString("description_reclamation"));
+                  r.setEtat_reclamation(rs.getString("etat_reclamation"));
+                  
                // r.setDescription_reclamation(rs.getString(2));
-                r.setEtat_reclamation(rs.getString(3));
+              // r.setEtat_reclamation(rs.getString(3));
                 r.setDate_reclamation(rs.getString(4));
+               
             
                 myList.add(r);}   
               

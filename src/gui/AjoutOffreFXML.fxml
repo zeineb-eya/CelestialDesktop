@@ -30,8 +30,6 @@
       <Pane layoutY="52.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <FontAwesomeIconView fill="#02f222" glyphName="PLUS" layoutX="605.0" layoutY="38.0" onMouseClicked="#AjouterOffre" size="15" text="" />
       <FontAwesomeIconView fill="#1207ee" glyphName="EYE" layoutX="634.0" layoutY="39.0" onMouseClicked="#displayOffre" size="18" />
-      <FontAwesomeIconView fx:id="editIcon" glyphName="EDIT" layoutX="573.0" layoutY="37.0" onMouseClicked="#OnModifier" size="12.240" />
-      <Label layoutX="62.0" layoutY="76.0" prefHeight="17.0" prefWidth="74.0" text="num Offre:" />
-      <TextField fx:id="id_offre" layoutX="226.0" layoutY="72.0" />
+      <FontAwesomeIconView fx:id="editIcon" glyphName="EDIT" layoutX="573.0" layoutY="37.0" onMouseClicked="#OnModifi" size="12.240" />
    </children>
 </AnchorPane>

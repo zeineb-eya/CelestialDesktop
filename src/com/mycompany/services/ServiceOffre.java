@@ -46,8 +46,8 @@ public class ServiceOffre {
            pst.setString(2, o.getDescription_offre());
            pst.setDouble(3, o.getPrix_offre());
            pst.setDouble(4, o.getReduction());
-           pst.setString(5, o.getDate_debut_offre());
-           pst.setString(6, o.getDate_fin_offre());
+           pst.setDate(5, o.getDate_debut_offre());
+           pst.setDate(6, o.getDate_fin_offre());
            
            pst.executeUpdate();
            
@@ -75,9 +75,9 @@ public class ServiceOffre {
             o.setDescription_offre(rs.getString("description_offre"));
             o.setPrix_offre(rs.getDouble("prix_offre"));
             o.setReduction(rs.getDouble("reduction"));
-            o.setDate_debut_offre(rs.getString("date_debut_offre"));
-            o.setDate_fin_offre(rs.getString("date_fin_offre"));
-            myList.add(o);
+            o.setDate_debut_offre(rs.getDate("date_debut_offre"));
+            o.setDate_fin_offre(rs.getDate("date_fin_offre"));
+             myList.add(o);
         }
          //   st = new MyConnection().getCnx().createStatement();
         } catch (SQLException ex) {
@@ -110,30 +110,8 @@ public class ServiceOffre {
              Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
          }
     }
-       public Offre getByName(String value) {
-Offre a = null;
-         String requete = " select* from offre where nom_offre='"+value+"'" ;
-        try {
-           
-           Statement stm = cnx2.createStatement();
-            ResultSet rs =stm.executeQuery(requete);
-            if (rs.next())
-            {
-               int id=rs.getInt("id");
-               String nom_offre=rs.getString("nom_offre");
-               String description_offre=rs.getString("description_offre");
-               a= new Offre (id,nom_offre,description_offre);
 
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Offre.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return a ;
-    
-
-
-}
-      public void updateOffre(Offre o) throws SQLException{
+      public void updateOffre(Offre o){
 
           //String requete2="UPDATE offre SET nom_offre='"+nom_offre+"',description_offre='"+description_offre+"', prix_offre='"+prix_offre+"',reduction='"+reduction+"' ,date_debut_offre='"+date_debut_offre+"' ,date_fin_offre='"+date_fin_offre+"'  WHERE id='"+id+"'";
  /*  try{
@@ -145,11 +123,13 @@ Offre a = null;
         }    */
    
       String requete2="update offre set nom_offre=?,description_offre=?,prix_offre=?,reduction=? where id=?";
+      
         try {
             
            // pst=connection.prepareStatement(req);
            //Statement st = cnx2.createStatement();
             PreparedStatement pst = cnx2.prepareStatement(requete2);
+           
             pst.setString(1,o.getNom_offre()); 
             pst.setString(2,o.getDescription_offre());
             pst.setDouble(3,o.getPrix_offre());
@@ -157,15 +137,14 @@ Offre a = null;
             //pst.setString(5,o.getDate_debut_offre());
             //pst.setString(6,o.getDate_fin_offre());
             pst.setInt(5,o.getId());
-           
             System.out.println(pst);
-            pst.execute();
-            //pst.executeUpdate();
+           // pst.execute();
+            pst.executeUpdate();
 
             System.out.println("votre offre a ete bien modife");
         } catch (SQLException e) {
-           // e.printStackTrace();
-             Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, e);
+           e.printStackTrace();
+           //  Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, e);
         }
 
     }
@@ -189,8 +168,8 @@ Offre a = null;
             o.setDescription_offre(rst.getString("description_offre"));
             o.setPrix_offre(rst.getDouble("prix_offre"));
             o.setReduction(rst.getDouble("reduction"));
-            o.setDate_debut_offre(rst.getString("date_debut_offre"));
-            o.setDate_fin_offre(rst.getString("date_fin_offre"));
+            o.setDate_debut_offre(rst.getDate("date_debut_offre"));
+            o.setDate_fin_offre(rst.getDate("date_fin_offre"));
     
            myList.add(o);
       }
@@ -218,8 +197,8 @@ Offre a = null;
             o.setDescription_offre(rst.getString("description_offre"));
             o.setPrix_offre(rst.getDouble("prix_offre"));
             o.setReduction(rst.getDouble("reduction"));
-            o.setDate_debut_offre(rst.getString("date_debut_offre"));
-            o.setDate_fin_offre(rst.getString("date_fin_offre"));
+            o.setDate_debut_offre(rst.getDate("date_debut_offre"));
+            o.setDate_fin_offre(rst.getDate("date_fin_offre"));
     
            myList.add(o);
           //afficherOffre();
@@ -256,8 +235,8 @@ Offre a = null;
                o.setDescription_offre(rs.getString(3));
                o.setPrix_offre(rs.getDouble(4));
                o.setReduction(rs.getDouble(5));
-               o.setDate_debut_offre(rs.getString(6));
-               o.setDate_fin_offre(rs.getString(7));
+               o.setDate_debut_offre(rs.getDate(6));
+               o.setDate_fin_offre(rs.getDate(7));
 
                 myList.add(o);}   
               

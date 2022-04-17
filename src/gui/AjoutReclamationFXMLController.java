@@ -38,8 +38,6 @@ public class AjoutReclamationFXMLController implements Initializable {
     @FXML
     private Button reclamerButton;
     private TextField date_reclamation;
-    @FXML
-    private TextField user_idcol;
 
     /**
      * Initializes the controller class.
@@ -72,17 +70,14 @@ public class AjoutReclamationFXMLController implements Initializable {
     */
         Reclamation r = new Reclamation();
         r.setDescription_reclamation(description_reclamation.getText());
-        //r.setUser(Int.parseInt.(user_idcol).getText());
+        //r.setUser(Integer.parseInt.(user_idcol.getText()));
+        //r.setUser(Integer.parseInt(user_idcol.getText()));
 
-       // r.setDate_reclamation(date_reclamation.getText());
+     //   r.setEtat_reclamation(etat_reclamation.getText());
        // r.setDate_reclamation(Date.valueOf(date_reclamation.getValue()));
         ServiceReclamation pst = new ServiceReclamation();
         pst.ajouterReclamation2(r);
-       /*Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-       a.setTitle("reclamation bien ajoutée");
-      // JOptionPane.showMessageDialog(null,"reclamation bien ajoute");
-      a.show();*/
-   
+     
          
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("réclamer");

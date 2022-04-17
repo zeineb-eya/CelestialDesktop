@@ -5,6 +5,7 @@
  */
 package com.mycompany.entities;
 
+import java.sql.Date;
 import java.sql.JDBCType;
 
 /**
@@ -16,8 +17,10 @@ public class Offre {
      private int id;
     private String nom_offre,description_offre;
     private double prix_offre,reduction;
-    private String date_debut_offre,date_fin_offre;
-
+   // private String date_debut_offre;
+    
+ private Date date_debut_offre,date_fin_offre;
+ 
     public Offre() {
     }
 
@@ -26,7 +29,7 @@ public class Offre {
         this.description_offre = description_offre;
     }
 
-    public Offre(int id, String nom_offre, String description_offre, double prix_offre, double reduction, String date_debut_offre, String date_fin_offre) {
+    public Offre(int id, String nom_offre, String description_offre, double prix_offre, double reduction, Date date_debut_offre, Date date_fin_offre) {
         this.id = id;
         this.nom_offre = nom_offre;
         this.description_offre = description_offre;
@@ -36,7 +39,7 @@ public class Offre {
         this.date_fin_offre = date_fin_offre;
     }
 
-    public Offre(String nom_offre, String description_offre, double prix_offre, double reduction, String date_debut_offre, String date_fin_offre) {
+    public Offre(String nom_offre, String description_offre, double prix_offre, double reduction, Date date_debut_offre, Date date_fin_offre) {
         this.nom_offre = nom_offre;
         this.description_offre = description_offre;
         this.prix_offre = prix_offre;
@@ -110,19 +113,19 @@ public class Offre {
         this.reduction = reduction;
     }
 
-    public String getDate_debut_offre() {
+    public Date getDate_debut_offre() {
         return date_debut_offre;
     }
 
-    public void setDate_debut_offre(String date_debut_offre) {
+    public void setDate_debut_offre(Date date_debut_offre) {
         this.date_debut_offre = date_debut_offre;
     }
 
-    public String getDate_fin_offre() {
+    public Date getDate_fin_offre() {
         return date_fin_offre;
     }
 
-    public void setDate_fin_offre(String date_fin_offre) {
+    public void setDate_fin_offre(Date date_fin_offre) {
         this.date_fin_offre = date_fin_offre;
     }
 

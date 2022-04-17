@@ -21,8 +21,9 @@
       <TextField fx:id="description_offre_modif" layoutX="202.0" layoutY="209.0" />
       <TextField fx:id="prix_offre_modif" layoutX="202.0" layoutY="270.0" />
       <TextField fx:id="reduction_modif" layoutX="202.0" layoutY="316.0" />
-      <Button fx:id="modifOffreButton" layoutX="418.0" layoutY="351.0" mnemonicParsing="false" onAction="#modifOffreButton" text="Modifier" />
-      <Label layoutX="75.0" layoutY="102.0" text="id" />
+      <Button fx:id="modifOffreButton" layoutX="473.0" layoutY="329.0" mnemonicParsing="false" onAction="#modifOffreButton" text="Modifier" />
+      <Label layoutX="75.0" layoutY="102.0" />
       <TextField fx:id="id_offre_modif" layoutX="202.0" layoutY="98.0" />
+      <Label layoutX="61.0" layoutY="102.0" prefHeight="17.0" prefWidth="75.0" text="num offre:" />
    </children>
 </AnchorPane>

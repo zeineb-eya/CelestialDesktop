@@ -53,8 +53,6 @@ public class AjoutOffreFXMLController implements Initializable {
     private DatePicker date_fin_offre;
     @FXML
     private FontAwesomeIconView editIcon;
-    @FXML
-    private TextField id_offre;
 
     /**
      * Initializes the controller class.
@@ -73,8 +71,10 @@ public class AjoutOffreFXMLController implements Initializable {
        o.setPrix_offre(Double.parseDouble(prix_offre.getText()));
        o.setReduction(Double.parseDouble(reduction.getText()));
      //  o.setDate_debut_offre(date_debut_offre.getText());
-      o.setDate_debut_offre(date_debut_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-      o.setDate_fin_offre(date_fin_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+     o.setDate_debut_offre(Date.valueOf(date_debut_offre.getValue()));
+      o.setDate_fin_offre(Date.valueOf(date_fin_offre.getValue()));
+    //  o.setDate_debut_offre(date_debut_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+      //o.setDate_fin_offre(date_fin_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
       
   //   o.setDate_debut_offre(LocalDate.parse(date_debut_offre,formatter));
     //   o.setDate_fin_offre(date_fin_offre.getText());
@@ -109,59 +109,24 @@ public class AjoutOffreFXMLController implements Initializable {
         window.show();
     }
 
-    @FXML
+   /* @FXML
     private void OnModifier(MouseEvent event) throws SQLException, IOException {
-        /*  int opt = JOptionPane.showConfirmDialog(null, "Confirmer la modification ?","modifier",JOptionPane.YES_NO_OPTION);
-        if(opt==0){
-        if(id_offre.getText().isEmpty() |nom_offre.getText().isEmpty() | description_offre.getText().isEmpty()){      
-        
-        Alert al = new Alert(Alert.AlertType.ERROR);
-        al.setHeaderText(null);
-        al.setContentText("remplir les champs vides svp");
-        al.showAndWait();
-        }else{
- }
-         ServiceOffre a = new ServiceOffre();
-        //Offre a1;
-           //  a1 = new  Offre (Integer.parseInt(id_offre.getText()),nom_offre.getText(),description_offre.getText(),Double.parseDouble(reduction).getText());
-    //  java.sql.Date gettedDatePickerDate = java.sql.Date.valueOf(date_debut_offre.getValue());
-
-           Offre a1 = new  Offre ( Integer.parseInt(id_offre.getText()),nom_offre.getText(),description_offre.getText(),Integer.parseInt(reduction.getText()),Integer.parseInt(prix_offre.getText()));
-
-           /*  date_debut_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
-                      
-                      date_fin_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));*/
-
-      /*  JOptionPane.showMessageDialog(null, "offre modifié");
-       a.updateOffre(a1);
-        //afficherOffre();
-        FXMLLoader loader = new FXMLLoader
-                        (getClass()
-                         .getResource("AfficherOffreFXML.fxml"));
-        Scene scene=new Scene(loader.load());
-        
-
-//       AfficherReclamationFXMLController mr= loader.getController();
-        Stage stageAff=new Stage();
-        stageAff.setScene(scene);
-        stageAff.show();
-        ((Node) (event.getSource())).getScene().getWindow().hide();
-    }
-
-   */
+     
        FXMLLoader loader = new FXMLLoader
                         (getClass()
                          .getResource("ModifierOffreFXML.fxml"));
         Scene scene=new Scene(loader.load());
-        
-
-//       AfficherReclamationFXMLController mr= loader.getController();
+       
         Stage stageAff=new Stage();
         stageAff.setScene(scene);
         stageAff.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
+*/
 
+    @FXML
+    private void OnModifi(MouseEvent event) {
+    }
 }
 
   

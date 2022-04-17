@@ -77,9 +77,10 @@ public class ModifierReclamationFXMLController implements Initializable {
         window.setScene(sceneview);
         window.show();
     }
-     void setData(int id, String sub) {
+     void setData(int id, String sub,String e) {
        rec.setId(id);
        descript_reclam_modif.setText(sub);
+      // etat_reclam_modif.setText(e);
        
        
     

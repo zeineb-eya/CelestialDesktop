@@ -20,7 +20,6 @@
           <TableColumn fx:id="description_reclamcol" prefWidth="189.0" text="Objet reclamation" />
           <TableColumn fx:id="etat_reclamcol" prefWidth="148.0" text="etat reclamation" />
             <TableColumn fx:id="date_reclamcol" minWidth="0.0" prefWidth="192.0" text="date reclamation" />
-            <TableColumn fx:id="user_idcol" prefWidth="223.0" text="user id" />
         </columns>
       </TableView>
       <FontAwesomeIconView fill="#0ae112" glyphName="REFRESH" layoutX="110.0" layoutY="103.0" onMouseClicked="#refresh" size="25" />

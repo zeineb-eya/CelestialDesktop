@@ -49,8 +49,6 @@ public class AfficherReclamationFXMLController implements Initializable {
     private TableColumn<?, ?> date_reclamcol;
     
     ObservableList myList ;
-    @FXML
-    private TableColumn<?, ?> user_idcol;
 
     /**
      * Initializes the controller class.
@@ -66,6 +64,7 @@ public class AfficherReclamationFXMLController implements Initializable {
          ServiceReclamation sr = new ServiceReclamation();
         Reclamation r = (Reclamation) tableaureclam.getSelectionModel().getSelectedItem();
         sr.deleteReclamation(r);
+        sr.refreshReclam();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                  try {
              if(JOptionPane.showConfirmDialog(null,"attention vous allez supprimer votre reclamation,est ce que tu et sure?"
@@ -91,10 +90,10 @@ public class AfficherReclamationFXMLController implements Initializable {
         myList = FXCollections.observableList(reclam);
         tableaureclam.setItems(myList);
         
-       description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
+        description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
         etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
-         date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
-      //   user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
+        date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
+        //user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
         
     }
     
@@ -127,14 +126,16 @@ if(r==null){
         stageAff.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
         int as=tableaureclam.getSelectionModel().getSelectedItem().getId();
-        String sub = tableaureclam.getSelectionModel().getSelectedItem().getDescription_reclamation();
         
+        String sub = tableaureclam.getSelectionModel().getSelectedItem().getDescription_reclamation();
+        // String e = tableaureclam.getSelectionModel().getSelectedItem().getEtat_reclamation();
        // String content = tableaureclam.getSelectionModel().getSelectedItem().getContent();
         
        
         
         mr.setData(tableaureclam.getSelectionModel().getSelectedItem().getId(),
-                tableaureclam.getSelectionModel().getSelectedItem().getDescription_reclamation()
+                tableaureclam.getSelectionModel().getSelectedItem().getDescription_reclamation(),
+                 tableaureclam.getSelectionModel().getSelectedItem().getEtat_reclamation()
                 // tableaureclam.getSelectionModel().getSelectedItem().getContent()
                  );
                  

@@ -22,7 +22,5 @@
       <FontAwesomeIconView glyphName="PLUS" layoutX="657.0" layoutY="307.0" wrappingWidth="12.428571701049805" />
       <FontAwesomeIconView fill="#0972fc" glyphName="EYE" layoutX="525.0" layoutY="308.0" size="15" text="" />
       <Pane layoutY="68.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Label layoutX="93.0" layoutY="100.0" prefHeight="17.0" prefWidth="53.0" text="User" />
-      <TextField fx:id="user_idcol" layoutX="417.0" layoutY="105.0" />
    </children>
 </AnchorPane>

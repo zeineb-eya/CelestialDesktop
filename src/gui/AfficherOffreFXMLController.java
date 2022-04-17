@@ -69,6 +69,8 @@ public class AfficherOffreFXMLController implements Initializable {
     private TableColumn<?, ?> date_fin_offrecol;
     @FXML
     private AnchorPane Offre;
+    @FXML
+    private TableColumn<?, ?> id_offrecol;
      
     /**
      * Initializes the controller class.
@@ -133,6 +135,7 @@ public class AfficherOffreFXMLController implements Initializable {
         myList = FXCollections.observableList(reclam);
         tableauOffre.setItems(myList);
         
+        id_offrecol.setCellValueFactory(new PropertyValueFactory<>("id"));
        nom_offrecol.setCellValueFactory(new PropertyValueFactory<>("nom_offre"));
        description_offrecol.setCellValueFactory(new PropertyValueFactory<>("description_offre"));
        prix_offrecol.setCellValueFactory(new PropertyValueFactory<>("prix_offre"));
@@ -247,11 +250,75 @@ if(r==null){
         stageAff.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
+        
+       ///testttt
+        
+     /*   Offre b = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
+         
 
-    
-    
-    
+if(b==null){
+        
+           System.out.println("Modif offre");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez selectionné une offre a modifier");
+            alert.showAndWait();
+        }else {
+          try {   
+        FXMLLoader loader = new FXMLLoader
+                        (getClass().getResource("ModifierOffreFXML.fxml"));
+        Scene scene=new Scene(loader.load());
+        
+        ModifierOffreFXMLController Bc = loader.getController();
+        Stage stageAff=new Stage();
+        stageAff.setScene(scene);
+        stageAff.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+       
+        } catch(IOException ex)
+            {
+            System.err.println("eer");
+            }
+        }
 
+    }*/
+       
+     
+     //tets final
+     
+     /*Offre r = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
+         
+
+if(r==null){
+        
+           System.out.println("Veuillez seelectionné une offre");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Aucun offre séléctionné");
+            alert.showAndWait();
+        }else {
+          try {   
+        FXMLLoader loader = new FXMLLoader
+                        (getClass().getResource("ModifierOffreFXML.fxml"));
+        Scene scene=new Scene(loader.load());
+        
+        ModifierOffreFXMLController Rc = loader.getController();
+        Stage stageAff=new Stage();
+        stageAff.setScene(scene);
+        stageAff.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+     
+        } catch(IOException ex)
+            {
+            System.err.println("eer");
+            }
+        }
+    }
+    
+    
+*/
 }     
 
     
