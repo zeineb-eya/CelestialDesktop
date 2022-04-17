@@ -164,7 +164,7 @@ public class AfficherOffreFXMLController implements Initializable {
     
     }     
 
-    private void updateOffre(ActionEvent event) throws SQLException {
+   // private void updateOffre(ActionEvent event) throws SQLException {
          /*   int opt = JOptionPane.showConfirmDialog(null, "Confirmer la modification ?","modifier",JOptionPane.YES_NO_OPTION);
       if(opt==0){
         if(id_offre.getText().isEmpty() |nom_offrecol.getText().isEmpty() | description_offrecol.getText().isEmpty()){      
@@ -182,7 +182,7 @@ public class AfficherOffreFXMLController implements Initializable {
        a.updateOffre(a1);
         //afficherOffre();
     }*/
-Offre r = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
+/*Offre r = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
          
 
 if(r==null){
@@ -222,13 +222,30 @@ if(r==null){
                  
                  
        
-        } catch(IOException ex)
+     /*   } catch(IOException ex)
     {
      System.out.println("eer");
 }
         }
-
+*/
    
+    //}
+
+    @FXML
+    private void OnModif(MouseEvent event) throws IOException {
+        
+        
+         FXMLLoader loader = new FXMLLoader
+                        (getClass()
+                         .getResource("ModifierOffreFXML.fxml"));
+        Scene scene=new Scene(loader.load());
+        
+
+//       AfficherReclamationFXMLController mr= loader.getController();
+        Stage stageAff=new Stage();
+        stageAff.setScene(scene);
+        stageAff.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
     

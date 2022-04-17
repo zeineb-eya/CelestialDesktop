@@ -111,7 +111,7 @@ public class AjoutOffreFXMLController implements Initializable {
 
     @FXML
     private void OnModifier(MouseEvent event) throws SQLException, IOException {
-          int opt = JOptionPane.showConfirmDialog(null, "Confirmer la modification ?","modifier",JOptionPane.YES_NO_OPTION);
+        /*  int opt = JOptionPane.showConfirmDialog(null, "Confirmer la modification ?","modifier",JOptionPane.YES_NO_OPTION);
         if(opt==0){
         if(id_offre.getText().isEmpty() |nom_offre.getText().isEmpty() | description_offre.getText().isEmpty()){      
         
@@ -132,7 +132,7 @@ public class AjoutOffreFXMLController implements Initializable {
                       
                       date_fin_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));*/
 
-        JOptionPane.showMessageDialog(null, "offre modifié");
+      /*  JOptionPane.showMessageDialog(null, "offre modifié");
        a.updateOffre(a1);
         //afficherOffre();
         FXMLLoader loader = new FXMLLoader
@@ -148,7 +148,18 @@ public class AjoutOffreFXMLController implements Initializable {
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
-   
+   */
+       FXMLLoader loader = new FXMLLoader
+                        (getClass()
+                         .getResource("ModifierOffreFXML.fxml"));
+        Scene scene=new Scene(loader.load());
+        
+
+//       AfficherReclamationFXMLController mr= loader.getController();
+        Stage stageAff=new Stage();
+        stageAff.setScene(scene);
+        stageAff.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
 }

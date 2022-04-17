@@ -5,13 +5,14 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="Offre" prefHeight="400.0" prefWidth="702.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherOffreFXMLController">
    <children>
-      <Label layoutX="206.0" layoutY="14.0" text="Liste des Offres">
+      <Label layoutX="14.0" layoutY="7.0" prefHeight="35.0" prefWidth="183.0" text="Liste des Offres" textFill="#550af5">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Label>
       <TableView fx:id="tableauOffre" layoutX="48.0" layoutY="129.0" prefHeight="200.0" prefWidth="640.0">
@@ -24,7 +25,9 @@
             <TableColumn fx:id="date_fin_offrecol" prefWidth="159.0" text="Date fin" />
         </columns>
       </TableView>
-      <FontAwesomeIconView glyphName="REFRESH" layoutX="101.0" layoutY="88.0" onMouseClicked="#actualiserOffre" size="25" wrappingWidth="31.285714149475098" />
-      <FontAwesomeIconView fill="#f80d0d" glyphName="MINUS" layoutX="45.0" layoutY="87.0" onMouseClicked="#deleteOffre" size="25" wrappingWidth="24.428571701049805" />
+      <FontAwesomeIconView glyphName="REFRESH" layoutX="577.0" layoutY="33.0" onMouseClicked="#actualiserOffre" size="20" text="" wrappingWidth="31.285714149475098" />
+      <FontAwesomeIconView fill="#f80d0d" glyphName="MINUS" layoutX="663.0" layoutY="34.0" onMouseClicked="#deleteOffre" size="22" wrappingWidth="24.428571701049805" />
+      <FontAwesomeIconView fill="#05b938" glyphName="EDIT" layoutX="619.0" layoutY="34.0" onMouseClicked="#OnModif" size="22" />
+      <Pane layoutY="51.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
 </AnchorPane>
