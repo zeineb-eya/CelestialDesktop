@@ -22,13 +22,14 @@ import java.util.stream.Collectors;
  *
  * @author HP
  */
-public class BilletService {
+public class BilletService implements IserviceBillet<Billet>{
     Connection cnx2;
     public BilletService(){
         cnx2 = MyConnection.getInstance().getCnx();
     }
     
     //requete statique
+    @Override
     public void ajouterBillet(){
         String req = "insert into billet(chair_billet,voyage_num,terminal,portail,embarquement,localisation_id)"
                     + "values(1,1,1,1,'2022-04-25',1)";
@@ -41,6 +42,7 @@ public class BilletService {
         }
     }
     //requete dynamique
+    @Override
     public void ajouterBiller2(Billet b){
        
 //        int find;
@@ -63,6 +65,7 @@ public class BilletService {
              System.err.println(ex.getMessage());
         }
     }
+    @Override
     public List<Billet> afficherBillets(){
         List<Billet> myList = new ArrayList<>();
         try {
@@ -85,6 +88,7 @@ public class BilletService {
         }
         return myList;
     }
+    @Override
     public void modifierBillet(Billet b) {
         try {  
             String req4 = "update billet set chair_billet= ?, voyage_num = ?, terminal = ?,portail= ?, embarquement = ?, localisation_id = ? where id = ?";
@@ -102,6 +106,7 @@ public class BilletService {
             System.out.println(ex.getMessage());
         }
     }
+    @Override
     public void supprimerBillet(Billet b) {
        try {  
             String req5 = "delete From billet where id = ?";
@@ -114,12 +119,14 @@ public class BilletService {
         }
     }
           //serach  
+    @Override
      public Billet findBillet_ByDate(String embarquement) {
 
 	return afficherBillets().stream().filter(Billet -> embarquement.equals(Billet.getEmbarquement())).findFirst().get();
 
     }
         //sort
+     @Override
       public List<Billet> sortByDate() {
 
 	return afficherBillets().stream().sorted((a, b) -> a.getEmbarquement().compareTo(b.getEmbarquement())).collect(Collectors.toList());
