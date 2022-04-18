@@ -6,16 +6,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.ModifierLocalisationController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierLocalisationController">
    <children>
       <Label layoutX="207.0" layoutY="59.0" prefHeight="35.0" prefWidth="227.0" text="Modifier localisation">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="125.0" layoutY="180.0" prefHeight="17.0" prefWidth="106.0" text="Position Depart" />
-      <TextField fx:id="PositionDepartModif" layoutX="285.0" layoutY="148.0" prefHeight="111.0" prefWidth="282.0" />
+      <TextField fx:id="PositionDepartModif" layoutX="141.0" layoutY="193.0" prefHeight="25.0" prefWidth="157.0" />
       <Button layoutX="515.0" layoutY="295.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" />
+      <TextField fx:id="positionariveeplanningmodif" layoutX="145.0" layoutY="245.0" promptText="Position Arrive" />
+      <TextField fx:id="heuredepartlocalisationmodif" layoutX="145.0" layoutY="97.0" promptText="Heure Depart" />
+      <TextField fx:id="heurearriveeloacalisationmodif" layoutX="145.0" layoutY="146.0" promptText="Heure Arrive" />
+      <TextField fx:id="fuseemodif" layoutX="145.0" layoutY="290.0" promptText="Fussee" />
    </children>
 </AnchorPane>

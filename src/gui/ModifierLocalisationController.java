@@ -32,6 +32,14 @@ public class ModifierLocalisationController implements Initializable {
     @FXML
     private TextField PositionDepartModif;
     Localisation l=new Localisation();
+    @FXML
+    private TextField positionariveeplanningmodif;
+    @FXML
+    private TextField heuredepartlocalisationmodif;
+    @FXML
+    private TextField heurearriveeloacalisationmodif;
+    @FXML
+    private TextField fuseemodif;
 
     /**
      * Initializes the controller class.
@@ -55,6 +63,10 @@ public class ModifierLocalisationController implements Initializable {
         }else {
             
              l.setPositionDepartLocalisation(PositionDepartModif.getText());
+             l.setHeureDepartLocalisation(heuredepartlocalisationmodif.getText());
+        l.setHeureArriveeLoacalisation(heurearriveeloacalisationmodif.getText());
+        l.setPositionAriveePlanning(positionariveeplanningmodif.getText());
+        l.setFusee(fuseemodif.getText());
          LocalisationService ps = new LocalisationService();
              try{
              ps.modifierLocalistaion(l);
@@ -82,9 +94,14 @@ public class ModifierLocalisationController implements Initializable {
         window.setScene(sceneview);
         window.show();
     }
-     void setData(int id, String sub) {
+     void setData(int id, String sub,String hd, String ha,String pa,String fs) {
        l.setId(id);
        PositionDepartModif.setText(sub);
+       heuredepartlocalisationmodif.setText(hd);
+       heurearriveeloacalisationmodif.setText(ha);
+       positionariveeplanningmodif.setText(pa);
+       fuseemodif.setText(fs);
+
 
     }
     }

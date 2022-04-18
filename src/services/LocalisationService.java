@@ -79,13 +79,16 @@ public class LocalisationService {
     }
 
     public void modifierLocalistaion(Localisation l) {
-       String requete11="update localisation set position_depart_localisation =? where id=?";
+       String requete11="update localisation set position_depart_localisation =?,heuredepartlocalisation=?,heure_arrivee_loacalisation=?,position_arivee_planning=?,fusee=? where id=?";
         try {
             
             PreparedStatement ps = connection.prepareStatement(requete11);
-            ps.setInt(2,l.getId());
-            ps.setString(1,l.getPositionDepartLocalisation());
-            
+            ps.setInt(6,l.getId());
+            ps.setString(1, l.getHeureDepartLocalisation());
+            ps.setString(2, l.getHeureArriveeLoacalisation());
+            ps.setString(3, l.getPositionDepartLocalisation());
+            ps.setString(4, l.getPositionAriveePlanning());
+            ps.setString(5, l.getFusee());            
            
             System.out.println(ps);
             ps.executeUpdate();
