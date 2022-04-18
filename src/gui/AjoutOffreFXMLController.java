@@ -69,7 +69,7 @@ public class AjoutOffreFXMLController implements Initializable {
        o.setNom_offre(nom_offre.getText());
        o.setDescription_offre(description_offre.getText());
        o.setPrix_offre(Double.parseDouble(prix_offre.getText()));
-       o.setReduction(Double.parseDouble(reduction.getText()));
+      o.setReduction(Double.parseDouble(reduction.getText()));
      //  o.setDate_debut_offre(date_debut_offre.getText());
      o.setDate_debut_offre(Date.valueOf(date_debut_offre.getValue()));
       o.setDate_fin_offre(Date.valueOf(date_fin_offre.getValue()));

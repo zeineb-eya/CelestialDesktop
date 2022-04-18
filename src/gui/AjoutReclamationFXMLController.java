@@ -52,9 +52,9 @@ public class AjoutReclamationFXMLController implements Initializable {
     public Boolean ValidateFields() {
         if (description_reclamation.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Validate fields");
+            alert.setTitle("Erreur de champ");
             alert.setHeaderText(null);
-            alert.setContentText("Please Enter Into The Fields");
+            alert.setContentText("Veuillez indiquer l'objet réclamation s'il vous plait!!");
             alert.showAndWait();
             return false;
         }
@@ -65,9 +65,9 @@ public class AjoutReclamationFXMLController implements Initializable {
     
     @FXML
         private void AjouterReclam(ActionEvent event) {
-               /*   if(ValidateFields() ){
-                      User user = (User) user_idcol.getSelectionModel().getSelectedItem();   
-    */
+                if(ValidateFields() ){
+                     // User user = (User) user_idcol.getSelectionModel().getSelectedItem();   
+    
         Reclamation r = new Reclamation();
         r.setDescription_reclamation(description_reclamation.getText());
         //r.setUser(Integer.parseInt.(user_idcol.getText()));
@@ -87,7 +87,9 @@ public class AjoutReclamationFXMLController implements Initializable {
     }
         
         
-    private void afficherReclam(ActionEvent event) {
+        }
+        
+        private void afficherReclam(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("AfficherReclamationFXMLController.fxml"));
             description_reclamation.getScene().setRoot(root);
