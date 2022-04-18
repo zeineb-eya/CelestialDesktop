@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -60,6 +61,8 @@ public class ModifierOffreFXMLController implements Initializable {
 
     @FXML
     private TextField id_offre_modif;
+    @FXML
+    private DatePicker date_debut_offremodif;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -78,19 +81,22 @@ public class ModifierOffreFXMLController implements Initializable {
       
         int opt = JOptionPane.showConfirmDialog(null, "Confirmer la modification ?","modifier",JOptionPane.YES_NO_OPTION);
         if(opt==0){
-        if(nom_offre_modif.getText().isEmpty() | description_offre_modif.getText().isEmpty()){      
-        
+        if(nom_offre_modif.getText().isEmpty() | description_offre_modif.getText().isEmpty()){  
+            
+       
         Alert al = new Alert(Alert.AlertType.ERROR);
         al.setHeaderText(null);
         al.setContentText("remplir les champs vides svp");
         al.showAndWait();
         }else{
  }
+          //Date d = java.sql.Date.valueOf(date_debut_offremodif.getValue());
          ServiceOffre a = new ServiceOffre();
-          Offre a1 = new  Offre (Integer.parseInt(id_offre_modif.getText()),nom_offre_modif.getText(),description_offre_modif.getText(),Integer.parseInt(reduction_modif.getText()),Integer.parseInt(prix_offre_modif.getText()));
+        Offre a1 = new  Offre (Integer.parseInt(id_offre_modif.getText()),nom_offre_modif.getText(),description_offre_modif.getText(),Integer.parseInt(reduction_modif.getText()),Integer.parseInt(prix_offre_modif.getText()));
           // Offre a1 = new  Offre (nom_offre_modif.getText(),description_offre_modif.getText(),Integer.parseInt(reduction_modif.getText()),Integer.parseInt(prix_offre_modif.getText()));
 
-        JOptionPane.showMessageDialog(null, "offre modifié");
+
+          JOptionPane.showMessageDialog(null, "offre modifié");
        a.updateOffre(a1);
         //afficherOffre();
         FXMLLoader loader = new FXMLLoader

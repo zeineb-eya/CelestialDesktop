@@ -57,10 +57,32 @@ public class AfficherReclamationFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
        afficherReclam();
-    }    
+    }   
+    
+       public Boolean ValidateFields() {
+    if (tableaureclam.getSelectionModel().isEmpty() ){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+         alert.setTitle("Erreur!!");
+            alert.setHeaderText(null);
+       alert.setContentText("Aucune réclamation n'est selectionné pour la suppresion!!");
+            alert.showAndWait();
+            
+        return false;
+        }
+
+        return true;
+
+    }
     
       @FXML
     private void deleteReclam(MouseEvent event) {
+       
+      /*  if (tableaureclam.getSelectionModel().isEmpty() ){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        JOptionPane.showMessageDialog(null,"Aucune réclamation n'est selectionné ,veuillez choisir une offre");
+    
+        }else{*/
+         if(ValidateFields() ){
          ServiceReclamation sr = new ServiceReclamation();
         Reclamation r = (Reclamation) tableaureclam.getSelectionModel().getSelectedItem();
         sr.deleteReclamation(r);
@@ -79,9 +101,9 @@ public class AfficherReclamationFXMLController implements Initializable {
         
         }catch (Exception e){JOptionPane.showMessageDialog(null,"erreur de supprimer \n"+e.getMessage());} 
        
+         }
     
     }
-    
     private void afficherReclam() {
       /* ServiceReclamation sr = new ServiceReclamation();
         ObservableList<Reclamation> o = FXCollections.observableArrayList(sr.afficherReclamation());*/
@@ -100,15 +122,14 @@ public class AfficherReclamationFXMLController implements Initializable {
     @FXML
      private void modifierReclam(MouseEvent event) {
      Reclamation r = tableaureclam.getSelectionModel().getSelectedItem();
-         
-
+   
 if(r==null){
         
            System.out.println("Aucune reclamation séléctionné");
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur");
             alert.setHeaderText(null);
-            alert.setContentText("Aucune reclamation séléctionné");
+            alert.setContentText("Aucune reclamation séléctionné pour la modifier");
 
             alert.showAndWait();
      

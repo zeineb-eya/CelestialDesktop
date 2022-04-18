@@ -62,10 +62,20 @@ public class AjoutReclamationFXMLController implements Initializable {
         return true;
 
     }
-    
+     private boolean Validchamp(TextField T){
+         if(T.getText().isEmpty() |  T.getLength() <5){
+          Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur de champ");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez vérifier votre saisie s'il vous plait!!");
+            alert.showAndWait();
+      return false;
+    }return true;
+}
+     
     @FXML
         private void AjouterReclam(ActionEvent event) {
-                if(ValidateFields() ){
+                if(Validchamp(description_reclamation) ){
                      // User user = (User) user_idcol.getSelectionModel().getSelectedItem();   
     
         Reclamation r = new Reclamation();

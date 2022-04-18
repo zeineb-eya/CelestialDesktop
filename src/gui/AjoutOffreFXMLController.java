@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -61,14 +62,46 @@ public class AjoutOffreFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+ /*public Boolean ValidateFields() {
+   
+        if (nom_offre.getText().isEmpty() | description_offre.getText().isEmpty()| prix_offre.getText().isEmpty() | reduction.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur de champ");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez indiquer l'objet réclamation s'il vous plait!!");
+            alert.showAndWait();
+            return false;
+        }
+
+        return true;
+
+ }*/
+     private boolean Validchamp(TextField T){
+         if(T.getText().isEmpty() | T.getLength() <5 ){
+          Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur de champ");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez vérifier votre saisie s'il vous plait!!");
+            alert.showAndWait();
+      return false;
+    }return true;
+}
 
     @FXML
-    private void AjouterOffre(MouseEvent event) {
-            
-        Offre o = new Offre();
+    private void AjouterOffre(MouseEvent event)  {
+        //    if(ValidateFields() && Validchamp(nom_offre,description_offre) ){
+            if( Validchamp(nom_offre) &&  Validchamp(description_offre)){    
+         
+  /*if(date_debut_offre.compareTo(date_fin_offre) == 0){ 
+      System.out.println("Given dates are same");*/ 
+
+           Offre o = new Offre();
        o.setNom_offre(nom_offre.getText());
        o.setDescription_offre(description_offre.getText());
-       o.setPrix_offre(Double.parseDouble(prix_offre.getText()));
+      //o.setPrix_offre(Double.parseDouble(prix_offre.getText()));
+       // System.out.println("Est un int positif!");
+        o.setPrix_offre(Double.parseDouble(prix_offre.getText()));
+//   o.setPrix_offre(Double.parseDouble(prix_offre.getText()));
       o.setReduction(Double.parseDouble(reduction.getText()));
      //  o.setDate_debut_offre(date_debut_offre.getText());
      o.setDate_debut_offre(Date.valueOf(date_debut_offre.getValue()));
@@ -87,8 +120,8 @@ public class AjoutOffreFXMLController implements Initializable {
             alert.setContentText("Votre offre a ete bien ajoute");
             alert.showAndWait();
     }
-    
-        
+    }
+   
     
     private void afficherOffre(MouseEvent event) {
            try {
