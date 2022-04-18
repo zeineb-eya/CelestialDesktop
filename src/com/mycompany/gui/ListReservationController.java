@@ -72,7 +72,7 @@ public class ListReservationController implements Initializable {
         tabReservation.setItems(list);
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         date_reservation.setCellValueFactory(new PropertyValueFactory<>("date_reservation"));
-        Etat_reservation.setCellValueFactory(new PropertyValueFactory<>("Etat_reservation"));
+        Etat_reservation.setCellValueFactory(new PropertyValueFactory<>("etat_reservation"));
         user.setCellValueFactory(new PropertyValueFactory<>("user"));
         billet.setCellValueFactory(new PropertyValueFactory<>("billet"));
        
@@ -122,7 +122,7 @@ if(r==null){
         }else {
           try {   
         FXMLLoader loader = new FXMLLoader
-                        (getClass().getResource("Modifier Reservation.fxml"));
+                        (getClass().getResource("ModifierReservation.fxml"));
         Scene scene=new Scene(loader.load());
         
         ModifierReservationController Rc = loader.getController();
@@ -147,7 +147,7 @@ if(r==null){
         tabReservation.setItems(list);
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         date_reservation.setCellValueFactory(new PropertyValueFactory<>("date_reservation"));
-        Etat_reservation.setCellValueFactory(new PropertyValueFactory<>("Etat_reservation"));
+        Etat_reservation.setCellValueFactory(new PropertyValueFactory<>("etat_reservation"));
         user.setCellValueFactory(new PropertyValueFactory<>("user"));
         billet.setCellValueFactory(new PropertyValueFactory<>("billet"));
     }

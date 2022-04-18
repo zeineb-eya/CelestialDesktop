@@ -65,7 +65,7 @@ public class AjoutBilletController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur de champ");
             alert.setHeaderText(null);
-            alert.setContentText("Veuillez indiquer l'objet réclamation s'il vous plait!!");
+            alert.setContentText("Veuillez remplir tt les champs s'il vous plait!!");
             alert.showAndWait();
             return false;
         }

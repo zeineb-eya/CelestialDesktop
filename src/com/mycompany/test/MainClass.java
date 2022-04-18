@@ -70,8 +70,8 @@ public class MainClass{
         //******************************************affichage******************************************//
         
         //**Billet**//
-//        System.out.println("Affichage Billet");
-//        System.out.println(bs.afficherBillets());
+       System.out.println("Affichage Billet");
+       System.out.println(bs.afficherBillets());
 //        
 //        //**Reservation**//
 //        System.out.println("Affichage Reservation");

@@ -41,7 +41,10 @@ public class ModifierReservationController implements Initializable {
     @FXML
     private Button ListerReservation;
 
-      Reservation r =new Reservation();
+      
+    @FXML
+    private TextField id;
+    Reservation r =new Reservation();
     /**
      * Initializes the controller class.
      */
@@ -63,7 +66,8 @@ public class ModifierReservationController implements Initializable {
             alert.showAndWait();
         }else {
             
-       
+        r.setId(Integer.parseInt(id.getText()));
+        //r.getId();
         r.setEtatReservation(Etat_reservation_modif.getText());
         ReservationService rs = new ReservationService();
              try{

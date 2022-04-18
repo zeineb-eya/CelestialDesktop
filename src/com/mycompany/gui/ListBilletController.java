@@ -40,10 +40,6 @@ public class ListBilletController implements Initializable {
     @FXML
     private TableView<?> tabBillet;
     @FXML
-    private TableColumn<?, ?> chair_billet;
-    @FXML
-    private TableColumn<?, ?> voyage_num;
-    @FXML
     private TableColumn<?, ?> terminal;
     @FXML
     private TableColumn<?, ?> portail;
@@ -74,8 +70,8 @@ public class ListBilletController implements Initializable {
         list = FXCollections.observableList(Billets);
         tabBillet.setItems(list);
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        chair_billet.setCellValueFactory(new PropertyValueFactory<>("chair_billet"));
-        voyage_num.setCellValueFactory(new PropertyValueFactory<>("voyage_num"));
+        //chair_billet.setCellValueFactory(new PropertyValueFactory<>("chair_billet"));
+        //voyage_num.setCellValueFactory(new PropertyValueFactory<>("voyage_num"));
         terminal.setCellValueFactory(new PropertyValueFactory<>("terminal"));
         portail.setCellValueFactory(new PropertyValueFactory<>("portail"));
         embarquement.setCellValueFactory(new PropertyValueFactory<>("embarquement"));
@@ -153,8 +149,8 @@ if(b==null){
         list = FXCollections.observableList(Billets);
         tabBillet.setItems(list);
          id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        chair_billet.setCellValueFactory(new PropertyValueFactory<>("chair_billet"));
-        voyage_num.setCellValueFactory(new PropertyValueFactory<>("voyage_num"));
+        //chair_billet.setCellValueFactory(new PropertyValueFactory<>("chair_billet"));
+       // voyage_num.setCellValueFactory(new PropertyValueFactory<>("voyage_num"));
         terminal.setCellValueFactory(new PropertyValueFactory<>("terminal"));
         portail.setCellValueFactory(new PropertyValueFactory<>("portail"));
         embarquement.setCellValueFactory(new PropertyValueFactory<>("embarquement"));

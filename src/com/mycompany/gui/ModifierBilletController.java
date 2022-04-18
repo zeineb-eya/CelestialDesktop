@@ -52,6 +52,8 @@ public class ModifierBilletController implements Initializable {
     private TextField localisation_modif;
     @FXML
     private DatePicker embarquement_modif;
+    @FXML
+    private TextField id;
 
     /**
      * Initializes the controller class.
@@ -74,7 +76,7 @@ public class ModifierBilletController implements Initializable {
             alert.showAndWait();
         }else {
             
-       
+        b.setId(Integer.parseInt(id.getText()));
         b.setChairBillet(Integer.parseInt(chair_billet_modif.getText()));
         b.setVoyageNum(Integer.parseInt(voyage_num_modif.getText()));
         b.setTerminal(Integer.parseInt(terminal_modif.getText()));
