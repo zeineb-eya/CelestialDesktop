@@ -58,12 +58,25 @@ public class AjoutBilletController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    public Boolean ValidateFields() {
+   
+        if (chair_billet.getText().isEmpty() | voyage_num.getText().isEmpty()| terminal.getText().isEmpty() | portail.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur de champ");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez indiquer l'objet réclamation s'il vous plait!!");
+            alert.showAndWait();
+            return false;
+        }
+        return true;
+ }
     public void setUsername(String s) {
         chair_billet.setText(s);
     }
     @FXML
     private void AjouterBillet(ActionEvent event) {
-       
+       if(ValidateFields()  ){
         Billet b = new Billet();
         b.setChairBillet(Integer.parseInt(chair_billet.getText()));
         b.setVoyageNum(Integer.parseInt(voyage_num.getText()));
@@ -76,7 +89,7 @@ public class AjoutBilletController implements Initializable {
         bs.ajouterBiller2(b);
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle("Billet ajoutée");
-        a.show();
+        a.show();}
     }
 
     @FXML
