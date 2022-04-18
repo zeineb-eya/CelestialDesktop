@@ -24,7 +24,7 @@ public class Planinng {
     private String descriptionPlanning;
     private Date dateDebutPlanning; 
     private Date  dateFinPlanning;
-   // Localisation localisation;
+
     
     public Planinng(int id, int periodePlanning, int prixPlanning, String nomPlanning, Date dateDebutPlanning, Date dateFinPlanning, String destinationPlanning, String descriptionPlanning) {
         this.id = id;
@@ -35,9 +35,9 @@ public class Planinng {
         this.dateFinPlanning = dateFinPlanning;
         this.destinationPlanning = destinationPlanning;
         this.descriptionPlanning = descriptionPlanning;
-
-
     }
+    
+    
      public Planinng(int periodePlanning, int prixPlanning, String nomPlanning, Date dateDebutPlanning, Date dateFinPlanning, String destinationPlanning, String descriptionPlanning) {
         this.periodePlanning = periodePlanning;
         this.prixPlanning = prixPlanning;
@@ -46,15 +46,10 @@ public class Planinng {
         this.dateFinPlanning = dateFinPlanning;
         this.destinationPlanning = destinationPlanning;
         this.descriptionPlanning = descriptionPlanning;
-
-
     }
       public Planinng() {  
     }
       
-
-    
-    
     public int getId() {
         return id;
     }

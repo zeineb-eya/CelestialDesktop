@@ -68,7 +68,6 @@ public class ModifierPlaninngController implements Initializable {
 
             alert.showAndWait();
         }else {
-            
         p.setNomPlanning(nomplanningmodif.getText());
         p.setDateDebutPlanning(Date.valueOf(dateDebutplanningmodif.getValue()));
         p.setDateFinPlanning(Date.valueOf(dateFinplanningmodif.getValue()));
@@ -76,7 +75,6 @@ public class ModifierPlaninngController implements Initializable {
         p.setDescriptionPlanning(descriptionplanningmodif.getText());
         p.setPeriodePlanning(Integer.parseInt(periodeplanningmodif.getText()));
         p.setPrixPlanning(Integer.parseInt(prixplanningmodif.getText()));
-
             PlaninngService ps = new PlaninngService();
              try{
              ps.updatePlaninng(p);
@@ -85,9 +83,6 @@ public class ModifierPlaninngController implements Initializable {
             System.out.println(ex.getMessage());
         }
             System.out.println("Modification terminé");}
-             
-           
-        
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Modification terminée avec succès.");
         alert.setHeaderText(null);
@@ -108,10 +103,5 @@ public class ModifierPlaninngController implements Initializable {
         descriptionplanningmodif.setText(des);
         p.setPrixPlanning(pr);
         p.setPeriodePlanning(pe);
-
-
-
     }
-
-   
 }

@@ -16,14 +16,12 @@ import java.util.Comparator;
  */
 public class Localisation {
     
-    private int id;
-    private String heureDepartLocalisation;
-   private String heureArriveeLoacalisation;
-    private    String positionDepartLocalisation;
-         private   String positionAriveePlanning;
-        private    String fusee;
-   // Localisation localisation;
-
+         private int id;
+         private String heureDepartLocalisation;
+         private String heureArriveeLoacalisation;
+         private String positionDepartLocalisation;
+         private String positionAriveePlanning;
+         private String fusee;
     public Localisation() {
     }
     
@@ -91,6 +89,4 @@ public class Localisation {
     public void setFusee(String fusee) {
         this.fusee = fusee;
     }
-    
-     
 }

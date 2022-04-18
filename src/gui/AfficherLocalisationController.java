@@ -73,11 +73,6 @@ public class AfficherLocalisationController implements Initializable {
         Localisation l = (Localisation) tableloca.getSelectionModel().getSelectedItem();
         ps.SupprimerLocalisation(l);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-           /* alert.setTitle("suppression");
-            alert.setHeaderText(null);
-            alert.setContentText("Votre réclamation a ete bien supprime");
-            alert.showAndWait();*/
-         
                try {
              if(JOptionPane.showConfirmDialog(null,"attention vous avez supprimer votre localisation,est ce que tu et sure?"
                      ,"supprimer localisation",JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION)
@@ -86,7 +81,7 @@ public class AfficherLocalisationController implements Initializable {
        
          alert.setContentText("Votre localisation a ete bien supprime");
          JOptionPane.showMessageDialog(null,"localisation supprime");
-             }//ca est pour recharger la list des stagiaire
+             }
             else { JOptionPane.showMessageDialog(null,"veuillez remplire le champ nom !");}
         
         }catch (Exception e){JOptionPane.showMessageDialog(null,"erreur de supprimer \n"+e.getMessage());} 
@@ -98,14 +93,19 @@ public class AfficherLocalisationController implements Initializable {
        LocalisationService ls = new LocalisationService();
         ObservableList<Localisation> localisations = FXCollections.observableArrayList(ls.afficherLocalisations());
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        
         heuredepartlocalisationcol.setCellValueFactory(new PropertyValueFactory<>("heureDepartLocalisation"));
-       colheure_arrivee_loacalisation.setCellValueFactory(new PropertyValueFactory<>("heureArriveeLoacalisation"));
-       colposition_depart_localisation.setCellValueFactory(new PropertyValueFactory<>("positionDepartLocalisation"));
-         position_arivee_planning.setCellValueFactory(new PropertyValueFactory<>("positionAriveePlanning"));
-         fusee.setCellValueFactory(new PropertyValueFactory<>("fusee"));
+        
+        colheure_arrivee_loacalisation.setCellValueFactory(new PropertyValueFactory<>("heureArriveeLoacalisation"));
+        
+        colposition_depart_localisation.setCellValueFactory(new PropertyValueFactory<>("positionDepartLocalisation"));
+        
+        position_arivee_planning.setCellValueFactory(new PropertyValueFactory<>("positionAriveePlanning"));
+        
+        fusee.setCellValueFactory(new PropertyValueFactory<>("fusee"));
         
         list = FXCollections.observableList(localisations);
-                tableloca.setItems(list);
+        tableloca.setItems(list);
 
 
     }
@@ -139,7 +139,7 @@ if(l==null){
         stageAff.setScene(scene);
         stageAff.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
-      // int as=tableloca.getSelectionModel().getSelectedItem().getId();
+      //   int as=tableloca.getSelectionModel().getSelectedItem().getId();
      //  String sub =tableloca.getSelectionModel().getSelectedItem().getPositionDepartLocalisation();
         
 
@@ -158,18 +158,18 @@ if(l==null){
 
     @FXML
     private void refresh(ActionEvent event) {
-             LocalisationService ps = new LocalisationService();
+        LocalisationService ps = new LocalisationService();
         List<Localisation> localisations = ps.refreshLocalisation();
         list = FXCollections.observableList(localisations);
         tableloca.setItems(list);
        
-         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        heuredepartlocalisationcol.setCellValueFactory(new PropertyValueFactory<>("heureDepartLocalisation"));
+       id.setCellValueFactory(new PropertyValueFactory<>("id"));
+       heuredepartlocalisationcol.setCellValueFactory(new PropertyValueFactory<>("heureDepartLocalisation"));
        colheure_arrivee_loacalisation.setCellValueFactory(new PropertyValueFactory<>("heureArriveeLoacalisation"));
        colposition_depart_localisation.setCellValueFactory(new PropertyValueFactory<>("positionDepartLocalisation"));
-         position_arivee_planning.setCellValueFactory(new PropertyValueFactory<>("positionAriveePlanning"));
-         fusee.setCellValueFactory(new PropertyValueFactory<>("fusee"));
-         tableloca.setItems(list);
+       position_arivee_planning.setCellValueFactory(new PropertyValueFactory<>("positionAriveePlanning"));
+       fusee.setCellValueFactory(new PropertyValueFactory<>("fusee"));
+       tableloca.setItems(list);
     
     }
 }

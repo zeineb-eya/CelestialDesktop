@@ -32,11 +32,6 @@ public class LocalisationService {
 
     public void ajouterLocalisation(Localisation l) {
         try {
-//           String req = "insert into personne(nom,prenom,age) "
-//                    + "values('"+ t.getNom()+"','"+ t.getPrenom()+"',"+ t.getAge()+")";
-//            Statement st = connection.createStatement();
-//            st.executeUpdate(req);
-
             String req1 = "insert into localisation(heuredepartlocalisation,heure_arrivee_loacalisation,position_depart_localisation,position_arivee_planning,fusee) values (?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(req1);
             ps.setString(1, l.getHeureDepartLocalisation());
@@ -70,7 +65,6 @@ public class LocalisationService {
 
                 list.add(l);
             }
-            //   st = new MyConnection().getCnx().createStatement();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -112,16 +106,6 @@ public class LocalisationService {
     }
 
     public void SupprimerLocalisation(Localisation l) {
-        /* String req = "delete from reclamation where id=" + id;
-        try {
-            PreparedStatement pst = cnx2.prepareStatement(req);
-           // pst = Connection.createStatement();
-            pst.executeUpdate(req);
-             System.out.println("votre reclam a ete bien supprime");
-        } catch (SQLException ex) {
-            //Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
-             System.err.println(ex.getMessage());
-        }*/
         String req = "delete from localisation where id= ?";
         try {
             PreparedStatement pst = connection.prepareStatement(req);
@@ -141,15 +125,6 @@ public class LocalisationService {
         String requete3 = "SELECT * FROM localisation";
         Statement st = connection.createStatement();
         ResultSet rs =  st.executeQuery(requete3);
-        
-        
-         /* PreparedStatement pst = cnx2.prepareStatement(requete2);
-              Connexion c= MyConnection.getInstance().getCnx();
-          PreparedStatement pt;
-              pt = c.prepareStatement("SELECT id,email,sujet,description,etat from reclamation");
-             // String requete = "select id_utilisateur,username,nom,prenom,email,tel,adresse,id_role,etat from utilisateur";
-              ResultSet rs=pt.executeQuery();*/
-               
               while(rs.next()){
                 Localisation l = new Localisation();
                l.setId(rs.getInt(1));
@@ -163,7 +138,7 @@ public class LocalisationService {
               
           } catch (SQLException ex) {
               System.out.println(ex.getMessage());
-          };
+          }
           return list;
     }
 

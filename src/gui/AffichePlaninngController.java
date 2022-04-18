@@ -80,11 +80,6 @@ public class AffichePlaninngController implements Initializable {
         Planinng p = (Planinng) tableplaninng.getSelectionModel().getSelectedItem();
         ps.SupprimerPlaninng(p);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-           /* alert.setTitle("suppression");
-            alert.setHeaderText(null);
-            alert.setContentText("Votre réclamation a ete bien supprime");
-            alert.showAndWait();*/
-         
                try {
              if(JOptionPane.showConfirmDialog(null,"attention vous avez supprimer votre planinng,est ce que tu et sure?"
                      ,"supprimer planinng",JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION)
@@ -93,7 +88,7 @@ public class AffichePlaninngController implements Initializable {
        
          alert.setContentText("Votre planinng a ete bien supprime");
          JOptionPane.showMessageDialog(null,"planinng supprime");
-             }//ca est pour recharger la list des stagiaire
+             }
             else { JOptionPane.showMessageDialog(null,"veuillez remplire le champ nom !");}
         
         }catch (Exception e){JOptionPane.showMessageDialog(null,"erreur de supprimer \n"+e.getMessage());} 

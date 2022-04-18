@@ -54,10 +54,10 @@ public class AjouPlaninngController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-public void setUsername(String s) {
+        public void setUsername(String s) {
         description_planning.setText(s);
     }
-private boolean Validchamp(){
+        private boolean Validchamp(){
          if(description_planning.getText().isEmpty() | description_planning.getLength() <3|nom_planning.getText().isEmpty() | nom_planning.getLength() <6 ){
           Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur de champ");

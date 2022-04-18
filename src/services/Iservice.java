@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Skander
  */
-public interface Iservice<P> {
+    public interface Iservice<P> {
 
     public void ajouter(P p);
 
@@ -20,7 +20,11 @@ public interface Iservice<P> {
 
     public void SupprimerPlaninng(Planinng p);
     
-   public List<Planinng>afficherPlaninng();
+    public List<Planinng>afficherPlaninng();
+    
+    public void updatePlaninng( Planinng p);
+    
+    public List<Planinng> refreshPlaninng();
 
 
 }
