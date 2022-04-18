@@ -19,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -41,8 +42,22 @@ public class ModifierReclamationFXMLController implements Initializable {
         // TODO
     }    
     
+        private boolean Validchamp(TextField T){
+         if(T.getText().isEmpty() |  T.getLength() <5){
+          Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur de champ");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez vérifier votre saisie s'il vous plait!!");
+            alert.showAndWait();
+      return false;
+    }return true;
+}
+    
     @FXML
     private void modifier(ActionEvent event) throws FileNotFoundException, IOException {
+        if(Validchamp(descript_reclam_modif)){
+            
+        
         if (rec == null) {
 
             System.out.println("Choisir une réclamation");
@@ -76,7 +91,7 @@ public class ModifierReclamationFXMLController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(sceneview);
         window.show();
-    }
+    }}
      void setData(int id, String sub,String e) {
        rec.setId(id);
        descript_reclam_modif.setText(sub);
@@ -86,5 +101,9 @@ public class ModifierReclamationFXMLController implements Initializable {
     
     
       
+    }
+
+    @FXML
+    private void modifierReclam(MouseEvent event) {
     }
 }

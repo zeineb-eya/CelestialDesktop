@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,9 +9,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierOffreFXMLController">
    <children>
-      <Label layoutX="202.0" layoutY="23.0" prefHeight="17.0" prefWidth="126.0" text="Modifier Offre">
+      <Label layoutY="23.0" prefHeight="25.0" prefWidth="602.0" style="-fx-background-color: grey; -fx-border-color: blue;" text="Modifier Offre" textFill="#4b09c6">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Label>
       <Label layoutX="70.0" layoutY="152.0" text="Nom offre:" />
@@ -22,10 +22,10 @@
       <TextField fx:id="description_offre_modif" layoutX="202.0" layoutY="209.0" />
       <TextField fx:id="prix_offre_modif" layoutX="202.0" layoutY="270.0" />
       <TextField fx:id="reduction_modif" layoutX="202.0" layoutY="316.0" />
-      <Button fx:id="modifOffreButton" layoutX="473.0" layoutY="329.0" mnemonicParsing="false" onAction="#modifOffreButton" text="Modifier" />
+      <Button fx:id="modifOffreButton" layoutX="473.0" layoutY="329.0" mnemonicParsing="false" onAction="#modifOffreButton" prefHeight="25.0" prefWidth="99.0" text="Modifier" />
       <Label layoutX="75.0" layoutY="102.0" />
       <TextField fx:id="id_offre_modif" layoutX="202.0" layoutY="98.0" />
       <Label layoutX="61.0" layoutY="102.0" prefHeight="17.0" prefWidth="75.0" text="num offre:" />
-      <DatePicker fx:id="date_debut_offremodif" layoutX="386.0" layoutY="148.0" promptText="jj/mm/aaaa" />
+      <FontAwesomeIconView fill="#1c11eb" glyphName="EDIT" layoutX="552.0" layoutY="346.0" onMouseClicked="#modifierReclam" size="15" wrappingWidth="16.0" />
    </children>
 </AnchorPane>

@@ -28,6 +28,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -61,8 +62,6 @@ public class ModifierOffreFXMLController implements Initializable {
 
     @FXML
     private TextField id_offre_modif;
-    @FXML
-    private DatePicker date_debut_offremodif;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -75,9 +74,23 @@ public class ModifierOffreFXMLController implements Initializable {
   /*  private void modifier(ActionEvent event) throws FileNotFoundException, IOException {
         
 }*/
+    
+        private boolean Validchamp(TextField T){
+         if(T.getText().isEmpty() | T.getLength() <5 ){
+          Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur de champ");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez vérifier votre saisie s'il vous plait!!");
+            alert.showAndWait();
+      return false;
+    }return true;
+}
+        
    //modifOffreButton
     @FXML
      public void modifOffreButton(ActionEvent event) throws FileNotFoundException, IOException, SQLException {
+      if(Validchamp(nom_offre_modif) && Validchamp(description_offre_modif)){
+          
       
         int opt = JOptionPane.showConfirmDialog(null, "Confirmer la modification ?","modifier",JOptionPane.YES_NO_OPTION);
         if(opt==0){
@@ -112,7 +125,12 @@ public class ModifierOffreFXMLController implements Initializable {
     }
 
      }
-  }
+     }
+
+    @FXML
+    private void modifierReclam(MouseEvent event) {
+    }
+ }
      
     
        //test final
