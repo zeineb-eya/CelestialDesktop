@@ -57,8 +57,19 @@ public class AjouPlaninngController implements Initializable {
 public void setUsername(String s) {
         description_planning.setText(s);
     }
+private boolean Validchamp(){
+         if(description_planning.getText().isEmpty() | description_planning.getLength() <3|nom_planning.getText().isEmpty() | nom_planning.getLength() <6 ){
+          Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur de champ");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez vérifier votre saisie!");
+            alert.showAndWait();
+      return false;
+    }return true;
+}
     @FXML
        private void Ajouter(ActionEvent event) {
+            if( Validchamp() &&  Validchamp()){    
         Planinng p = new Planinng();
         p.setNomPlanning(nom_planning.getText());
         p.setDateDebutPlanning(Date.valueOf(dateDebut_planning.getValue()));
@@ -74,6 +85,7 @@ public void setUsername(String s) {
         a.setTitle("Planinng ajoutée");
         a.show();
     }
+       }
 
     @FXML
     private void Afficher(ActionEvent event) {
@@ -87,5 +99,6 @@ public void setUsername(String s) {
         }
     }
     }
+
     
 

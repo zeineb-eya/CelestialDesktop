@@ -10,9 +10,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="471.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouPlaninngController">
    <children>
-      <Label layoutX="150.0" layoutY="14.0" prefHeight="53.0" prefWidth="321.0" text="Ajout Planinng">
+      <Label layoutX="150.0" layoutY="14.0" prefHeight="53.0" prefWidth="321.0" text="Ajout Planinng" textFill="#e82121">
          <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="Comic Sans MS Bold" size="39.0" />
          </font>
       </Label>
       <TextField fx:id="nom_planning" layoutX="47.0" layoutY="88.0" prefHeight="25.0" prefWidth="174.0" promptText="Nom Planinng" />
@@ -22,7 +22,7 @@
       <DatePicker fx:id="dateFin_planning" layoutX="47.0" layoutY="157.0" promptText="Date Fin " />
       <TextField fx:id="destination_planning" layoutX="47.0" layoutY="279.0" prefHeight="25.0" prefWidth="174.0" promptText="Destination" />
       <TextArea fx:id="description_planning" layoutX="47.0" layoutY="196.0" prefHeight="70.0" prefWidth="174.0" promptText="Description du Planinng" />
-      <Button layoutX="417.0" layoutY="349.0" mnemonicParsing="false" onAction="#Ajouter" text="Ajouter" />
-      <Button layoutX="485.0" layoutY="349.0" mnemonicParsing="false" onAction="#Afficher" text="Afficher" />
+      <Button layoutX="150.0" layoutY="399.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="140.0" text="Ajouter" />
+      <Button layoutX="336.0" layoutY="399.0" mnemonicParsing="false" onAction="#Afficher" prefHeight="25.0" prefWidth="146.0" text="Afficher" />
    </children>
 </AnchorPane>
