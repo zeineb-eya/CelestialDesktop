@@ -100,9 +100,12 @@ public class AjoutOffreFXMLController implements Initializable {
        o.setDescription_offre(description_offre.getText());
       //o.setPrix_offre(Double.parseDouble(prix_offre.getText()));
        // System.out.println("Est un int positif!");
-        o.setPrix_offre(Double.parseDouble(prix_offre.getText()));
+        o.setPrix_offre(Integer.parseInt(prix_offre.getText()));
 //   o.setPrix_offre(Double.parseDouble(prix_offre.getText()));
-      o.setReduction(Double.parseDouble(reduction.getText()));
+
+     //o.setReduction(Double.parseDouble(reduction.getText()));
+     
+o.setReduction(Integer.parseInt(reduction.getText()));
      //  o.setDate_debut_offre(date_debut_offre.getText());
      o.setDate_debut_offre(Date.valueOf(date_debut_offre.getValue()));
       o.setDate_fin_offre(Date.valueOf(date_fin_offre.getValue()));

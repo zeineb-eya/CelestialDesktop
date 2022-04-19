@@ -184,13 +184,13 @@ if(o==null){
                    String sub = tableauOffre.getSelectionModel().getSelectedItem().getNom_offre();
                    String e = tableauOffre.getSelectionModel().getSelectedItem().getDescription_offre();
                    double p  = tableauOffre.getSelectionModel().getSelectedItem().getPrix_offre();
-                   // double re  = tableauOffre.getSelectionModel().getSelectedItem().getReduction();
+                  int redu  = tableauOffre.getSelectionModel().getSelectedItem().getReduction();
            
                    mr.setData(tableauOffre.getSelectionModel().getSelectedItem().getId(),
                            tableauOffre.getSelectionModel().getSelectedItem().getNom_offre(),
                            tableauOffre.getSelectionModel().getSelectedItem().getDescription_offre(),
-                           tableauOffre.getSelectionModel().getSelectedItem().getPrix_offre()
-                           //tableauOffre.getSelectionModel().getSelectedItem().getReduction()
+                           tableauOffre.getSelectionModel().getSelectedItem().getPrix_offre(),
+                           tableauOffre.getSelectionModel().getSelectedItem().getReduction()
                            
                            // tableauOffre.getSelectionModel().getSelectedItem().getDate_debut_offre()
                            // tableaureclam.getSelectionModel().getSelectedItem().getContent()

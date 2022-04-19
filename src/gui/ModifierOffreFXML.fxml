@@ -23,5 +23,7 @@
       <Button fx:id="modifOffreButton" layoutX="473.0" layoutY="329.0" mnemonicParsing="false" onAction="#modifier" prefHeight="25.0" prefWidth="99.0" text="Modifier" />
       <Label layoutX="75.0" layoutY="102.0" />
       <FontAwesomeIconView fill="#1c11eb" glyphName="EDIT" layoutX="552.0" layoutY="346.0" onMouseClicked="#modifierReclam" size="15" wrappingWidth="16.0" />
+      <TextField fx:id="reduction_modif" layoutX="202.0" layoutY="321.0" />
+      <Label layoutX="73.0" layoutY="338.0" text="reduction" />
    </children>
 </AnchorPane>

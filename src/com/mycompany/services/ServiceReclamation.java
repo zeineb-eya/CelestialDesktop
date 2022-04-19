@@ -55,19 +55,19 @@ public class ServiceReclamation {
     
     public void ajouterReclamation2(Reclamation r){
         
-        String requete2 = "INSERT INTO reclamation (description_reclamation,etat_reclamation,date_reclamation) "
-                 + "VALUES(?,'envoye',?)";
+        String requete2 = "INSERT INTO reclamation (user_id,description_reclamation,etat_reclamation,date_reclamation) "
+                 + "VALUES(?,?,'envoye',?)";
         
         try {
            PreparedStatement pst = cnx2.prepareStatement(requete2);  //utilise pour les requete dynamique
           //pst.setInt(1, GlobalConfig.getInstance().getSession());
 //          pst.setInt(1,r.getUser());
-
-           pst.setString(1, r.getDescription_reclamation());
+         pst.setInt(1,r.getUser()) ;
+           pst.setString(2, r.getDescription_reclamation());
             
         //  pst.setString(2, r.getEtat_reclamation());
          java.sql.Date date_reclamation = getCurrentDatetime(); 
-         pst.setDate(2, date_reclamation);
+         pst.setDate(3, date_reclamation);
        // pst.setInt(3, r.getUser());
         // pst.setUser(3, user);
           // pst.setString(2, r.getDate_reclamation());
@@ -91,7 +91,7 @@ public class ServiceReclamation {
          
       //  String requete3 = "SELECT * FROM reclamation inner join user where reclamation.user_id = user.nom_utilisateur";
         
-        String requete3 = "SELECT * FROM reclamation ";
+        String requete3 = "SELECT * FROM reclamation";
        
         Statement st = cnx2.createStatement();;
         ResultSet rs =  st.executeQuery(requete3);
@@ -101,6 +101,8 @@ public class ServiceReclamation {
             r.setDescription_reclamation(rs.getString("description_reclamation"));
             r.setEtat_reclamation(rs.getString("etat_reclamation"));
             r.setDate_reclamation(rs.getString("date_reclamation"));
+            //r.setUser(rs.getString("nom_utilisateur"));
+            int user= rs.getInt("user_id");
            //  r.setUser(rs.getInt(5));
             // r.setUser(rs.getInt("user_id"));
            

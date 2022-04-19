@@ -8,6 +8,7 @@ package gui;
 import com.mycompany.entities.Reclamation;
 import com.mycompany.services.ServiceReclamation;
 import com.mycompany.utils.MyConnection;
+import javafx.scene.control.Pagination;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -25,12 +26,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+
 
 /**
  * FXML Controller class
@@ -39,6 +44,7 @@ import javax.swing.JOptionPane;
  */
 public class AfficherReclamationFXMLController implements Initializable {
 
+    Pagination pagination;
     @FXML
     private TableView<Reclamation> tableaureclam;
     @FXML
@@ -49,6 +55,8 @@ public class AfficherReclamationFXMLController implements Initializable {
     private TableColumn<?, ?> date_reclamcol;
     
     ObservableList myList ;
+    @FXML
+    private TableColumn<?, ?> user;
 
     /**
      * Initializes the controller class.
@@ -57,7 +65,39 @@ public class AfficherReclamationFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
        afficherReclam();
+       pagination = new Pagination(10);
+       pagination.setStyle("-fx-border-color:blue");
+       pagination.setPageFactory((Integer pageIndex) -> createPage(pageIndex));
+       
+       AnchorPane anchor = new AnchorPane();
+       AnchorPane.setTopAnchor(pagination, 10.0);
+       AnchorPane.setBottomAnchor(pagination, 10.0);
+       AnchorPane.setLeftAnchor(pagination,10.0);
+       AnchorPane.setRightAnchor(pagination,10.0);
+       
+       anchor.getChildren().add(pagination);
+       Scene scene = new Scene(anchor);
+       
+     Stage stageAff=new Stage();
+        stageAff.setScene(scene);
+        stageAff.show();
+      
+       
+       
     }   
+    
+    public VBox createPage(int pageIndex){
+        VBox pageBox = new VBox();
+        
+        Label pageLabel = new Label("Page : "+ (pageIndex+1));
+        pageBox.getChildren().add(pageLabel);
+        
+        
+        
+        return pageBox;
+        
+    }
+    
     
        public Boolean ValidateFields() {
     if (tableaureclam.getSelectionModel().isEmpty() ){
@@ -110,6 +150,8 @@ public class AfficherReclamationFXMLController implements Initializable {
         description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
         etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
         date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
+        user.setCellValueFactory(new PropertyValueFactory<>("user_id"));
+        
         //user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
         
     }

@@ -14,9 +14,9 @@ import java.sql.JDBCType;
  */
 public class Offre {
     
-     private int id;
+     private int id,reduction,prix_offre;
     private String nom_offre,description_offre;
-    private double prix_offre,reduction;
+    //private double prix_offre;
    // private String date_debut_offre;
     
  private Date date_debut_offre,date_fin_offre;
@@ -29,7 +29,7 @@ public class Offre {
         this.description_offre = description_offre;
     }
 
-    public Offre(int id, String nom_offre, String description_offre, double prix_offre, double reduction, Date date_debut_offre, Date date_fin_offre) {
+    public Offre(int id, String nom_offre, String description_offre, int prix_offre, int reduction, Date date_debut_offre, Date date_fin_offre) {
         this.id = id;
         this.nom_offre = nom_offre;
         this.description_offre = description_offre;
@@ -39,7 +39,7 @@ public class Offre {
         this.date_fin_offre = date_fin_offre;
     }
 
-    public Offre(String nom_offre, String description_offre, double prix_offre, double reduction, Date date_debut_offre, Date date_fin_offre) {
+    public Offre(String nom_offre, String description_offre, int prix_offre, int reduction, Date date_debut_offre, Date date_fin_offre) {
         this.nom_offre = nom_offre;
         this.description_offre = description_offre;
         this.prix_offre = prix_offre;
@@ -48,7 +48,7 @@ public class Offre {
         this.date_fin_offre = date_fin_offre;
     }
 
-    public Offre(String nom_offre, String description_offre, double prix_offre, double reduction) {
+    public Offre(String nom_offre, String description_offre, int prix_offre, int reduction) {
         this.nom_offre = nom_offre;
         this.description_offre = description_offre;
         this.prix_offre = prix_offre;
@@ -61,7 +61,7 @@ public class Offre {
         this.description_offre = description_offre;
     }
 
-    public Offre(int id, String nom_offre, String description_offre, double prix_offre, double reduction) {
+    public Offre(int id, String nom_offre, String description_offre, int prix_offre, int reduction) {
         this.id = id;
         this.nom_offre = nom_offre;
         this.description_offre = description_offre;
@@ -97,19 +97,19 @@ public class Offre {
         this.description_offre = description_offre;
     }
 
-    public double getPrix_offre() {
+    public int getPrix_offre() {
         return prix_offre;
     }
 
-    public void setPrix_offre(double prix_offre) {
+    public void setPrix_offre(int prix_offre) {
         this.prix_offre = prix_offre;
     }
 
-    public double getReduction() {
+    public int getReduction() {
         return reduction;
     }
 
-    public void setReduction(double reduction) {
+    public void setReduction(int reduction) {
         this.reduction = reduction;
     }
 

@@ -73,8 +73,8 @@ public class ServiceOffre {
             o.setId(rs.getInt(1));
             o.setNom_offre(rs.getString("nom_offre"));
             o.setDescription_offre(rs.getString("description_offre"));
-            o.setPrix_offre(rs.getDouble("prix_offre"));
-            o.setReduction(rs.getDouble("reduction"));
+            o.setPrix_offre(rs.getInt("prix_offre"));
+            o.setReduction(rs.getInt("reduction"));
             o.setDate_debut_offre(rs.getDate("date_debut_offre"));
             o.setDate_fin_offre(rs.getDate("date_fin_offre"));
              myList.add(o);
@@ -122,7 +122,7 @@ public class ServiceOffre {
             Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, ex);
         }    */
    
-      String requete2="update offre set nom_offre=?,description_offre=?,prix_offre=? where id=?";
+      String requete2="update offre set nom_offre=?,description_offre=?,prix_offre=?,reduction=? where id=?";
       
         try {
             
@@ -133,10 +133,11 @@ public class ServiceOffre {
             pst.setString(1,o.getNom_offre()); 
             pst.setString(2,o.getDescription_offre());
             pst.setDouble(3,o.getPrix_offre());
+             pst.setInt(4,o.getReduction());
            // pst.setDouble(4,o.getReduction());
             //pst.setString(5,o.getDate_debut_offre());
             //pst.setString(6,o.getDate_fin_offre());
-            pst.setInt(4,o.getId());
+            pst.setInt(5,o.getId());
             System.out.println(pst);
            // pst.execute();
             pst.executeUpdate();
@@ -166,8 +167,8 @@ public class ServiceOffre {
             o.setId(rst.getInt(1));
             o.setNom_offre(rst.getString("nom_offre"));
             o.setDescription_offre(rst.getString("description_offre"));
-            o.setPrix_offre(rst.getDouble("prix_offre"));
-            o.setReduction(rst.getDouble("reduction"));
+            o.setPrix_offre(rst.getInt("prix_offre"));
+            o.setReduction(rst.getInt("reduction"));
             o.setDate_debut_offre(rst.getDate("date_debut_offre"));
             o.setDate_fin_offre(rst.getDate("date_fin_offre"));
     
@@ -195,8 +196,8 @@ public class ServiceOffre {
             o.setId(rst.getInt(1));
             o.setNom_offre(rst.getString("nom_offre"));
             o.setDescription_offre(rst.getString("description_offre"));
-            o.setPrix_offre(rst.getDouble("prix_offre"));
-            o.setReduction(rst.getDouble("reduction"));
+            o.setPrix_offre(rst.getInt("prix_offre"));
+            o.setReduction(rst.getInt("reduction"));
             o.setDate_debut_offre(rst.getDate("date_debut_offre"));
             o.setDate_fin_offre(rst.getDate("date_fin_offre"));
     
@@ -233,8 +234,8 @@ public class ServiceOffre {
                o.setId(rs.getInt("id"));
                o.setNom_offre(rs.getString("nom_offre"));
                o.setDescription_offre(rs.getString(3));
-               o.setPrix_offre(rs.getDouble(4));
-               o.setReduction(rs.getDouble(5));
+               o.setPrix_offre(rs.getInt(4));
+               o.setReduction(rs.getInt(5));
                o.setDate_debut_offre(rs.getDate(6));
                o.setDate_fin_offre(rs.getDate(7));
 

@@ -42,7 +42,8 @@ public class ModifierOffreFXMLController implements Initializable {
     private TextField prix_offre_modif;
     @FXML
     private Button modifOffreButton;
-
+    @FXML
+    private TextField reduction_modif;
     /**
      * Initializes the controller class.
      */
@@ -59,6 +60,7 @@ public class ModifierOffreFXMLController implements Initializable {
        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+               
         // TODO
        
     }    
@@ -74,7 +76,6 @@ public class ModifierOffreFXMLController implements Initializable {
     }return true;
 }
     
-       
     @FXML
     private void modifier(ActionEvent event) throws FileNotFoundException, IOException {
         if(Validchamp(description_offre_modif)){
@@ -92,10 +93,15 @@ public class ModifierOffreFXMLController implements Initializable {
         }else {
               o.setNom_offre(nom_offre_modif.getText());
              o.setDescription_offre(description_offre_modif.getText());
-             o.setPrix_offre(getPrixFromTextField(prix_offre_modif));
+            int p = Integer.parseInt(prix_offre_modif.getText());
+            o.setPrix_offre(p);
+             
+             int r = Integer.parseInt(reduction_modif.getText());
+             o.setReduction(r);
 //             rec.setReduction(getReductionFromTextField(reduction_modif));
     
              
+       //  o.setReduction(prixrepas);
              /*
              
              
@@ -135,14 +141,21 @@ public class ModifierOffreFXMLController implements Initializable {
     }
 }
 //double reduction
- void setData(int id, String nom_offre, String description_offre, double prix) {
+ void setData(int id, String nom_offre, String description_offre, int p,int reduc) {
         o.setId(id);
        nom_offre_modif.setText(nom_offre);
     description_offre_modif.setText(description_offre);
     
-    prix = o.getPrix_offre();
-String p = String.valueOf(prix);
-    prix_offre_modif.setText(p);
+    //o.setReduction(reduc);
+  //  int i = Integer.parseInt(reduction_modif.getText());
+
+  String prix = String.valueOf(p);
+  prix_offre_modif.setText(prix);
+  
+String red = String.valueOf(reduc);
+    reduction_modif.setText(red);
+    
+
 
  /*reduction = rec.getReduction();
 String r = String.valueOf(reduction);
