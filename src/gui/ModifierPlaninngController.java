@@ -11,7 +11,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -75,41 +78,62 @@ public class ModifierPlaninngController implements Initializable {
 
 
  
-  @FXML
-     public void modifier(ActionEvent event) throws FileNotFoundException, IOException, SQLException {
-      if(Validchamp(nomplanningmodif) && Validchamp(destinationplanningmodif)){
-          
-      
-        int opt = JOptionPane.showConfirmDialog(null, "Confirmer la modification ?","modifier",JOptionPane.YES_NO_OPTION);
-        if(opt==0){
-        if(nomplanningmodif.getText().isEmpty() | destinationplanningmodif.getText().isEmpty()){  
+ @FXML
+    private void modifier(ActionEvent event) {
+         if (p == null) {
+
+            System.out.println("Choisir un planinng");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Modifier planinng");
+            alert.setHeaderText(null);
+            alert.setContentText("Le planinng n'est pas modifié!");
+
+            alert.showAndWait();
+        }else {
             
-       
-        Alert al = new Alert(Alert.AlertType.ERROR);
-        al.setHeaderText(null);
-        al.setContentText("remplir les champs vides svp");
-        al.showAndWait();
-        }else{
- }
+        p.setNomPlanning(nomplanningmodif.getText());
+        p.setDateDebutPlanning(Date.valueOf(dateDebutplanningmodif.getValue()));
+        p.setDateFinPlanning(Date.valueOf(dateFinplanningmodif.getValue()));
+        p.setDestinationPlanning(destinationplanningmodif.getText());
+        p.setDescriptionPlanning(descriptionplanningmodif.getText());
+        p.setPeriodePlanning(Integer.parseInt(periodeplanningmodif.getText()));
+        p.setPrixPlanning(Integer.parseInt(prixplanningmodif.getText()));
          PlaninngService ps = new PlaninngService();
-        Planinng p = new  Planinng (Integer.parseInt(prixplanningmodif.getText()),Integer.parseInt(periodeplanningmodif.getText()),nomplanningmodif.getText(),Date.valueOf(dateDebutplanningmodif.getValue()),Date.valueOf(dateFinplanningmodif.getValue()),descriptionplanningmodif.getText(),destinationplanningmodif.getText(),nomplanningmodif.getText());
-
-
-          JOptionPane.showMessageDialog(null, "planinng modifié");
-       ps.updatePlaninng(p);
-        //afficherOffre();
-        FXMLLoader loader = new FXMLLoader
-                        (getClass()
-                         .getResource("AffichePlaninng.fxml"));
-        Scene scene=new Scene(loader.load());
-       
-//       AfficherReclamationFXMLController mr= loader.getController();
-        Stage stageAff=new Stage();
-        stageAff.setScene(scene);
-        stageAff.show();
-        ((Node) (event.getSource())).getScene().getWindow().hide();
+             try{
+             ps.updatePlaninng(p);
+             System.out.println("ok");}
+             catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+            System.out.println("Modification terminé");}
+             
+           
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Modification terminée avec succès.");
+        alert.setHeaderText(null);
+    alert.setContentText("Votre Planinng a été modifié avec succés.");
+        alert.showAndWait();
+        javafx.scene.Parent tableview = null;
+        try {
+            tableview = FXMLLoader.load(getClass().getResource("AffichePlaninng.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(ModifierLocalisationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Scene sceneview = new Scene(tableview);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(sceneview);
+        window.show();
     }
+     void setData(int id, String su, String ds, String dss, int pe, int pr) {
+       p.setId(id);
+       nomplanningmodif.setText(su);
+       destinationplanningmodif.setText(ds);
+       descriptionplanningmodif.setText(dss);
+       p.setPeriodePlanning(pe);
+       p.setPrixPlanning(pr);
 
-     }
-     }
-}
+
+    }
+    }
+    

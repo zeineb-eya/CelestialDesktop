@@ -73,7 +73,7 @@ public class LocalisationService {
     }
 
     public void modifierLocalistaion(Localisation l) {
-       String requete11="update localisation set position_depart_localisation =?,heuredepartlocalisation=?,heure_arrivee_loacalisation=?,position_arivee_planning=?,fusee=? where id=?";
+       String requete11="update localisation set heuredepartlocalisation =?,heure_arrivee_loacalisation=?,position_depart_localisation=?,position_arivee_planning=?,fusee=? where id=?";
         try {
             
             PreparedStatement ps = connection.prepareStatement(requete11);

@@ -116,9 +116,9 @@ public class AffichePlaninngController implements Initializable {
     
     ObservableList myList;
     @FXML
-    private TableColumn<? , ?> id;
+    private TableColumn<Planinng, Integer > id;
     @FXML
-    private TableColumn<?, ?> nomplanning;
+    private TableColumn<Planinng,String> nomplanning;
     @FXML
     private TableColumn<?, ?> dateDebutplanning;
     @FXML
@@ -225,12 +225,17 @@ if(p==null){
         stageAff.setScene(scene);
         stageAff.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
-       //int as=tableplaninng.getSelectionModel().getSelectedItem().getId();
-       //String sub =tableplaninng.getSelectionModel().getSelectedItem().getNomPlanning();
+       int as=tableplaninng.getSelectionModel().getSelectedItem().getId();
+       String su =tableplaninng.getSelectionModel().getSelectedItem().getNomPlanning();
+
         
 
-         //          pc.setData(tableplaninng.getSelectionModel().getSelectedItem(),getId(),
-           //        tableplaninng.getSelectionModel().getSelectedItem().getNomPlanning());
+                   pc.setData(tableplaninng.getSelectionModel().getSelectedItem().getId(),
+                 tableplaninng.getSelectionModel().getSelectedItem().getNomPlanning(),
+                 tableplaninng.getSelectionModel().getSelectedItem().getDestinationPlanning(),
+                 tableplaninng.getSelectionModel().getSelectedItem().getDescriptionPlanning(),
+                 tableplaninng.getSelectionModel().getSelectedItem().getPeriodePlanning(),
+                 tableplaninng.getSelectionModel().getSelectedItem().getPrixPlanning());
                  
                  
        
@@ -239,6 +244,7 @@ if(p==null){
      System.out.println("eer");
 }
         }
+
 
 }
 
@@ -249,7 +255,7 @@ if(p==null){
         myList = FXCollections.observableList(planinngs);
         tableplaninng.setItems(myList);
        
-            id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
         nomplanning.setCellValueFactory(new PropertyValueFactory<>("nomPlanning"));
         dateDebutplanning.setCellValueFactory(new PropertyValueFactory<>("dateDebutPlanning"));
         dateFinplanning.setCellValueFactory(new PropertyValueFactory<>("dateFinPlanning"));

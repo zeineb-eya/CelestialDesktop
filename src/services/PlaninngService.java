@@ -145,15 +145,27 @@ public void ajouter(Planinng p) {
          }
     }
     @Override
-   public boolean updatePlaninng( Planinng p){
-        String req = "UPDATE `planinng` SET `nom_planning`='"+p.getNomPlanning()+"',`date_debut_planning`='"+p.getDateDebutPlanning()+"',`date_fin_planning`='"+p.getDateFinPlanning()+"', `destination_planning`='"+p.getDestinationPlanning()+"',`description_planning`='"+p.getDescriptionPlanning()+"',`periode_planning`='"+p.getPeriodePlanning()+"',`prix_planning`='"+p.getPrixPlanning()+"' WHERE `id` = "+p.getId()+" ";
-       try {
-            Statement st = connection.createStatement();
-            if (st.executeUpdate(req) == 1)
-                return true;
-            return false;
+   public void updatePlaninng( Planinng p){
+        String requete11="update planinng set nom_planning =?,date_debut_planning=?,date_fin_planning=?,destination_planning=?,description_planning=?,periode_planning=?,prix_planning=?,img_planning=? where id=?";
+        try {
+            
+            PreparedStatement ps = connection.prepareStatement(requete11);
+            ps.setInt(9,p.getId());
+            ps.setString(1, p.getNomPlanning());
+            ps.setDate(2, (Date) p.getDateDebutPlanning());
+            ps.setDate(3, (Date) p.getDateFinPlanning());
+            ps.setString(4, p.getDestinationPlanning());
+            ps.setString(5, p.getDescriptionPlanning());
+            ps.setInt(6,p.getPeriodePlanning());
+            ps.setInt(7,p.getPrixPlanning());
+            ps.setString(8,p.getImg());
+
+           
+            System.out.println(ps);
+            ps.executeUpdate();
+             System.out.println("votre Planinng a ete bien modife");
         } catch (SQLException e) {
-            return false;
+            e.printStackTrace();
         }
 
     }

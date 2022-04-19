@@ -22,7 +22,7 @@ import java.util.List;
     
     public List<Planinng>afficherPlaninng();
     
-     public boolean updatePlaninng( Planinng p);
+     public void updatePlaninng( Planinng p);
     
     public List<Planinng> refreshPlaninng();
 

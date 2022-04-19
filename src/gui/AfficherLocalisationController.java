@@ -45,16 +45,16 @@ public class AfficherLocalisationController implements Initializable {
     @FXML
     private TableColumn<?, ?> fusee;
     @FXML
-    private TableColumn<?, ?> id;
+    private TableColumn<Localisation, Integer> id;
      
     @FXML
-    private TableView<?> tableloca;
+    private TableView<Localisation> tableloca;
     @FXML
     private TableColumn<?, ?> heuredepartlocalisationcol;
     @FXML
     private TableColumn<?, ?> colheure_arrivee_loacalisation;
     @FXML
-    private TableColumn<?, ?> colposition_depart_localisation;
+    private TableColumn<Localisation, String> colposition_depart_localisation;
     @FXML
     private TableColumn<?, ?> position_arivee_planning;
     @FXML
@@ -139,12 +139,16 @@ if(l==null){
         stageAff.setScene(scene);
         stageAff.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
-      //   int as=tableloca.getSelectionModel().getSelectedItem().getId();
-     //  String sub =tableloca.getSelectionModel().getSelectedItem().getPositionDepartLocalisation();
+         int as=tableloca.getSelectionModel().getSelectedItem().getId();
+      String sub =tableloca.getSelectionModel().getSelectedItem().getHeureDepartLocalisation();
         
 
-         //          pc.setData(tableplaninng.getSelectionModel().getSelectedItem(),getId(),
-           //        tableplaninng.getSelectionModel().getSelectedItem().getNomPlanning());
+                   lc.setData(tableloca.getSelectionModel().getSelectedItem().getId(),
+                   tableloca.getSelectionModel().getSelectedItem().getHeureDepartLocalisation(),
+                  tableloca.getSelectionModel().getSelectedItem().getHeureArriveeLoacalisation(),
+                 tableloca.getSelectionModel().getSelectedItem().getPositionDepartLocalisation(),
+                tableloca.getSelectionModel().getSelectedItem().getPositionAriveePlanning(),
+                tableloca.getSelectionModel().getSelectedItem().getFusee());
                  
                  
        

@@ -62,8 +62,8 @@ public class ModifierLocalisationController implements Initializable {
             alert.showAndWait();
         }else {
             
-             l.setPositionDepartLocalisation(PositionDepartModif.getText());
-             l.setHeureDepartLocalisation(heuredepartlocalisationmodif.getText());
+        l.setPositionDepartLocalisation(PositionDepartModif.getText());
+        l.setHeureDepartLocalisation(heuredepartlocalisationmodif.getText());
         l.setHeureArriveeLoacalisation(heurearriveeloacalisationmodif.getText());
         l.setPositionAriveePlanning(positionariveeplanningmodif.getText());
         l.setFusee(fuseemodif.getText());
@@ -94,13 +94,13 @@ public class ModifierLocalisationController implements Initializable {
         window.setScene(sceneview);
         window.show();
     }
-     void setData(int id, String sub,String hd, String ha,String pa,String fs) {
+     void setData(int id, String sub, String ha,String pd, String pa, String fu) {
        l.setId(id);
-       PositionDepartModif.setText(sub);
-       heuredepartlocalisationmodif.setText(hd);
-       heurearriveeloacalisationmodif.setText(ha);
-       positionariveeplanningmodif.setText(pa);
-       fuseemodif.setText(fs);
+       heuredepartlocalisationmodif.setText(sub);
+heurearriveeloacalisationmodif.setText(ha);
+PositionDepartModif.setText(pd);
+positionariveeplanningmodif.setText(pa);
+fuseemodif.setText(fu);
 
 
     }
