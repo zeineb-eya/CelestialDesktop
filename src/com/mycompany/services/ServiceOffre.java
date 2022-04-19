@@ -122,7 +122,7 @@ public class ServiceOffre {
             Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, ex);
         }    */
    
-      String requete2="update offre set nom_offre=?,description_offre=?,prix_offre=?,reduction=? where id=?";
+      String requete2="update offre set nom_offre=?,description_offre=?,prix_offre=? where id=?";
       
         try {
             
@@ -133,10 +133,10 @@ public class ServiceOffre {
             pst.setString(1,o.getNom_offre()); 
             pst.setString(2,o.getDescription_offre());
             pst.setDouble(3,o.getPrix_offre());
-            pst.setDouble(4,o.getReduction());
+           // pst.setDouble(4,o.getReduction());
             //pst.setString(5,o.getDate_debut_offre());
             //pst.setString(6,o.getDate_fin_offre());
-            pst.setInt(5,o.getId());
+            pst.setInt(4,o.getId());
             System.out.println(pst);
            // pst.execute();
             pst.executeUpdate();

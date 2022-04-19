@@ -7,17 +7,11 @@ package gui;
 
 import com.mycompany.entities.Offre;
 import com.mycompany.services.ServiceOffre;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,13 +20,9 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -41,15 +31,9 @@ import javax.swing.JOptionPane;
  */
 public class ModifierOffreFXMLController implements Initializable {
 
-    @FXML
-    private Button modifOffreButton;
-
-    /**
-     * Initializes the controller class.
-     */
+   
     
-        
-    //off.setDate_debut_offre(date_debut_offre_modif.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+     Offre o=new Offre();
     @FXML
     private TextField nom_offre_modif;
     @FXML
@@ -57,26 +41,30 @@ public class ModifierOffreFXMLController implements Initializable {
     @FXML
     private TextField prix_offre_modif;
     @FXML
-    private TextField reduction_modif;
-    
+    private Button modifOffreButton;
 
-    @FXML
-    private TextField id_offre_modif;
+    /**
+     * Initializes the controller class.
+     */
+    
+       public  double getPrixFromTextField(TextField textField) {
+        String prix = prix_offre_modif.getText();
+        return Double.parseDouble(prix);
+       }
+       
+     /*   public  double getReductionFromTextField(TextField textField) {
+        String reduction = reduction_modif.getText();
+        return Double.parseDouble(reduction);
+       }*/
+       
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-       //  category.setItems(options);
-        
-                }
-    
-    Offre o=new Offre();
-    
-  /*  private void modifier(ActionEvent event) throws FileNotFoundException, IOException {
-        
-}*/
+       
+    }    
     
         private boolean Validchamp(TextField T){
-         if(T.getText().isEmpty() | T.getLength() <5 ){
+         if(T.getText().isEmpty() |  T.getLength() <5){
           Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur de champ");
             alert.setHeaderText(null);
@@ -85,111 +73,91 @@ public class ModifierOffreFXMLController implements Initializable {
       return false;
     }return true;
 }
-        
-   //modifOffreButton
-    @FXML
-     public void modifOffreButton(ActionEvent event) throws FileNotFoundException, IOException, SQLException {
-      if(Validchamp(nom_offre_modif) && Validchamp(description_offre_modif)){
-          
-      
-        int opt = JOptionPane.showConfirmDialog(null, "Confirmer la modification ?","modifier",JOptionPane.YES_NO_OPTION);
-        if(opt==0){
-        if(nom_offre_modif.getText().isEmpty() | description_offre_modif.getText().isEmpty()){  
-            
-       
-        Alert al = new Alert(Alert.AlertType.ERROR);
-        al.setHeaderText(null);
-        al.setContentText("remplir les champs vides svp");
-        al.showAndWait();
-        }else{
- }
-          //Date d = java.sql.Date.valueOf(date_debut_offremodif.getValue());
-         ServiceOffre a = new ServiceOffre();
-        Offre a1 = new  Offre (Integer.parseInt(id_offre_modif.getText()),nom_offre_modif.getText(),description_offre_modif.getText(),Integer.parseInt(reduction_modif.getText()),Integer.parseInt(prix_offre_modif.getText()));
-          // Offre a1 = new  Offre (nom_offre_modif.getText(),description_offre_modif.getText(),Integer.parseInt(reduction_modif.getText()),Integer.parseInt(prix_offre_modif.getText()));
-
-
-          JOptionPane.showMessageDialog(null, "offre modifié");
-       a.updateOffre(a1);
-        //afficherOffre();
-        FXMLLoader loader = new FXMLLoader
-                        (getClass()
-                         .getResource("AfficherOffreFXML.fxml"));
-        Scene scene=new Scene(loader.load());
-       
-//       AfficherReclamationFXMLController mr= loader.getController();
-        Stage stageAff=new Stage();
-        stageAff.setScene(scene);
-        stageAff.show();
-        ((Node) (event.getSource())).getScene().getWindow().hide();
-    }
-
-     }
-     }
-
-    @FXML
-    private void modifierReclam(MouseEvent event) {
-    }
- }
-     
     
-       //test final
        
-   /*if (o == null) {
+    @FXML
+    private void modifier(ActionEvent event) throws FileNotFoundException, IOException {
+        if(Validchamp(description_offre_modif)){
+            
+        
+        if (o == null) {
 
-            System.out.println("Veuillez choisir une offre");
+            System.out.println("Choisir une réclamation");
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Modification de l'offre");
+            alert.setTitle("Modifier réclamation");
             alert.setHeaderText(null);
-            alert.setContentText("Pas de modif!");
+            alert.setContentText("La réclamation n'est pas modifié!");
 
             alert.showAndWait();
         }else {
-        
-             //pst.setInt(1,id);
-        o.setNom_offre(nom_offre_modif.getText());
-        o.setDescription_offre(description_offre_modif.getText());
-        o.setPrix_offre(Integer.parseInt(prix_offre_modif.getText()));
-        o.setReduction(Integer.parseInt(reduction_modif.getText()));
-     
-        ServiceOffre so = new ServiceOffre();
+              o.setNom_offre(nom_offre_modif.getText());
+             o.setDescription_offre(description_offre_modif.getText());
+             o.setPrix_offre(getPrixFromTextField(prix_offre_modif));
+//             rec.setReduction(getReductionFromTextField(reduction_modif));
+    
+             
+             /*
+             
+             
+               public  double getPrixFromTextField(TextField textField) {
+        String prix = prix_offre_modif.getText();
+        return Double.parseDouble(prix);
+       }
+             */
+             
+          //  double total = rec.getPrix_offre();
+            // String total2 = String.valueOf(total);
+//             rec.setPrix_offre((double) prix_offre_modif.getValue());
+           
+            ServiceOffre so = new ServiceOffre();
              try{
              so.updateOffre(o);
              System.out.println("ok");}
              catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-            System.out.println("Modification réussite");}
+            System.out.println("Modification terminé");}
              
            
         
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Modififcation de l'offre");
+        alert.setTitle("Modification terminée avec succès.");
         alert.setHeaderText(null);
-        alert.setContentText("Offre modifié avec succés.");
+    alert.setContentText("Votre réclamation a été modifié avec succés.");
         alert.showAndWait();
-        javafx.scene.Parent tableview = null;
-        try {
-            tableview = FXMLLoader.load(getClass().getResource("AfficherOffreFXML.fxml"));
-        } catch (IOException ex) {
-            Logger.getLogger(ModifierOffreFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //javafx.scene.Parent tableview = FXMLLoader.load(getClass().getResource("AfficherOffreXML.fxml"));
+     javafx.scene.Parent tableview = FXMLLoader.load(getClass().getResource("AfficherOffreFXML.fxml"));
+
         Scene sceneview = new Scene(tableview);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(sceneview);
         window.show();
     }
-    void setData(int id,String c,String v,String t, String p) {
-      o.setId(id);
-        nom_offre_modif.setText(c);
-        description_offre_modif.setText(v);
-       prix_offre_modif.setText(t);
-        reduction_modif.setText(p);
-     
-    }
+}
+//double reduction
+ void setData(int id, String nom_offre, String description_offre, double prix) {
+        o.setId(id);
+       nom_offre_modif.setText(nom_offre);
+    description_offre_modif.setText(description_offre);
+    
+    prix = o.getPrix_offre();
+String p = String.valueOf(prix);
+    prix_offre_modif.setText(p);
+
+ /*reduction = rec.getReduction();
+String r = String.valueOf(reduction);
+    reduction_modif.setText(r);
+    */
+         
 }
 
-             
-         
-         
-*/
+    @FXML
+    private void modifierReclam(MouseEvent event) {
+    }
+}
+    
+      
+    
+
+  
+

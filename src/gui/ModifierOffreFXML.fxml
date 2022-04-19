@@ -17,15 +17,11 @@
       <Label layoutX="70.0" layoutY="152.0" text="Nom offre:" />
       <Label layoutX="53.0" layoutY="213.0" text="Description offre:" />
       <Label layoutX="73.0" layoutY="274.0" text="Prix offre:" />
-      <Label layoutX="75.0" layoutY="320.0" text="Reduction:" />
       <TextField fx:id="nom_offre_modif" layoutX="202.0" layoutY="148.0" />
       <TextField fx:id="description_offre_modif" layoutX="202.0" layoutY="209.0" />
       <TextField fx:id="prix_offre_modif" layoutX="202.0" layoutY="270.0" />
-      <TextField fx:id="reduction_modif" layoutX="202.0" layoutY="316.0" />
-      <Button fx:id="modifOffreButton" layoutX="473.0" layoutY="329.0" mnemonicParsing="false" onAction="#modifOffreButton" prefHeight="25.0" prefWidth="99.0" text="Modifier" />
+      <Button fx:id="modifOffreButton" layoutX="473.0" layoutY="329.0" mnemonicParsing="false" onAction="#modifier" prefHeight="25.0" prefWidth="99.0" text="Modifier" />
       <Label layoutX="75.0" layoutY="102.0" />
-      <TextField fx:id="id_offre_modif" layoutX="202.0" layoutY="98.0" />
-      <Label layoutX="61.0" layoutY="102.0" prefHeight="17.0" prefWidth="75.0" text="num offre:" />
       <FontAwesomeIconView fill="#1c11eb" glyphName="EDIT" layoutX="552.0" layoutY="346.0" onMouseClicked="#modifierReclam" size="15" wrappingWidth="16.0" />
    </children>
 </AnchorPane>

@@ -52,7 +52,7 @@ import javafx.scene.layout.AnchorPane;
 public class AfficherOffreFXMLController implements Initializable {
 
     @FXML
-    private TableView<?> tableauOffre;
+    private TableView<Offre> tableauOffre;
     
      ObservableList myList ;
     @FXML
@@ -83,25 +83,7 @@ public class AfficherOffreFXMLController implements Initializable {
     
      @FXML
     private void deleteOffre(MouseEvent event) {
-       /*   if (tableauOffre.getSelectionModel().isEmpty() ){
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        JOptionPane.showMessageDialog(null,"veuillez choisir uen offre a supprimer");
-          }else{
-         ServiceOffre so = new ServiceOffre();
-        Offre o = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
-        so.deleteOffre(o);
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-                 try {
-             if(JOptionPane.showConfirmDialog(null,"Attention vous allez supprimer votre offre,est ce que tu et sure?"
-                     ,"supprimer offre",JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION)
-                
-         alert.setContentText("Votre offre a été bien supprime");
-         JOptionPane.showMessageDialog(null,"offre supprimé");
-             //ca est pour recharger la list des stagiaire
-           
-        
-        }catch (Exception e){JOptionPane.showMessageDialog(null,"erreur de supprimer \n"+e.getMessage());} 
-          }*/
+       
     if (tableauOffre.getSelectionModel().isEmpty() ){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         JOptionPane.showMessageDialog(null,"Aucune offre n'est selectionné ,veuillez choisir une offre");
@@ -109,9 +91,9 @@ public class AfficherOffreFXMLController implements Initializable {
    int responce=JOptionPane.showConfirmDialog(null, "Attention vous allez supprimer l'offre sélectionné etes-vous sur ?","Suppression",JOptionPane.YES_NO_OPTION);
             if (responce==JOptionPane.YES_OPTION){
            ServiceOffre so = new ServiceOffre();
-                    Offre o = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
+                    Offre o = tableauOffre.getSelectionModel().getSelectedItem();
                      so.deleteOffre(o);
-             //refresh(true);
+            
           Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
          alert.setContentText("Votre offre a été bien supprime");
@@ -167,90 +149,61 @@ public class AfficherOffreFXMLController implements Initializable {
     
     }     
 
-   // private void updateOffre(ActionEvent event) throws SQLException {
-         /*   int opt = JOptionPane.showConfirmDialog(null, "Confirmer la modification ?","modifier",JOptionPane.YES_NO_OPTION);
-      if(opt==0){
-        if(id_offre.getText().isEmpty() |nom_offrecol.getText().isEmpty() | description_offrecol.getText().isEmpty()){      
-        
-        Alert al = new Alert(Alert.AlertType.ERROR);
-        al.setHeaderText(null);
-        al.setContentText("remplir les champs vides svp");
-        al.showAndWait();
-        }else{
- }
-  ServiceOffre a = new ServiceOffre();
-     
-           Offre a1 = new  Offre ( Integer.parseInt(id_offre.getText()),nom_offrecol.getText(),description_offrecol.getText(),Integer.parseInt(reductioncol.getText()),Integer.parseInt(prix_offrecol.getText(),Integer.parseInt(date_debut_offrecol.getText())));
-  JOptionPane.showMessageDialog(null, "offre modifié");
-       a.updateOffre(a1);
-        //afficherOffre();
-    }*/
-/*Offre r = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
-         
+    @FXML
+    private void OnModif(MouseEvent event) throws IOException {
 
-if(r==null){
+           Offre o = tableauOffre.getSelectionModel().getSelectedItem();
+   
+if(o==null){
         
            System.out.println("Aucune reclamation séléctionné");
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur");
             alert.setHeaderText(null);
-            alert.setContentText("Aucune reclamation séléctionné");
+            alert.setContentText("Aucune reclamation séléctionné pour la modifier");
 
             alert.showAndWait();
      
         }else {
-          try {   
-        FXMLLoader loader = new FXMLLoader
-                        (getClass()
-                         .getResource("ModifierOffreFXML.fxml"));
-        Scene scene=new Scene(loader.load());
-        
-
-       ModifierReclamationFXMLController mr= loader.getController();
-        Stage stageAff=new Stage();
-        stageAff.setScene(scene);
-        stageAff.show();
-        ((Node) (event.getSource())).getScene().getWindow().hide();
-     //   int as=tableauOffre.getSelectionModel().getSelectedItem().getId();
-      //  String sub = tableaureclam.getSelectionModel().getSelectedItem().getDescription_reclamation();
-        
-       // String content = tableaureclam.getSelectionModel().getSelectedItem().getContent();
-        
-       
-        
- /*       mr.setData(tableauOffre.getSelectionModel().getSelectedItem().getId(),
-                tableaureclam.getSelectionModel().getSelectedItem().getDescription_reclamation()*/
-                // tableaureclam.getSelectionModel().getSelectedItem().getContent()
-                 //);
-                 
-                 
-       
-     /*   } catch(IOException ex)
-    {
-     System.out.println("eer");
-}
+          
+               try {
+                   FXMLLoader loader = new FXMLLoader
+                                        (getClass()
+                                                .getResource("ModifierOffreFXML.fxml"));
+                   Scene scene=new Scene(loader.load());
+                   
+                   
+                   ModifierOffreFXMLController mr= loader.getController();
+                   Stage stageAff=new Stage();
+                   stageAff.setScene(scene);
+                   stageAff.show();
+                   ((Node) (event.getSource())).getScene().getWindow().hide();
+                   int as=tableauOffre.getSelectionModel().getSelectedItem().getId();
+                   
+                   
+                   String sub = tableauOffre.getSelectionModel().getSelectedItem().getNom_offre();
+                   String e = tableauOffre.getSelectionModel().getSelectedItem().getDescription_offre();
+                   double p  = tableauOffre.getSelectionModel().getSelectedItem().getPrix_offre();
+                   // double re  = tableauOffre.getSelectionModel().getSelectedItem().getReduction();
+           
+                   mr.setData(tableauOffre.getSelectionModel().getSelectedItem().getId(),
+                           tableauOffre.getSelectionModel().getSelectedItem().getNom_offre(),
+                           tableauOffre.getSelectionModel().getSelectedItem().getDescription_offre(),
+                           tableauOffre.getSelectionModel().getSelectedItem().getPrix_offre()
+                           //tableauOffre.getSelectionModel().getSelectedItem().getReduction()
+                           
+                           // tableauOffre.getSelectionModel().getSelectedItem().getDate_debut_offre()
+                           // tableaureclam.getSelectionModel().getSelectedItem().getContent()
+                   );
+               } catch (IOException ex) {
+  System.out.println("eer");               }
+               
+               
+         
         }
-*/
-   
-    //}
 
-    @FXML
-    private void OnModif(MouseEvent event) throws IOException {
-        
-        
-         FXMLLoader loader = new FXMLLoader
-                        (getClass()
-                         .getResource("ModifierOffreFXML.fxml"));
-        Scene scene=new Scene(loader.load());
-        
-
-//       AfficherReclamationFXMLController mr= loader.getController();
-        Stage stageAff=new Stage();
-        stageAff.setScene(scene);
-        stageAff.show();
-        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
-        
+    
        ///testttt
         
      /*   Offre b = (Offre) tableauOffre.getSelectionModel().getSelectedItem();

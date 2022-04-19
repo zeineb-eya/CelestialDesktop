@@ -77,14 +77,9 @@ public class AfficherReclamationFXMLController implements Initializable {
       @FXML
     private void deleteReclam(MouseEvent event) {
        
-      /*  if (tableaureclam.getSelectionModel().isEmpty() ){
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        JOptionPane.showMessageDialog(null,"Aucune réclamation n'est selectionné ,veuillez choisir une offre");
-    
-        }else{*/
          if(ValidateFields() ){
          ServiceReclamation sr = new ServiceReclamation();
-        Reclamation r = (Reclamation) tableaureclam.getSelectionModel().getSelectedItem();
+        Reclamation r =tableaureclam.getSelectionModel().getSelectedItem();
         sr.deleteReclamation(r);
         sr.refreshReclam();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
