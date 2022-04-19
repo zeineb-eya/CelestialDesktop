@@ -4,13 +4,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichePlaninngController">
    <children>
-      <Button layoutX="228.0" layoutY="285.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="25.0" prefWidth="135.0" text="Supprimer" />
-      <TableView fx:id="tableplaninng" layoutX="62.0" layoutY="67.0" prefHeight="200.0" prefWidth="601.0">
+      <Button layoutX="228.0" layoutY="341.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="25.0" prefWidth="135.0" text="Supprimer" />
+      <TableView fx:id="tableplaninng" layoutX="63.0" layoutY="128.0" prefHeight="200.0" prefWidth="601.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="IDP" />
           <TableColumn fx:id="nomplanning" prefWidth="75.0" text="NomP" />
@@ -22,14 +23,15 @@
             <TableColumn fx:id="prixplanning" prefWidth="75.0" text="Prix" />
         </columns>
       </TableView>
-      <Button layoutX="69.0" layoutY="285.0" mnemonicParsing="false" onAction="#modifierPlaninng" prefHeight="25.0" prefWidth="135.0" text="Modifier" />
-      <Button fx:id="refreshButton" layoutX="378.0" layoutY="285.0" mnemonicParsing="false" onAction="#refresh" prefHeight="25.0" prefWidth="135.0" text="Actualiser" />
+      <Button layoutX="62.0" layoutY="341.0" mnemonicParsing="false" onAction="#modifierPlaninng" prefHeight="25.0" prefWidth="135.0" text="Modifier" />
+      <Button fx:id="refreshButton" layoutX="378.0" layoutY="341.0" mnemonicParsing="false" onAction="#refresh" prefHeight="25.0" prefWidth="135.0" text="Actualiser" />
       <Label layoutX="278.0" layoutY="14.0" prefHeight="48.0" prefWidth="187.0" text="Planinngs" textFill="#eb1919">
          <font>
             <Font name="Franklin Gothic Medium" size="41.0" />
          </font>
       </Label>
-      <Button fx:id="pdfbtn" layoutX="527.0" layoutY="286.0" mnemonicParsing="false" onAction="#exportpdfbtn" prefHeight="25.0" prefWidth="135.0" text="print" />
+      <Button fx:id="pdfbtn" layoutX="528.0" layoutY="341.0" mnemonicParsing="false" onAction="#exportpdfbtn" prefHeight="25.0" prefWidth="135.0" text="print" />
       <Button fx:id="pdf" layoutX="624.0" layoutY="23.0" mnemonicParsing="false" onAction="#pdf" prefHeight="31.0" prefWidth="54.0" text="pdf" />
+      <TextField fx:id="filterField" layoutX="63.0" layoutY="87.0" onAction="#search" prefHeight="25.0" prefWidth="610.0" style="-fx-background-color: #E5E7E9;" />
    </children>
 </AnchorPane>

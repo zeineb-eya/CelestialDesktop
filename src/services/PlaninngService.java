@@ -32,7 +32,7 @@ public class PlaninngService implements Iservice<Planinng>{
     
 public void ajouter(Planinng p) {
         try {
-            String req1 = "insert into planinng(nom_planning,date_debut_planning,date_fin_planning,destination_planning,description_planning,periode_planning,prix_planning) values (?,?,?,?,?,?,?)";
+            String req1 = "insert into planinng(nom_planning,date_debut_planning,date_fin_planning,destination_planning,description_planning,periode_planning,prix_planning,img_planning) values (?,?,?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(req1);
             ps.setString(1, p.getNomPlanning());
             ps.setDate(2, (Date) p.getDateDebutPlanning());
@@ -41,6 +41,8 @@ public void ajouter(Planinng p) {
             ps.setString(5, p.getDescriptionPlanning());
             ps.setInt(6, p.getPeriodePlanning());
             ps.setInt(7, p.getPrixPlanning());
+            ps.setString(8, p.getImg());
+
             ps.executeUpdate();
             System.out.println("Planinng ajoutee avec succes");
         } catch (SQLException ex) {
@@ -68,6 +70,8 @@ public void ajouter(Planinng p) {
                 p.setDescriptionPlanning(rs.getString("description_planning"));
                 p.setPeriodePlanning(rs.getInt("periode_planning"));
                 p.setPrixPlanning(rs.getInt("prix_planning"));
+                                p.setDescriptionPlanning(rs.getString("img_planning"));
+
             myList.add(p);
         }
         } catch (SQLException ex) {
@@ -104,6 +108,29 @@ public void ajouter(Planinng p) {
         return myList;
 
     }
+    public List<Planinng> recherchePlaninng(String nom_planning) {
+         List<Planinng> planinngs = new ArrayList<Planinng>();
+                   String req="SELECT * FROM planinng WHERE nom = '"+nom_planning+"' ";
+        Statement st = null;
+        try {
+            st = connection.createStatement();
+            ResultSet rs = st.executeQuery(req);
+
+            //SOB HEDHA FI HEDHA
+            while(rs.next()){
+                planinngs.add(new Planinng(rs.getInt("id"),rs.getString("nomPlanning")));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return planinngs;
+        
+    }
+
+
     @Override
   public void SupprimerPlaninng(Planinng p) {
        String req ="delete from planinng where id= ?";

@@ -15,7 +15,9 @@ import java.util.Comparator;
  * @author skanr
  */
 public class Planinng {
-    
+
+    public static String pathfile; 
+    public static String filename="";
     private int id;
     private int   periodePlanning;
     private int  prixPlanning;
@@ -24,9 +26,10 @@ public class Planinng {
     private String descriptionPlanning;
     private Date dateDebutPlanning; 
     private Date  dateFinPlanning;
+    private String img; 
 
     
-    public Planinng(int id, int periodePlanning, int prixPlanning, String nomPlanning, Date dateDebutPlanning, Date dateFinPlanning, String destinationPlanning, String descriptionPlanning) {
+    public Planinng(int id, int periodePlanning, int prixPlanning, String nomPlanning, Date dateDebutPlanning, Date dateFinPlanning, String destinationPlanning, String descriptionPlanning,String img) {
         this.id = id;
         this.periodePlanning = periodePlanning;
         this.prixPlanning = prixPlanning;
@@ -35,10 +38,12 @@ public class Planinng {
         this.dateFinPlanning = dateFinPlanning;
         this.destinationPlanning = destinationPlanning;
         this.descriptionPlanning = descriptionPlanning;
+                this.img=img; 
+
     }
     
     
-     public Planinng(int periodePlanning, int prixPlanning, String nomPlanning, Date dateDebutPlanning, Date dateFinPlanning, String destinationPlanning, String descriptionPlanning) {
+     public Planinng(int periodePlanning, int prixPlanning, String nomPlanning, Date dateDebutPlanning, Date dateFinPlanning, String destinationPlanning, String descriptionPlanning, String img) {
         this.periodePlanning = periodePlanning;
         this.prixPlanning = prixPlanning;
         this.nomPlanning = nomPlanning;
@@ -46,8 +51,15 @@ public class Planinng {
         this.dateFinPlanning = dateFinPlanning;
         this.destinationPlanning = destinationPlanning;
         this.descriptionPlanning = descriptionPlanning;
+        this.img=img; 
+
     }
       public Planinng() {  
+    }
+
+    public Planinng(int id, String nomPlanning) {
+        this.id = id;
+        this.nomPlanning = nomPlanning;
     }
       
     public int getId() {
@@ -104,11 +116,16 @@ public class Planinng {
     public void setDescriptionPlanning(String descriptionPlanning) {
         this.descriptionPlanning = descriptionPlanning;
     }
+    public String getImg()
+   { return img;}
+
+     public void setImg(String img)
+   {this.img=img;}
    
     
     @Override
     public String toString() {
-        return "Planinng{" + "id=" + id + ", periodePlanning=" + periodePlanning + ", prixPlanning=" + prixPlanning +", nomPlanning=" + nomPlanning + ", dateDebutPlanning=" + dateDebutPlanning +", dateFinPlanning=" + dateFinPlanning +", destinationPlanning=" + destinationPlanning + ", descriptionPlanning=" + descriptionPlanning +"\n";
+        return "Planinng{" + "id=" + id + ", periodePlanning=" + periodePlanning + ", prixPlanning=" + prixPlanning +", nomPlanning=" + nomPlanning + ", dateDebutPlanning=" + dateDebutPlanning +", dateFinPlanning=" + dateFinPlanning +", destinationPlanning=" + destinationPlanning + ", descriptionPlanning=" + descriptionPlanning +",img=" + img +"\n";
     }
 
 }

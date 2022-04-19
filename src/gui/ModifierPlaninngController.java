@@ -92,7 +92,7 @@ public class ModifierPlaninngController implements Initializable {
         }else{
  }
          PlaninngService ps = new PlaninngService();
-        Planinng p = new  Planinng (Integer.parseInt(prixplanningmodif.getText()),Integer.parseInt(periodeplanningmodif.getText()),nomplanningmodif.getText(),Date.valueOf(dateDebutplanningmodif.getValue()),Date.valueOf(dateFinplanningmodif.getValue()),descriptionplanningmodif.getText(),destinationplanningmodif.getText());
+        Planinng p = new  Planinng (Integer.parseInt(prixplanningmodif.getText()),Integer.parseInt(periodeplanningmodif.getText()),nomplanningmodif.getText(),Date.valueOf(dateDebutplanningmodif.getValue()),Date.valueOf(dateFinplanningmodif.getValue()),descriptionplanningmodif.getText(),destinationplanningmodif.getText(),nomplanningmodif.getText());
 
 
           JOptionPane.showMessageDialog(null, "planinng modifié");

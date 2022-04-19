@@ -131,14 +131,17 @@ public class AffichePlaninngController implements Initializable {
     private TableColumn<?, ?> periodeplanning;
     @FXML
     private TableColumn<?, ?> prixplanning;
-    @FXML
-    private TableView<?> tableplaninng;
+ 
+        @FXML private TableView<Planinng> tableplaninng;
+
     @FXML
     private Button refreshButton;
     @FXML
     private Button pdfbtn;
     @FXML
     private Button pdf;
+    @FXML
+    private TextField filterField;
    
                        
 
@@ -189,6 +192,7 @@ public class AffichePlaninngController implements Initializable {
         myList = FXCollections.observableList(Planinngs);
                 tableplaninng.setItems(myList);
 
+                
 
     }
 
@@ -318,6 +322,47 @@ if(p==null){
             alert.show();
         }*/
     }
+
+    @FXML
+    private void search(ActionEvent event) {
+                FilteredList<Planinng> filteredData = new FilteredList<>(myList, b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(planinng -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (planinng.getNomPlanning().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+				} else if (planinng.getDestinationPlanning().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				}
+				else if (String.valueOf(planinng.getPrixPlanning()).indexOf(lowerCaseFilter)!=-1)
+				     return true;
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+		
+		// 3. Wrap the FilteredList in a SortedList. 
+		SortedList<Planinng> sortedData = new SortedList<>(filteredData);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tableplaninng.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tableplaninng.setItems(sortedData);
+               
+    }
+
     }
    
     

@@ -6,6 +6,7 @@
 package gui;
 
 import entities.Planinng;
+import java.io.File;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,10 +20,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import services.PlaninngService;
 
 /**
@@ -31,6 +36,7 @@ import services.PlaninngService;
  * @author skanr
  */
 public class AjouPlaninngController implements Initializable {
+    public String imagecomp; 
 
     @FXML
     private TextField nom_planning;
@@ -46,6 +52,12 @@ public class AjouPlaninngController implements Initializable {
     private TextField destination_planning;
     @FXML
     private TextArea description_planning;
+    @FXML
+    private Label imagepath;
+    @FXML
+    private Button upload;
+    @FXML
+    private ImageView imagefield;
 
     /**
      * Initializes the controller class.
@@ -80,6 +92,7 @@ public class AjouPlaninngController implements Initializable {
         p.setPeriodePlanning(Integer.parseInt(periode_planning.getText()));
         p.setPrixPlanning(Integer.parseInt(prix_planning.getText()));
 
+
         PlaninngService ps = new PlaninngService() {};
         ps.ajouter(p);
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
@@ -98,6 +111,39 @@ public class AjouPlaninngController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    @FXML
+    private void uploadimg(ActionEvent event) {
+                 FileChooser f = new FileChooser();
+        String img;
+
+        f.getExtensionFilters().add(new FileChooser.ExtensionFilter("image", "*.png"));
+        File fc = f.showOpenDialog(null);
+        if (f != null) {
+            //System.out.println(fc.getName());
+            img = fc.getAbsoluteFile().toURI().toString();
+            Image i = new Image(img);
+            imagefield.setImage(i);
+            imagecomp = fc.toString();
+            System.out.println(imagecomp);
+            int index = imagecomp.lastIndexOf('\\');
+            if (index > 0) {
+                String filename = imagecomp.substring(index + 1);
+            }
+                     String filename = null;
+
+            //source = new File(pathimage);
+            //dest = new File(System.getProperty("user.dir") + "\\src\\com\\esprit\\img\\" + filename);
+            Planinng.filename = "C:\\Users\\skanr\\Desktop" + filename;
+            //se.sendphp(fc.getAbsolutePath());
+        }
+        imagefield.setFitHeight(215);
+        imagefield.setFitWidth(265);
+        //..\img\google.png
+
+        //C:\Users\splin\Documents\NetBeansProjects\FanArt\\com\esprit\img
+        Planinng.pathfile = fc.getAbsolutePath();
     }
     }
 
