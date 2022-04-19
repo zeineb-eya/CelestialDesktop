@@ -79,7 +79,7 @@ public class AfficherReclamationFXMLController implements Initializable {
        
          if(ValidateFields() ){
          ServiceReclamation sr = new ServiceReclamation();
-        Reclamation r =tableaureclam.getSelectionModel().getSelectedItem();
+        Reclamation r = (Reclamation) tableaureclam.getSelectionModel().getSelectedItem();
         sr.deleteReclamation(r);
         sr.refreshReclam();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
