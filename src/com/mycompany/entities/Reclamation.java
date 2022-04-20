@@ -100,6 +100,10 @@ public class Reclamation {
     public String toString() {
         return "Reclamation{" + "id=" + id + ", user_id=" + user_id + ", description_reclamation=" + description_reclamation + ", etat_reclamation=" + etat_reclamation + ", date_reclamation=" + date_reclamation + '}';
     }
+
+    public void gettfEmail() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

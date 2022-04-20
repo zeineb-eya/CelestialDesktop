@@ -24,5 +24,6 @@
       <Pane layoutY="68.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <TextField fx:id="id_user" layoutX="268.0" layoutY="95.0" />
       <Label layoutX="101.0" layoutY="95.0" text="User:" />
+      <TextField fx:id="tfEmail" layoutX="540.0" layoutY="95.0" promptText="email" />
    </children>
 </AnchorPane>

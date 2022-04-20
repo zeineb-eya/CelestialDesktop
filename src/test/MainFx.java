@@ -31,6 +31,15 @@ public class MainFx extends Application{
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+       
+       /* try {
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/SendMailFXML.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }*/
         
        /* try {
             Parent root = FXMLLoader.load(getClass().getResource("/gui/AjoutOffreFXML.fxml"));

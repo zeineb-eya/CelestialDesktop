@@ -12,6 +12,7 @@ import javafx.scene.control.Pagination;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import static java.util.Collections.list;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -44,7 +45,6 @@ import javax.swing.JOptionPane;
  */
 public class AfficherReclamationFXMLController implements Initializable {
 
-    Pagination pagination;
     @FXML
     private TableView<Reclamation> tableaureclam;
     @FXML
@@ -58,6 +58,8 @@ public class AfficherReclamationFXMLController implements Initializable {
     @FXML
     private TableColumn<?, ?> user;
 
+   private  Pagination pagination;
+   int nbr_page;
     /**
      * Initializes the controller class.
      */
@@ -65,7 +67,8 @@ public class AfficherReclamationFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
        afficherReclam();
-       pagination = new Pagination(10);
+       
+      /* pagination = new Pagination(3);
        pagination.setStyle("-fx-border-color:blue");
        pagination.setPageFactory((Integer pageIndex) -> createPage(pageIndex));
        
@@ -77,28 +80,42 @@ public class AfficherReclamationFXMLController implements Initializable {
        
        anchor.getChildren().add(pagination);
        Scene scene = new Scene(anchor);
-       
-     Stage stageAff=new Stage();
+         Stage stageAff=new Stage();
         stageAff.setScene(scene);
         stageAff.show();
-      
-       
-       
-    }   
+   }   
     
-    public VBox createPage(int pageIndex){
+   public VBox createPage(int pageIndex){
         VBox pageBox = new VBox();
-        
         Label pageLabel = new Label("Page : "+ (pageIndex+1));
         pageBox.getChildren().add(pageLabel);
-        
-        
-        
-        return pageBox;
-        
+       return pageBox;
+    }
+    */
     }
     
-    
+  /*  public int itemsPerPage() {
+return 1;
+}
+public int rowsPerPage() {
+return 5;
+}
+public VBox createPage(int pageIndex) {
+int lastIndex = 0;
+int displace = myList.size() % rowsPerPage();
+if (displace > 0) {
+lastIndex = myList.size() / rowsPerPage();
+} else {
+lastIndex = myList.size() / rowsPerPage() - 1;
+}
+VBox box = new VBox(5);
+int page = pageIndex * itemsPerPage();
+
+
+}*/
+  
+   
+     
        public Boolean ValidateFields() {
     if (tableaureclam.getSelectionModel().isEmpty() ){
         Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -139,10 +156,11 @@ public class AfficherReclamationFXMLController implements Initializable {
          }
     
     }
+
+
     private void afficherReclam() {
-      /* ServiceReclamation sr = new ServiceReclamation();
-        ObservableList<Reclamation> o = FXCollections.observableArrayList(sr.afficherReclamation());*/
-       ServiceReclamation sr = new ServiceReclamation();
+      
+      ServiceReclamation sr = new ServiceReclamation();
         List<Reclamation> reclam = sr.afficherReclamation();
         myList = FXCollections.observableList(reclam);
         tableaureclam.setItems(myList);
@@ -242,6 +260,26 @@ if(r==null){
     
     }
 
-   
+  
+   /* public void initachatPage(int index) {
+        //stackPane.setVisible(false);
+        pagination.setCurrentPageIndex(index);
+        List<Reclamation> article_page = getArticlesPage(index);       
+        if (article_page.size() >= 1) {
+            box1.setVisible(true);         
+            consulter1.setOnAction((event) -> {
+                consulter(article_page.get(0).getList());
+            });
+            
+            nbrArticlebox1.setText("NOMBRE ARTICLE : "+String.valueOf(article_page.get(0).getList().size()));
+            etatBox1.setText(article_page.get(0).getEtat());
+            dateBox1.setText(article_page.get(0).getDate_achat().toString());
+            prixBox1.setText("PRIX TOTAL : "+String.valueOf(article_page.get(0).getPrix()) + " DT");
+            
+        } else {
+            
+            box1.setVisible(false);
+            
+        }}*/
   
 }
