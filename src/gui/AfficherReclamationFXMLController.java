@@ -277,8 +277,7 @@ if(r==null){
     private void exportexcel(ActionEvent event) {
     }
 
-   
-      public void RechercheAV(){
+     public void RechercheAV(){
                 // Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Reclamation> filteredData = new FilteredList<>(myList, b -> true);
 		
@@ -286,14 +285,11 @@ if(r==null){
 		rechercher.textProperty().addListener((observable, oldValue, newValue) -> {
 			filteredData.setPredicate(tmp -> {
 				// If filter text is empty, display all persons.
-								
 				if (newValue == null || newValue.isEmpty()) {
 					return true;
 				}
-				
 				// Compare first name and last name of every person with filter text.
 				String lowerCaseFilter = newValue.toLowerCase();
-				
 				if (tmp.getEtat_reclamation().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
 					return true; // Filter matches first name.
                                        // (String.valueOf(tmp.getId()).indexOf(lowerCaseFilter)!=-1)

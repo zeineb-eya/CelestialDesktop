@@ -21,6 +21,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -71,6 +73,8 @@ public class AfficherOffreFXMLController implements Initializable {
     private AnchorPane Offre;
     @FXML
     private TableColumn<?, ?> id_offrecol;
+    @FXML
+    private TextField rechercher;
      
     /**
      * Initializes the controller class.
@@ -124,6 +128,7 @@ public class AfficherOffreFXMLController implements Initializable {
        reductioncol.setCellValueFactory(new PropertyValueFactory<>("reduction"));
        date_debut_offrecol.setCellValueFactory(new PropertyValueFactory<>("date_debut_offre"));
        date_fin_offrecol.setCellValueFactory(new PropertyValueFactory<>("date_fin_offre"));
+          RechercheAV();
     }
      
     
@@ -146,7 +151,8 @@ public class AfficherOffreFXMLController implements Initializable {
 
  
          tableauOffre.setItems(myList);
-    
+            
+
     }     
 
     @FXML
@@ -204,74 +210,50 @@ if(o==null){
 
     }
     
-       ///testttt
-        
-     /*   Offre b = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
-         
+       public void RechercheAV(){
+                // Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<Offre> filteredData = new FilteredList<>(myList, b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		rechercher.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(fo -> {
+				// If filter text is empty, display all persons.
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				if (fo.getNom_offre().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+                                       // (String.valueOf(tmp.getId()).indexOf(lowerCaseFilter)!=-1)
+				} else if (fo.getDescription_offre().toLowerCase().indexOf(lowerCaseFilter) != -1){
+				     return true;
+                                }else if(String.valueOf(fo.getPrix_offre()).indexOf(lowerCaseFilter)!=-1){
+                                    return true;
+                                }else if(String.valueOf(fo.getReduction()).indexOf(lowerCaseFilter)!=-1){
+                                    return true;
+                                     }else if(String.valueOf(fo.getDate_debut_offre()).indexOf(lowerCaseFilter)!=-1){
+                                    return true;
+                                    }else if(String.valueOf(fo.getDate_fin_offre()).indexOf(lowerCaseFilter)!=-1){
+                                    return true;
+                                }else  
+				    	 return false; // Does not match.
+			
+		});
+		});
+		
+		// 3. Wrap the FilteredList in a SortedList. 
+		SortedList<Offre> sortedData = new SortedList<>(filteredData);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tableauOffre.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tableauOffre.setItems(sortedData);
+                
+                        }
 
-if(b==null){
-        
-           System.out.println("Modif offre");
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Erreur");
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez selectionné une offre a modifier");
-            alert.showAndWait();
-        }else {
-          try {   
-        FXMLLoader loader = new FXMLLoader
-                        (getClass().getResource("ModifierOffreFXML.fxml"));
-        Scene scene=new Scene(loader.load());
-        
-        ModifierOffreFXMLController Bc = loader.getController();
-        Stage stageAff=new Stage();
-        stageAff.setScene(scene);
-        stageAff.show();
-        ((Node) (event.getSource())).getScene().getWindow().hide();
-       
-        } catch(IOException ex)
-            {
-            System.err.println("eer");
-            }
-        }
-
-    }*/
-       
-     
-     //tets final
-     
-     /*Offre r = (Offre) tableauOffre.getSelectionModel().getSelectedItem();
-         
-
-if(r==null){
-        
-           System.out.println("Veuillez seelectionné une offre");
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Erreur");
-            alert.setHeaderText(null);
-            alert.setContentText("Aucun offre séléctionné");
-            alert.showAndWait();
-        }else {
-          try {   
-        FXMLLoader loader = new FXMLLoader
-                        (getClass().getResource("ModifierOffreFXML.fxml"));
-        Scene scene=new Scene(loader.load());
-        
-        ModifierOffreFXMLController Rc = loader.getController();
-        Stage stageAff=new Stage();
-        stageAff.setScene(scene);
-        stageAff.show();
-        ((Node) (event.getSource())).getScene().getWindow().hide();
-     
-        } catch(IOException ex)
-            {
-            System.err.println("eer");
-            }
-        }
-    }
-    
-    
-*/
 }     
 
     

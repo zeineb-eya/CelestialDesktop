@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -26,9 +27,11 @@
             <TableColumn fx:id="date_fin_offrecol" prefWidth="72.0" text="Date fin" />
         </columns>
       </TableView>
-      <FontAwesomeIconView glyphName="REFRESH" layoutX="577.0" layoutY="33.0" onMouseClicked="#actualiserOffre" size="20" text="" wrappingWidth="31.285714149475098" />
-      <FontAwesomeIconView fill="#f80d0d" glyphName="MINUS" layoutX="663.0" layoutY="34.0" onMouseClicked="#deleteOffre" size="22" wrappingWidth="24.428571701049805" />
-      <FontAwesomeIconView fill="#05b938" glyphName="EDIT" layoutX="619.0" layoutY="34.0" onMouseClicked="#OnModif" size="22" />
+      <FontAwesomeIconView glyphName="REFRESH" layoutX="90.0" layoutY="85.0" onMouseClicked="#actualiserOffre" size="20" text="" wrappingWidth="31.285714149475098" />
+      <FontAwesomeIconView fill="#f80d0d" glyphName="MINUS" layoutX="51.0" layoutY="85.0" onMouseClicked="#deleteOffre" size="22" wrappingWidth="24.428571701049805" />
+      <FontAwesomeIconView fill="#14f110" glyphName="EDIT" layoutX="20.0" layoutY="85.0" onMouseClicked="#OnModif" size="22" />
       <Pane layoutY="51.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <TextField fx:id="rechercher" layoutX="438.0" layoutY="65.0" prefHeight="25.0" prefWidth="254.0" promptText="Rechercher" />
+      <FontAwesomeIconView fill="#0001ff" glyphName="SEARCH" layoutX="670.0" layoutY="81.0" />
    </children>
 </AnchorPane>
