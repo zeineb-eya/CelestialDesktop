@@ -5,6 +5,7 @@
  */
 package gui;
 
+import entities.Localisation;
 import entities.Planinng;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -93,6 +94,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -102,6 +104,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Callback;
 import javax.imageio.ImageIO;
 import services.PlaninngService;
 
@@ -191,11 +195,55 @@ public class AffichePlaninngController implements Initializable {
         
         myList = FXCollections.observableList(Planinngs);
                 tableplaninng.setItems(myList);
+                addButtonToTable();
 
                 
 
     }
+private void addButtonToTable() {
+    PlaninngService ps = new PlaninngService();
+        TableColumn<Planinng, Void> colBtn = new TableColumn("Localisation");
 
+        Callback<TableColumn<Planinng, Void>, TableCell<Planinng, Void>> cellFactory = new Callback<TableColumn<Planinng, Void>, TableCell<Planinng, Void>>() {
+            @Override
+            public TableCell<Planinng, Void> call(final TableColumn<Planinng, Void> param) {
+                final TableCell<Planinng, Void> cell = new TableCell<Planinng, Void>() {
+
+                    private final Button btn = new Button("voir localisation");
+
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            Localisation l=ps.voirLocalisation(getTableView().getItems().get(getIndex()).getId()).stream().findFirst().get();
+                            try {
+                                //                            Planinng data = getTableView().getItems().get(getIndex());
+                                showCustomerDialog(l);
+                            } catch (IOException ex) {
+                                Logger.getLogger(AffichePlaninngController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            System.out.println("localisation: " + l.getPositionAriveePlanning())
+                                    ;
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+
+        colBtn.setCellFactory(cellFactory);
+
+        tableplaninng.getColumns().add(colBtn);
+
+    }
     @FXML
     private void modifierPlaninng(ActionEvent event) {
         
@@ -368,6 +416,23 @@ if(p==null){
 		tableplaninng.setItems(sortedData);
                
     }
+public void showCustomerDialog(Localisation localisation) throws IOException {
+  FXMLLoader loader = new FXMLLoader(
+    getClass().getResource(
+      "DetailsLocalisations.fxml"
+    )
+  );
+
+  Stage stage = new Stage(StageStyle.DECORATED.DECORATED);
+  stage.setScene(
+    new Scene(loader.load())
+  );
+
+  DetailsLocalisationsController controller = loader.getController();
+  controller.initData(localisation);
+
+  stage.show();
+}
 
     }
    

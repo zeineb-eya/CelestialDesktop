@@ -5,6 +5,7 @@
  */
 package services;
 
+import entities.Localisation;
 import entities.Planinng;
 import util.MyDB;
 import java.sql.Connection;
@@ -14,6 +15,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -197,5 +200,34 @@ public void ajouter(Planinng p) {
     @Override
     public void modifier(Planinng p) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Localisation> voirLocalisation(int id) {
+       List<Localisation> myList = new ArrayList<>();
+       
+        try {
+         
+        String req11 = "SELECT * from localisation  join planinng  on localisation.planning_id=planinng.id where planinng.id="+id;
+        Statement st = connection.createStatement();
+        ResultSet rs =  st.executeQuery(req11);
+        while(rs.next()){
+           Localisation l = new Localisation();
+                l.setId(rs.getInt(1));
+                l.setHeureDepartLocalisation(rs.getString("localisation.heuredepartlocalisation"));
+                l.setHeureArriveeLoacalisation(rs.getString("localisation.heure_arrivee_loacalisation"));
+                l.setPositionDepartLocalisation(rs.getString("localisation.position_depart_localisation"));
+                l.setPositionAriveePlanning(rs.getString("localisation.position_arivee_planning"));
+                l.setFusee(rs.getString("localisation.fusee"));
+
+                myList.add(l);
+        }
+        } catch (SQLException ex) {
+         System.out.println(ex.getMessage()+"hhhhhh");
+        }
+        if(myList.isEmpty()){
+        return Collections.emptyList();
+                }
+       return myList; 
     }
 }

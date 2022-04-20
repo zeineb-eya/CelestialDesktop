@@ -5,6 +5,7 @@
  */
 package services;
 
+import entities.Localisation;
 import entities.Planinng;
 import java.util.List;
 
@@ -25,6 +26,8 @@ import java.util.List;
      public void updatePlaninng( Planinng p);
     
     public List<Planinng> refreshPlaninng();
+    
+     public List<Localisation> voirLocalisation(int id);
 
 
 }
