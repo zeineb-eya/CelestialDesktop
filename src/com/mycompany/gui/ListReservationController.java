@@ -7,6 +7,7 @@ package com.mycompany.gui;
 
 import com.mycompany.entities.Billet;
 import com.mycompany.entities.Reservation;
+import com.mycompany.entities.User;
 import com.mycompany.services.BilletService;
 import com.mycompany.services.ReservationService;
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class ListReservationController implements Initializable {
     @FXML
     private TableColumn<Reservation, String> Etat_reservation;
     @FXML
-    private TableColumn<?, ?> user;
+    private TableColumn<Reservation, User> user;
     @FXML
     private TableColumn<Reservation, Billet> billet;
     @FXML
@@ -170,9 +171,6 @@ if(r==null){
             stage.initModality(Modality.APPLICATION_MODAL);
             Scene scene = new Scene(rootLayout);
             stage.setScene(scene);
-            // Set the persons into the controller.
-       // StatisticsReservationController controller = loader.getController();
-        //controller.setReservationData(Reservations);
             stage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
