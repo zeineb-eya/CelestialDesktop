@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.AffichFXMLController">
+  <children>
+    <TableView fx:id="TVuser" layoutX="4.0" layoutY="64.0" prefHeight="240.0" prefWidth="596.0">
+      <columns>
+        <TableColumn prefWidth="75.0" text="ID" fx:id="colidU" />
+        <TableColumn prefWidth="75.0" text="Nom" fx:id="colnomU" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Prenom" fx:id="colprenomU" />
+        <TableColumn prefWidth="75.0" text="Adresse" fx:id="coladresseU" />
+        <TableColumn prefWidth="75.0" text="Mail" fx:id="colmailU" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Password" fx:id="colpasswordU" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Num tel" fx:id="colnumtelU" />
+        <TableColumn prefWidth="75.0" text="Role" fx:id="colRoleU" />
+      </columns>
+    </TableView>
+    <Button layoutX="27.0" layoutY="23.0" mnemonicParsing="false" onAction="#RetourAjout" text="Retour" />
+    <Button layoutX="267.0" layoutY="359.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
+    <TextField fx:id="idsupp" layoutX="251.0" layoutY="333.0" prefWidth="100.0" />
+    <Label layoutX="213.0" layoutY="313.0" prefWidth="220.0" text="Id de l'element à Supprimer" />
+  </children>
+</AnchorPane>
