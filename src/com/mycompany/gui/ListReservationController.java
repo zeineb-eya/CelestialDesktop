@@ -62,6 +62,8 @@ public class ListReservationController implements Initializable {
     private Button ActualiserReservation;
     @FXML
     private Button StatistiqueReservation;
+    @FXML
+    private Button QRCode;
     /**
      * Initializes the controller class.
      */
@@ -173,6 +175,22 @@ if(r==null){
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         } 
+    }
+
+    @FXML
+    private void QRCode(ActionEvent event) {
+           try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("QR.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 }

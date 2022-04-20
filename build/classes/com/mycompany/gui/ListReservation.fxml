@@ -21,5 +21,6 @@
       <Button fx:id="ModifierReservation" layoutX="100.0" layoutY="347.0" mnemonicParsing="false" onAction="#ModifierReservation" text="Modifier" />
       <Button fx:id="ActualiserReservation" layoutX="344.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActualiserReservation" text="Actualiser" />
       <Button fx:id="StatistiqueReservation" layoutX="263.0" layoutY="21.0" mnemonicParsing="false" onAction="#StatistiqueReservation" text="Statistique" />
+      <Button fx:id="QRCode" layoutX="412.0" layoutY="21.0" mnemonicParsing="false" onAction="#QRCode" text="QRCode" />
    </children>
 </AnchorPane>
