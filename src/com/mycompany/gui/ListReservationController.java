@@ -160,15 +160,15 @@ if(r==null){
             ReservationService bs = new ReservationService();
         List<Reservation> Reservations = bs.afficherReservations();
         FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("FXMLStatisticsReservationPerMonth.fxml"));
+            loader.setLocation(getClass().getResource("StatisticsReservation.fxml"));
             AnchorPane rootLayout = (AnchorPane) loader.load();
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             Scene scene = new Scene(rootLayout);
             stage.setScene(scene);
             // Set the persons into the controller.
-        FXMLStatisticsReservationPerMonthController controller = loader.getController();
-        controller.setReservationData(Reservations);
+       // StatisticsReservationController controller = loader.getController();
+        //controller.setReservationData(Reservations);
             stage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

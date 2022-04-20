@@ -23,6 +23,9 @@ import java.util.stream.Collectors;
  */
 public class ReservationService implements IserviceReservation<Reservation>{
     Connection cnx2;
+     private Statement statement;
+     private ResultSet ResultSet;
+    private int nb1, nb2, nb3, nb4;
     public ReservationService(){
         cnx2 = MyConnection.getInstance().getCnx();
     }
@@ -128,5 +131,39 @@ public class ReservationService implements IserviceReservation<Reservation>{
       public List<Reservation> sortByEtat() {
 
 	return afficherReservations().stream().sorted((a, b) -> a.getEtatReservation().compareTo(b.getEtatReservation())).collect(Collectors.toList());
+    }
+      //Etat
+       public int pendingType() throws SQLException {
+        String req = "SELECT count(id) from reservation where Etat_reservation ='waiting for a confirmation';";
+        
+        statement = cnx2.createStatement();
+        ResultSet = statement.executeQuery(req);
+
+        while (ResultSet.next()) {
+            nb1 = ResultSet.getInt(1);
+        }
+        return nb1;
+    }
+       public int confirmedType() throws SQLException {
+        String req = "SELECT count(id) from reservation where Etat_reservation ='confirmed';";
+        
+        statement = cnx2.createStatement();
+        ResultSet = statement.executeQuery(req);
+
+        while (ResultSet.next()) {
+            nb2 = ResultSet.getInt(1);
+        }
+        return nb2;
+    }
+       public int cancelledType() throws SQLException {
+        String req = "SELECT count(id) from reservation where Etat_reservation ='cancelled';";
+        
+        statement = cnx2.createStatement();
+        ResultSet = statement.executeQuery(req);
+
+        while (ResultSet.next()) {
+            nb3 = ResultSet.getInt(1);
+        }
+        return nb3;
     }
 }
