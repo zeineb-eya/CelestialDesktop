@@ -60,6 +60,8 @@ public class ListReservationController implements Initializable {
     private Button ModifierReservation;
     @FXML
     private Button ActualiserReservation;
+    @FXML
+    private Button StatistiqueReservation;
     /**
      * Initializes the controller class.
      */
@@ -150,6 +152,27 @@ if(r==null){
         Etat_reservation.setCellValueFactory(new PropertyValueFactory<>("etat_reservation"));
         user.setCellValueFactory(new PropertyValueFactory<>("user"));
         billet.setCellValueFactory(new PropertyValueFactory<>("billet"));
+    }
+
+    @FXML
+    private void StatistiqueReservation(ActionEvent event) {
+        try {
+            ReservationService bs = new ReservationService();
+        List<Reservation> Reservations = bs.afficherReservations();
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("FXMLStatisticsReservationPerMonth.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            // Set the persons into the controller.
+        FXMLStatisticsReservationPerMonthController controller = loader.getController();
+        controller.setReservationData(Reservations);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        } 
     }
     
 }

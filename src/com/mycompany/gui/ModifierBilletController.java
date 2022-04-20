@@ -110,14 +110,14 @@ public class ModifierBilletController implements Initializable {
         window.setScene(sceneview);
         window.show();
     }
-    void setData(int id,String c,String v,String t, String p, LocalDate e,String l) {
+    void setData(int id,int c,int v,int t, int p, /*LocalDate e,*/int l) {
         b.setId(id);
-        chair_billet_modif.setText(c);
-        voyage_num_modif.setText(v);
-        terminal_modif.setText(t);
-        portail_modif.setText(p);
-        embarquement_modif.setValue(e);
-        localisation_modif.setText(l);
+        chair_billet_modif.setText(String.valueOf(c));
+        voyage_num_modif.setText(String.valueOf(v));
+        terminal_modif.setText(String.valueOf(t));
+        portail_modif.setText(String.valueOf(p));
+        //embarquement_modif.setValue(e);
+        localisation_modif.setText(String.valueOf(l));
     }
     @FXML
     private void ListerBillets(ActionEvent event) {

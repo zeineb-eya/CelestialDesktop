@@ -9,6 +9,7 @@ import com.mycompany.entities.Billet;
 import com.mycompany.services.BilletService;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -18,7 +19,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -28,7 +28,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -99,9 +98,7 @@ public class ListBilletController implements Initializable {
     @FXML
     private void ModifierBillet(ActionEvent event) {
           Billet b = (Billet) tabBillet.getSelectionModel().getSelectedItem();
-         
-
-if(b==null){
+   if(b==null){
         
            System.out.println("Aucun billet séléctionné");
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -116,11 +113,29 @@ if(b==null){
         Scene scene=new Scene(loader.load());
         
         ModifierBilletController Bc = loader.getController();
+        
         Stage stageAff=new Stage();
         stageAff.setScene(scene);
         stageAff.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
      
+//           int as=tabBillet.getSelectionModel().getSelectedItem().getId();
+//          // int c = tabBillet.getSelectionModel().getSelectedItem().getChairBillet();
+//         //  int v = tabBillet.getSelectionModel().getSelectedItem().getVoyageNum();
+//           int t  = tabBillet.getSelectionModel().getSelectedItem().getTerminal();
+//           int p  = tabBillet.getSelectionModel().getSelectedItem().getPortail();
+//           Date e  = tabBillet.getSelectionModel().getSelectedItem().getEmbarquement();
+//           int l  = tabBillet.getSelectionModel().getSelectedItem().getLocalisation();
+//           
+//                   Bc.setData(tabBillet.getSelectionModel().getSelectedItem().getId(),
+//                          // tabBillet.getSelectionModel().getSelectedItem().getChairBillet(),
+//                          // tabBillet.getSelectionModel().getSelectedItem().getVoyageNum(),
+//                           tabBillet.getSelectionModel().getSelectedItem().getTerminal(),
+//                           tabBillet.getSelectionModel().getSelectedItem().getPortail(),
+//                            tabBillet.getSelectionModel().getSelectedItem().getEmbarquement(),
+//                           tabBillet.getSelectionModel().getSelectedItem().getLocalisation()
+//                           
+//                   );
         } catch(IOException ex)
             {
             System.err.println("eer");
