@@ -71,8 +71,6 @@ public class AfficherReclamationFXMLController implements Initializable {
    private  Pagination pagination;
    int nbr_page;
     @FXML
-    private TextField rech_label;
-    @FXML
     private TextField rechercher;
     /**
      * Initializes the controller class.
@@ -318,6 +316,10 @@ if(r==null){
 		tableaureclam.setItems(sortedData);
                 
                         }
+
+    @FXML
+    private void rechercher(MouseEvent event) {
+    }
   
    /* public void initachatPage(int index) {
         //stackPane.setVisible(false);
