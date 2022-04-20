@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -34,6 +35,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -46,7 +48,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
-
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.sl.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import com.mycompany.utils.MyConnection;
+import java.sql.Connection;
+import java.sql.Statement;
+import javafx.scene.chart.BarChart;
 
 /**
  * FXML Controller class
@@ -70,8 +78,15 @@ public class AfficherReclamationFXMLController implements Initializable {
 
    private  Pagination pagination;
    int nbr_page;
+  //pour stat
+   private Statement ste;
+    private Connection cnx;
+    ServiceReclamation sr = new ServiceReclamation();
+
     @FXML
     private TextField rechercher;
+    @FXML
+    private BarChart<?, ?> barChart;
     /**
      * Initializes the controller class.
      */
@@ -180,9 +195,10 @@ int page = pageIndex * itemsPerPage();
         description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
         etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
         date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
-        user.setCellValueFactory(new PropertyValueFactory<>("user_id"));
-        
+        user.setCellValueFactory(new PropertyValueFactory<>("user.user_id"));
+
            RechercheAV();
+           
         //user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
         
     }
@@ -270,11 +286,8 @@ if(r==null){
          date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
                   
          tableaureclam.setItems(myList);
+          RechercheAV();
     
-    }
-
-    @FXML
-    private void exportexcel(ActionEvent event) {
     }
 
      public void RechercheAV(){
@@ -338,12 +351,12 @@ if(r==null){
             
         }}*/
 
-   /** @FXML
-     private void exportexcel(ActionEvent event) throws SQLException, FileNotFoundException, IOException {
+  /* @FXML
+     private void exportexcel(ActionEvent event) throws FileNotFoundException, IOException {
         Workbook workbook = new HSSFWorkbook();
-        Sheet spreadsheet = workbook.createSheet("sample");
+        Sheet spreadsheet = (Sheet) workbook.createSheet("sample");
 
-        Row row = spreadsheet.createRow(0);
+        Row row = (Row) spreadsheet.createRow(0);
 
         for (int j = 0; j < tableaureclam.getColumns().size(); j++) {
             row.createCell(j).setCellValue(tableaureclam.getColumns().get(j).getText());
@@ -365,7 +378,25 @@ if(r==null){
         fileOut.close();
 
     }
+   */
+    
+    
+    /* public void Stat() throws SQLException{
+                XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Répartition des Types");
+            cnx = MyConnection.getInstance().getCnx();
+            ste = cnx.createStatement();
+            ResultSet res = ste.executeQuery("select * from type_comptabilite");
+            while(res.next()){
+            series.getData().add(new XYChart.Data<>(res.getString(2), sr.calculer(res.getInt(1))));
+            }        
+        barChart.getData().addAll(series);
+
     }*/
+
+    @FXML
+    private void exportexcel(ActionEvent event) {
+    }
     
     
   

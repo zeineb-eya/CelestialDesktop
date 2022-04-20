@@ -56,7 +56,6 @@ public class ServiceReclamation {
     }
     
     public void ajouterReclamation2(Reclamation r){
-        
         String requete2 = "INSERT INTO reclamation (user_id,description_reclamation,etat_reclamation,date_reclamation) "
                  + "VALUES(?,?,'envoye',?)";
         
@@ -93,7 +92,7 @@ public class ServiceReclamation {
          
       //  String requete3 = "SELECT * FROM reclamation inner join user where reclamation.user_id = user.nom_utilisateur";
         
-        String requete3 = "SELECT * FROM reclamation";
+        String requete3 = "SELECT * FROM reclamation ";
        
         Statement st = cnx2.createStatement();;
         ResultSet rs =  st.executeQuery(requete3);
@@ -105,10 +104,7 @@ public class ServiceReclamation {
             r.setDate_reclamation(rs.getString("date_reclamation"));
             //r.setUser(rs.getString("nom_utilisateur"));
             int user= rs.getInt("user_id");
-           //  r.setUser(rs.getInt(5));
-            // r.setUser(rs.getInt("user_id"));
            
-            //r.setUser(rs.getInt("user"));
     myList.add(r);
         }
          //   st = new MyConnection().getCnx().createStatement();
@@ -118,20 +114,10 @@ public class ServiceReclamation {
   
        return myList;
     }
+  
     
-
-    public void deleteReclamation(Reclamation r) {
-       /* String req = "delete from reclamation where id=" + id;
-        try {
-            PreparedStatement pst = cnx2.prepareStatement(req);
-           // pst = Connection.createStatement();
-            pst.executeUpdate(req);
-             System.out.println("votre reclam a ete bien supprime");
-
-        } catch (SQLException ex) {
-            //Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
-             System.err.println(ex.getMessage());
-        }*/
+  public void deleteReclamation(Reclamation r) {
+     
        String req ="delete from reclamation where id= ?";
          try {
             PreparedStatement pst=cnx2.prepareStatement(req);
@@ -169,18 +155,18 @@ public class ServiceReclamation {
         try {
             
             PreparedStatement pst = cnx2.prepareStatement(requete2);
-            pst.setString(1,r.getEtat_reclamation());
+            pst.setString(1, "Traitée");
             pst.setInt(2,r.getId());
            
             System.out.println(pst);
             pst.executeUpdate();
-             System.out.println("votre reclam a ete bien modife");
+             System.out.println("votre reclam a ete bien traité");
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
-      
+  
      public List<Reclamation> TrouveReclamId(int id) throws SQLException
         
          {
@@ -204,7 +190,31 @@ public class ServiceReclamation {
       }
          
      return myList;
-         }/*
+         }
+     
+    /* public   List<Reclamation>afficherReclamation(){
+      String req= "select * from reclamation  INNER JOIN user where reclamation.user_id = user.id";
+      
+     List<Reclamation> list= new ArrayList<>();
+         try {
+      // PreparedStatement pst = cnx2.prepareStatement(requete2);
+            PreparedStatement pst = cnx2.prepareStatement(req);
+
+           //PreparedStatement  pst= cnx2.createStatement();
+             ResultSet rst= pst.executeQuery(req);
+             while(rst.next()){
+              list.add(new Reclamation(rst.getInt("id"),rst.getInt("user_id"),rst.getString("description_reclamation"),rst.getString("etat_reclamation"),rst.getString("date_reclamation")));
+                
+             }
+         } catch (SQLException ex) {
+             Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+return list;
+ }
+     */
+     
+     /*
        public ArrayList<Reclamation> FindabonnementBytype(String type)  {
   ArrayList<Reclamation> listabonnement = new ArrayList<>();   
    try {

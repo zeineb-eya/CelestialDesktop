@@ -55,9 +55,7 @@ public class ModifierReclamationFXMLController implements Initializable {
     
     @FXML
     private void modifier(ActionEvent event) throws FileNotFoundException, IOException {
-        if(Validchamp(descript_reclam_modif)){
-            
-        
+         
         if (rec == null) {
 
             System.out.println("Choisir une réclamation");
@@ -91,7 +89,7 @@ public class ModifierReclamationFXMLController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(sceneview);
         window.show();
-    }}
+    }
      void setData(int id, String sub,String e) {
        rec.setId(id);
        descript_reclam_modif.setText(sub);
@@ -105,5 +103,6 @@ public class ModifierReclamationFXMLController implements Initializable {
 
     @FXML
     private void modifierReclam(MouseEvent event) {
+        
     }
 }

@@ -12,7 +12,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -23,6 +26,9 @@ import javafx.stage.Stage;
  * @author ASUS
  */
 public class HomegestServiceController implements Initializable {
+
+    @FXML
+    private Button btnBack;
 
     /**
      * Initializes the controller class.
@@ -79,6 +85,23 @@ public class HomegestServiceController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }*/
+
+    @FXML
+    private void Back(ActionEvent event) {
+    try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/ReclamationAdminFXML.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+    }
+
+    }
     
   
 }
