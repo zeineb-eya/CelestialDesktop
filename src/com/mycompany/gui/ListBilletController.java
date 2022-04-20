@@ -37,15 +37,15 @@ import javafx.stage.Stage;
 public class ListBilletController implements Initializable {
 
     @FXML
-    private TableView<?> tabBillet;
+    private TableView<Billet> tabBillet;
     @FXML
-    private TableColumn<?, ?> terminal;
+    private TableColumn<Billet, Integer> terminal;
     @FXML
-    private TableColumn<?, ?> portail;
+    private TableColumn<Billet, Integer> portail;
     @FXML
-    private TableColumn<?, ?> embarquement;
+    private TableColumn<Billet, Integer> embarquement;
     @FXML
-    private TableColumn<?, ?> localisation;
+    private TableColumn<Billet, Integer> localisation;
     @FXML
     private Button AjouterBillet;
     
@@ -57,7 +57,7 @@ public class ListBilletController implements Initializable {
     @FXML
     private Button ActualiserBillet;
     @FXML
-    private TableColumn<?, ?> id;
+    private TableColumn<Billet, Integer> id;
     /**
      * Initializes the controller class.
      */
@@ -119,23 +119,23 @@ public class ListBilletController implements Initializable {
         stageAff.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
      
-//           int as=tabBillet.getSelectionModel().getSelectedItem().getId();
-//          // int c = tabBillet.getSelectionModel().getSelectedItem().getChairBillet();
-//         //  int v = tabBillet.getSelectionModel().getSelectedItem().getVoyageNum();
-//           int t  = tabBillet.getSelectionModel().getSelectedItem().getTerminal();
-//           int p  = tabBillet.getSelectionModel().getSelectedItem().getPortail();
-//           Date e  = tabBillet.getSelectionModel().getSelectedItem().getEmbarquement();
-//           int l  = tabBillet.getSelectionModel().getSelectedItem().getLocalisation();
-//           
-//                   Bc.setData(tabBillet.getSelectionModel().getSelectedItem().getId(),
-//                          // tabBillet.getSelectionModel().getSelectedItem().getChairBillet(),
-//                          // tabBillet.getSelectionModel().getSelectedItem().getVoyageNum(),
-//                           tabBillet.getSelectionModel().getSelectedItem().getTerminal(),
-//                           tabBillet.getSelectionModel().getSelectedItem().getPortail(),
-//                            tabBillet.getSelectionModel().getSelectedItem().getEmbarquement(),
-//                           tabBillet.getSelectionModel().getSelectedItem().getLocalisation()
-//                           
-//                   );
+           int as=tabBillet.getSelectionModel().getSelectedItem().getId();
+          // int c = tabBillet.getSelectionModel().getSelectedItem().getChairBillet();
+         //  int v = tabBillet.getSelectionModel().getSelectedItem().getVoyageNum();
+           int t  = tabBillet.getSelectionModel().getSelectedItem().getTerminal();
+           int p  = tabBillet.getSelectionModel().getSelectedItem().getPortail();
+           Date e  = tabBillet.getSelectionModel().getSelectedItem().getEmbarquement();
+           int l  = tabBillet.getSelectionModel().getSelectedItem().getLocalisation();
+           
+                   Bc.setData(tabBillet.getSelectionModel().getSelectedItem().getId(),
+                          // tabBillet.getSelectionModel().getSelectedItem().getChairBillet(),
+                          // tabBillet.getSelectionModel().getSelectedItem().getVoyageNum(),
+                           tabBillet.getSelectionModel().getSelectedItem().getTerminal(),
+                           tabBillet.getSelectionModel().getSelectedItem().getPortail(),
+                           // tabBillet.getSelectionModel().getSelectedItem().getEmbarquement(),
+                           tabBillet.getSelectionModel().getSelectedItem().getLocalisation()
+                           
+                   );
         } catch(IOException ex)
             {
             System.err.println("eer");

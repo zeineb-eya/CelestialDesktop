@@ -10,9 +10,7 @@
       <Label layoutX="257.0" layoutY="35.0" text="Modifier Reservation" />
       <Label layoutX="50.0" layoutY="169.0" text="Etat reservation" />
       <Button fx:id="ModifierReservation" layoutX="281.0" layoutY="344.0" mnemonicParsing="false" onAction="#ModifierReservation" text="Modifier" />
-      <TextField fx:id="Etat_reservation_modif" layoutX="181.0" layoutY="165.0" prefHeight="141.0" prefWidth="310.0" />
+      <TextField fx:id="Etat_reservation_modif" layoutX="181.0" layoutY="165.0" prefHeight="31.0" prefWidth="251.0" />
       <Button fx:id="ListerReservation" layoutX="467.0" layoutY="344.0" mnemonicParsing="false" onAction="#ListerReservation" text="Afficher" />
-      <Label layoutX="50.0" layoutY="134.0" text="Id" />
-      <TextField fx:id="id" layoutX="181.0" layoutY="130.0" prefHeight="10.0" prefWidth="241.0" />
    </children>
 </AnchorPane>

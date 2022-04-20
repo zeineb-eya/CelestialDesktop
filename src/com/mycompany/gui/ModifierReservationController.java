@@ -23,6 +23,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -47,7 +48,6 @@ public class ModifierReservationController implements Initializable {
     private Button ListerReservation;
 
       
-    @FXML
     private TextField id;
     Reservation r =new Reservation();
     /**

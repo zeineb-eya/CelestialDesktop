@@ -11,6 +11,7 @@ import com.mycompany.services.BilletService;
 import com.mycompany.services.ReservationService;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -39,21 +40,21 @@ public class ListReservationController implements Initializable {
 
   
     @FXML
-    private TableColumn<?, ?> date_reservation;
+    private TableColumn<Reservation, Date> date_reservation;
     @FXML
-    private TableColumn<?, ?> Etat_reservation;
+    private TableColumn<Reservation, String> Etat_reservation;
     @FXML
     private TableColumn<?, ?> user;
     @FXML
-    private TableColumn<?, ?> billet;
+    private TableColumn<Reservation, Billet> billet;
     @FXML
     private Button Reserver;
     @FXML
-    private TableView<?> tabReservation;
+    private TableView<Reservation> tabReservation;
 
     ObservableList list ;
     @FXML
-    private TableColumn<?, ?> id;
+    private TableColumn<Reservation, Integer> id;
     @FXML
     private Button SupprimerReservation;
     @FXML
@@ -134,7 +135,8 @@ if(r==null){
         stageAff.setScene(scene);
         stageAff.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
-     
+      Rc.setData(tabReservation.getSelectionModel().getSelectedItem().getId(),
+              tabReservation.getSelectionModel().getSelectedItem().getEtatReservation());
         } catch(IOException ex)
             {
             System.err.println("eer");

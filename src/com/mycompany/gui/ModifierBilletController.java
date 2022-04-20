@@ -110,10 +110,10 @@ public class ModifierBilletController implements Initializable {
         window.setScene(sceneview);
         window.show();
     }
-    void setData(int id,int c,int v,int t, int p, /*LocalDate e,*/int l) {
+    void setData(int id,/*int c,int v,*/int t, int p, /*LocalDate e,*/int l) {
         b.setId(id);
-        chair_billet_modif.setText(String.valueOf(c));
-        voyage_num_modif.setText(String.valueOf(v));
+        //chair_billet_modif.setText(String.valueOf(c));
+       // voyage_num_modif.setText(String.valueOf(v));
         terminal_modif.setText(String.valueOf(t));
         portail_modif.setText(String.valueOf(p));
         //embarquement_modif.setValue(e);
