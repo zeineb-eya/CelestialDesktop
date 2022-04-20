@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.ChoixController">
+  <children>
+    <Button layoutX="66.0" layoutY="173.0" mnemonicParsing="false" onAction="#User" prefHeight="55.0" prefWidth="163.0" text="User" />
+    <Button layoutX="366.0" layoutY="173.0" mnemonicParsing="false" prefHeight="55.0" onAction="#Role" prefWidth="163.0" text="Roles" />
+    <TextField fx:id="tfmailU" layoutX="229.0" layoutY="373.0" minWidth="0.0" prefWidth="0.0" />
+  </children>
+</AnchorPane>
