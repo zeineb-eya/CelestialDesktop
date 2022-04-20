@@ -8,16 +8,25 @@ package gui;
 import com.mycompany.entities.Reclamation;
 import com.mycompany.services.ServiceReclamation;
 import com.mycompany.utils.MyConnection;
+import com.sun.rowset.internal.Row;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import javafx.scene.control.Pagination;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import static java.util.Collections.list;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +39,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -60,6 +70,10 @@ public class AfficherReclamationFXMLController implements Initializable {
 
    private  Pagination pagination;
    int nbr_page;
+    @FXML
+    private TextField rech_label;
+    @FXML
+    private TextField rechercher;
     /**
      * Initializes the controller class.
      */
@@ -170,6 +184,7 @@ int page = pageIndex * itemsPerPage();
         date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
         user.setCellValueFactory(new PropertyValueFactory<>("user_id"));
         
+           RechercheAV();
         //user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
         
     }
@@ -260,6 +275,49 @@ if(r==null){
     
     }
 
+    @FXML
+    private void exportexcel(ActionEvent event) {
+    }
+
+   
+      public void RechercheAV(){
+                // Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<Reclamation> filteredData = new FilteredList<>(myList, b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		rechercher.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(tmp -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (tmp.getEtat_reclamation().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+                                       // (String.valueOf(tmp.getId()).indexOf(lowerCaseFilter)!=-1)
+				} else if (String.valueOf(tmp.getDate_reclamation()).indexOf(lowerCaseFilter)!=-1){
+				     return true;
+                               } else  
+				    	 return false; // Does not match.
+			
+		});
+		});
+		
+		// 3. Wrap the FilteredList in a SortedList. 
+		SortedList<Reclamation> sortedData = new SortedList<>(filteredData);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tableaureclam.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tableaureclam.setItems(sortedData);
+                
+                        }
   
    /* public void initachatPage(int index) {
         //stackPane.setVisible(false);
@@ -281,5 +339,36 @@ if(r==null){
             box1.setVisible(false);
             
         }}*/
+
+   /** @FXML
+     private void exportexcel(ActionEvent event) throws SQLException, FileNotFoundException, IOException {
+        Workbook workbook = new HSSFWorkbook();
+        Sheet spreadsheet = workbook.createSheet("sample");
+
+        Row row = spreadsheet.createRow(0);
+
+        for (int j = 0; j < tableaureclam.getColumns().size(); j++) {
+            row.createCell(j).setCellValue(tableaureclam.getColumns().get(j).getText());
+        }
+
+        for (int i = 0; i < tableaureclam.getItems().size(); i++) {
+            row = spreadsheet.createRow(i + 1);
+            for (int j = 0; j < tableaureclam.getColumns().size(); j++) {
+                if(tableaureclam.getColumns().get(j).getCellData(i) != null) { 
+                    row.createCell(j).setCellValue(tableaureclam.getColumns().get(j).getCellData(i).toString()); 
+                }
+                else {
+                    row.createCell(j).setCellValue("");
+                }   
+            }
+        }
+        FileOutputStream fileOut = new FileOutputStream("workbook.xls");
+        workbook.write(fileOut);
+        fileOut.close();
+
+    }
+    }*/
+    
+    
   
 }

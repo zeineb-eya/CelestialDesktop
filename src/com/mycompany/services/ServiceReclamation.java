@@ -18,6 +18,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -117,18 +119,7 @@ public class ServiceReclamation {
        return myList;
     }
     
-   /* public void deleteReclamation(Reclamation re){
-        String req="delete from reclamation where id=?";
-        try {
-            PreparedStatement pst = cnx2.prepareStatement(req);
-            //pst=Connection.prepareStatement(req);
-            pst.setInt(1,re.getId());
 
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-*/
     public void deleteReclamation(Reclamation r) {
        /* String req = "delete from reclamation where id=" + id;
         try {
@@ -153,21 +144,7 @@ public class ServiceReclamation {
          }
     }
     
-    /* public void updateReclamation(Reclamation r) {
 
-        String req = "update reclamation set description_reclamation=" + r.getDescription_reclamation() + ",etat_reclamation = " + r.getEtat_reclamation() + ",date_reclamation = " + r.getDate_reclamation() + " where id="+ r.getId() + ";";
-        try {
-            PreparedStatement pst = cnx2.prepareStatement(req);
-//            pst = Connection.createStatement();
-            pst.executeUpdate(req);
-
-        } catch (SQLException ex) {
-            //Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
-            System.err.println(ex.getMessage());
-        }
-
-    }*/
-     
      public void updateReclamation( Reclamation r){
         String requete2="update reclamation set description_reclamation=?,etat_reclamation='envoye' where id=?";
         try {
@@ -227,8 +204,25 @@ public class ServiceReclamation {
       }
          
      return myList;
-         }
-     
+         }/*
+       public ArrayList<Reclamation> FindabonnementBytype(String type)  {
+  ArrayList<Reclamation> listabonnement = new ArrayList<>();   
+   try {
+          String requete= "select * from abonnement WHERE type='" + type + "' ";
+        PreparedStatement pst =  new MyConnection().cn.prepareStatement(requete);
+        ResultSet res = pst.executeQuery("select * from abonnement WHERE type='" + type + "' ");
+         abonnement  com = null;
+        while (res.next()) { 
+            com = new  abonnement (res.getInt(1),res.getInt(2),res.getInt(3),res.getString(4));
+            listabonnement .add(com);   
+        }
+        } catch (SQLException ex) {
+            Logger.getLogger( abonnementCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }System.out.println("abonnement trouve");
+        
+                 return listabonnement ;
+ 
+    }*/
       
      public List<Reclamation> TrouveEtatReclam(String etat_reclamation) throws SQLException
           {
@@ -253,6 +247,32 @@ public class ServiceReclamation {
      return myList;
          }
 
+     public List<Reclamation> TrouveDateReclam(Date date_reclamation) throws SQLException
+          {
+                    List<Reclamation>myList = new ArrayList<>();
+             String requete5="SELECT * FROM `reclamation` WHERE `date_reclamation`=?";
+              //Statement st = cnx2.createStatement();;
+              PreparedStatement pst = cnx2.prepareStatement(requete5);
+              //PreparedStatement stm=cnx.prepareStatement(req);
+
+//LocalDate date = LocalDate.parse(date_reclamation, DateTimeFormatter.BASIC_ISO_DATE);
+              pst.setDate(1,date_reclamation);
+      ResultSet rst= pst.executeQuery();
+      while(rst.next())
+      {
+       Reclamation r = new Reclamation();
+            r.setId(rst.getInt(1));
+            r.setDescription_reclamation(rst.getString("description_reclamation"));
+            r.setEtat_reclamation(rst.getString("etat_reclamation"));
+            r.setDate_reclamation(rst.getString("date_reclamation"));
+    
+           myList.add(r);
+      }
+         
+     return myList;
+         }
+
+     
     private Date getCurrentDatetime() {
         java.util.Date today = new java.util.Date();
     return new java.sql.Date(today.getTime());

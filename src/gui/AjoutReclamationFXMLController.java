@@ -88,6 +88,8 @@ public class AjoutReclamationFXMLController implements Initializable {
     @FXML
         private void AjouterReclam(ActionEvent event) {
                 if(Validchamp(description_reclamation) ){
+    
+             
                      // User user = (User) user_idcol.getSelectionModel().getSelectedItem();   
     
         Reclamation r = new Reclamation();
@@ -98,7 +100,7 @@ public class AjoutReclamationFXMLController implements Initializable {
        //  tmp.setPrenom_utilisateur(id_user.getText());
 
      //   r.setEtat_reclamation(etat_reclamation.getText());
-       // r.setDate_reclamation(Date.valueOf(date_reclamation.getValue()));
+       //r.setDate_reclamation(Date.valueOf(date_reclamation.getValue()));
         ServiceReclamation pst = new ServiceReclamation();
         pst.ajouterReclamation2(r);
      
