@@ -58,6 +58,10 @@ public class ListBilletController implements Initializable {
     private Button ActualiserBillet;
     @FXML
     private TableColumn<Billet, Integer> id;
+    @FXML
+    private TableColumn<Billet, Integer> chair_billet;
+    @FXML
+    private TableColumn<Billet, Integer> voyage_num;
     /**
      * Initializes the controller class.
      */
@@ -69,8 +73,8 @@ public class ListBilletController implements Initializable {
         list = FXCollections.observableList(Billets);
         tabBillet.setItems(list);
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        //chair_billet.setCellValueFactory(new PropertyValueFactory<>("chair_billet"));
-        //voyage_num.setCellValueFactory(new PropertyValueFactory<>("voyage_num"));
+        chair_billet.setCellValueFactory(new PropertyValueFactory<>("chair_billet"));
+        voyage_num.setCellValueFactory(new PropertyValueFactory<>("voyage_num"));
         terminal.setCellValueFactory(new PropertyValueFactory<>("terminal"));
         portail.setCellValueFactory(new PropertyValueFactory<>("portail"));
         embarquement.setCellValueFactory(new PropertyValueFactory<>("embarquement"));
@@ -120,16 +124,16 @@ public class ListBilletController implements Initializable {
         ((Node) (event.getSource())).getScene().getWindow().hide();
      
            int as=tabBillet.getSelectionModel().getSelectedItem().getId();
-          // int c = tabBillet.getSelectionModel().getSelectedItem().getChairBillet();
-         //  int v = tabBillet.getSelectionModel().getSelectedItem().getVoyageNum();
+           int c = tabBillet.getSelectionModel().getSelectedItem().getChairBillet();
+           int v = tabBillet.getSelectionModel().getSelectedItem().getVoyageNum();
            int t  = tabBillet.getSelectionModel().getSelectedItem().getTerminal();
            int p  = tabBillet.getSelectionModel().getSelectedItem().getPortail();
-           Date e  = tabBillet.getSelectionModel().getSelectedItem().getEmbarquement();
+          // Date e  = tabBillet.getSelectionModel().getSelectedItem().getEmbarquement();
            int l  = tabBillet.getSelectionModel().getSelectedItem().getLocalisation();
            
                    Bc.setData(tabBillet.getSelectionModel().getSelectedItem().getId(),
-                          // tabBillet.getSelectionModel().getSelectedItem().getChairBillet(),
-                          // tabBillet.getSelectionModel().getSelectedItem().getVoyageNum(),
+                           tabBillet.getSelectionModel().getSelectedItem().getChairBillet(),
+                           tabBillet.getSelectionModel().getSelectedItem().getVoyageNum(),
                            tabBillet.getSelectionModel().getSelectedItem().getTerminal(),
                            tabBillet.getSelectionModel().getSelectedItem().getPortail(),
                            // tabBillet.getSelectionModel().getSelectedItem().getEmbarquement(),
@@ -164,8 +168,8 @@ public class ListBilletController implements Initializable {
         list = FXCollections.observableList(Billets);
         tabBillet.setItems(list);
          id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        //chair_billet.setCellValueFactory(new PropertyValueFactory<>("chair_billet"));
-       // voyage_num.setCellValueFactory(new PropertyValueFactory<>("voyage_num"));
+        chair_billet.setCellValueFactory(new PropertyValueFactory<>("chair_billet"));
+        voyage_num.setCellValueFactory(new PropertyValueFactory<>("voyage_num"));
         terminal.setCellValueFactory(new PropertyValueFactory<>("terminal"));
         portail.setCellValueFactory(new PropertyValueFactory<>("portail"));
         embarquement.setCellValueFactory(new PropertyValueFactory<>("embarquement"));

@@ -52,8 +52,6 @@ public class ModifierBilletController implements Initializable {
     private TextField localisation_modif;
     @FXML
     private DatePicker embarquement_modif;
-    @FXML
-    private TextField id;
 
     /**
      * Initializes the controller class.
@@ -76,7 +74,7 @@ public class ModifierBilletController implements Initializable {
             alert.showAndWait();
         }else {
             
-        b.setId(Integer.parseInt(id.getText()));
+        b.getId();
         b.setChairBillet(Integer.parseInt(chair_billet_modif.getText()));
         b.setVoyageNum(Integer.parseInt(voyage_num_modif.getText()));
         b.setTerminal(Integer.parseInt(terminal_modif.getText()));
@@ -110,13 +108,13 @@ public class ModifierBilletController implements Initializable {
         window.setScene(sceneview);
         window.show();
     }
-    void setData(int id,/*int c,int v,*/int t, int p, /*LocalDate e,*/int l) {
+    void setData(int id,int c,int v,int t, int p,/* Date e,*/int l) {
         b.setId(id);
-        //chair_billet_modif.setText(String.valueOf(c));
-       // voyage_num_modif.setText(String.valueOf(v));
+        chair_billet_modif.setText(String.valueOf(c));
+       voyage_num_modif.setText(String.valueOf(v));
         terminal_modif.setText(String.valueOf(t));
         portail_modif.setText(String.valueOf(p));
-        //embarquement_modif.setValue(e);
+       // embarquement_modif.setText(String.valueOf(e));
         localisation_modif.setText(String.valueOf(l));
     }
     @FXML

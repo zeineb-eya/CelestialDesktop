@@ -168,18 +168,17 @@ public class ReservationService implements IserviceReservation<Reservation>{
         }
         return nb3;
     }
-       public List<Billet> detailsBilletJoinReservation(int id) {
+    public List<Billet> detailsBilletJoinReservation(int id) {
        List<Billet> myList = new ArrayList<>();
        
         try {
          
         String req11 = "SELECT * from billet  join reservation on reservation.billet_id=billet.id where reservation.id="+id;
+  // String req11 = "SELECT b.chair_billet, b.voyage_num, b.terminal, b.portail, b.embarquement, b.localisation_id, r.date_reservation,r.etat_reservation,r.user_id,r.billet_id from billet b join reservation r on reservation.billet_id=billet.id where reservation.id="+id;
         Statement st = cnx2.createStatement();
         ResultSet rs =  st.executeQuery(req11);
         while(rs.next()){
            Billet b = new Billet();
-                b.setId(rs.getInt(1));
-                b.setId(rs.getInt("id"));
                 b.setChairBillet(rs.getInt("chair_billet"));
                 b.setVoyageNum(rs.getInt("voyage_num"));
                 b.setTerminal(rs.getInt("terminal"));
