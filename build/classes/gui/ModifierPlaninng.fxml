@@ -15,7 +15,7 @@
             <Font name="Franklin Gothic Medium" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="331.0" layoutY="204.0" mnemonicParsing="false" onAction="#modifier" prefHeight="54.0" prefWidth="143.0" text="Modifier" textAlignment="CENTER" textFill="#e80a0a">
+      <Button layoutX="331.0" layoutY="204.0" mnemonicParsing="false" onAction="#modifier" prefHeight="54.0" prefWidth="143.0" stylesheets="@elements/css/mainStyle.css" text="Modifier" textAlignment="CENTER" textFill="#e80a0a">
          <font>
             <Font name="Gabriola" size="23.0" />
          </font></Button>
@@ -27,5 +27,6 @@
       <TextField fx:id="destinationplanningmodif" layoutX="57.0" layoutY="289.0" prefHeight="25.0" prefWidth="174.0" promptText="Destination" />
       <TextArea fx:id="descriptionplanningmodif" layoutX="57.0" layoutY="206.0" prefHeight="70.0" prefWidth="174.0" promptText="Description du Planinng" />
       <Label fx:id="idp" layoutX="10.0" layoutY="10.0" text="id" visible="false" />
+      <Button fx:id="SwitchToGestionPlanBTN" layoutX="331.0" layoutY="277.0" mnemonicParsing="false" onAction="#SwitchToGestionplaninng" prefHeight="54.0" prefWidth="143.0" stylesheets="@elements/css/mainStyle.css" text="Annulez" />
    </children>
 </AnchorPane>

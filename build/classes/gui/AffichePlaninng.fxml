@@ -12,7 +12,7 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichePlaninngController">
    <children>
       <Button layoutX="228.0" layoutY="341.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="25.0" prefWidth="135.0" text="Supprimer" />
-      <TableView fx:id="tableplaninng" layoutX="63.0" layoutY="128.0" prefHeight="200.0" prefWidth="601.0">
+      <TableView fx:id="tableplaninng" layoutX="63.0" layoutY="128.0" prefHeight="200.0" prefWidth="687.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="IDP" />
           <TableColumn fx:id="nomplanning" prefWidth="75.0" text="NomP" />
@@ -22,6 +22,7 @@
             <TableColumn fx:id="destinationplanning" prefWidth="75.0" text="Dest" />
             <TableColumn fx:id="periodeplanning" prefWidth="75.0" text="Periode" />
             <TableColumn fx:id="prixplanning" prefWidth="75.0" text="Prix" />
+            <TableColumn fx:id="Details" prefWidth="75.0" text="Localisation" />
         </columns>
       </TableView>
       <Button layoutX="62.0" layoutY="341.0" mnemonicParsing="false" onAction="#modifierPlaninng" prefHeight="25.0" prefWidth="135.0" text="Modifier" />

@@ -5,68 +5,24 @@
  */
 package gui;
 
-import entities.Localisation;
-import entities.Planinng;
-import java.io.File;
-import java.io.FileOutputStream;
-
-import util.MyDB;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.URL;
-import java.sql.PreparedStatement;
-import static java.util.Collections.list;
-import java.util.List;
-import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.print.PageLayout;
-import javafx.print.PageOrientation;
-import javafx.print.Paper;
-import javafx.print.Printer;
-import javafx.print.PrinterJob;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-import javax.swing.JOptionPane;
-import javax.swing.text.Document;
-/*import com.google.zxing.BarcodeFormat;
-import com.google.zxing.client.j2se.MatrixToImageConfig;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
-import comitextpdf.text.Paragraph;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import entite.repas;
-import static entite.repas.filename;*/
-import java.awt.AlphaComposite;
-import java.awt.Graphics2D;
-import java.awt.SystemTray;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
+import entities.Localisation;
+import entities.Planinng;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.List;
+import javax.swing.JOptionPane;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -75,38 +31,26 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Side;
 import javafx.print.PageLayout;
 import javafx.print.PageOrientation;
 import javafx.print.Paper;
 import javafx.print.Printer;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
-import javax.imageio.ImageIO;
 import services.PlaninngService;
 
 /**
@@ -128,7 +72,7 @@ public class AffichePlaninngController implements Initializable {
     @FXML
     private TableColumn<?, ?> dateFinplanning;
     @FXML
-    private TableColumn<?, ?> descriptionplanning;
+    private TableColumn<Planinng, String> descriptionplanning;
     @FXML
     private TableColumn<?, ?> destinationplanning;
     @FXML
@@ -146,6 +90,8 @@ public class AffichePlaninngController implements Initializable {
     private Button pdf;
     @FXML
     private TextField filterField;
+    @FXML
+    private TableColumn<?, ?> Details;
    
                        
 
@@ -333,49 +279,7 @@ if(p==null){
    }
     }
 
-    @FXML
-    private void pdf(ActionEvent event) {
-             /*   PlaninngService ps = new PlaninngService();
-              
-        ObservableList<Planinng> Planinngs = FXCollections.observableArrayList(ps.afficherPlaninng());
-        try {
-            OutputStream file = new FileOutputStream(new File("D:\\pdf\\export.pdf"));
-            Document document = new Document();
-            PdfWriter.getInstance(document, file);
-            document.open();
 
-            Font font = new Font(Font.FontFamily.HELVETICA, 24, Font.BOLD);
-            Paragraph pdfTitle = new Paragraph("Planinngs list", font);
-            pdfTitle.setAlignment(Element.ALIGN_CENTER);
-
-            document.add(pdfTitle);
-            document.add(new Chunk("\n"));
-            PdfPTable table = new PdfPTable(3);
-            table.setHeaderRows(1);
-
-            table.addCell("Name");
-            table.addCell("Date");
-            table.addCell("Description");
-
-            list.forEach((_item) -> {
-                table.addCell(_item.getNom());
-                table.addCell(_item.getDescription());
-                table.addCell(_item.getAdresse());
-            });
-
-            document.add(table);
-
-            document.close();
-
-            file.close();
-
-        } catch (DocumentException | IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText("Cannot export data!");
-            alert.show();
-        }*/
-    }
 
     @FXML
     private void search(ActionEvent event) {
@@ -433,6 +337,69 @@ public void showCustomerDialog(Localisation localisation) throws IOException {
 
   stage.show();
 }
+
+
+
+    @FXML
+    private void pdf(ActionEvent event) throws SQLException {
+        PlaninngService ps = new PlaninngService();
+              
+        ObservableList<Planinng> Planinngs = FXCollections.observableArrayList(ps.afficherPlaninng());
+        try {
+            OutputStream file = new FileOutputStream(new File("C:\\pdf\\planinngs.pdf"));
+            Document document = new Document();
+            PdfWriter.getInstance(document, file);
+            document.open();
+
+            Font font = new Font(Font.FontFamily.HELVETICA, 24, Font.BOLD);
+            Paragraph pdfTitle = new Paragraph("Planinng list", font);
+            pdfTitle.setAlignment(Element.ALIGN_CENTER);
+
+            document.add(pdfTitle);
+            document.add(new Chunk("\n"));
+            PdfPTable table = new PdfPTable(4);
+            table.setHeaderRows(1);
+
+            table.addCell("Name");
+          //  table.addCell("Date Debut");
+           // table.addCell("Date Fin");
+            table.addCell("Destination Planinng");
+           // table.addCell("prix planinng");
+            table.addCell("periode planinng");
+            table.addCell("prix planinng");
+
+            Planinngs.forEach((Planinng p) -> {
+                table.addCell(p.getNomPlanning());
+                //table.addCell(p.getDateDebutPlanning());
+               // table.addCell(p.getDateFinPlanning());
+                table.addCell(p.getDestinationPlanning());
+                //table.addCell(Integer.parseInt(p.getPeriodePlanning()));
+              int pe = p.getPeriodePlanning();
+              String ste =String.valueOf(pe); 
+             table.addCell(ste);
+               int pr = p.getPrixPlanning();
+              String st =String.valueOf(pr); 
+             table.addCell(st);
+                
+            });
+
+            document.add(table);
+
+            document.close();
+
+            file.close();
+
+        } catch (DocumentException | IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Cannot export data!");
+            alert.show();
+        }
+    }
+
+
+
+
 
     }
    
