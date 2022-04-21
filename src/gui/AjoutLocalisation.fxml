@@ -18,7 +18,7 @@
       <TextField fx:id="heure_depart_localisation" layoutX="74.0" layoutY="107.0" promptText="Heure Depart" />
       <TextField fx:id="heure_arrivee_loacalisation" layoutX="74.0" layoutY="156.0" promptText="Heure Arrive" />
       <TextField fx:id="fusee" layoutX="74.0" layoutY="300.0" promptText="Fussee" />
-      <Button layoutX="427.0" layoutY="341.0" mnemonicParsing="false" onAction="#Ajouter" text="Ajouter" />
-      <Button layoutX="495.0" layoutY="341.0" mnemonicParsing="false" onAction="#Afficher" text="Afficher" />
+      <Button layoutX="427.0" layoutY="341.0" mnemonicParsing="false" onAction="#Ajouter" stylesheets="@elements/css/mainStyle.css" text="Ajouter" />
+      <Button layoutX="495.0" layoutY="341.0" mnemonicParsing="false" onAction="#Afficher" stylesheets="@elements/css/mainStyle.css" text="Afficher" />
    </children>
 </AnchorPane>

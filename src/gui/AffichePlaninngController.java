@@ -361,7 +361,6 @@ public void showCustomerDialog(Localisation localisation) throws IOException {
             table.setHeaderRows(1);
 
             table.addCell("Name");
-          //  table.addCell("Date Debut");
            // table.addCell("Date Fin");
             table.addCell("Destination Planinng");
            // table.addCell("prix planinng");

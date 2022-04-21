@@ -9,10 +9,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichePlaninngController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichePlaninngController">
    <children>
-      <Button layoutX="228.0" layoutY="341.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="25.0" prefWidth="135.0" text="Supprimer" />
-      <TableView fx:id="tableplaninng" layoutX="63.0" layoutY="128.0" prefHeight="200.0" prefWidth="687.0">
+      <Button layoutX="270.0" layoutY="341.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="25.0" prefWidth="135.0" stylesheets="@elements/css/mainStyle.css" text="Supprimer" />
+      <TableView fx:id="tableplaninng" layoutX="63.0" layoutY="128.0" prefHeight="200.0" prefWidth="677.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="IDP" />
           <TableColumn fx:id="nomplanning" prefWidth="75.0" text="NomP" />
@@ -25,12 +25,12 @@
             <TableColumn fx:id="Details" prefWidth="75.0" text="Localisation" />
         </columns>
       </TableView>
-      <Button layoutX="62.0" layoutY="341.0" mnemonicParsing="false" onAction="#modifierPlaninng" prefHeight="25.0" prefWidth="135.0" text="Modifier" />
-      <Button fx:id="refreshButton" layoutX="378.0" layoutY="341.0" mnemonicParsing="false" onAction="#refresh" prefHeight="25.0" prefWidth="135.0" text="Actualiser" />
-      <Button fx:id="pdfbtn" layoutX="528.0" layoutY="341.0" mnemonicParsing="false" onAction="#exportpdfbtn" prefHeight="25.0" prefWidth="135.0" text="print" />
-      <Button fx:id="pdf" layoutX="624.0" layoutY="23.0" mnemonicParsing="false" onAction="#pdf" prefHeight="31.0" prefWidth="54.0" text="pdf" />
+      <Button layoutX="104.0" layoutY="341.0" mnemonicParsing="false" onAction="#modifierPlaninng" prefHeight="25.0" prefWidth="135.0" stylesheets="@elements/css/mainStyle.css" text="Modifier" />
+      <Button fx:id="refreshButton" layoutX="438.0" layoutY="341.0" mnemonicParsing="false" onAction="#refresh" prefHeight="25.0" prefWidth="135.0" stylesheets="@elements/css/mainStyle.css" text="Actualiser" />
+      <Button fx:id="pdfbtn" layoutX="606.0" layoutY="341.0" mnemonicParsing="false" onAction="#exportpdfbtn" prefHeight="25.0" prefWidth="135.0" stylesheets="@elements/css/mainStyle.css" text="print" />
+      <Button fx:id="pdf" layoutX="681.0" layoutY="84.0" mnemonicParsing="false" onAction="#pdf" prefHeight="31.0" prefWidth="54.0" stylesheets="@elements/css/mainStyle.css" text="pdf" />
       <TextField fx:id="filterField" layoutX="164.0" layoutY="87.0" onAction="#search" prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: #E5E7E9;" />
-      <Pane layoutX="237.0" layoutY="23.0" prefHeight="51.0" prefWidth="253.0" style="-fx-background-color: #228B22;">
+      <Pane layoutX="237.0" layoutY="11.0" prefHeight="51.0" prefWidth="253.0" style="-fx-background-color: #228B22;">
          <children>
             <Label layoutX="17.0" layoutY="8.0" text="Gestion Planinngs" textFill="WHITE">
                <font>
@@ -39,10 +39,11 @@
             </Label>
          </children>
       </Pane>
-      <Label layoutX="83.0" layoutY="90.0" prefHeight="20.0" prefWidth="108.0" text="Search Box">
+      <Label layoutX="110.0" layoutY="90.0" prefHeight="20.0" prefWidth="108.0" text="Search ">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
+      <Pane layoutX="7.0" layoutY="71.0" prefHeight="7.0" prefWidth="770.0" style="-fx-background-color: black;" />
    </children>
 </AnchorPane>
