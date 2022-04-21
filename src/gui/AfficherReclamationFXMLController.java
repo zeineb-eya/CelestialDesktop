@@ -53,12 +53,22 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.sl.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import com.mycompany.utils.MyConnection;
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.neural.rnn.RNNCoreAnnotations;
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
+import edu.stanford.nlp.trees.Tree;
+import edu.stanford.nlp.util.CoreMap;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.Statement;
 import javafx.scene.chart.BarChart;
-
-/**
+import javafx.stage.Modality;
+//import gui.nlpPipeline;
+//import static gui.nlpPipeline.pipeline;
+import java.util.Properties;
+import javafx.scene.control.ButtonType;
+        /**
  * FXML Controller class
  *
  * @author ASUS
@@ -87,15 +97,13 @@ public class AfficherReclamationFXMLController implements Initializable {
 
     @FXML
     private TextField rechercher;
-    @FXML
-    private BarChart<?, ?> barChart;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-       afficherReclam();
+       afficherReclamNLP();
        
       /* pagination = new Pagination(3);
        pagination.setStyle("-fx-border-color:blue");
@@ -143,7 +151,22 @@ int page = pageIndex * itemsPerPage();
 
 }*/
   
-   
+    private void afficherReclam() {
+        
+      ServiceReclamation sr = new ServiceReclamation();
+        List<Reclamation> reclam = sr.afficherReclamation();
+        myList = FXCollections.observableList(reclam);
+        tableaureclam.setItems(myList);
+        
+        description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
+        etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
+        date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
+     //   user.setCellValueFactory(new PropertyValueFactory<>(user.getId()));
+        user.setCellValueFactory(new PropertyValueFactory<>("user"));
+         RechercheAV();
+        //user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
+      
+    }
      
        public Boolean ValidateFields() {
     if (tableaureclam.getSelectionModel().isEmpty() ){
@@ -159,8 +182,42 @@ int page = pageIndex * itemsPerPage();
         return true;
 
     }
+       
+    @FXML
+    private void deleteReclam(MouseEvent event) {
+       
+         if(ValidateFields() ){
+                  if(tableaureclam.getSelectionModel().getSelectedItem().getEtat_reclamation().equals("Traitée")){
+
+                        Alert alert2 = new Alert(Alert.AlertType.ERROR, "Cette réclamation est déjà traité vous ne pouvez pas la supprimer!", ButtonType.CLOSE);
+                        alert2.showAndWait();
+                        if (alert2.getResult() == ButtonType.CLOSE)
+                            alert2.close();
+                    }else{
+
+         ServiceReclamation sr = new ServiceReclamation();
+        Reclamation r = (Reclamation) tableaureclam.getSelectionModel().getSelectedItem();
+        sr.deleteReclamation(r);
+        sr.refreshReclam();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                 try {
+             if(JOptionPane.showConfirmDialog(null,"attention vous allez supprimer votre reclamation,est ce que tu et sure?"
+                     ,"supprimer reclamation",JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION)
+         
+            if(r.getDescription_reclamation().length() != 0){
+       
+         alert.setContentText("Votre réclamation a ete bien supprime");
+         JOptionPane.showMessageDialog(null,"reclamation supprime");
+             }//ca est pour recharger la list des stagiaire
+            else { JOptionPane.showMessageDialog(null,"veuillez remplire le champ id !");}
+        
+        }catch (Exception e){JOptionPane.showMessageDialog(null,"erreur de supprimer \n"+e.getMessage());} 
+       
+         }
     
-      @FXML
+    }
+    
+ /*     @FXML
     private void deleteReclam(MouseEvent event) {
        
          if(ValidateFields() ){
@@ -184,29 +241,10 @@ int page = pageIndex * itemsPerPage();
        
          }
     
+    }*/
+
+//afficherReclam blasetha
     }
-
-
-    private void afficherReclam() {
-      
-      ServiceReclamation sr = new ServiceReclamation();
-        List<Reclamation> reclam = sr.afficherReclamation();
-        myList = FXCollections.observableList(reclam);
-        tableaureclam.setItems(myList);
-        
-        description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
-        etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
-        date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
-     //   user.setCellValueFactory(new PropertyValueFactory<>(user.getId()));
-        user.setCellValueFactory(new PropertyValueFactory<>("user"));
-
-
-           RechercheAV();
-           
-        //user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
-        
-    }
-    
     @FXML
      private void modifierReclam(MouseEvent event) {
      Reclamation r = tableaureclam.getSelectionModel().getSelectedItem();
@@ -355,34 +393,7 @@ if(r==null){
             
         }}*/
 
-   /*@FXML
-     private void exportexcel(ActionEvent event) throws FileNotFoundException, IOException {
-        Workbook workbook = new HSSFWorkbook();
-        Sheet spreadsheet = (Sheet) workbook.createSheet("sample");
-
-        Row row = (Row) spreadsheet.createRow(0);
-
-        for (int j = 0; j < tableaureclam.getColumns().size(); j++) {
-            row.createCell(j).setCellValue(tableaureclam.getColumns().get(j).getText());
-        }
-
-        for (int i = 0; i < tableaureclam.getItems().size(); i++) {
-            row = spreadsheet.createRow(i + 1);
-            for (int j = 0; j < tableaureclam.getColumns().size(); j++) {
-                if(tableaureclam.getColumns().get(j).getCellData(i) != null) { 
-                    row.createCell(j).setCellValue(tableaureclam.getColumns().get(j).getCellData(i).toString()); 
-                }
-                else {
-                    row.createCell(j).setCellValue("");
-                }   
-            }
-        }
-        FileOutputStream fileOut = new FileOutputStream("workbook.xls");
-        workbook.write(fileOut);
-        fileOut.close();
-
-    }*/
-    
+   
     @FXML
     private void exportexcel(ActionEvent event) throws SQLException, IOException {
         Workbook workbook = new HSSFWorkbook();
@@ -413,9 +424,6 @@ if(r==null){
 
     }
     
-   
-    
-    
     /* public void Stat() throws SQLException{
                 XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Répartition des Types");
@@ -432,7 +440,78 @@ if(r==null){
    /* @FXML
     private void exportexcel(ActionEvent event) {
     }*/
+
+    @FXML
+    private void detailReclam(ActionEvent event) {
+        try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/DetailReclamationFXML.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
     
-  
+    static StanfordCoreNLP pipeline;
+    public static void init() 
+    {
+        Properties props = new Properties();
+        props.setProperty("annotators", "tokenize, ssplit, parse, sentiment");
+        pipeline = new StanfordCoreNLP(props);
+    }
+     public static void estimatingSentiment(Reclamation r)
+    {
+   int sentimentInt;
+      String sentimentName; 
+         edu.stanford.nlp.pipeline.Annotation annotation = pipeline.process(r.getDescription_reclamation());
+      for(CoreMap sentence : annotation.get(CoreAnnotations.SentencesAnnotation.class))
+      {
+         Tree tree = sentence.get(SentimentCoreAnnotations.SentimentAnnotatedTree.class);
+        sentimentInt = RNNCoreAnnotations.getPredictedClass(tree); 
+                sentimentName = sentence.get(SentimentCoreAnnotations.SentimentClass.class);
+        System.out.println(sentimentName + "\t" + sentimentInt + "\t" + sentence);
+      }
+     }
+    public static String findSentiment(Reclamation r ) {
+        int sentimentInt = 2;
+        String sentimentName = "NULL";
+        if (r.getDescription_reclamation() != null && r.getDescription_reclamation().length() > 0) {
+            edu.stanford.nlp.pipeline.Annotation annotation = pipeline.process(r.getDescription_reclamation());
+          CoreMap sentence = annotation
+                    .get(CoreAnnotations.SentencesAnnotation.class).get(0);
+          Tree tree = sentence
+                     .get(SentimentCoreAnnotations.SentimentAnnotatedTree.class);
+          sentimentInt = RNNCoreAnnotations.getPredictedClass(tree);
+          sentimentName = sentence.get(SentimentCoreAnnotations.SentimentClass.class);
+        }
+        return sentimentName;
+}
+    
+    private void afficherReclamNLP() {
+      /*  init();
+        Reclamation r = new Reclamation();
+
+      r.getDescription_reclamation();  
+   estimatingSentiment(r); */
+      ServiceReclamation sr = new ServiceReclamation();
+        List<Reclamation> reclam = sr.afficherReclamation();
+        myList = FXCollections.observableList(reclam);
+        tableaureclam.setItems(myList);
+        
+        description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
+        etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
+        date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
+     //   user.setCellValueFactory(new PropertyValueFactory<>(user.getId()));
+        user.setCellValueFactory(new PropertyValueFactory<>("user"));
+         RechercheAV();
+        //user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
+     //  nlpPipeline.init();
+     
+    }
 }

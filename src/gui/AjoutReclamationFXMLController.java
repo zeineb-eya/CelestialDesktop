@@ -85,6 +85,8 @@ public class AjoutReclamationFXMLController implements Initializable {
     }return true;
 }
      
+
+     
     @FXML
         private void AjouterReclam(ActionEvent event) {
                 if(Validchamp(description_reclamation) ){

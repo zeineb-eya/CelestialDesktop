@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DetailReclamationFXMLController">
+   <children>
+      <Label layoutX="169.0" layoutY="14.0" text="Details Réclamation :" textFill="#2212d7">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="83.0" layoutY="120.0" text="Description réclamation:" />
+      <Label layoutX="92.0" layoutY="213.0" text="Etat réclamation :" />
+      <Label layoutX="91.0" layoutY="276.0" text="Date réclamation:" />
+   </children>
+</AnchorPane>
