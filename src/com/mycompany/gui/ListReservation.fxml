@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.gui.ListReservationController">
    <children>
@@ -16,11 +19,18 @@
             <TableColumn fx:id="billet" prefWidth="63.0" text="billet" />
          </columns>
       </TableView>
-      <Button fx:id="Reserver" layoutX="484.0" layoutY="347.0" mnemonicParsing="false" onAction="#Reserver" text="Ajouter" />
-      <Button fx:id="SupprimerReservation" layoutX="217.0" layoutY="347.0" mnemonicParsing="false" onAction="#SupprimerReservation" text="Supprimer" />
-      <Button fx:id="ModifierReservation" layoutX="100.0" layoutY="347.0" mnemonicParsing="false" onAction="#ModifierReservation" text="Modifier" />
-      <Button fx:id="ActualiserReservation" layoutX="344.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActualiserReservation" text="Actualiser" />
-      <Button fx:id="StatistiqueReservation" layoutX="263.0" layoutY="21.0" mnemonicParsing="false" onAction="#StatistiqueReservation" text="Statistique" />
-      <Button fx:id="QRCode" layoutX="412.0" layoutY="21.0" mnemonicParsing="false" onAction="#QRCode" text="QRCode" />
+      <Button fx:id="Reserver" layoutX="344.0" layoutY="347.0" mnemonicParsing="false" onAction="#Reserver" text="Ajouter" />
+      <Button fx:id="SupprimerReservation" layoutX="158.0" layoutY="347.0" mnemonicParsing="false" onAction="#SupprimerReservation" text="Supprimer" />
+      <Button fx:id="ModifierReservation" layoutX="85.0" layoutY="347.0" mnemonicParsing="false" onAction="#ModifierReservation" text="Modifier" />
+      <Button fx:id="ActualiserReservation" layoutX="255.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActualiserReservation" text="Actualiser" />
+      <Button fx:id="StatistiqueReservation" layoutX="414.0" layoutY="347.0" mnemonicParsing="false" onAction="#StatistiqueReservation" text="Statistique" />
+      <Button fx:id="QRCode" layoutX="501.0" layoutY="347.0" mnemonicParsing="false" onAction="#QRCode" text="QRCode" />
+      <Button fx:id="showDetails" layoutX="25.0" layoutY="347.0" mnemonicParsing="false" onAction="#showDetails" text="Details" />
+      <TextField fx:id="filterField" layoutX="98.0" layoutY="26.0" onAction="#search" prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: #E5E7E9;" />
+      <Label layoutX="17.0" layoutY="29.0" prefHeight="20.0" prefWidth="108.0" text="Search Box">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

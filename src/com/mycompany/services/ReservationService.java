@@ -6,6 +6,7 @@
 package com.mycompany.services;
 
 
+import com.mycompany.entities.Billet;
 import com.mycompany.entities.Reservation;
 import com.mycompany.utils.MyConnection;
 import java.sql.Connection;
@@ -14,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,13 +51,13 @@ public class ReservationService implements IserviceReservation<Reservation>{
 //        String req = "insert into billet(chair_billet,voyage_num,terminal,portail,embarquement,localisation_id)"
 //                    + "values( '" + b.getChairBillet() + "', '" + b.getVoyageNum() + "',"+ "" + b.getTerminal() + "', '" + b.getPortail() + "', '" ++ "', '" + b.getEmbarquement() + "', '" + b.getLocalisation()  + ")";
         try {
-            String req2 = "insert into reservation (date_reservation,etat_reservation,user_id,billet_id)"
-                    + "values(?,?,?,?)";
+            String req2 = "insert into reservation (user_id,date_reservation,billet_id,etat_reservation)"
+                    + "values(?,DATE( NOW() ),?,'waiting for a confirmation')";
             PreparedStatement pst = cnx2.prepareStatement(req2);
-            pst.setDate(1, r.getDateReservation());
-            pst.setString(2, r.getEtatReservation());
-            pst.setInt(3, r.getUser());
-            pst.setInt(4, r.getBillet());
+            pst.setInt(1, r.getUser());
+            //pst.setDate(2, r.getDateReservation());
+            pst.setInt(2, r.getBillet());
+            //pst.setString(4, r.getEtatReservation());
             pst.executeUpdate();
             System.out.println("Reservation ajoutee avec succes");
         } catch (SQLException ex) {
@@ -72,10 +74,10 @@ public class ReservationService implements IserviceReservation<Reservation>{
             while (rs.next()){
                 Reservation r = new Reservation();
                 r.setId(rs.getInt("id"));
-                r.setDateReservation(rs.getDate("date_reservation"));
-                r.setEtatReservation(rs.getString("etat_reservation"));
                 r.setUser(rs.getInt("user_id"));
+                r.setDateReservation(rs.getDate("date_reservation"));
                 r.setBillet(rs.getInt("billet_id"));
+                r.setEtatReservation(rs.getString("etat_reservation"));
                 myList.add(r);
             }
         } catch (SQLException ex) {
@@ -165,5 +167,60 @@ public class ReservationService implements IserviceReservation<Reservation>{
             nb3 = ResultSet.getInt(1);
         }
         return nb3;
+    }
+       public List<Billet> detailsBilletJoinReservation(int id) {
+       List<Billet> myList = new ArrayList<>();
+       
+        try {
+         
+        String req11 = "SELECT * from billet  join reservation on reservation.billet_id=billet.id where reservation.id="+id;
+        Statement st = cnx2.createStatement();
+        ResultSet rs =  st.executeQuery(req11);
+        while(rs.next()){
+           Billet b = new Billet();
+                b.setId(rs.getInt(1));
+                b.setId(rs.getInt("id"));
+                b.setChairBillet(rs.getInt("chair_billet"));
+                b.setVoyageNum(rs.getInt("voyage_num"));
+                b.setTerminal(rs.getInt("terminal"));
+                b.setPortail(rs.getInt("portail"));
+                b.setEmbarquement(rs.getDate("embarquement"));
+                b.setLocalisation(rs.getInt("localisation_id"));
+                myList.add(b);
+        }
+        } catch (SQLException ex) {
+         System.out.println(ex.getMessage()+"hhhhhh");
+        }
+        if(myList.isEmpty()){
+        return Collections.emptyList();
+                }
+       return myList; 
+    }
+       public List<Reservation> detailsReservation(int id) {
+       List<Reservation> myList = new ArrayList<>();
+       
+        try {
+         
+        String req11 = "SELECT * from reservation where id="+id;
+        Statement st = cnx2.createStatement();
+        ResultSet rs =  st.executeQuery(req11);
+        while(rs.next()){
+           Reservation r = new Reservation();
+                r.setId(rs.getInt("id"));
+                r.setUser(rs.getInt("user_id"));
+                r.setDateReservation(rs.getDate("date_reservation"));
+                r.setBillet(rs.getInt("billet_id"));
+                r.setEtatReservation(rs.getString("etat_reservation"));
+                
+               
+                myList.add(r);
+        }
+        } catch (SQLException ex) {
+         System.out.println(ex.getMessage()+"hhhhhh");
+        }
+        if(myList.isEmpty()){
+        return Collections.emptyList();
+                }
+       return myList; 
     }
 }

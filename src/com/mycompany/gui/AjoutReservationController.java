@@ -40,14 +40,12 @@ public class AjoutReservationController implements Initializable {
 
     @FXML
     private Button Reserver;
-    @FXML
-    private TextField Etat_reservation;
+    
     @FXML
     private TextField user;
     @FXML
     private TextField billet;
-    @FXML
-    private DatePicker date_reservation;
+    
     @FXML
     private Button ListerReservation;
 
@@ -67,8 +65,8 @@ public class AjoutReservationController implements Initializable {
     @FXML
     private void Reserver(ActionEvent event) {
         Reservation r = new Reservation();
-        r.setDateReservation(Date.valueOf(date_reservation.getValue()));
-        r.setEtatReservation(Etat_reservation.getText());
+       // r.setDateReservation(Date.valueOf(date_reservation.getValue()));
+        //r.setEtatReservation(Etat_reservation.getText());
         r.setUser(Integer.parseInt(user.getText()));
         r.setBillet(Integer.parseInt(billet.getText()));
       
@@ -78,7 +76,7 @@ public class AjoutReservationController implements Initializable {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle("Reservation envoyée");
         a.show();
-        sendMail();
+       // sendMail();
     }
 
     @FXML

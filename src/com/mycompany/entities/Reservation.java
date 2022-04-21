@@ -13,12 +13,12 @@ import java.util.Comparator;
  */
 public class Reservation {
     private int id,user,billet;
-    private String Etat_reservation;
-    private Date date_reservation;
-    public Reservation(int id,Date date_reservation,String Etat_reservation,int user,int billet) {
+    private String Etatreservation;
+    private Date datereservation;
+    public Reservation(int id,Date datereservation,String Etatreservation,int user,int billet) {
         this.id = id;
-        this.date_reservation = date_reservation;
-        this.Etat_reservation = Etat_reservation;
+        this.datereservation = datereservation;
+        this.Etatreservation = Etatreservation;
         this.user = user;
         this.billet = billet;
         
@@ -32,16 +32,16 @@ public class Reservation {
      public Reservation(int id) {
         this.id = id;    
     }
-    public Reservation(Date date_reservation,String Etat_reservation,int user,int billet) {
-        this.date_reservation = date_reservation;
-        this.Etat_reservation = Etat_reservation;
+    public Reservation(Date datereservation,String Etatreservation,int user,int billet) {
+        this.datereservation = datereservation;
+        this.Etatreservation = Etatreservation;
         this.user = user;
         this.billet = billet;
         
     }
-    public Reservation(int id,String Etat_reservation) {
+    public Reservation(int id,String Etatreservation) {
         this.id = id;
-        this.Etat_reservation = Etat_reservation;
+        this.Etatreservation = Etatreservation;
 
     }
     public Reservation(int user,int billet) {
@@ -61,17 +61,17 @@ public class Reservation {
     }
     
     public Date getDateReservation() {
-        return date_reservation;
+        return datereservation;
     }
-    public void setDateReservation(Date date_reservation) {
-        this.date_reservation = date_reservation;
+    public void setDateReservation(Date datereservation) {
+        this.datereservation = datereservation;
     }
     
     public String getEtatReservation() {
-        return Etat_reservation;
+        return Etatreservation;
     }
-    public void setEtatReservation(String Etat_reservation) {
-        this.Etat_reservation = Etat_reservation;
+    public void setEtatReservation(String Etatreservation) {
+        this.Etatreservation = Etatreservation;
     }
     
     public int getUser() {
@@ -90,7 +90,7 @@ public class Reservation {
     
     @Override
     public String toString() {
-        return "Reservation{" + "id=" + id + ", date_reservation=" + date_reservation + ", Etat_reservation=" + Etat_reservation +", user=" + user +", billet=" + billet + "\n";
+        return "Reservation{" + "id=" + id + ", date_reservation=" + datereservation + ", Etat_reservation=" + Etatreservation +", user=" + user +", billet=" + billet + "\n";
     }
     public static Comparator<Reservation> statusComparator = new Comparator<Reservation>() {
         @Override
