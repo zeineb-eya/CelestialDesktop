@@ -71,8 +71,9 @@ public class ModifierReservationController implements Initializable {
             alert.showAndWait();
         }else {
             
-        r.setId(Integer.parseInt(id.getText()));
-        //r.getId();
+        //r.setId(Integer.parseInt(id.getText()));
+        r.getId();
+        r.getDateReservation();
         r.setEtatReservation(Etat_reservation_modif.getText());
         ReservationService rs = new ReservationService();
              try{
@@ -100,7 +101,7 @@ public class ModifierReservationController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(sceneview);
         window.show();
-        sendMailConfirmation();
+       sendMailConfirmation();
     }
      void setData(int id,String sub) {
         r.setId(id);
@@ -131,8 +132,8 @@ public class ModifierReservationController implements Initializable {
             //String to =tfEmail.getText();
             String to ="zeinebeyarahmani@gmail.com";
             String from ="pawp6703@gmail.com";
-            String subject = "!Réservation confirmer!";
-            String messageText = "Bonjour cher client  , votre réservation a été confirmer. Cordialemment";
+            String subject = "!Etat de votre Réservation!";
+            String messageText = "Bonjour cher client  , votre réservation à la date "+String.valueOf(r.getDateReservation())+" est "+r.getEtatReservation()+". Cordialemment";
             boolean sessionDebug = false;
 
             Properties props = System.getProperties();

@@ -76,7 +76,7 @@ public class AjoutReservationController implements Initializable {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle("Reservation envoyée");
         a.show();
-       // sendMail();
+        //sendMail();
     }
 
     @FXML

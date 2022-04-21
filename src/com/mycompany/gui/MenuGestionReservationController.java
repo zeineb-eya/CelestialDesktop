@@ -42,7 +42,7 @@ public class MenuGestionReservationController implements Initializable {
     private void GestionBillet(ActionEvent event) {
           try {
         FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("AjoutBillet.fxml"));
+            loader.setLocation(getClass().getResource("ListBillet.fxml"));
             AnchorPane rootLayout = (AnchorPane) loader.load();
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -58,7 +58,7 @@ public class MenuGestionReservationController implements Initializable {
     private void GestionReservation(ActionEvent event) {
         try {
         FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("AjoutReservation.fxml"));
+            loader.setLocation(getClass().getResource("ListReservation.fxml"));
             AnchorPane rootLayout = (AnchorPane) loader.load();
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);

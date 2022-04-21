@@ -125,11 +125,11 @@ public class ListReservationController implements Initializable {
 
 if(r==null){
         
-           System.out.println("Aucun  Reservation séléctionné");
+           System.out.println("Aucune Reservation séléctionné");
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur");
             alert.setHeaderText(null);
-            alert.setContentText("Aucun  Reservation séléctionné");
+            alert.setContentText("Aucune Reservation séléctionné");
             alert.showAndWait();
         }else {
           try {   
@@ -159,10 +159,10 @@ if(r==null){
         list = FXCollections.observableList(Reservations);
         tabReservation.setItems(list);
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        date_reservation.setCellValueFactory(new PropertyValueFactory<>("date_reservation"));
-        Etat_reservation.setCellValueFactory(new PropertyValueFactory<>("etat_reservation"));
         user.setCellValueFactory(new PropertyValueFactory<>("user"));
+        date_reservation.setCellValueFactory(new PropertyValueFactory<>("datereservation"));
         billet.setCellValueFactory(new PropertyValueFactory<>("billet"));
+        Etat_reservation.setCellValueFactory(new PropertyValueFactory<>("Etatreservation"));
     }
 
     @FXML
