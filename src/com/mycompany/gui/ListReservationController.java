@@ -82,11 +82,11 @@ public class ListReservationController implements Initializable {
         
         list = FXCollections.observableList(Reservations);
         tabReservation.setItems(list);
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        user.setCellValueFactory(new PropertyValueFactory<>("user"));
-        date_reservation.setCellValueFactory(new PropertyValueFactory<>("datereservation"));
-        billet.setCellValueFactory(new PropertyValueFactory<>("billet"));
-        Etat_reservation.setCellValueFactory(new PropertyValueFactory<>("Etatreservation"));
+        id.setCellValueFactory(new PropertyValueFactory<Reservation, Integer>("id"));
+        user.setCellValueFactory(new PropertyValueFactory<Reservation, Integer>("user"));
+        date_reservation.setCellValueFactory(new PropertyValueFactory<Reservation, Date>("datereservation"));
+        billet.setCellValueFactory(new PropertyValueFactory<Reservation, Integer>("billet"));
+        Etat_reservation.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Etatreservation"));
       
     }    
 
@@ -158,11 +158,11 @@ if(r==null){
         
         list = FXCollections.observableList(Reservations);
         tabReservation.setItems(list);
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        user.setCellValueFactory(new PropertyValueFactory<>("user"));
-        date_reservation.setCellValueFactory(new PropertyValueFactory<>("datereservation"));
-        billet.setCellValueFactory(new PropertyValueFactory<>("billet"));
-        Etat_reservation.setCellValueFactory(new PropertyValueFactory<>("Etatreservation"));
+        id.setCellValueFactory(new PropertyValueFactory<Reservation, Integer>("id"));
+        user.setCellValueFactory(new PropertyValueFactory<Reservation, Integer>("user"));
+        date_reservation.setCellValueFactory(new PropertyValueFactory<Reservation, Date>("datereservation"));
+        billet.setCellValueFactory(new PropertyValueFactory<Reservation, Integer>("billet"));
+        Etat_reservation.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Etatreservation"));
     }
 
     @FXML

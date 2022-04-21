@@ -43,7 +43,7 @@ public class ListBilletController implements Initializable {
     @FXML
     private TableColumn<Billet, Integer> portail;
     @FXML
-    private TableColumn<Billet, Integer> embarquement;
+    private TableColumn<Billet, Date> embarquement;
     @FXML
     private TableColumn<Billet, Integer> localisation;
     @FXML
@@ -72,13 +72,13 @@ public class ListBilletController implements Initializable {
         
         list = FXCollections.observableList(Billets);
         tabBillet.setItems(list);
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        chair_billet.setCellValueFactory(new PropertyValueFactory<>("chair_billet"));
-        voyage_num.setCellValueFactory(new PropertyValueFactory<>("voyage_num"));
-        terminal.setCellValueFactory(new PropertyValueFactory<>("terminal"));
-        portail.setCellValueFactory(new PropertyValueFactory<>("portail"));
-        embarquement.setCellValueFactory(new PropertyValueFactory<>("embarquement"));
-        localisation.setCellValueFactory(new PropertyValueFactory<>("localisation"));
+        id.setCellValueFactory(new PropertyValueFactory<Billet, Integer>("id"));
+        chair_billet.setCellValueFactory(new PropertyValueFactory<Billet, Integer>("chair_billet"));
+        voyage_num.setCellValueFactory(new PropertyValueFactory<Billet, Integer>("voyage_num"));
+        terminal.setCellValueFactory(new PropertyValueFactory<Billet, Integer>("terminal"));
+        portail.setCellValueFactory(new PropertyValueFactory<Billet, Integer>("portail"));
+        embarquement.setCellValueFactory(new PropertyValueFactory<Billet, Date>("embarquement"));
+        localisation.setCellValueFactory(new PropertyValueFactory<Billet, Integer>("localisation"));
       
     }    
 
@@ -167,13 +167,13 @@ public class ListBilletController implements Initializable {
         
         list = FXCollections.observableList(Billets);
         tabBillet.setItems(list);
-         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        chair_billet.setCellValueFactory(new PropertyValueFactory<>("chair_billet"));
-        voyage_num.setCellValueFactory(new PropertyValueFactory<>("voyage_num"));
-        terminal.setCellValueFactory(new PropertyValueFactory<>("terminal"));
-        portail.setCellValueFactory(new PropertyValueFactory<>("portail"));
-        embarquement.setCellValueFactory(new PropertyValueFactory<>("embarquement"));
-        localisation.setCellValueFactory(new PropertyValueFactory<>("localisation"));
+        id.setCellValueFactory(new PropertyValueFactory<Billet, Integer>("id"));
+        chair_billet.setCellValueFactory(new PropertyValueFactory<Billet, Integer>("chair_billet"));
+        voyage_num.setCellValueFactory(new PropertyValueFactory<Billet, Integer>("voyage_num"));
+        terminal.setCellValueFactory(new PropertyValueFactory<Billet, Integer>("terminal"));
+        portail.setCellValueFactory(new PropertyValueFactory<Billet, Integer>("portail"));
+        embarquement.setCellValueFactory(new PropertyValueFactory<Billet, Date>("embarquement"));
+        localisation.setCellValueFactory(new PropertyValueFactory<Billet, Integer>("localisation"));
     }
     
 }
