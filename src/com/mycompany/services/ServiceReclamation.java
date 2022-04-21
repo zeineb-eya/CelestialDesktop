@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -65,8 +66,7 @@ public class ServiceReclamation {
 //          pst.setInt(1,r.getUser());
          pst.setInt(1,r.getUser()) ;
            pst.setString(2, r.getDescription_reclamation());
-            
-        //  pst.setString(2, r.getEtat_reclamation());
+             //  pst.setString(2, r.getEtat_reclamation());
          java.sql.Date date_reclamation = getCurrentDatetime(); 
          pst.setDate(3, date_reclamation);
        // pst.setInt(3, r.getUser());
@@ -90,9 +90,9 @@ public class ServiceReclamation {
        
         try {
          
-      //  String requete3 = "SELECT * FROM reclamation inner join user where reclamation.user_id = user.nom_utilisateur";
+        String requete3 = "SELECT * FROM reclamation  ORDER BY etat_reclamation ASC";
         
-        String requete3 = "SELECT * FROM reclamation ";
+       // String requete3 = "SELECT * FROM reclamation ORDER BY etat_reclamation ASC ";
        
         Statement st = cnx2.createStatement();;
         ResultSet rs =  st.executeQuery(requete3);
@@ -102,9 +102,13 @@ public class ServiceReclamation {
             r.setDescription_reclamation(rs.getString("description_reclamation"));
             r.setEtat_reclamation(rs.getString("etat_reclamation"));
             r.setDate_reclamation(rs.getString("date_reclamation"));
-            //r.setUser(rs.getString("nom_utilisateur"));
-            int user= rs.getInt("user_id");
-           
+           // r.setNomUtilisateur(rs.getString("user_id"));
+         //  String user= rs.getString("nom_utilisateur");
+          int user=rs.getInt("user_id");
+            //  User tmp = sc.getById(id);
+         
+           //int user = rs.getInt("user_id");
+
     myList.add(r);
         }
          //   st = new MyConnection().getCnx().createStatement();
@@ -115,7 +119,7 @@ public class ServiceReclamation {
        return myList;
     }
   
-    
+     
   public void deleteReclamation(Reclamation r) {
      
        String req ="delete from reclamation where id= ?";
@@ -137,9 +141,7 @@ public class ServiceReclamation {
            
             PreparedStatement pst = cnx2.prepareStatement(requete2);
             pst.setString(1,r.getDescription_reclamation()); 
-           // pst.setString(2,r.getEtat_reclamation());
-           // pst.setString(3,r.getDate_reclamation());
-            pst.setInt(2,r.getId());
+           pst.setInt(2,r.getId());
            
             System.out.println(pst);
             pst.executeUpdate();
@@ -293,7 +295,7 @@ return list;
                     List<Reclamation>myList = new ArrayList<>();
 
         try{
-        String requete3 = "SELECT * FROM reclamation";
+        String requete3 = "SELECT * FROM reclamation ORDER BY etat_reclamation ASC";
         Statement st = cnx2.createStatement();
         ResultSet rs =  st.executeQuery(requete3);
         
@@ -322,6 +324,11 @@ return list;
               System.out.println(ex.getMessage());
           };
           return myList;
+    }
+    
+      public List<Reclamation> sortByEtat() {
+
+	return afficherReclamation().stream().sorted((a, b) -> a.getEtat_reclamation().compareTo(b.getEtat_reclamation())).collect(Collectors.toList());
     }
  
     }

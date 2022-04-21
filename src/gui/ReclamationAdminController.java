@@ -10,7 +10,13 @@ import com.mycompany.services.ServiceReclamation;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,13 +27,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Pagination;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
+import javafx.scene.control.Pagination;
 
 /**
  * FXML Controller class
@@ -49,7 +57,9 @@ public class ReclamationAdminController implements Initializable {
     @FXML
     private TextField rechercher;
     ObservableList myList ;
+    
 Reclamation rec=new Reclamation();
+
     /**
      * Initializes the controller class.
      */
@@ -59,10 +69,25 @@ Reclamation rec=new Reclamation();
        afficherReclam();
     }    
 
+ 
        private void afficherReclam() {
-      
       ServiceReclamation sr = new ServiceReclamation();
         List<Reclamation> reclam = sr.afficherReclamation();
+        myList = FXCollections.observableList(reclam);
+        tableaureclam.setItems(myList);
+        
+        description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
+        etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
+        date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
+        user.setCellValueFactory(new PropertyValueFactory<>("user_id"));
+        RechercheAV();
+          
+    }
+       
+       //sorted
+         private void afficherSortReclam() {
+      ServiceReclamation sr = new ServiceReclamation();
+        List<Reclamation> reclam = sr.sortByEtat();
         myList = FXCollections.observableList(reclam);
         tableaureclam.setItems(myList);
         
@@ -87,37 +112,27 @@ Reclamation rec=new Reclamation();
                   
          tableaureclam.setItems(myList);
           RechercheAV();
-    
-        
     }
 
 
     @FXML
     private void traiterReclam(javafx.event.ActionEvent event) {
-      
-            
-      Reclamation r = tableaureclam.getSelectionModel().getSelectedItem();
+        
+       Reclamation r = tableaureclam.getSelectionModel().getSelectedItem();
       ServiceReclamation sr = new ServiceReclamation();
-
-
-          if (r.getEtat_reclamation().equals("envoye"))
+      
+   if (r.getEtat_reclamation().equals("envoye"))
             {
-                
-                 sr.updateReclamationAdmin(r);
+                    sr.updateReclamationAdmin(r);
                  System.out.println("ok");
-                
-            
+                  
             System.out.println("Traitement terminé");
               Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Traitement terminée avec succès.");
         alert.setHeaderText(null);
     alert.setContentText("La réclamation a été traité avec succés.");
         alert.showAndWait();
-            
-            
-            
-            
-             
+                  
             }
     }
        public void RechercheAV(){
@@ -154,7 +169,10 @@ Reclamation rec=new Reclamation();
 		tableaureclam.setItems(sortedData);
                 
        }
+
 }
+       
+ 
      
                 
         

@@ -16,6 +16,24 @@ public class Reclamation {
     private String description_reclamation;
     private String etat_reclamation;
     private String date_reclamation;
+    private String nom_utilisateur;
+
+    public String getNomUtilisateur() {
+        return nom_utilisateur;
+    }
+
+    public void setNomUtilisateur(String nom_utilisateur) {
+        this.nom_utilisateur = nom_utilisateur;
+    }
+
+    public Reclamation(int id, int user_id, String description_reclamation, String etat_reclamation, String date_reclamation, String nom_utilisateur) {
+        this.id = id;
+        this.user_id = user_id;
+        this.description_reclamation = description_reclamation;
+        this.etat_reclamation = etat_reclamation;
+        this.date_reclamation = date_reclamation;
+        this.nom_utilisateur = nom_utilisateur;
+    }
 
     public Reclamation(int id, int user_id, String description_reclamation, String etat_reclamation, String date_reclamation) {
         this.id = id;

@@ -6,6 +6,7 @@
 package gui;
 
 import com.mycompany.entities.Reclamation;
+import com.mycompany.entities.User;
 import com.mycompany.services.ServiceReclamation;
 import com.mycompany.utils.MyConnection;
 import com.sun.rowset.internal.Row;
@@ -52,6 +53,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.sl.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import com.mycompany.utils.MyConnection;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.Statement;
 import javafx.scene.chart.BarChart;
@@ -195,7 +197,9 @@ int page = pageIndex * itemsPerPage();
         description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
         etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
         date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
-        user.setCellValueFactory(new PropertyValueFactory<>("user.user_id"));
+     //   user.setCellValueFactory(new PropertyValueFactory<>(user.getId()));
+        user.setCellValueFactory(new PropertyValueFactory<>("user"));
+
 
            RechercheAV();
            
@@ -351,7 +355,7 @@ if(r==null){
             
         }}*/
 
-  /* @FXML
+   /*@FXML
      private void exportexcel(ActionEvent event) throws FileNotFoundException, IOException {
         Workbook workbook = new HSSFWorkbook();
         Sheet spreadsheet = (Sheet) workbook.createSheet("sample");
@@ -377,8 +381,39 @@ if(r==null){
         workbook.write(fileOut);
         fileOut.close();
 
+    }*/
+    
+    @FXML
+    private void exportexcel(ActionEvent event) throws SQLException, IOException {
+        Workbook workbook = new HSSFWorkbook();
+        org.apache.poi.ss.usermodel.Sheet spreadsheet = workbook.createSheet("sample");
+
+        org.apache.poi.ss.usermodel.Row row = spreadsheet.createRow(0);
+
+        for (int j = 0; j < tableaureclam.getColumns().size(); j++) {
+            row.createCell(j).setCellValue(tableaureclam.getColumns().get(j).getText());
+        }
+
+        for (int i = 0; i < tableaureclam.getItems().size(); i++) {
+            row = spreadsheet.createRow(i + 1);
+            for (int j = 0; j < tableaureclam.getColumns().size(); j++) {
+                if(tableaureclam.getColumns().get(j).getCellData(i) != null) { 
+                    row.createCell(j).setCellValue(tableaureclam.getColumns().get(j).getCellData(i).toString()); 
+                }
+                else {
+                    row.createCell(j).setCellValue("");
+                }   
+            }
+        }
+       //FileOutputStream fileOut = new FileOutputStream("classeur1.xlsx");
+            FileOutputStream fileOut = new FileOutputStream(new File ("c:\\xls\\classeur1.xls"));
+
+        workbook.write(fileOut);
+        fileOut.close();
+
     }
-   */
+    
+   
     
     
     /* public void Stat() throws SQLException{
@@ -394,9 +429,9 @@ if(r==null){
 
     }*/
 
-    @FXML
+   /* @FXML
     private void exportexcel(ActionEvent event) {
-    }
+    }*/
     
     
   

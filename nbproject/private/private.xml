@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/HomegestServiceController.java</file>
-            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/AjoutReclamationFXMLController.java</file>
-            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/ModifierReclamationAdminFXMLController.java</file>
-            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/ReclamationAdminController.java</file>
+            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/Stat_ratingController.java</file>
             <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/test/MainFx.java</file>
             <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/com/mycompany/services/ServiceReclamation.java</file>
             <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/AfficherReclamationFXMLController.java</file>
-            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/ModifierReclamationFXMLController.java</file>
         </group>
     </open-files>
 </project-private>
