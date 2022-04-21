@@ -69,8 +69,6 @@ public class ListReservationController implements Initializable {
     @FXML
     private Button StatistiqueReservation;
     @FXML
-    private Button QRCode;
-    @FXML
     private Button showDetails;
     @FXML
     private TextField filterField;
@@ -184,23 +182,6 @@ if(r==null){
             System.out.println(ex.getMessage());
         } 
     }
-
-    @FXML
-    private void QRCode(ActionEvent event) {
-           try {
-        FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("QRCode.fxml"));
-            AnchorPane rootLayout = (AnchorPane) loader.load();
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            Scene scene = new Scene(rootLayout);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-    
 
     @FXML
     private void showDetails(ActionEvent event) throws IOException{
