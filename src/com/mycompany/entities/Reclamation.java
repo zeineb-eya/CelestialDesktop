@@ -5,6 +5,8 @@
  */
 package com.mycompany.entities;
 
+import java.io.File;
+
 /**
  *
  * @author ASUS
@@ -17,6 +19,29 @@ public class Reclamation {
     private String etat_reclamation;
     private String date_reclamation;
     private String nom_utilisateur;
+    private String experiencee;
+
+ 
+ 
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    
+    
+    public String getExperiencee() {
+        return experiencee;
+    }
+
+    public void setExperiencee(String experiencee) {
+        this.experiencee = experiencee;
+    }
+    
+    
 
     public String getNomUtilisateur() {
         return nom_utilisateur;

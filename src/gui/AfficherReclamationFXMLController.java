@@ -68,6 +68,8 @@ import javafx.stage.Modality;
 //import static gui.nlpPipeline.pipeline;
 import java.util.Properties;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
+import javafx.stage.StageStyle;
         /**
  * FXML Controller class
  *
@@ -97,6 +99,8 @@ public class AfficherReclamationFXMLController implements Initializable {
 
     @FXML
     private TextField rechercher;
+    @FXML
+    private TableColumn<?, ?> experience;
     /**
      * Initializes the controller class.
      */
@@ -150,8 +154,31 @@ int page = pageIndex * itemsPerPage();
 
 
 }*/
-  
-    private void afficherReclam() {
+  /*   @FXML
+    private void selectExperience(MouseEvent event) {
+         smileFace.setVisible(false);
+        neutralFace.setVisible(false);
+        angryFace.setVisible(false);
+ 
+       
+         switch (((Node) event.getSource()).getId().toString()) {
+        case "smileFace":
+            smileFace.setVisible(true);
+            break;
+        case "neutralFace":
+            neutralFace.setVisible(true);
+            break;
+        case "angryFace":
+            angryFace.setVisible(true);
+        }
+          this.experience = ((Node) event.getSource()).getId().toString();
+        enableSubmitButton();
+
+         
+    }
+
+  */
+    private void afficherReclam() throws IOException {
         
       ServiceReclamation sr = new ServiceReclamation();
         List<Reclamation> reclam = sr.afficherReclamation();
@@ -162,7 +189,22 @@ int page = pageIndex * itemsPerPage();
         etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
         date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
      //   user.setCellValueFactory(new PropertyValueFactory<>(user.getId()));
-        user.setCellValueFactory(new PropertyValueFactory<>("user"));
+        user.setCellValueFactory(new PropertyValueFactory<>("user_id"));
+   //  experience.setCellValueFactory(new PropertyValueFactory<>("experiencee"));
+      experience.setCellValueFactory(new PropertyValueFactory<>("experiencee"));
+        //  nlpPipeline.findSentiment("experiencee");
+      String re = description_reclamcol.getText();
+            nlpPipeline.init();
+           
+            /* nlpPipeline.findSentiment(re);
+              System.out.println("Review: " + description_reclamcol.getText() + "\t" +"Sentiment: " + nlpPipeline.findSentiment(re));
+      String priority;
+        String s22 = "Negative";
+       if(nlpPipeline.findSentiment(re).equals(s22)){
+   priority = "urgente";
+        experience.setCellValueFactory(new PropertyValueFactory<>("experiencee"));
+       }*/
+       
          RechercheAV();
         //user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
       
@@ -326,7 +368,7 @@ if(r==null){
            description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
         etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
          date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
-                  
+       user.setCellValueFactory(new PropertyValueFactory<>("user_id"));          
          tableaureclam.setItems(myList);
           RechercheAV();
     
@@ -442,19 +484,21 @@ if(r==null){
     }*/
 
     @FXML
-    private void detailReclam(ActionEvent event) {
-        try {
-        FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/gui/DetailReclamationFXML.fxml"));
-            AnchorPane rootLayout = (AnchorPane) loader.load();
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            Scene scene = new Scene(rootLayout);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+    private void detailReclam(ActionEvent event) throws IOException {
+        
+          Reclamation r =  tableaureclam.getSelectionModel().getSelectedItem();
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("detailReclamationFXML.fxml"));
+
+  Stage stage = new Stage(StageStyle.DECORATED.DECORATED);
+  stage.setScene(
+    new Scene(loader.load()));
+
+  DetailReclamationFXMLController controller = loader.getController();
+  controller.detailReclam(r);
+
+  stage.show();
+  
+    
     }
     
     

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -25,5 +28,29 @@
       <TextField fx:id="id_user" layoutX="268.0" layoutY="95.0" />
       <Label layoutX="101.0" layoutY="95.0" text="User:" />
       <TextField fx:id="tfEmail" layoutX="540.0" layoutY="95.0" promptText="email" />
+      <ImageView fx:id="smileFace" fitHeight="26.0" fitWidth="26.0" layoutX="65.0" layoutY="262.0" onMouseClicked="#selectExperience" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/good.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="neutralFace" fitHeight="26.0" fitWidth="26.0" layoutX="106.0" layoutY="262.0" onMouseClicked="#selectExperience" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/none.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="angryFace" accessibleRole="TABLE_VIEW" fitHeight="26.0" fitWidth="26.0" layoutX="146.0" layoutY="262.0" onMouseClicked="#selectExperience" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/bad.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>

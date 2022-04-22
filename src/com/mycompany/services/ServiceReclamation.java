@@ -57,23 +57,24 @@ public class ServiceReclamation {
     }
     
     public void ajouterReclamation2(Reclamation r){
-        String requete2 = "INSERT INTO reclamation (user_id,description_reclamation,etat_reclamation,date_reclamation) "
-                 + "VALUES(?,?,'envoye',?)";
+        String requete2 = "INSERT INTO reclamation (description_reclamation,etat_reclamation,date_reclamation,user_id,experiencee) "
+                 + "VALUES(?,'envoye',?,?,?) ";
         
         try {
+            //user_id,
            PreparedStatement pst = cnx2.prepareStatement(requete2);  //utilise pour les requete dynamique
           //pst.setInt(1, GlobalConfig.getInstance().getSession());
 //          pst.setInt(1,r.getUser());
-         pst.setInt(1,r.getUser()) ;
-           pst.setString(2, r.getDescription_reclamation());
+         //pst.setInt(1,r.getUser_id()) ;
+           pst.setString(1, r.getDescription_reclamation());
              //  pst.setString(2, r.getEtat_reclamation());
          java.sql.Date date_reclamation = getCurrentDatetime(); 
-         pst.setDate(3, date_reclamation);
-       // pst.setInt(3, r.getUser());
+         pst.setDate(2, date_reclamation);
+         pst.setInt(3,r.getUser_id()) ;
+           pst.setString(4,r.getExperiencee()) ;
+     //  pst.setInt(3, user.getId());
         // pst.setUser(3, user);
-          // pst.setString(2, r.getDate_reclamation());
           
-           
            pst.executeUpdate();
            
            System.out.println("votre reclam est ajoute");
@@ -89,9 +90,9 @@ public class ServiceReclamation {
        
         try {
          
-        String requete3 = "SELECT * FROM reclamation  ORDER BY etat_reclamation ASC";
+       // String requete3 = "SELECT * FROM reclamation  ORDER BY etat_reclamation ASC";
         
-       // String requete3 = "SELECT * FROM reclamation ORDER BY etat_reclamation ASC ";
+        String requete3 = "SELECT * FROM user join reclamation  on user.id=reclamation.user_id ORDER BY etat_reclamation ASC ";
        
         Statement st = cnx2.createStatement();;
         ResultSet rs =  st.executeQuery(requete3);
@@ -101,13 +102,12 @@ public class ServiceReclamation {
             r.setDescription_reclamation(rs.getString("description_reclamation"));
             r.setEtat_reclamation(rs.getString("etat_reclamation"));
             r.setDate_reclamation(rs.getString("date_reclamation"));
-           // r.setNomUtilisateur(rs.getString("user_id"));
-         //  String user= rs.getString("nom_utilisateur");
-          int user=rs.getInt("user_id");
-            //  User tmp = sc.getById(id);
-         
-           //int user = rs.getInt("user_id");
-
+            //User user = new User();
+         //  r.setUser_id(user.getId());
+             //r.setUser_id(rs.getInt(user.getId()));
+            r.setUser_id(rs.getInt(5));//temchii
+           r.setExperiencee(rs.getString("experiencee"));
+          
     myList.add(r);
         }
        } catch (SQLException ex) {
@@ -117,12 +117,12 @@ public class ServiceReclamation {
        return myList;
     }
   
-   public List<Reclamation>detailsReclamation(){
+   public List<Reclamation>detailsReclamation(int id){
             List<Reclamation>myList = new ArrayList<>();
        
         try {
          
-        String requete3 = "SELECT * FROM reclamation  ORDER BY etat_reclamation ASC where reclamation.id=?";
+        String requete3 = "SELECT * FROM reclamation  ORDER BY etat_reclamation ASC where id=?"+id;
         
         Statement st = cnx2.createStatement();;
         ResultSet rs =  st.executeQuery(requete3);
@@ -309,6 +309,7 @@ return list;
                 r.setDescription_reclamation(rs.getString("description_reclamation"));
                 r.setEtat_reclamation(rs.getString("etat_reclamation"));
                 r.setDate_reclamation(rs.getString(4));
+                r.setUser_id(rs.getInt("user_id")) ;
                
                 myList.add(r);}   
               

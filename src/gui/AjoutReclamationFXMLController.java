@@ -9,9 +9,12 @@ import com.mycompany.entities.Reclamation;
 
 import com.mycompany.entities.User;
 import com.mycompany.services.ServiceReclamation;
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import static java.util.Arrays.asList;
+import java.util.List;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -25,12 +28,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
+import sun.applet.Main;
 import tray.Notification.NotificationType;
 import tray.Notification.TrayNotification;
 
@@ -50,7 +56,16 @@ public class AjoutReclamationFXMLController implements Initializable {
     private TextField id_user;
     @FXML
     private TextField tfEmail;
+    @FXML
+    private ImageView smileFace;
+    @FXML
+    private ImageView neutralFace;
+    @FXML
+    private ImageView angryFace;
+    
+  static String experience = "";
 
+  Reclamation r = new Reclamation();
     /**
      * Initializes the controller class.
      */
@@ -85,22 +100,26 @@ public class AjoutReclamationFXMLController implements Initializable {
     }return true;
 }
      
+  public void setExperience() {
+
+        experience = experience;
+    }
 
      
     @FXML
-        private void AjouterReclam(ActionEvent event) {
+        private void AjouterReclam(ActionEvent event) throws IOException {
                 if(Validchamp(description_reclamation) ){
-             // User user = (User) user_idcol.getSelectionModel().getSelectedItem();   
+             // User user =id_user.getSelectionModel().getSelectedItem();   
+      Reclamation r = new Reclamation();
+       r.setDescription_reclamation(description_reclamation.getText());
+      r.setUser_id(Integer.parseInt(id_user.getText()));//temchi
+      //r.setUser(id_user.getText());
+   r.setExperiencee(experience);
     
-        Reclamation r = new Reclamation();
-        
-         r.setDescription_reclamation(description_reclamation.getText());
-        r.setUser(Integer.parseInt(id_user.getText()));
-       //  tmp.setPrenom_utilisateur(id_user.getText());
-
-     //   r.setEtat_reclamation(etat_reclamation.getText());
-       //r.setDate_reclamation(Date.valueOf(date_reclamation.getValue()));
-        ServiceReclamation pst = new ServiceReclamation();
+    /* if(angryFace.isSelected){
+          angryFace.setVisible(true);
+     }*/
+      ServiceReclamation pst = new ServiceReclamation();
         pst.ajouterReclamation2(r);
           
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -108,20 +127,29 @@ public class AjoutReclamationFXMLController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Votre réclamation a ete bien ajoute");
             alert.showAndWait();
-            sendMail();
+          //  sendMail();
+          //StanfordCoreNLP pipeline = new StanfordCoreNLP("frensh");
+            String re = description_reclamation.getText();
+            nlpPipeline.init();
+           
+             nlpPipeline.findSentiment(re);
+              System.out.println("Review: " + description_reclamation.getText() + "\t" +"Sentiment: " + nlpPipeline.findSentiment(re));
+                
+         
+       }
+            //nlpPipeline.estimatingSentiment(re);
          /*     TrayNotification tray = null;
         tray = new TrayNotification("Reclamation envoyée", "Cher client votre réclamation a été prise en compte et sera traitée dès que possible,Cordialement  ", NotificationType.SUCCESS);
        
         tray.showAndDismiss(javafx.util.Duration.seconds(5));*/
-    }
-        
-        
-        }
+    
+         }
         
         private void afficherReclam(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("AfficherReclamationFXMLController.fxml"));
             description_reclamation.getScene().setRoot(root);
+            getExperience();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -135,6 +163,19 @@ public class AjoutReclamationFXMLController implements Initializable {
         window.setScene(sceneview);
         window.show();
     }
+    
+    public boolean FindTextLine(){
+        String[] words = {"mauvaise", "mauvais","insatisfait","décu"};
+        String experience_des = description_reclamation.getText();
+        CharSequence c = words.toString();
+        if(experience_des.contains(c)){
+            //System.out.println("");     
+        
+        return false;
+    }return true;
+        
+}
+    
     public void sendMail(){
       try{
             String host ="smtp.gmail.com" ;
@@ -142,8 +183,28 @@ public class AjoutReclamationFXMLController implements Initializable {
             String pass = "celestialgroup98";
             String to =tfEmail.getText();
             String from ="mariembenmassoud123@gmail.com";
-            String subject = "Réclamation bien reçu";
-            String messageText = "Bonjour cher client  , votre reclamation a été bien reçu et en cours de traitement. Cordialemment";
+            String subject;
+            String  messageText;
+            //equals("mauvaise")
+            if(FindTextLine()){
+           // if (description_reclamation.getText().matches("mauvaise")) {
+            subject = "Retour sur votre Réclamation";
+             messageText= "Celestial Groupe\n Cher,client," +
+                    "Nous avons bien recu votre réclamation et nous la traitons dans les meilleurs délais.\n"
+                   + "Votre souci va être directement transmis au departement concerné."
+                   + "Nous revenons vers vous dès que possible"
+                   + "" + "En vous souhaitant une agréable journée\n\n Celestial Group \n\n"
+                     + "Details de votre réclamation : \n\n" +description_reclamation.getText()+"-Cordialement-\n";
+            
+            }else{
+              subject ="Retour sur votre Feedback";
+                    messageText= "Celestial Groupe\n Cher,client," + 
+                        "Nous avons bien recu votre feedback ,nous vous remercions pour votre confiance.\n"
+                    + " Restés connecter sur le site Celestial pour ne manquez rien"
+                   + "" + "En vous souhaitant une agréable journée\n Celestial Group\n\n"
+                            + "Details de votre feedback :\n"+description_reclamation.getText()+"-Cordialement-\n\n";
+                        
+            }
             boolean sessionDebug = false;
 
             Properties props = System.getProperties();
@@ -176,6 +237,48 @@ public class AjoutReclamationFXMLController implements Initializable {
         
         
     }
-  }
+    }
+  
+  private void enableSubmitButton() {
+
+        if (experience != null)
+            reclamerButton.setDisable(false);
+        else
+            return;
+    }
+    @FXML
+    private void selectExperience(MouseEvent event) {
+         smileFace.setVisible(false);
+        neutralFace.setVisible(false);
+        angryFace.setVisible(false);
+ 
+       
+         switch (((Node) event.getSource()).getId().toString()) {
+        case "smileFace":
+            smileFace.setVisible(true);
+            String smile = smileFace.toString();
+            break;
+        case "neutralFace":
+            neutralFace.setVisible(true);
+            break;
+        case "angryFace":
+            angryFace.setVisible(true);
+        }
+          this.experience = ((Node) event.getSource()).getId().toString();
+        enableSubmitButton();
+
+         
+    }
+
+    private String getExperience() {
+return experience;    
+    }
+    private void sendFeedback (ActionEvent e) throws IOException {
+
+        setExperience();
+       
+        sendMail();
+    }
+
      
 }

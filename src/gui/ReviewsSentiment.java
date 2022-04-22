@@ -13,8 +13,8 @@ import java.io.IOException;
  * @author ASUS
  */
 public class ReviewsSentiment {
-     /*public static void main(String[] args) throws IOException {
-        nlpPipeline.init();
+     public static void main(String[] args) throws IOException {
+      /*  nlpPipeline.init();
         String fileName = "NlpBookReviews.csv";
         try (CSVReader reader = new CSVReaderBuilder(new FileReader(fileName)).withSkipLines(1).build())
         {
@@ -22,6 +22,7 @@ public class ReviewsSentiment {
             while ((row = reader.readNext()) != null) {
                 System.out.println("Review: " + row[1] + "\t" + " Amazon rating: " + row[4] + "\t" + " Sentiment: " + nlpPipeline.findSentiment(row[1]));
             }
-        }*/
+        }
+      // nlpPipeline.init();*/
     }
-
+}
