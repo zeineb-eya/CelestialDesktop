@@ -114,12 +114,8 @@ public class AjoutReclamationFXMLController implements Initializable {
        r.setDescription_reclamation(description_reclamation.getText());
       r.setUser_id(Integer.parseInt(id_user.getText()));//temchi
       //r.setUser(id_user.getText());
-   r.setExperiencee(experience);
-    
-    /* if(angryFace.isSelected){
-          angryFace.setVisible(true);
-     }*/
-      ServiceReclamation pst = new ServiceReclamation();
+ //  r.setExperiencee(experience);
+     ServiceReclamation pst = new ServiceReclamation();
         pst.ajouterReclamation2(r);
           
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -127,7 +123,7 @@ public class AjoutReclamationFXMLController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Votre réclamation a ete bien ajoute");
             alert.showAndWait();
-          //  sendMail();
+            sendMail();
           //StanfordCoreNLP pipeline = new StanfordCoreNLP("frensh");
             String re = description_reclamation.getText();
             nlpPipeline.init();

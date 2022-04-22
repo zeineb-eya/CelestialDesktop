@@ -99,7 +99,6 @@ public class AfficherReclamationFXMLController implements Initializable {
 
     @FXML
     private TextField rechercher;
-    @FXML
     private TableColumn<?, ?> experience;
     /**
      * Initializes the controller class.
@@ -107,7 +106,7 @@ public class AfficherReclamationFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-       afficherReclamNLP();
+       afficherReclam();
        
       /* pagination = new Pagination(3);
        pagination.setStyle("-fx-border-color:blue");
@@ -154,31 +153,33 @@ int page = pageIndex * itemsPerPage();
 
 
 }*/
-  /*   @FXML
-    private void selectExperience(MouseEvent event) {
-         smileFace.setVisible(false);
-        neutralFace.setVisible(false);
-        angryFace.setVisible(false);
- 
-       
-         switch (((Node) event.getSource()).getId().toString()) {
-        case "smileFace":
-            smileFace.setVisible(true);
-            break;
-        case "neutralFace":
-            neutralFace.setVisible(true);
-            break;
-        case "angryFace":
-            angryFace.setVisible(true);
-        }
-          this.experience = ((Node) event.getSource()).getId().toString();
-        enableSubmitButton();
+    private void afficherReclam() {
+      /*  init();
+        Reclamation r = new Reclamation();
 
-         
+      r.getDescription_reclamation();  
+   estimatingSentiment(r); */
+      ServiceReclamation sr = new ServiceReclamation();
+        List<Reclamation> reclam = sr.afficherReclamation();
+        myList = FXCollections.observableList(reclam);
+        tableaureclam.setItems(myList);
+        
+        description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
+        etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
+        date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
+     //   user.setCellValueFactory(new PropertyValueFactory<>(user.getId()));
+        user.setCellValueFactory(new PropertyValueFactory<>("user"));
+         RechercheAV();
+        //user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
+     //  nlpPipeline.init();
+     
     }
-
-  */
-    private void afficherReclam() throws IOException {
+    
+    
+    
+    
+  
+    private void afficherReclamN() throws IOException {
         
       ServiceReclamation sr = new ServiceReclamation();
         List<Reclamation> reclam = sr.afficherReclamation();
@@ -191,23 +192,12 @@ int page = pageIndex * itemsPerPage();
      //   user.setCellValueFactory(new PropertyValueFactory<>(user.getId()));
         user.setCellValueFactory(new PropertyValueFactory<>("user_id"));
    //  experience.setCellValueFactory(new PropertyValueFactory<>("experiencee"));
-      experience.setCellValueFactory(new PropertyValueFactory<>("experiencee"));
+     // experience.setCellValueFactory(new PropertyValueFactory<>("experiencee"));
+       RechercheAV();
         //  nlpPipeline.findSentiment("experiencee");
       String re = description_reclamcol.getText();
             nlpPipeline.init();
-           
-            /* nlpPipeline.findSentiment(re);
-              System.out.println("Review: " + description_reclamcol.getText() + "\t" +"Sentiment: " + nlpPipeline.findSentiment(re));
-      String priority;
-        String s22 = "Negative";
-       if(nlpPipeline.findSentiment(re).equals(s22)){
-   priority = "urgente";
-        experience.setCellValueFactory(new PropertyValueFactory<>("experiencee"));
-       }*/
-       
-         RechercheAV();
-        //user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
-      
+         
     }
      
        public Boolean ValidateFields() {
@@ -495,67 +485,8 @@ if(r==null){
 
   DetailReclamationFXMLController controller = loader.getController();
   controller.detailReclam(r);
-
-  stage.show();
-  
-    
+stage.show();
     }
+   
     
-    
-    static StanfordCoreNLP pipeline;
-    public static void init() 
-    {
-        Properties props = new Properties();
-        props.setProperty("annotators", "tokenize, ssplit, parse, sentiment");
-        pipeline = new StanfordCoreNLP(props);
-    }
-     public static void estimatingSentiment(Reclamation r)
-    {
-   int sentimentInt;
-      String sentimentName; 
-         edu.stanford.nlp.pipeline.Annotation annotation = pipeline.process(r.getDescription_reclamation());
-      for(CoreMap sentence : annotation.get(CoreAnnotations.SentencesAnnotation.class))
-      {
-         Tree tree = sentence.get(SentimentCoreAnnotations.SentimentAnnotatedTree.class);
-        sentimentInt = RNNCoreAnnotations.getPredictedClass(tree); 
-                sentimentName = sentence.get(SentimentCoreAnnotations.SentimentClass.class);
-        System.out.println(sentimentName + "\t" + sentimentInt + "\t" + sentence);
-      }
-     }
-    public static String findSentiment(Reclamation r ) {
-        int sentimentInt = 2;
-        String sentimentName = "NULL";
-        if (r.getDescription_reclamation() != null && r.getDescription_reclamation().length() > 0) {
-            edu.stanford.nlp.pipeline.Annotation annotation = pipeline.process(r.getDescription_reclamation());
-          CoreMap sentence = annotation
-                    .get(CoreAnnotations.SentencesAnnotation.class).get(0);
-          Tree tree = sentence
-                     .get(SentimentCoreAnnotations.SentimentAnnotatedTree.class);
-          sentimentInt = RNNCoreAnnotations.getPredictedClass(tree);
-          sentimentName = sentence.get(SentimentCoreAnnotations.SentimentClass.class);
-        }
-        return sentimentName;
-}
-    
-    private void afficherReclamNLP() {
-      /*  init();
-        Reclamation r = new Reclamation();
-
-      r.getDescription_reclamation();  
-   estimatingSentiment(r); */
-      ServiceReclamation sr = new ServiceReclamation();
-        List<Reclamation> reclam = sr.afficherReclamation();
-        myList = FXCollections.observableList(reclam);
-        tableaureclam.setItems(myList);
-        
-        description_reclamcol.setCellValueFactory(new PropertyValueFactory<>("description_reclamation"));
-        etat_reclamcol.setCellValueFactory(new PropertyValueFactory<>("etat_reclamation"));
-        date_reclamcol.setCellValueFactory(new PropertyValueFactory<>("date_reclamation"));
-     //   user.setCellValueFactory(new PropertyValueFactory<>(user.getId()));
-        user.setCellValueFactory(new PropertyValueFactory<>("user"));
-         RechercheAV();
-        //user_idcol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
-     //  nlpPipeline.init();
-     
-    }
 }

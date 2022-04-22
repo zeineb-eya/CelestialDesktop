@@ -17,13 +17,12 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tableaureclam" layoutX="25.0" layoutY="137.0" prefHeight="182.0" prefWidth="601.0">
+      <TableView fx:id="tableaureclam" layoutX="154.0" layoutY="141.0" prefHeight="182.0" prefWidth="488.0">
         <columns>
           <TableColumn fx:id="description_reclamcol" prefWidth="145.0" text="Objet reclamation" />
           <TableColumn fx:id="etat_reclamcol" prefWidth="115.0" text="etat reclamation" />
             <TableColumn fx:id="date_reclamcol" minWidth="0.0" prefWidth="113.0" text="date reclamation" />
             <TableColumn fx:id="user" minWidth="0.0" prefWidth="113.0" text="user" />
-            <TableColumn fx:id="experience" minWidth="0.0" prefWidth="113.0" text="Experience" />
         </columns>
       </TableView>
       <FontAwesomeIconView fill="#141414" glyphName="REFRESH" layoutX="110.0" layoutY="103.0" onMouseClicked="#refresh" size="25" text="" />

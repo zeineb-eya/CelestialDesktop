@@ -57,40 +57,32 @@ public class ServiceReclamation {
     }
     
     public void ajouterReclamation2(Reclamation r){
-        String requete2 = "INSERT INTO reclamation (description_reclamation,etat_reclamation,date_reclamation,user_id,experiencee) "
-                 + "VALUES(?,'envoye',?,?,?) ";
-        
-        try {
-            //user_id,
-           PreparedStatement pst = cnx2.prepareStatement(requete2);  //utilise pour les requete dynamique
+        String requete2 = "INSERT INTO reclamation (description_reclamation,etat_reclamation,date_reclamation,user_id) "
+                 + "VALUES(?,'envoye',?,?) ";
+       try {
+          PreparedStatement pst = cnx2.prepareStatement(requete2);  //utilise pour les requete dynamique
           //pst.setInt(1, GlobalConfig.getInstance().getSession());
 //          pst.setInt(1,r.getUser());
          //pst.setInt(1,r.getUser_id()) ;
            pst.setString(1, r.getDescription_reclamation());
-             //  pst.setString(2, r.getEtat_reclamation());
-         java.sql.Date date_reclamation = getCurrentDatetime(); 
+        java.sql.Date date_reclamation = getCurrentDatetime(); 
          pst.setDate(2, date_reclamation);
          pst.setInt(3,r.getUser_id()) ;
-           pst.setString(4,r.getExperiencee()) ;
+          // pst.setString(4,r.getExperiencee()) ;
      //  pst.setInt(3, user.getId());
         // pst.setUser(3, user);
-          
            pst.executeUpdate();
-           
            System.out.println("votre reclam est ajoute");
-        
-        
-        } catch (SQLException ex) {
+         } catch (SQLException ex) {
              System.err.println(ex.getMessage());
         }
-        
-    }
+      }
+    
    public List<Reclamation>afficherReclamation(){
             List<Reclamation>myList = new ArrayList<>();
        
         try {
-         
-       // String requete3 = "SELECT * FROM reclamation  ORDER BY etat_reclamation ASC";
+        // String requete3 = "SELECT * FROM reclamation  ORDER BY etat_reclamation ASC";
         
         String requete3 = "SELECT * FROM user join reclamation  on user.id=reclamation.user_id ORDER BY etat_reclamation ASC ";
        
@@ -106,7 +98,7 @@ public class ServiceReclamation {
          //  r.setUser_id(user.getId());
              //r.setUser_id(rs.getInt(user.getId()));
             r.setUser_id(rs.getInt(5));//temchii
-           r.setExperiencee(rs.getString("experiencee"));
+          // r.setExperiencee(rs.getString("experiencee"));
           
     myList.add(r);
         }
