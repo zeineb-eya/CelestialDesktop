@@ -68,8 +68,6 @@ public class DetailReclamationFXMLController implements Initializable {
     }
     
     public void detailReclam(Reclamation reclam) throws IOException {
-        // Button traiterButton = new Button("Login");
-      
          traiterButton.setVisible(false);
          retourButton.setVisible(false);
               ServiceReclamation sr = new ServiceReclamation();
@@ -118,7 +116,6 @@ public class DetailReclamationFXMLController implements Initializable {
          System.out.println("Review: " + descript_reclam.getText() + "\t" +"Sentiment: " + nlpPipeline.findSentiment(re));
          
 
-  
     }    @FXML
     private void traiterReclam(javafx.event.ActionEvent event) throws IOException {
       ServiceReclamation sr = new ServiceReclamation();
