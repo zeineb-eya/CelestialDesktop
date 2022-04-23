@@ -10,20 +10,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="403.0" prefWidth="746.0" style="-fx-background-color: #013053;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontOffreFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="403.0" prefWidth="746.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontOffreFXMLController">
    <children>
-      <ImageView fitHeight="366.0" fitWidth="786.0" layoutY="37.0">
+      <ImageView fitHeight="403.0" fitWidth="779.0">
          <image>
-            <Image url="@../images/222.jpg" />
+            <Image url="@../images/backg.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="rechercher" layoutX="14.0" layoutY="59.0" prefHeight="17.0" prefWidth="171.0" promptText="rechercher une offre..." />
-      <Label layoutX="366.0" layoutY="2.0" prefHeight="35.0" prefWidth="183.0" text="Offres" textFill="WHITE">
+      <TextField fx:id="rechercher" layoutX="19.0" layoutY="84.0" prefHeight="17.0" prefWidth="171.0" promptText="rechercher une offre..." />
+      <Label contentDisplay="CENTER" layoutX="298.0" layoutY="11.0" prefHeight="35.0" prefWidth="183.0" text="Offres" textFill="#e5655a">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="Arial" size="30.0" />
          </font>
       </Label>
-      <TableView fx:id="tableauOffre" layoutX="126.0" layoutY="114.0" prefHeight="244.0" prefWidth="583.0">
+      <TableView fx:id="tableauOffre" layoutX="190.0" layoutY="126.0" prefHeight="244.0" prefWidth="583.0">
          <columns>
             <TableColumn fx:id="nom_offrecol" prefWidth="106.0" text="Nom Offre" />
             <TableColumn fx:id="description_offrecol" prefWidth="116.0" text="Details offre" />
@@ -33,6 +33,7 @@
             <TableColumn fx:id="date_fin_offrecol" prefWidth="72.0" text="Date fin" />
          </columns>
       </TableView>
-      <FontAwesomeIconView fill="#f09702" glyphName="REFRESH" layoutX="747.0" layoutY="26.0" onMouseClicked="#actualiserOffre" size="20" text="" wrappingWidth="31.285714149475098" />
+      <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="747.0" layoutY="26.0" onMouseClicked="#actualiserOffre" size="20" text="" wrappingWidth="31.285714149475098" />
+      <FontAwesomeIconView fill="#e5655a" glyphName="SEARCH" layoutX="170.0" layoutY="101.0" />
    </children>
 </AnchorPane>

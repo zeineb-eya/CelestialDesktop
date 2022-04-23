@@ -28,6 +28,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import static javafx.geometry.Pos.CENTER;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -36,6 +37,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -43,6 +46,8 @@ import javax.swing.JOptionPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
+import org.controlsfx.control.Notifications;
 
 
 
@@ -108,26 +113,37 @@ public class AfficherOffreFXMLController implements Initializable {
     
      @FXML
     private void deleteOffre(MouseEvent event) {
+        
+        Image img = new Image("/images/tick.png", 50, 50, false, false);
        
     if (tableauOffre.getSelectionModel().isEmpty() ){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         JOptionPane.showMessageDialog(null,"Aucune offre n'est selectionné ,veuillez choisir une offre");
      }else{
-   int responce=JOptionPane.showConfirmDialog(null, "Attention vous allez supprimer l'offre sélectionné etes-vous sur ?","Suppression",JOptionPane.YES_NO_OPTION);
+   int responce=JOptionPane.showConfirmDialog(null, "Attention vous allez supprimer l'offre sélectionné etes-vous sur ?","Suppression",JOptionPane.YES_NO_OPTION,WARNING_MESSAGE);
             if (responce==JOptionPane.YES_OPTION){
            ServiceOffre so = new ServiceOffre();
                     Offre o = tableauOffre.getSelectionModel().getSelectedItem();
                      so.deleteOffre(o);
             
-          Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-         alert.setContentText("Votre offre a été bien supprime");
-                  JOptionPane.showMessageDialog(null,"offre supprimé");
+      Notifications notificationBuilder  = Notifications.create()
+            
+                    .title("Suppression offre")
+                    .text("Offre supprimé avec succés")
+                    .graphic(new ImageView(img) )
+                    .hideAfter(Duration.seconds(8))
+                    .position(Pos.CENTER);
+      notificationBuilder.show();
 
             } else{
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Votre offre a été bien supprime");
-                 JOptionPane.showMessageDialog(null,"Suppression annulé");
+               Notifications notificationBuilder  = Notifications.create()
+            
+                    .title("Suppression offre")
+                    .text("La suppresion a été annulé")
+                    .graphic(new ImageView(img) )
+                    .hideAfter(Duration.seconds(8))
+                    .position(Pos.CENTER);
+      notificationBuilder.show();
             }
           
     }
@@ -195,9 +211,6 @@ if(o==null){
                            tableauOffre.getSelectionModel().getSelectedItem().getDescription_offre(),
                            tableauOffre.getSelectionModel().getSelectedItem().getPrix_offre(),
                            tableauOffre.getSelectionModel().getSelectedItem().getReduction()
-                           
-                           // tableauOffre.getSelectionModel().getSelectedItem().getDate_debut_offre()
-                           // tableaureclam.getSelectionModel().getSelectedItem().getContent()
                    );
                } catch (IOException ex) {
   System.out.println("eer");               }

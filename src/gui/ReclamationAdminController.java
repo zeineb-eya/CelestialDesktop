@@ -56,11 +56,16 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.sql.Connection;
 import java.util.HashMap;
+import javafx.geometry.Pos;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.controlsfx.control.Notifications;
 /**
  * FXML Controller class
  *
@@ -162,15 +167,18 @@ Reclamation rec=new Reclamation();
             {
                     sr.updateReclamationAdmin(r);
                  System.out.println("ok");
-                  
-            System.out.println("Traitement terminé");
-               Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Traitement terminée avec succès.");
-        alert.setHeaderText(null);
-    alert.setContentText("La réclamation a été traité avec succés.");
-        alert.showAndWait();
+           
       // sendMail();
                 }
+        Image img = new Image("/images/tick.png", 50, 50, false, false);
+   Notifications notificationBuilder  = Notifications.create()
+            
+                    .title("Traitement offre")
+                    .text("La réclamation a été traité  avec succés")
+                    .graphic(new ImageView(img) )
+                    .hideAfter(Duration.seconds(8))
+                    .position(Pos.CENTER);
+      notificationBuilder.show();
     }
     
     
@@ -194,7 +202,8 @@ Reclamation rec=new Reclamation();
                                } else if (String.valueOf(tmp.getDescription_reclamation()).indexOf(lowerCaseFilter)!=-1){
 				     return true;
                                }else
-				    	 return false; // Does not match.
+				    	 return false;
+                                // Does not match.
 			
 		});
 		});
@@ -308,6 +317,7 @@ stage.show();
             System.out.println(ex.getMessage());
         }    
     }
+
         
         
     }

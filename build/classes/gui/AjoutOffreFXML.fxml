@@ -9,33 +9,50 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="669.0" style="-fx-background-color: #013053;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutOffreFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="408.0" prefWidth="848.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutOffreFXMLController">
    <children>
-      <ImageView fitHeight="358.0" fitWidth="716.0" layoutY="43.0">
+      <ImageView fitHeight="408.0" fitWidth="848.0">
          <image>
-            <Image url="@../images/222.jpg" />
+            <Image url="@../images/backg.jpg" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="269.0" layoutY="6.0" prefHeight="16.0" prefWidth="179.0" text="Ajouter Offre" textAlignment="CENTER" textFill="#edf9ff">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="269.0" layoutY="6.0" prefHeight="36.0" prefWidth="243.0" text="Ajouter Offre" textAlignment="CENTER" textFill="#e5655a">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="Arial" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="134.0" layoutY="100.0" prefHeight="17.0" prefWidth="74.0" text="Nom Offre:" textFill="WHITE" />
-      <Label layoutX="135.0" layoutY="155.0" text="Description Offre :" textFill="#fcfcfc" />
-      <Label layoutX="134.0" layoutY="208.0" text="Prix Offre :" textFill="WHITE" />
-      <Label layoutX="132.0" layoutY="272.0" text="Reduction :" textFill="WHITE" />
-      <Label layoutX="123.0" layoutY="319.0" text="Date debut Offre :" textFill="#f2f2f2" />
-      <Label layoutX="122.0" layoutY="368.0" text="Date Fin Offre :" textFill="WHITE" />
+      <Label layoutX="127.0" layoutY="99.0" prefHeight="20.0" prefWidth="104.0" text="Nom Offre:" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font></Label>
+      <Label layoutX="125.0" layoutY="154.0" text="Description Offre :" textFill="#fcfcfc">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font></Label>
+      <Label layoutX="123.0" layoutY="207.0" text="Prix Offre :" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font></Label>
+      <Label layoutX="121.0" layoutY="271.0" text="Reduction :" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font></Label>
+      <Label layoutX="113.0" layoutY="318.0" text="Date debut Offre ::" textFill="#f2f2f2">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font></Label>
+      <Label layoutX="122.0" layoutY="368.0" text="Date Fin Offre: :" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font></Label>
       <TextField fx:id="nom_offre" layoutX="322.0" layoutY="96.0" />
       <TextField fx:id="description_offre" layoutX="322.0" layoutY="151.0" />
       <TextField fx:id="prix_offre" layoutX="322.0" layoutY="204.0" />
       <TextField fx:id="reduction" layoutX="322.0" layoutY="268.0" />
       <DatePicker fx:id="date_debut_offre" layoutX="322.0" layoutY="315.0" prefHeight="25.0" prefWidth="149.0" />
       <DatePicker fx:id="date_fin_offre" layoutX="322.0" layoutY="364.0" prefHeight="25.0" prefWidth="149.0" />
-      <FontAwesomeIconView fill="#f09702" glyphName="PLUS" layoutX="668.0" layoutY="34.0" onMouseClicked="#AjouterOffre" size="16" text="" />
-      <FontAwesomeIconView fill="WHITE" glyphName="EYE" layoutX="694.0" layoutY="34.0" onMouseClicked="#displayOffre" size="16" AnchorPane.rightAnchor="6.0" />
-      <FontAwesomeIconView fx:id="editIcon" fill="WHITE" glyphName="EDIT" layoutX="635.0" layoutY="34.0" onMouseClicked="#OnModifier" size="16" />
+      <FontAwesomeIconView fill="#e5655a" glyphName="PLUS" layoutX="790.0" layoutY="29.0" onMouseClicked="#AjouterOffre" size="18" text="" />
+      <FontAwesomeIconView fill="WHITE" glyphName="EYE" layoutX="818.0" layoutY="29.0" onMouseClicked="#displayOffre" size="18" AnchorPane.rightAnchor="14.0" />
       <ImageView fitHeight="61.0" fitWidth="96.0" layoutX="14.0" layoutY="-10.0">
          <image>
             <Image url="@../images/logo.png" />

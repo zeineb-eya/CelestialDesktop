@@ -15,12 +15,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -77,13 +82,16 @@ public class ModifierReclamationFXMLController implements Initializable {
         }
             System.out.println("Modification terminé");}
              
-           
-        
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Modification terminée avec succès.");
-        alert.setHeaderText(null);
-    alert.setContentText("Votre réclamation a été modifié avec succés.");
-        alert.showAndWait();
+          Image img = new Image("/images/tick.png", 50, 50, false, false);
+      Notifications notificationBuilder  = Notifications.create()
+            
+                    .title("Modification")
+                    .text("Votre réclamation a été modifié avec succés")
+                    .graphic(new ImageView(img) )
+                    .hideAfter(Duration.seconds(8))
+                    .position(Pos.CENTER);
+                notificationBuilder.show();
+      
         javafx.scene.Parent tableview = FXMLLoader.load(getClass().getResource("AfficherReclamationFXML.fxml"));
         Scene sceneview = new Scene(tableview);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

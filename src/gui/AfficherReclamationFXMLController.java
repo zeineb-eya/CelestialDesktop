@@ -67,9 +67,13 @@ import javafx.stage.Modality;
 //import gui.nlpPipeline;
 //import static gui.nlpPipeline.pipeline;
 import java.util.Properties;
+import javafx.geometry.Pos;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
         /**
  * FXML Controller class
  *
@@ -221,10 +225,19 @@ int page = pageIndex * itemsPerPage();
          if(ValidateFields() ){
                   if(tableaureclam.getSelectionModel().getSelectedItem().getEtat_reclamation().equals("Traitée")){
 
-                        Alert alert2 = new Alert(Alert.AlertType.ERROR, "Cette réclamation est déjà traité vous ne pouvez pas la supprimer!", ButtonType.CLOSE);
+      Notifications notificationBuilder  = Notifications.create()
+            
+                    .title("Erreur")
+                    .text("Cette réclamation est déjà traité vous ne pouvez pas la supprimer")
+                   .hideAfter(Duration.seconds(8))
+                    .position(Pos.CENTER);
+     // notificationBuilder.darkStyle();
+      notificationBuilder.showError();
+      
+                        /*Alert alert2 = new Alert(Alert.AlertType.ERROR, "Cette réclamation est déjà traité vous ne pouvez pas la supprimer!", ButtonType.CLOSE);
                         alert2.showAndWait();
                         if (alert2.getResult() == ButtonType.CLOSE)
-                            alert2.close();
+                            alert2.close();*/
                     }else{
 
          ServiceReclamation sr = new ServiceReclamation();
@@ -246,6 +259,8 @@ int page = pageIndex * itemsPerPage();
         }catch (Exception e){JOptionPane.showMessageDialog(null,"erreur de supprimer \n"+e.getMessage());} 
        
          }
+                  
+                  
     
     }
     

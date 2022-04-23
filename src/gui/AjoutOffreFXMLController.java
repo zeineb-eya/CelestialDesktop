@@ -21,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -29,9 +30,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -52,8 +57,6 @@ public class AjoutOffreFXMLController implements Initializable {
     private DatePicker date_debut_offre;
     @FXML
     private DatePicker date_fin_offre;
-    @FXML
-    private FontAwesomeIconView editIcon;
 
     /**
      * Initializes the controller class.
@@ -106,7 +109,7 @@ public class AjoutOffreFXMLController implements Initializable {
 }
 
     @FXML
-    private void AjouterOffre(MouseEvent event)  {
+    private void AjouterOffre(MouseEvent event) throws IOException  {
             if( Validchamp(nom_offre) &&  Validchamp(description_offre)&& ValidchampDate()){    
              Offre o = new Offre();
        o.setNom_offre(nom_offre.getText());
@@ -120,18 +123,29 @@ public class AjoutOffreFXMLController implements Initializable {
         ServiceOffre pst = new ServiceOffre();
         pst.ajouterOffre(o);
          
-      Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Nouvelle offre");
-            alert.setHeaderText(null);
-            alert.setContentText("Votre offre a ete bien ajoute");
-            alert.showAndWait();
+       Image img = new Image("/images/tick.png", 50, 50, false, false);
+   Notifications notificationBuilder  = Notifications.create()
+            
+                    .title("Ajoutoffre")
+                    .text("L'offre a été ajouté avec succés")
+                    .graphic(new ImageView(img) )
+                    .hideAfter(Duration.seconds(8))
+                    .position(Pos.CENTER);
+      notificationBuilder.show();
+            
+            
             }else{
-                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Probléme d'ajout");
-            alert.setHeaderText(null);
-            alert.setContentText("Votre offre c'a pas été ajoute");
-            alert.showAndWait();
+                
+   Notifications notificationBuilder  = Notifications.create()
+            
+                    .title("Probléme")
+                    .text("Echec lors de l'ajout de l'offre")
+                    .hideAfter(Duration.seconds(8))
+                    .position(Pos.CENTER);
+      notificationBuilder.showError();
             }
+            
+         
     }
    
    
@@ -155,9 +169,6 @@ public class AjoutOffreFXMLController implements Initializable {
     }
 
   
-    @FXML
-    private void OnModifier(MouseEvent event) {
-    }
 }
 
   

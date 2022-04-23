@@ -4,15 +4,27 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="438.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.HomeBackFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="436.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.HomeBackFXMLController">
    <children>
-      <ImageView fitHeight="438.0" fitWidth="743.0">
+      <ImageView fitHeight="436.0" fitWidth="793.0">
          <image>
-            <Image url="@../images/222.jpg" />
+            <Image url="@../images/backg.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="200.0" layoutY="140.0" mnemonicParsing="false" onAction="#gestionOffreButton" prefHeight="25.0" prefWidth="324.0" text="Gestion des Offres" />
-      <Button layoutX="211.0" layoutY="283.0" mnemonicParsing="false" onAction="#gestionReclamButton" prefHeight="25.0" prefWidth="301.0" text="Gestion des réclamations" />
+      <Button layoutX="200.0" layoutY="139.0" mnemonicParsing="false" onAction="#gestionOffreButton" prefHeight="38.0" prefWidth="369.0" style="-fx-background-color: transparent; -fx-border-color: #e5655a;" text="Gestion des Offres" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font></Button>
+      <Button layoutX="200.0" layoutY="270.0" mnemonicParsing="false" onAction="#gestionReclamButton" prefHeight="45.0" prefWidth="369.0" style="-fx-background-color: transparent; -fx-border-color: #e5655a;" text="Gestion des réclamations" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <ImageView fitHeight="76.0" fitWidth="138.0" layoutX="8.0" layoutY="-14.0">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

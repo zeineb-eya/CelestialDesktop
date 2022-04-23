@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Offre" prefHeight="401.0" prefWidth="809.0" style="-fx-background-color: #013053;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherOffreFXMLController">
+<AnchorPane id="AnchorPane" fx:id="Offre" prefHeight="428.0" prefWidth="884.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherOffreFXMLController">
    <children>
-      <ImageView fitHeight="383.0" fitWidth="809.0" layoutY="41.0">
+      <ImageView fitHeight="428.0" fitWidth="884.0">
          <image>
-            <Image url="@../images/222.jpg" />
+            <Image url="@../images/backg.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="tableauOffre" layoutX="160.0" layoutY="123.0" prefHeight="274.0" prefWidth="607.0">
+      <TableView fx:id="tableauOffre" layoutX="181.0" layoutY="136.0" prefHeight="278.0" prefWidth="689.0">
         <columns>
           <TableColumn fx:id="nom_offrecol" prefWidth="99.0" text="Nom Offre" />
             <TableColumn fx:id="description_offrecol" prefWidth="145.0" text="Details offre" />
@@ -27,16 +27,21 @@
             <TableColumn fx:id="date_fin_offrecol" prefWidth="85.0" text="Date fin" />
         </columns>
       </TableView>
-      <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="779.0" layoutY="29.0" onMouseClicked="#actualiserOffre" size="20" text="" wrappingWidth="31.285714149475098" />
-      <FontAwesomeIconView fill="#f09702" glyphName="MINUS" layoutX="670.0" layoutY="31.0" onMouseClicked="#deleteOffre" size="22" wrappingWidth="24.428571701049805" />
-      <FontAwesomeIconView fill="#f09702" glyphName="EDIT" layoutX="738.0" layoutY="31.0" onMouseClicked="#OnModif" size="21" />
-      <TextField fx:id="rechercher" layoutX="31.0" layoutY="58.0" prefHeight="25.0" prefWidth="254.0" promptText="recherhcer une offre..." />
-      <FontAwesomeIconView fill="#f09702" glyphName="SEARCH" layoutX="266.0" layoutY="74.0" />
-      <FontAwesomeIconView fill="#fffdfd" glyphName="PLUS" layoutX="702.0" layoutY="30.0" onMouseClicked="#ajouterOffre" size="20" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="312.0" layoutY="9.0" prefHeight="30.0" prefWidth="199.0" text="Gestion des Offres" textAlignment="CENTER" textFill="WHITE">
+      <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="845.0" layoutY="28.0" onMouseClicked="#actualiserOffre" size="20" text="" wrappingWidth="31.285714149475098" />
+      <FontAwesomeIconView fill="WHITE" glyphName="MINUS" layoutX="736.0" layoutY="28.0" onMouseClicked="#deleteOffre" size="22" wrappingWidth="24.428571701049805" />
+      <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="809.0" layoutY="29.0" onMouseClicked="#OnModif" size="21" />
+      <TextField fx:id="rechercher" layoutX="16.0" layoutY="81.0" prefHeight="25.0" prefWidth="254.0" promptText="recherhcer une offre..." />
+      <FontAwesomeIconView fill="#e5655a" glyphName="SEARCH" layoutX="248.0" layoutY="97.0" />
+      <FontAwesomeIconView fill="#fffdfd" glyphName="PLUS" layoutX="771.0" layoutY="28.0" onMouseClicked="#ajouterOffre" size="20" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="13.0" prefHeight="36.0" prefWidth="282.0" text="Gestion des Offres" textAlignment="CENTER" textFill="#e5655a">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="Arial" size="30.0" />
          </font>
       </Label>
+      <ImageView fitHeight="67.0" fitWidth="113.0" layoutX="14.0" layoutY="-12.0">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

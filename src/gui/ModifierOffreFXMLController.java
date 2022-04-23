@@ -16,13 +16,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -98,23 +103,7 @@ public class ModifierOffreFXMLController implements Initializable {
              
              int r = Integer.parseInt(reduction_modif.getText());
              o.setReduction(r);
-//             rec.setReduction(getReductionFromTextField(reduction_modif));
-    
-             
-       //  o.setReduction(prixrepas);
-             /*
-             
-             
-               public  double getPrixFromTextField(TextField textField) {
-        String prix = prix_offre_modif.getText();
-        return Double.parseDouble(prix);
-       }
-             */
-             
-          //  double total = rec.getPrix_offre();
-            // String total2 = String.valueOf(total);
-//             rec.setPrix_offre((double) prix_offre_modif.getValue());
-           
+
             ServiceOffre so = new ServiceOffre();
              try{
              so.updateOffre(o);
@@ -123,15 +112,17 @@ public class ModifierOffreFXMLController implements Initializable {
             System.out.println(ex.getMessage());
         }
             System.out.println("Modification terminé");}
-             
            
-        
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Modification terminée avec succès.");
-        alert.setHeaderText(null);
-    alert.setContentText("Votre réclamation a été modifié avec succés.");
-        alert.showAndWait();
-        //javafx.scene.Parent tableview = FXMLLoader.load(getClass().getResource("AfficherOffreXML.fxml"));
+          Image img = new Image("/images/tick.png", 50, 50, false, false);
+        Notifications notificationBuilder  = Notifications.create()
+            
+                    .title("Modification offre")
+                    .text("Votre offre a étét modifié avec succés")
+                    .graphic(new ImageView(img) )
+                    .hideAfter(Duration.seconds(8))
+                    .position(Pos.CENTER);
+      notificationBuilder.show();
+      
      javafx.scene.Parent tableview = FXMLLoader.load(getClass().getResource("AfficherOffreFXML.fxml"));
 
         Scene sceneview = new Scene(tableview);
@@ -155,13 +146,7 @@ public class ModifierOffreFXMLController implements Initializable {
 String red = String.valueOf(reduc);
     reduction_modif.setText(red);
     
-
-
- /*reduction = rec.getReduction();
-String r = String.valueOf(reduction);
-    reduction_modif.setText(r);
-    */
-         
+    
 }
 
     @FXML

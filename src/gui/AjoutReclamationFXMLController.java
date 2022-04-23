@@ -21,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,9 +29,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -38,6 +41,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import sun.applet.Main;
 import tray.Notification.NotificationType;
 import tray.Notification.TrayNotification;
@@ -119,13 +123,24 @@ public class AjoutReclamationFXMLController implements Initializable {
  //  r.setExperiencee(experience);
      ServiceReclamation pst = new ServiceReclamation();
         pst.ajouterReclamation2(r);
-          
-      Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            sendMail();
+      /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("réclamer");
             alert.setHeaderText(null);
             alert.setContentText("Votre réclamation a ete bien ajoute");
-            alert.showAndWait();
-            sendMail();
+            alert.showAndWait();*/
+      
+        Image img = new Image("/images/tick.png", 50, 50, false, false);
+      Notifications notificationBuilder  = Notifications.create()
+            
+                    .title("Réclamer")
+                    .text("Votre réclamation a été envoyé avec succés")
+                    .graphic(new ImageView(img) )
+                    .hideAfter(Duration.seconds(8))
+                    .position(Pos.CENTER);
+     // notificationBuilder.darkStyle();
+      notificationBuilder.show();
+         
           //StanfordCoreNLP pipeline = new StanfordCoreNLP("frensh");
             String re = description_reclamation.getText();
             nlpPipeline.init();

@@ -7,19 +7,24 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReclamationAdminController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="286.0" text="Liste des réclamations des clients " textFill="#0b77eb">
+      <ImageView fitHeight="474.0" fitWidth="778.0">
+         <image>
+            <Image url="@../images/backg.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="214.0" layoutY="7.0" prefHeight="36.0" prefWidth="480.0" text="Réclamations des clients " textFill="#e5655a">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Arial" size="30.0" />
          </font>
       </Label>
-      <Pane layoutX="138.0" layoutY="54.0" prefHeight="4.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <TableView fx:id="tableaureclam" layoutX="14.0" layoutY="138.0" prefHeight="182.0" prefWidth="489.0">
+      <TableView fx:id="tableaureclam" layoutX="15.0" layoutY="186.0" prefHeight="182.0" prefWidth="489.0">
          <columns>
             <TableColumn fx:id="description_reclamcol" prefWidth="145.0" text="Objet reclamation" />
             <TableColumn fx:id="etat_reclamcol" prefWidth="115.0" text="etat reclamation" />
@@ -27,18 +32,32 @@
             <TableColumn fx:id="user" minWidth="0.0" prefWidth="113.0" text="user" />
          </columns>
       </TableView>
-      <TextField fx:id="rechercher" layoutX="480.0" layoutY="73.0" prefHeight="25.0" prefWidth="232.0" promptText="rechercher" />
-      <FontAwesomeIconView fill="#0f21e4" glyphName="SEARCH" layoutX="689.0" layoutY="89.0" />
-      <FontAwesomeIconView fill="#10e032" glyphName="REFRESH" layoutX="722.0" layoutY="35.0" onMouseClicked="#refresh" size="25" text="" />
-      <Button layoutX="22.0" layoutY="356.0" mnemonicParsing="false" onAction="#traiterReclam" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #0b77eb;" text="Traiter" textFill="WHITE" />
-      <Button layoutX="333.0" layoutY="356.0" mnemonicParsing="false" onAction="#detailReclam" style="-fx-background-color: #0b77eb;" text="Consulter details réclamation" textFill="#fffefe" />
-      <Button layoutX="168.0" layoutY="356.0" mnemonicParsing="false" onAction="#exportexcel" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #0b77eb;" text="Exporter excel" textFill="WHITE" />
+      <TextField fx:id="rechercher" layoutX="15.0" layoutY="123.0" prefHeight="25.0" prefWidth="232.0" promptText="rechercher" />
+      <FontAwesomeIconView fill="#e5655a" glyphName="SEARCH" layoutX="225.0" layoutY="139.0" />
+      <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="733.0" layoutY="34.0" onMouseClicked="#refresh" size="25" text="" />
+      <Button layoutX="27.0" layoutY="416.0" mnemonicParsing="false" onAction="#traiterReclam" prefHeight="28.0" prefWidth="95.0" style="-fx-background-color: transparent; -fx-border-color: #e5655a;" text="Traiter" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></Button>
+      <Button layoutX="300.0" layoutY="416.0" mnemonicParsing="false" onAction="#detailReclam" style="-fx-background-color: transparent; -fx-border-color: #e5655a;" text="Consulter details réclamation" textFill="#fffefe">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></Button>
+      <Button layoutX="168.0" layoutY="416.0" mnemonicParsing="false" onAction="#exportexcel" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: transparen; -fx-border-color: #e5655a;" text="Exporter excel" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></Button>
       <PieChart fx:id="TraiteeNonTraitee" layoutX="529.0" layoutY="186.0" onMouseClicked="#Stat" prefHeight="266.0" prefWidth="215.0" />
-      <Label layoutX="514.0" layoutY="148.0" style="-fx-background-color: #0b77eb;" text="Visualiser les statistiques des réclamations :" textFill="WHITE">
+      <Label layoutX="493.0" layoutY="148.0" prefHeight="17.0" prefWidth="266.0" text="Visualiser les statistiques des réclamations :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <FontAwesomeIconView fill="#001dfc" glyphName="EDIT" layoutX="83.0" layoutY="373.0" />
+      <FontAwesomeIconView fill="#e5655a" glyphName="EDIT" layoutX="101.0" layoutY="434.0" />
+      <ImageView fitHeight="83.0" fitWidth="152.0" layoutX="6.0" layoutY="-3.0">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

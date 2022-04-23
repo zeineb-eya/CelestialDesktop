@@ -8,27 +8,41 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="370.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutReclamationFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="406.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutReclamationFXMLController">
    <children>
-      <Label layoutX="78.0" layoutY="177.0" text="Objet reclamation :" />
-      <TextField fx:id="description_reclamation" layoutX="258.0" layoutY="143.0" prefHeight="101.0" prefWidth="318.0" />
-      <Label layoutX="20.0" layoutY="14.0" maxHeight="1.7976931348623157E308" prefHeight="47.0" prefWidth="217.0" text="Réclamer" textAlignment="CENTER">
+      <ImageView fitHeight="406.0" fitWidth="921.0">
+         <image>
+            <Image url="@../images/backg.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="414.0" layoutY="110.0" prefHeight="25.0" prefWidth="175.0" text="Détails réclamation :" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="32.0" />
+            <Font size="16.0" />
+         </font></Label>
+      <TextField fx:id="description_reclamation" layoutX="402.0" layoutY="146.0" prefHeight="181.0" prefWidth="499.0" promptText="I wanna complaint about..." />
+      <Label alignment="CENTER" layoutX="323.0" layoutY="14.0" maxHeight="1.7976931348623157E308" prefHeight="47.0" prefWidth="217.0" text="Réclamer" textFill="#e5655a">
+         <font>
+            <Font name="Arial" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="reclamerButton" layoutX="576.0" layoutY="290.0" mnemonicParsing="false" onAction="#AjouterReclam" prefHeight="26.0" prefWidth="101.0" text="réclamer" />
-      <Button layoutX="358.0" layoutY="291.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="189.0" text="consulter les réclamations" />
-      <FontAwesomeIconView glyphName="PLUS" layoutX="657.0" layoutY="307.0" wrappingWidth="12.428571701049805" />
-      <FontAwesomeIconView fill="#0972fc" glyphName="EYE" layoutX="525.0" layoutY="308.0" size="15" text="" />
-      <Pane layoutY="68.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <TextField fx:id="id_user" layoutX="268.0" layoutY="95.0" />
-      <Label layoutX="101.0" layoutY="95.0" text="User:" />
-      <TextField fx:id="tfEmail" layoutX="540.0" layoutY="95.0" promptText="email" />
-      <ImageView fx:id="smileFace" fitHeight="26.0" fitWidth="26.0" layoutX="65.0" layoutY="262.0" onMouseClicked="#selectExperience" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="reclamerButton" layoutX="784.0" layoutY="359.0" mnemonicParsing="false" onAction="#AjouterReclam" prefHeight="26.0" prefWidth="101.0" style="-fx-background-color: transparent; -fx-border-color: #e5655a;" text="réclamer" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></Button>
+      <Button layoutX="512.0" layoutY="360.0" mnemonicParsing="false" onAction="#retour" prefHeight="28.0" prefWidth="228.0" style="-fx-background-color: transparent; -fx-border-color: #e5655a;" text="consulter les réclamations" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></Button>
+      <FontAwesomeIconView fill="#e5655a" glyphName="EYE" layoutX="715.0" layoutY="379.0" size="15" text="" wrappingWidth="12.428563982248306" />
+      <TextField fx:id="id_user" layoutX="125.0" layoutY="164.0" prefHeight="25.0" prefWidth="175.0" />
+      <Label layoutX="17.0" layoutY="169.0" text="Num utilisateur" textFill="#fffbfb">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></Label>
+      <TextField fx:id="tfEmail" layoutX="125.0" layoutY="263.0" prefHeight="25.0" prefWidth="175.0" />
+      <ImageView fx:id="smileFace" fitHeight="26.0" fitWidth="26.0" layoutX="45.0" layoutY="346.0" onMouseClicked="#selectExperience" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/good.png" />
          </image>
@@ -36,7 +50,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="neutralFace" fitHeight="26.0" fitWidth="26.0" layoutX="106.0" layoutY="262.0" onMouseClicked="#selectExperience" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="neutralFace" fitHeight="26.0" fitWidth="26.0" layoutX="112.0" layoutY="346.0" onMouseClicked="#selectExperience" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/none.png" />
          </image>
@@ -44,7 +58,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="angryFace" accessibleRole="TABLE_VIEW" fitHeight="26.0" fitWidth="26.0" layoutX="146.0" layoutY="262.0" onMouseClicked="#selectExperience" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="angryFace" accessibleRole="TABLE_VIEW" fitHeight="26.0" fitWidth="26.0" layoutX="193.0" layoutY="346.0" onMouseClicked="#selectExperience" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bad.png" />
          </image>
@@ -52,5 +66,15 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
+      <Label layoutX="36.0" layoutY="263.0" text="Email:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="319.0" prefHeight="17.0" prefWidth="228.0" text="Partagez nous votre expérience !" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
