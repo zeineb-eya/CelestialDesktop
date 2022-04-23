@@ -429,53 +429,6 @@ if(r==null){
 
    
     @FXML
-    private void exportexcel(ActionEvent event) throws SQLException, IOException {
-        Workbook workbook = new HSSFWorkbook();
-        org.apache.poi.ss.usermodel.Sheet spreadsheet = workbook.createSheet("sample");
-
-        org.apache.poi.ss.usermodel.Row row = spreadsheet.createRow(0);
-
-        for (int j = 0; j < tableaureclam.getColumns().size(); j++) {
-            row.createCell(j).setCellValue(tableaureclam.getColumns().get(j).getText());
-        }
-
-        for (int i = 0; i < tableaureclam.getItems().size(); i++) {
-            row = spreadsheet.createRow(i + 1);
-            for (int j = 0; j < tableaureclam.getColumns().size(); j++) {
-                if(tableaureclam.getColumns().get(j).getCellData(i) != null) { 
-                    row.createCell(j).setCellValue(tableaureclam.getColumns().get(j).getCellData(i).toString()); 
-                }
-                else {
-                    row.createCell(j).setCellValue("");
-                }   
-            }
-        }
-       //FileOutputStream fileOut = new FileOutputStream("classeur1.xlsx");
-            FileOutputStream fileOut = new FileOutputStream(new File ("c:\\xls\\classeur1.xls"));
-
-        workbook.write(fileOut);
-        fileOut.close();
-
-    }
-    
-    /* public void Stat() throws SQLException{
-                XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("Répartition des Types");
-            cnx = MyConnection.getInstance().getCnx();
-            ste = cnx.createStatement();
-            ResultSet res = ste.executeQuery("select * from type_comptabilite");
-            while(res.next()){
-            series.getData().add(new XYChart.Data<>(res.getString(2), sr.calculer(res.getInt(1))));
-            }        
-        barChart.getData().addAll(series);
-
-    }*/
-
-   /* @FXML
-    private void exportexcel(ActionEvent event) {
-    }*/
-
-    @FXML
     private void detailReclam(ActionEvent event) throws IOException {
         
           Reclamation r =  tableaureclam.getSelectionModel().getSelectedItem();

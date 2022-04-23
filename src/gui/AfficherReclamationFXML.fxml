@@ -29,7 +29,6 @@
       <FontAwesomeIconView fill="#ee0808" glyphName="MINUS" layoutX="68.0" layoutY="104.0" onMouseClicked="#deleteReclam" size="25" />
       <Pane layoutY="62.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <FontAwesomeIconView fill="#14f110" glyphName="EDIT" layoutX="30.0" layoutY="104.0" onMouseClicked="#modifierReclam" size="25" />
-      <Button layoutX="435.0" layoutY="361.0" mnemonicParsing="false" onAction="#exportexcel" text="Exporter excel" />
       <TextField fx:id="rechercher" layoutX="480.0" layoutY="82.0" prefHeight="25.0" prefWidth="241.0" promptText="rechercher" />
       <FontAwesomeIconView fill="#0f21e4" glyphName="SEARCH" layoutX="702.0" layoutY="98.0" />
       <Button layoutX="552.0" layoutY="361.0" mnemonicParsing="false" onAction="#detailReclam" text="Consulter details réclamation" />

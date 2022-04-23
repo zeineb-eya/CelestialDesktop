@@ -10,6 +10,8 @@ import com.mycompany.services.ServiceReclamation;
 import com.mycompany.utils.MyConnection;
 import static edu.stanford.nlp.util.ArgumentParser.host;
 import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import static java.lang.ProcessBuilder.Redirect.to;
 import java.net.URL;
@@ -57,6 +59,8 @@ import java.util.HashMap;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Workbook;
 /**
  * FXML Controller class
  *
@@ -224,7 +228,33 @@ stage.show();
     }
 
     @FXML
-    private void exportexcel(javafx.event.ActionEvent event) {
+    private void exportexcel(javafx.event.ActionEvent event) throws IOException {
+        
+        Workbook workbook = new HSSFWorkbook();
+        org.apache.poi.ss.usermodel.Sheet spreadsheet = workbook.createSheet("sample");
+
+        org.apache.poi.ss.usermodel.Row row = spreadsheet.createRow(0);
+
+        for (int j = 0; j < tableaureclam.getColumns().size(); j++) {
+            row.createCell(j).setCellValue(tableaureclam.getColumns().get(j).getText());
+        }
+
+        for (int i = 0; i < tableaureclam.getItems().size(); i++) {
+            row = spreadsheet.createRow(i + 1);
+            for (int j = 0; j < tableaureclam.getColumns().size(); j++) {
+                if(tableaureclam.getColumns().get(j).getCellData(i) != null) { 
+                    row.createCell(j).setCellValue(tableaureclam.getColumns().get(j).getCellData(i).toString()); 
+                }
+                else {
+                    row.createCell(j).setCellValue("");
+                }   
+            }
+        }
+       //FileOutputStream fileOut = new FileOutputStream("classeur1.xlsx");
+            FileOutputStream fileOut = new FileOutputStream(new File ("c:\\xls\\classeur1.xls"));
+
+        workbook.write(fileOut);
+        fileOut.close();
     }
 
      
