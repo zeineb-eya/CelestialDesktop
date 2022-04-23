@@ -479,13 +479,13 @@ if(r==null){
     private void detailReclam(ActionEvent event) throws IOException {
         
           Reclamation r =  tableaureclam.getSelectionModel().getSelectedItem();
-       FXMLLoader loader = new FXMLLoader(getClass().getResource("detailReclamationFXML.fxml"));
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("detailReclamationFront.fxml"));
 
   Stage stage = new Stage(StageStyle.DECORATED.DECORATED);
   stage.setScene(
     new Scene(loader.load()));
 
-  DetailReclamationFXMLController controller = loader.getController();
+  DetailReclamationFrontController controller = loader.getController();
   controller.detailReclam(r);
 stage.show();
     }
