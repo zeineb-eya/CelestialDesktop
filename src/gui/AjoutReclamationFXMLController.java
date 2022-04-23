@@ -32,7 +32,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.Session;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
@@ -107,7 +109,7 @@ public class AjoutReclamationFXMLController implements Initializable {
 
      
     @FXML
-        private void AjouterReclam(ActionEvent event) throws IOException {
+        private void AjouterReclam(ActionEvent event) throws IOException, MessagingException {
                 if(Validchamp(description_reclamation) ){
              // User user =id_user.getSelectionModel().getSelectedItem();   
       Reclamation r = new Reclamation();
@@ -172,6 +174,8 @@ public class AjoutReclamationFXMLController implements Initializable {
         
 }
     
+    
+    //getTfEmail().getText()
     public void sendMail(){
       try{
             String host ="smtp.gmail.com" ;
@@ -234,6 +238,16 @@ public class AjoutReclamationFXMLController implements Initializable {
         
     }
     }
+
+    public TextField getTfEmail() {
+        return tfEmail;
+    }
+
+    public void setTfEmail(TextField tfEmail) {
+        this.tfEmail = tfEmail;
+    }
+    
+    
   
   private void enableSubmitButton() {
 
@@ -275,6 +289,6 @@ return experience;
        
         sendMail();
     }
-
+ 
      
 }

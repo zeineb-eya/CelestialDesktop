@@ -10,6 +10,7 @@ import com.mycompany.services.ServiceReclamation;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,6 +28,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  * FXML Controller class
@@ -56,6 +62,8 @@ public class DetailReclamationFXMLController implements Initializable {
     private Button traiterButton;
     @FXML
     private Button retourButton;
+    @FXML
+    private Label mail;
     
     
     /**
@@ -117,19 +125,21 @@ public class DetailReclamationFXMLController implements Initializable {
          
 
     }    @FXML
-    private void traiterReclam(javafx.event.ActionEvent event) throws IOException {
+    private void traiterReclam(javafx.event.ActionEvent event) throws IOException, MessagingException {
       ServiceReclamation sr = new ServiceReclamation();
-      
-   if (etat_reclam.getText().equals("envoye"))
+   
+      if (etat_reclam.getText().equals("envoye"))
             {
                 traiterButton.setVisible(true);
-                    javafx.scene.Parent tableview = FXMLLoader.load(getClass().getResource("ModifierReclamationFXML.fxml"));
+                    javafx.scene.Parent tableview = FXMLLoader.load(getClass().getResource("ReclamationAdminFXML.fxml"));
         Scene sceneview = new Scene(tableview);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(sceneview);
         window.show();
             }
-    }
+     
+            
+   }
 
     @FXML
     private void retour(ActionEvent event) throws IOException {
@@ -146,6 +156,5 @@ public class DetailReclamationFXMLController implements Initializable {
             }  
          }
     
-   
-   
+    
     }    

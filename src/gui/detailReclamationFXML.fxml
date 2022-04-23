@@ -45,5 +45,7 @@
       <FontAwesomeIconView fill="#a4a0a0" glyphName="COMMENT" layoutX="378.0" layoutY="306.0" size="18" />
       <Button fx:id="traiterButton" layoutX="605.0" layoutY="386.0" mnemonicParsing="false" onAction="#traiterReclam" prefHeight="25.0" prefWidth="66.0" text="Traiter" />
       <Button fx:id="retourButton" layoutX="572.0" layoutY="415.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="101.0" text="Retour" />
+      <Label layoutX="46.0" layoutY="65.0" text="Mail clinet : " />
+      <Label fx:id="mail" layoutX="254.0" layoutY="57.0" prefHeight="17.0" prefWidth="249.0" />
    </children>
 </AnchorPane>

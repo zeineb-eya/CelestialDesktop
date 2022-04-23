@@ -7,17 +7,24 @@ package gui;
 
 import com.mycompany.entities.Reclamation;
 import com.mycompany.services.ServiceReclamation;
+import com.mycompany.utils.MyConnection;
+import static edu.stanford.nlp.util.ArgumentParser.host;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import static java.lang.ProcessBuilder.Redirect.to;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import static java.util.Date.from;
 import java.util.List;
 import java.util.Properties;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -28,6 +35,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.TableColumn;
@@ -36,7 +44,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Pagination;
-
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.sql.Connection;
+import java.util.HashMap;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 /**
  * FXML Controller class
  *
@@ -59,6 +79,19 @@ public class ReclamationAdminController implements Initializable {
     ObservableList myList ;
     
 Reclamation rec=new Reclamation();
+  ServiceReclamation sr = new ServiceReclamation();
+  
+  private Connection cnx2;
+    private Statement ste;
+    @FXML
+    private PieChart TraiteeNonTraitee;
+    public TableColumn<?, ?> getDescription_reclamcol() {
+        return description_reclamcol;
+    }
+
+    public void setDescription_reclamcol(TableColumn<?, ?> description_reclamcol) {
+        this.description_reclamcol = description_reclamcol;
+    }
 
     /**
      * Initializes the controller class.
@@ -116,7 +149,7 @@ Reclamation rec=new Reclamation();
 
 
     @FXML
-    private void traiterReclam(javafx.event.ActionEvent event) {
+    private void traiterReclam(javafx.event.ActionEvent event) throws MessagingException {
         
        Reclamation r = tableaureclam.getSelectionModel().getSelectedItem();
       ServiceReclamation sr = new ServiceReclamation();
@@ -127,14 +160,16 @@ Reclamation rec=new Reclamation();
                  System.out.println("ok");
                   
             System.out.println("Traitement terminé");
-              Alert alert = new Alert(Alert.AlertType.INFORMATION);
+               Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Traitement terminée avec succès.");
         alert.setHeaderText(null);
     alert.setContentText("La réclamation a été traité avec succés.");
         alert.showAndWait();
-                  
-            }
+      // sendMail();
+                }
     }
+    
+    
        public void RechercheAV(){
      FilteredList<Reclamation> filteredData = new FilteredList<>(myList, b -> true);
 		
@@ -152,7 +187,9 @@ Reclamation rec=new Reclamation();
                                        // (String.valueOf(tmp.getId()).indexOf(lowerCaseFilter)!=-1)
 				} else if (String.valueOf(tmp.getDate_reclamation()).indexOf(lowerCaseFilter)!=-1){
 				     return true;
-                               } else  
+                               } else if (String.valueOf(tmp.getDescription_reclamation()).indexOf(lowerCaseFilter)!=-1){
+				     return true;
+                               }else
 				    	 return false; // Does not match.
 			
 		});
@@ -170,7 +207,84 @@ Reclamation rec=new Reclamation();
                 
        }
 
-}
+    @FXML
+    private void detailReclam(javafx.event.ActionEvent event) throws IOException {
+          
+     
+          Reclamation r =  tableaureclam.getSelectionModel().getSelectedItem();
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("detailReclamationFXML.fxml"));
+
+  Stage stage = new Stage(StageStyle.DECORATED.DECORATED);
+  stage.setScene(
+    new Scene(loader.load()));
+
+  DetailReclamationFXMLController controller = loader.getController();
+  controller.detailReclam(r);
+stage.show();
+    }
+
+    @FXML
+    private void exportexcel(javafx.event.ActionEvent event) {
+    }
+
+     
+
+    @FXML
+    public void Stat() throws SQLException{
+                ServiceReclamation sr = new ServiceReclamation();
+        ObservableList<PieChart.Data> T = FXCollections.observableArrayList(
+             new PieChart.Data("Traitée", sr.getTraitee()),
+             new PieChart.Data("Non Traitée", sr.getNonTraitee())
+         );        
+        TraiteeNonTraitee.setData(T);
+        //System.out.println("mochekla inisialize");
+        //barC= new BarChart<>();
+        try{
+           /* ResultSet rs = sr.getNbrReclamationType();
+            ArrayList<Integer> nombres = new ArrayList<>();
+            ArrayList<String> objets= new ArrayList<>();
+            HashMap<String,Integer> map = new HashMap();
+            while (rs.next())
+            {
+                nombres.add(rs.getInt("nbr"));
+                objets.add(rs.getString("description_reclamation"));
+                //map.put(rs.getString("description_reclamation"), rs.getInt("nbr"));
+            }*/
+             HashMap<String,Integer> map = new HashMap();
+            if(!map.isEmpty())
+            {
+                CategoryAxis xAxis = new CategoryAxis();
+                xAxis.setCategories(FXCollections.<String>observableArrayList(map.keySet()));
+                NumberAxis yAxis = new NumberAxis(0, 
+                                                  map.values().stream().max((a1,a2)-> a1-a2).get()+1 , 
+                                                  1);
+                ObservableList<BarChart.Series> barChartData = FXCollections.observableArrayList() ;
+                
+                map.forEach((t,u)-> {
+                    BarChart.Series<String,Integer> b = new BarChart.Series<>(t,FXCollections.observableArrayList(
+                           new BarChart.Data(t, u)     
+                    ));
+                    barChartData.add(b);
+                    
+                });           
+                BarChart<String,Integer> m = new BarChart(xAxis, yAxis,barChartData);
+//                barC.setData(new BarChart(xAxis, yAxis, barChartData).getData());
+//                //barC.setData(new BarChart(xAxis, yAxis, barChartData, 25.0d).getData());
+               // recl.getChildren().add(new BarChart(xAxis, yAxis, barChartData,25.0d));
+              //  xtx.getChildren().add(createBarChart());
+            }
+        }
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }    
+    }
+        
+        
+    }
+    
+   
+       
+
        
  
      

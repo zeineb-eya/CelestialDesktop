@@ -315,7 +315,80 @@ return list;
 
 	return afficherReclamation().stream().sorted((a, b) -> a.getEtat_reclamation().compareTo(b.getEtat_reclamation())).collect(Collectors.toList());
     }
- 
+      
+      
+         public double getTraitee() {
+        String req="SELECT count(*) as a FROM Reclamation WHERE etat_reclamation=?" ;
+        double x=0;
+        try 
+        { 
+      PreparedStatement pst = cnx2.prepareStatement(req);
+            pst.setString(1, "Traitée");
+            ResultSet rs = pst.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;    
     }
+
+    public double getNonTraitee() {
+        String req="SELECT count(*) as a FROM reclamation WHERE etat_reclamation=?" ;
+        double x=0;
+        try 
+        { 
+           
+              PreparedStatement pst = cnx2.prepareStatement(req);
+            pst.setString(1, "envoye");
+            ResultSet rs = pst.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;        }
+    
+     public int nombre() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `reclamation` WHERE etat_reclamation='envoye'";
+        try {
+             PreparedStatement pst = cnx2.prepareStatement(sql);
+            ResultSet results = pst.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
+     
+     
+     public ResultSet getNbrReclamationType()
+    {
+        String req="SELECT count(*) as nbr, description_reclamation FROM `reclamation` group by `description_reclamation`" ;
+        double x=0;
+        try 
+        { 
+            PreparedStatement pst = cnx2.prepareStatement(req);
+            ResultSet rs = pst.executeQuery(); 
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println("mochekla");
+            System.out.println(ex);
+            return null;
+        }   
+    }
+
+       
+}
+ 
+    
     
 

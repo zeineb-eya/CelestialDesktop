@@ -382,7 +382,9 @@ if(r==null){
                                        // (String.valueOf(tmp.getId()).indexOf(lowerCaseFilter)!=-1)
 				} else if (String.valueOf(tmp.getDate_reclamation()).indexOf(lowerCaseFilter)!=-1){
 				     return true;
-                               } else  
+                                } else if (String.valueOf(tmp.getDescription_reclamation()).indexOf(lowerCaseFilter)!=-1){
+				     return true;
+                                } else  
 				    	 return false; // Does not match.
 			
 		});
