@@ -62,38 +62,16 @@ public class AjoutOffreFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
- /*public Boolean ValidateFields() {
-   
-        if (nom_offre.getText().isEmpty() | description_offre.getText().isEmpty()| prix_offre.getText().isEmpty() | reduction.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Erreur de champ");
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez indiquer l'objet réclamation s'il vous plait!!");
-            alert.showAndWait();
-            return false;
-        }
 
-        return true;
-
- }*/
      private boolean ValidchampDate(){
-        
-         if (nom_offre.getText().equals("") || description_offre.getText().equals("")
-					 || date_debut_offre.getValue().equals("yyyy-mm-dd")
-					|| date_fin_offre.getValue().equals("yyyy-mm-dd")){
-             
-             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Erreur de champ");
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez vérifier votre saisie s'il vous plait!!");
-            alert.showAndWait();
-         }
-    else if (date_debut_offre.getValue().compareTo(LocalDate.now()) < 0){
+         
+        if (date_debut_offre.getValue().compareTo(LocalDate.now()) < 0 ){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur de champ");
             alert.setHeaderText(null);
             alert.setContentText("La date debut ne peut pas etre avant la date d'aujourd'hui!!");
             alert.showAndWait();
+            return false;
                      
     }else if (date_debut_offre.getValue().compareTo(date_fin_offre.getValue()) > 0){
          Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -101,21 +79,21 @@ public class AjoutOffreFXMLController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("La date de fin ne peut pas etre avant la date de debut!!");
             alert.showAndWait();  
-     
+       
+    return false;
+      }else if (date_debut_offre.getValue().compareTo(date_fin_offre.getValue()) == 0){
+         Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur de champ");
+            alert.setHeaderText(null);
+            alert.setContentText("La date de fin ne peut pas etre la meme que la date de debut!!");
+            alert.showAndWait();  
+       
     return false;
       
      } return true;
      }
      
-     /*
-     }else if (date_debut_offre.getValue().compareTo(date_fin_offre.getValue()) == 0){
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Erreur de champ");
-            alert.setHeaderText(null);
-            alert.setContentText("La date debut est la date fin ne peuvent pas etre dans le meme jour!!");
-            alert.showAndWait();
-     
-     */
+   
      private boolean Validchamp(TextField T){
          if(T.getText().isEmpty() | T.getLength() <5 ){
           Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -129,43 +107,34 @@ public class AjoutOffreFXMLController implements Initializable {
 
     @FXML
     private void AjouterOffre(MouseEvent event)  {
-        //    if(ValidateFields() && Validchamp(nom_offre,description_offre) ){
-           // if( Validchamp(nom_offre) &&  Validchamp(description_offre)){    
-         if(!ValidchampDate()){
-  /*if(date_debut_offre.compareTo(date_fin_offre) == 0){ 
-      System.out.println("Given dates are same");*/ 
-
-           Offre o = new Offre();
+            if( Validchamp(nom_offre) &&  Validchamp(description_offre)&& ValidchampDate()){    
+             Offre o = new Offre();
        o.setNom_offre(nom_offre.getText());
        o.setDescription_offre(description_offre.getText());
-      //o.setPrix_offre(Double.parseDouble(prix_offre.getText()));
-       // System.out.println("Est un int positif!");
-        o.setPrix_offre(Integer.parseInt(prix_offre.getText()));
-//   o.setPrix_offre(Double.parseDouble(prix_offre.getText()));
-
-     //o.setReduction(Double.parseDouble(reduction.getText()));
-     
-o.setReduction(Integer.parseInt(reduction.getText()));
-     //  o.setDate_debut_offre(date_debut_offre.getText());
+       o.setPrix_offre(Integer.parseInt(prix_offre.getText()));
+    
+     o.setReduction(Integer.parseInt(reduction.getText()));
      o.setDate_debut_offre(Date.valueOf(date_debut_offre.getValue()));
-      o.setDate_fin_offre(Date.valueOf(date_fin_offre.getValue()));
-    //  o.setDate_debut_offre(date_debut_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-      //o.setDate_fin_offre(date_fin_offre.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-      
-  //   o.setDate_debut_offre(LocalDate.parse(date_debut_offre,formatter));
-    //   o.setDate_fin_offre(date_fin_offre.getText());
+     o.setDate_fin_offre(Date.valueOf(date_fin_offre.getValue()));
+
         ServiceOffre pst = new ServiceOffre();
         pst.ajouterOffre(o);
-        
+         
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Nouvelle offre");
             alert.setHeaderText(null);
             alert.setContentText("Votre offre a ete bien ajoute");
             alert.showAndWait();
-    }
+            }else{
+                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Probléme d'ajout");
+            alert.setHeaderText(null);
+            alert.setContentText("Votre offre c'a pas été ajoute");
+            alert.showAndWait();
+            }
     }
    
-    
+   
     private void afficherOffre(MouseEvent event) {
            try {
             Parent root = FXMLLoader.load(getClass().getResource("AfficherOffreFXMLController.fxml"));
@@ -176,7 +145,7 @@ o.setReduction(Integer.parseInt(reduction.getText()));
     }
         
   
-       @FXML
+      @FXML
     private void displayOffre(MouseEvent event) throws IOException {
            javafx.scene.Parent tableview = FXMLLoader.load(getClass().getResource("AfficherOffreFXML.fxml"));
         Scene sceneview = new Scene(tableview);
@@ -185,21 +154,7 @@ o.setReduction(Integer.parseInt(reduction.getText()));
         window.show();
     }
 
-   /* @FXML
-    private void OnModifier(MouseEvent event) throws SQLException, IOException {
-     
-       FXMLLoader loader = new FXMLLoader
-                        (getClass()
-                         .getResource("ModifierOffreFXML.fxml"));
-        Scene scene=new Scene(loader.load());
-       
-        Stage stageAff=new Stage();
-        stageAff.setScene(scene);
-        stageAff.show();
-        ((Node) (event.getSource())).getScene().getWindow().hide();
-    }
-*/
-
+  
     @FXML
     private void OnModifi(MouseEvent event) {
     }

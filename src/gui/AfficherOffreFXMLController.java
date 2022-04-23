@@ -85,6 +85,29 @@ public class AfficherOffreFXMLController implements Initializable {
         afficherOffre();
       }    
     
+    
+    
+     
+     private void afficherOffre() {
+      /* ServiceReclamation sr = new ServiceReclamation();
+        ObservableList<Reclamation> o = FXCollections.observableArrayList(sr.afficherReclamation());*/
+       ServiceOffre so = new ServiceOffre();
+        List<Offre> reclam = so.afficherOffre();
+        myList = FXCollections.observableList(reclam);
+        tableauOffre.setItems(myList);
+        
+        id_offrecol.setCellValueFactory(new PropertyValueFactory<>("id"));
+       nom_offrecol.setCellValueFactory(new PropertyValueFactory<>("nom_offre"));
+       description_offrecol.setCellValueFactory(new PropertyValueFactory<>("description_offre"));
+       prix_offrecol.setCellValueFactory(new PropertyValueFactory<>("prix_offre"));
+       reductioncol.setCellValueFactory(new PropertyValueFactory<>("reduction"));
+       date_debut_offrecol.setCellValueFactory(new PropertyValueFactory<>("date_debut_offre"));
+       date_fin_offrecol.setCellValueFactory(new PropertyValueFactory<>("date_fin_offre"));
+          RechercheAV();
+    }
+     
+    
+    
      @FXML
     private void deleteOffre(MouseEvent event) {
        
@@ -112,32 +135,12 @@ public class AfficherOffreFXMLController implements Initializable {
     }
        
     }
-    
-     private void afficherOffre() {
-      /* ServiceReclamation sr = new ServiceReclamation();
-        ObservableList<Reclamation> o = FXCollections.observableArrayList(sr.afficherReclamation());*/
-       ServiceOffre so = new ServiceOffre();
-        List<Offre> reclam = so.afficherOffre();
-        myList = FXCollections.observableList(reclam);
-        tableauOffre.setItems(myList);
-        
-        id_offrecol.setCellValueFactory(new PropertyValueFactory<>("id"));
-       nom_offrecol.setCellValueFactory(new PropertyValueFactory<>("nom_offre"));
-       description_offrecol.setCellValueFactory(new PropertyValueFactory<>("description_offre"));
-       prix_offrecol.setCellValueFactory(new PropertyValueFactory<>("prix_offre"));
-       reductioncol.setCellValueFactory(new PropertyValueFactory<>("reduction"));
-       date_debut_offrecol.setCellValueFactory(new PropertyValueFactory<>("date_debut_offre"));
-       date_fin_offrecol.setCellValueFactory(new PropertyValueFactory<>("date_fin_offre"));
-          RechercheAV();
-    }
-     
+   
     
      
     @FXML
     private void actualiserOffre(MouseEvent event) {
-       
-        
-             ServiceOffre sr = new ServiceOffre();
+              ServiceOffre sr = new ServiceOffre();
         List<Offre> off = sr.refreshOffre();
         myList = FXCollections.observableList(off);
         tableauOffre.setItems(myList);
@@ -149,11 +152,8 @@ public class AfficherOffreFXMLController implements Initializable {
         date_debut_offrecol.setCellValueFactory(new PropertyValueFactory<>("date_debut_offre"));
         date_fin_offrecol.setCellValueFactory(new PropertyValueFactory<>("date_fin_offre"));
 
- 
-         tableauOffre.setItems(myList);
-            
-
-    }     
+        tableauOffre.setItems(myList);
+        }     
 
     @FXML
     private void OnModif(MouseEvent event) throws IOException {
@@ -203,12 +203,8 @@ if(o==null){
                    );
                } catch (IOException ex) {
   System.out.println("eer");               }
-               
-               
-         
         }
-
-    }
+   }
     
        public void RechercheAV(){
                 // Wrap the ObservableList in a FilteredList (initially display all data).

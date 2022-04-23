@@ -147,7 +147,7 @@ public class AjoutReclamationFXMLController implements Initializable {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("AfficherReclamationFXMLController.fxml"));
             description_reclamation.getScene().setRoot(root);
-            getExperience();
+           // getExperience();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

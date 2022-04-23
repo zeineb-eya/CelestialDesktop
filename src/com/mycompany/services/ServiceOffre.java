@@ -150,6 +150,34 @@ public class ServiceOffre {
 
     }
       
+       public List<Offre> refreshOffre(){
+         List<Offre>myList = new ArrayList<>();
+
+        try{
+        String requete3 = "SELECT * FROM offre";
+        Statement st = cnx2.createStatement();
+        ResultSet rs =  st.executeQuery(requete3);
+            while(rs.next()){
+                Offre o = new Offre();
+               o.setId(rs.getInt("id"));
+               o.setNom_offre(rs.getString("nom_offre"));
+               o.setDescription_offre(rs.getString(3));
+               o.setPrix_offre(rs.getInt(4));
+               o.setReduction(rs.getInt(5));
+               o.setDate_debut_offre(rs.getDate(6));
+               o.setDate_fin_offre(rs.getDate(7));
+
+                myList.add(o);}   
+              
+          } catch (SQLException ex) {
+              System.out.println(ex.getMessage());
+          };
+          return myList;
+    }
+     
+      
+      
+      
          public List<Offre> TrouveOffreId(int id) throws SQLException
         
          {
@@ -222,31 +250,6 @@ public class ServiceOffre {
     }
       
     
-               public List<Offre> refreshOffre(){
-         List<Offre>myList = new ArrayList<>();
-
-        try{
-        String requete3 = "SELECT * FROM offre";
-        Statement st = cnx2.createStatement();
-        ResultSet rs =  st.executeQuery(requete3);
-            while(rs.next()){
-                Offre o = new Offre();
-               o.setId(rs.getInt("id"));
-               o.setNom_offre(rs.getString("nom_offre"));
-               o.setDescription_offre(rs.getString(3));
-               o.setPrix_offre(rs.getInt(4));
-               o.setReduction(rs.getInt(5));
-               o.setDate_debut_offre(rs.getDate(6));
-               o.setDate_fin_offre(rs.getDate(7));
-
-                myList.add(o);}   
-              
-          } catch (SQLException ex) {
-              System.out.println(ex.getMessage());
-          };
-          return myList;
-    }
-     
 }
     
 

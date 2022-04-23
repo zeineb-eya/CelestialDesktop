@@ -3,15 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/AjoutReclamationFXMLController.java</file>
-            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/test/MainFx.java</file>
             <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/ReclamationAdminController.java</file>
-            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/SentenceSentiment.java</file>
+            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/test/MainFx.java</file>
             <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/com/mycompany/services/ServiceReclamation.java</file>
+            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/AfficherOffreFXMLController.java</file>
             <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/AfficherReclamationFXMLController.java</file>
+            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/Css/style.css</file>
             <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/DetailReclamationFXMLController.java</file>
-            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/ModifierReclamationFXMLController.java</file>
-            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/nlpPipeline.java</file>
+            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/AjoutOffreFXMLController.java</file>
+            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/DetailReclamationFrontController.java</file>
+            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/FrontOfferFXMLController.java</file>
         </group>
     </open-files>
 </project-private>
