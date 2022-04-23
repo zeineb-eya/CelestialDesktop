@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="438.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.HomeBackFXMLController">
+   <children>
+      <ImageView fitHeight="438.0" fitWidth="743.0">
+         <image>
+            <Image url="@../images/222.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="200.0" layoutY="140.0" mnemonicParsing="false" onAction="#gestionOffreButton" prefHeight="25.0" prefWidth="324.0" text="Gestion des Offres" />
+      <Button layoutX="211.0" layoutY="283.0" mnemonicParsing="false" onAction="#gestionReclamButton" prefHeight="25.0" prefWidth="301.0" text="Gestion des réclamations" />
+   </children>
+</AnchorPane>

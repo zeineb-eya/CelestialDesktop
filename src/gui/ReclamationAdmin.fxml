@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="737.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReclamationAdminController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="286.0" text="Liste des réclamations des clients ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Pane layoutX="138.0" layoutY="54.0" prefHeight="4.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <TableView fx:id="tableaureclam" layoutX="79.0" layoutY="135.0" prefHeight="182.0" prefWidth="489.0">
+         <columns>
+            <TableColumn fx:id="description_reclamcol" prefWidth="145.0" text="Objet reclamation" />
+            <TableColumn fx:id="etat_reclamcol" prefWidth="115.0" text="etat reclamation" />
+            <TableColumn fx:id="date_reclamcol" minWidth="0.0" prefWidth="113.0" text="date reclamation" />
+            <TableColumn fx:id="user" minWidth="0.0" prefWidth="113.0" text="user" />
+         </columns>
+      </TableView>
+      <TextField fx:id="rechercher" layoutX="480.0" layoutY="73.0" prefHeight="25.0" prefWidth="232.0" promptText="rechercher" />
+      <FontAwesomeIconView fill="#0f21e4" glyphName="SEARCH" layoutX="689.0" layoutY="89.0" />
+      <FontAwesomeIconView fill="#14f110" glyphName="EDIT" layoutX="22.0" layoutY="87.0" onMouseClicked="#traiterReclam" size="25" />
+      <FontAwesomeIconView fill="#141414" glyphName="REFRESH" layoutX="68.0" layoutY="87.0" onMouseClicked="#refresh" size="25" text="" />
+   </children>
+</AnchorPane>

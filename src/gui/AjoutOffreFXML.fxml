@@ -4,32 +4,42 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutOffreFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="669.0" style="-fx-background-color: #013053;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutOffreFXMLController">
    <children>
-      <Label layoutX="20.0" layoutY="14.0" prefHeight="30.0" prefWidth="179.0" text="Ajouter Offre" textFill="#3417dd">
+      <ImageView fitHeight="358.0" fitWidth="716.0" layoutY="43.0">
+         <image>
+            <Image url="@../images/222.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="269.0" layoutY="6.0" prefHeight="16.0" prefWidth="179.0" text="Ajouter Offre" textAlignment="CENTER" textFill="#edf9ff">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="62.0" layoutY="112.0" prefHeight="17.0" prefWidth="74.0" text="Nom Offre:" />
-      <Label layoutX="62.0" layoutY="163.0" text="Description Offre :" />
-      <Label layoutX="62.0" layoutY="209.0" text="Prix Offre :" />
-      <Label layoutX="60.0" layoutY="250.0" text="Reduction :" />
-      <Label layoutX="61.0" layoutY="305.0" text="Date debut Offre :" />
-      <Label layoutX="59.0" layoutY="346.0" text="Date Fin Offre :" />
-      <TextField fx:id="nom_offre" layoutX="226.0" layoutY="108.0" />
-      <TextField fx:id="description_offre" layoutX="226.0" layoutY="159.0" />
-      <TextField fx:id="prix_offre" layoutX="226.0" layoutY="205.0" />
-      <TextField fx:id="reduction" layoutX="226.0" layoutY="246.0" />
-      <DatePicker fx:id="date_debut_offre" layoutX="226.0" layoutY="293.0" prefHeight="25.0" prefWidth="149.0" />
-      <DatePicker fx:id="date_fin_offre" layoutX="226.0" layoutY="351.0" prefHeight="25.0" prefWidth="149.0" />
-      <Pane layoutY="52.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <FontAwesomeIconView fill="#02f222" glyphName="PLUS" layoutX="605.0" layoutY="38.0" onMouseClicked="#AjouterOffre" size="15" text="" />
-      <FontAwesomeIconView fill="#1207ee" glyphName="EYE" layoutX="634.0" layoutY="39.0" onMouseClicked="#displayOffre" size="18" />
-      <FontAwesomeIconView fx:id="editIcon" glyphName="EDIT" layoutX="573.0" layoutY="37.0" onMouseClicked="#OnModifi" size="12.240" />
+      <Label layoutX="134.0" layoutY="100.0" prefHeight="17.0" prefWidth="74.0" text="Nom Offre:" textFill="WHITE" />
+      <Label layoutX="135.0" layoutY="155.0" text="Description Offre :" textFill="#fcfcfc" />
+      <Label layoutX="134.0" layoutY="208.0" text="Prix Offre :" textFill="WHITE" />
+      <Label layoutX="132.0" layoutY="272.0" text="Reduction :" textFill="WHITE" />
+      <Label layoutX="123.0" layoutY="319.0" text="Date debut Offre :" textFill="#f2f2f2" />
+      <Label layoutX="122.0" layoutY="368.0" text="Date Fin Offre :" textFill="WHITE" />
+      <TextField fx:id="nom_offre" layoutX="322.0" layoutY="96.0" />
+      <TextField fx:id="description_offre" layoutX="322.0" layoutY="151.0" />
+      <TextField fx:id="prix_offre" layoutX="322.0" layoutY="204.0" />
+      <TextField fx:id="reduction" layoutX="322.0" layoutY="268.0" />
+      <DatePicker fx:id="date_debut_offre" layoutX="322.0" layoutY="315.0" prefHeight="25.0" prefWidth="149.0" />
+      <DatePicker fx:id="date_fin_offre" layoutX="322.0" layoutY="364.0" prefHeight="25.0" prefWidth="149.0" />
+      <FontAwesomeIconView fill="#f09702" glyphName="PLUS" layoutX="668.0" layoutY="34.0" onMouseClicked="#AjouterOffre" size="16" text="" />
+      <FontAwesomeIconView fill="WHITE" glyphName="EYE" layoutX="694.0" layoutY="34.0" onMouseClicked="#displayOffre" size="16" AnchorPane.rightAnchor="6.0" />
+      <FontAwesomeIconView fx:id="editIcon" fill="WHITE" glyphName="EDIT" layoutX="635.0" layoutY="34.0" onMouseClicked="#OnModifier" size="16" />
+      <ImageView fitHeight="61.0" fitWidth="96.0" layoutX="14.0" layoutY="-10.0">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

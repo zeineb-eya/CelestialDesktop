@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="403.0" prefWidth="746.0" style="-fx-background-color: #013053;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontOffreFXMLController">
+   <children>
+      <ImageView fitHeight="366.0" fitWidth="786.0" layoutY="37.0">
+         <image>
+            <Image url="@../images/222.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="rechercher" layoutX="14.0" layoutY="59.0" prefHeight="17.0" prefWidth="171.0" promptText="rechercher une offre..." />
+      <Label layoutX="366.0" layoutY="2.0" prefHeight="35.0" prefWidth="183.0" text="Offres" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableauOffre" layoutX="126.0" layoutY="114.0" prefHeight="244.0" prefWidth="583.0">
+         <columns>
+            <TableColumn fx:id="nom_offrecol" prefWidth="106.0" text="Nom Offre" />
+            <TableColumn fx:id="description_offrecol" prefWidth="116.0" text="Details offre" />
+            <TableColumn fx:id="prix_offrecol" prefWidth="92.0" text="Prix" />
+            <TableColumn fx:id="reductioncol" prefWidth="91.0" text="Reduction" />
+            <TableColumn fx:id="date_debut_offrecol" prefWidth="104.0" text="Date debut" />
+            <TableColumn fx:id="date_fin_offrecol" prefWidth="72.0" text="Date fin" />
+         </columns>
+      </TableView>
+      <FontAwesomeIconView fill="#f09702" glyphName="REFRESH" layoutX="747.0" layoutY="26.0" onMouseClicked="#actualiserOffre" size="20" text="" wrappingWidth="31.285714149475098" />
+   </children>
+</AnchorPane>

@@ -156,7 +156,7 @@ public class AjoutOffreFXMLController implements Initializable {
 
   
     @FXML
-    private void OnModifi(MouseEvent event) {
+    private void OnModifier(MouseEvent event) {
     }
 }
 

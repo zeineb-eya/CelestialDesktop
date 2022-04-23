@@ -42,6 +42,7 @@ import javafx.util.Duration;
 import javax.swing.JOptionPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 
 
 
@@ -72,8 +73,6 @@ public class AfficherOffreFXMLController implements Initializable {
     @FXML
     private AnchorPane Offre;
     @FXML
-    private TableColumn<?, ?> id_offrecol;
-    @FXML
     private TextField rechercher;
      
     /**
@@ -96,7 +95,6 @@ public class AfficherOffreFXMLController implements Initializable {
         myList = FXCollections.observableList(reclam);
         tableauOffre.setItems(myList);
         
-        id_offrecol.setCellValueFactory(new PropertyValueFactory<>("id"));
        nom_offrecol.setCellValueFactory(new PropertyValueFactory<>("nom_offre"));
        description_offrecol.setCellValueFactory(new PropertyValueFactory<>("description_offre"));
        prix_offrecol.setCellValueFactory(new PropertyValueFactory<>("prix_offre"));
@@ -249,6 +247,20 @@ if(o==null){
 		tableauOffre.setItems(sortedData);
                 
                         }
+
+    @FXML
+    private void ajouterOffre(MouseEvent event) throws IOException {
+         
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/AjoutOffreFXML.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+       
+    }
 
 }     
 

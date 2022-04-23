@@ -12,10 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -25,10 +22,7 @@ import javafx.stage.Stage;
  *
  * @author ASUS
  */
-public class HomegestServiceController implements Initializable {
-
-    @FXML
-    private Button btnBack;
+public class HomeBackFXMLController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -37,12 +31,12 @@ public class HomegestServiceController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
+
     @FXML
-     private void GestionReclam(ActionEvent event) {
-        try {
+    private void gestionOffreButton(ActionEvent event) {
+         try {
         FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/gui/AjoutReclamationFXML.fxml"));
+            loader.setLocation(getClass().getResource("/gui/AfficherOffreFXML.fxml"));
             AnchorPane rootLayout = (AnchorPane) loader.load();
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -51,31 +45,14 @@ public class HomegestServiceController implements Initializable {
             stage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
-        }
     }
-     
-     
-    @FXML
-    private void GestionOffre(ActionEvent event) {
-        try {
-        FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/gui/FrontOffreFXML.fxml"));
-            AnchorPane rootLayout = (AnchorPane) loader.load();
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            Scene scene = new Scene(rootLayout);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
     }
 
     @FXML
-    private void Back(ActionEvent event) {
-    try {
+    private void gestionReclamButton(ActionEvent event) {
+         try {
         FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/gui/HomeBackFXML.fxml"));
+            loader.setLocation(getClass().getResource("/gui/ReclamationAdminFXML.fxml"));
             AnchorPane rootLayout = (AnchorPane) loader.load();
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -85,8 +62,6 @@ public class HomegestServiceController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
     }
-
     }
     
-  
 }
