@@ -16,8 +16,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import services.LocalisationService;
@@ -40,6 +42,8 @@ public class ModifierLocalisationController implements Initializable {
     private TextField heurearriveeloacalisationmodif;
     @FXML
     private TextField fuseemodif;
+    @FXML
+    private Button SwitchToGestionlocalBTN;
 
     /**
      * Initializes the controller class.
@@ -103,6 +107,15 @@ positionariveeplanningmodif.setText(pa);
 fuseemodif.setText(fu);
 
 
+    }
+
+    @FXML
+    private void SwitchToGestionlocal(ActionEvent event) throws IOException {
+         Object root = FXMLLoader.load(getClass().getResource("AfficherLocalisation.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene((Parent) root);
+        stage.setScene(scene);
+        stage.show();
     }
     }
     

@@ -5,13 +5,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="471.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouPlaninngController">
    <children>
-      <Label layoutX="150.0" layoutY="14.0" prefHeight="53.0" prefWidth="321.0" text="Ajout Planinng" textFill="#e82121">
+      <ImageView fitHeight="471.0" fitWidth="600.0">
+         <image>
+            <Image url="@elements/278029069_731369684975471_4667161473849045072_n.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="150.0" layoutY="14.0" prefHeight="53.0" prefWidth="321.0" text="Ajout Planinng" textFill="#f5f0f0">
          <font>
             <Font name="Comic Sans MS Bold" size="39.0" />
          </font>
