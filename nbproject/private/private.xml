@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/skanr/Desktop/Desktop/src/gui/AfficherLocalisationController.java</file>
+            <file>file:/C:/Users/skanr/Desktop/Desktop/src/gui/AjouPlaninngController.java</file>
             <file>file:/C:/Users/skanr/Desktop/Desktop/src/gui/DetailsLocalisationsController.java</file>
             <file>file:/C:/Users/skanr/Desktop/Desktop/src/entities/Planinng.java</file>
             <file>file:/C:/Users/skanr/Desktop/Desktop/src/gui/AffichePlaninngController.java</file>
-            <file>file:/C:/Users/skanr/Desktop/Desktop/src/gui/AjoutLocalisationController.java</file>
-            <file>file:/C:/Users/skanr/Desktop/Desktop/src/gui/ModifierLocalisationController.java</file>
-            <file>file:/C:/Users/skanr/Desktop/Desktop/src/services/PlaninngService.java</file>
-            <file>file:/C:/Users/skanr/Desktop/Desktop/src/gui/ModifierPlaninngController.java</file>
+            <file>file:/C:/Users/skanr/Desktop/Desktop/src/services/LocalisationService.java</file>
+            <file>file:/C:/Users/skanr/Desktop/Desktop/src/entities/Localisation.java</file>
         </group>
     </open-files>
 </project-private>

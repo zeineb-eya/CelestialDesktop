@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -69,6 +70,35 @@ public class AjouPlaninngController implements Initializable {
         public void setUsername(String s) {
         description_planning.setText(s);
     }
+        private boolean ValidchampDate(){
+         
+        if (dateDebut_planning.getValue().compareTo(LocalDate.now()) < 0 ){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur de champ");
+            alert.setHeaderText(null);
+            alert.setContentText("La date debut ne peut pas etre avant la date d'aujourd'hui!!");
+            alert.showAndWait();
+            return false;
+                     
+    }else if (dateDebut_planning.getValue().compareTo(dateFin_planning.getValue()) > 0){
+         Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur de champ");
+            alert.setHeaderText(null);
+            alert.setContentText("La date de fin ne peut pas etre avant la date de debut!!");
+            alert.showAndWait();  
+       
+    return false;
+      }else if (dateDebut_planning.getValue().compareTo(dateFin_planning.getValue()) == 0){
+         Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur de champ");
+            alert.setHeaderText(null);
+            alert.setContentText("La date de fin ne peut pas etre la meme que la date de debut!!");
+            alert.showAndWait();  
+       
+    return false;
+      
+     } return true;
+     }
         private boolean Validchamp(){
          if(description_planning.getText().isEmpty() | description_planning.getLength() <3|nom_planning.getText().isEmpty() | nom_planning.getLength() <6 ){
           
@@ -82,7 +112,7 @@ public class AjouPlaninngController implements Initializable {
 }
     @FXML
        private void Ajouter(ActionEvent event) {
-            if( Validchamp() &&  Validchamp()){    
+            if( Validchamp() &&  Validchamp()&& ValidchampDate()){    
         Planinng p = new Planinng();
         p.setNomPlanning(nom_planning.getText());
         p.setDateDebutPlanning(Date.valueOf(dateDebut_planning.getValue()));

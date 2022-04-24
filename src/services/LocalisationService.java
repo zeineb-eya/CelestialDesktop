@@ -141,5 +141,25 @@ public class LocalisationService {
           }
           return list;
     }
-
+    public List <Localisation> liste2()
+    {
+        String req = "select heuredepartlocalisation, heure_arrivee_loacalisation, position_depart_localisation, position_arivee_planning, fusee from localisation"; 
+        
+       List <Localisation> list = new ArrayList<>(); 
+       try {
+        Statement st = connection.createStatement();
+        ResultSet rs=st.executeQuery(req); 
+       
+       while (rs.next())
+       {
+           list.add(new Localisation(rs.getString("heuredepartlocalisation"), rs.getString("heure_arrivee_loacalisation"), rs.getString("position_depart_localisation"), rs.getString("position_arivee_planning"), rs.getString("fusee"))); 
+       }
+       
+       }
+       catch (SQLException ex)
+       {
+       Logger.getLogger(LocalisationService.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    return list; 
+    }
 }

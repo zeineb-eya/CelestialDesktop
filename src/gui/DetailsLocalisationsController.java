@@ -5,11 +5,27 @@
  */
 package gui;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import entities.Localisation;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 /**
@@ -44,5 +60,15 @@ public class DetailsLocalisationsController implements Initializable {
     positionarrivedet.setText(localisation.getPositionAriveePlanning());
     fussedet.setText(localisation.getFusee());
   }
-    
+
+    @FXML
+    private void mail(ActionEvent event) {
+    try {
+            Parent root = FXMLLoader.load(getClass().getResource("Mail.fxml"));
+            positiondepartdet.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
 }

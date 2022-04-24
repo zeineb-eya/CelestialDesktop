@@ -5,13 +5,30 @@
  */
 package gui;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageConfig;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.BitMatrix;
+
 import entities.Localisation;
+import java.awt.AlphaComposite;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 
 import java.io.IOException;
 import java.net.URL;
 import static java.util.Collections.list;
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +45,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import services.LocalisationService;
 
@@ -59,6 +77,8 @@ public class AfficherLocalisationController implements Initializable {
     private TableColumn<?, ?> position_arivee_planning;
     @FXML
     private Button refreshButton;
+    @FXML
+    private Button qr;
     /**
      * Initializes the controller class.
      */
@@ -175,5 +195,60 @@ if(l==null){
        fusee.setCellValueFactory(new PropertyValueFactory<>("fusee"));
        tableloca.setItems(list);
     
+    }
+
+    @FXML
+    private void generateqr(ActionEvent event) throws WriterException {
+         LocalisationService ls = new LocalisationService();
+
+                if (tableloca.getSelectionModel().getSelectedItem() != null) {
+             try {
+                 Localisation l = new Localisation();
+                 l.setHeureDepartLocalisation(ls.liste2().get(tableloca.getSelectionModel().getSelectedIndex()).getHeureDepartLocalisation());
+                 l.setHeureArriveeLoacalisation(ls.liste2().get(tableloca.getSelectionModel().getSelectedIndex()).getHeureArriveeLoacalisation());
+                 l.setPositionDepartLocalisation(ls.liste2().get(tableloca.getSelectionModel().getSelectedIndex()).getPositionDepartLocalisation());
+                 l.setPositionAriveePlanning(ls.liste2().get(tableloca.getSelectionModel().getSelectedIndex()).getPositionAriveePlanning());
+                 l.setFusee(ls.liste2().get(tableloca.getSelectionModel().getSelectedIndex()).getFusee());
+                 
+                 Map hints = new HashMap();
+                 hints.put(com.google.zxing.EncodeHintType.ERROR_CORRECTION, com.google.zxing.qrcode.decoder.ErrorCorrectionLevel.H);
+                 com.google.zxing.qrcode.QRCodeWriter writer = new com.google.zxing.qrcode.QRCodeWriter();
+                 com.google.zxing.common.BitMatrix BitMatrix = null;
+                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                 
+                 // Create a qr code with the url as content and a size of 250x250 px
+                 BitMatrix = writer.encode("heure depart= "+l.getHeureDepartLocalisation()+"  "+"heure arrive= "+l.getHeureArriveeLoacalisation()+"  "+"position depart=  "+l.getPositionDepartLocalisation()+"  "+"position arrive=  "+l.getPositionAriveePlanning()+"  "+"fusse=  "+l.getFusee(), BarcodeFormat.QR_CODE, 250, 250,(Hashtable)hints);
+                 MatrixToImageConfig config = new MatrixToImageConfig(MatrixToImageConfig.BLACK, MatrixToImageConfig.WHITE);
+                 // Load QR image
+                 BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(BitMatrix);
+                 // Load logo image
+                 File file = new File("C:\\qr\\data.png");
+                 BufferedImage logoImage = ImageIO.read(file);
+                 // Calculate the delta height and width between QR code and logo
+                 int deltaHeight = qrImage.getHeight() - logoImage.getHeight();
+                 int deltaWidth = qrImage.getWidth() - logoImage.getWidth();
+                 // Initialize combined image
+                 BufferedImage combined = new BufferedImage(qrImage.getHeight(), qrImage.getWidth(), BufferedImage.TYPE_INT_ARGB);
+                 Graphics2D g = (Graphics2D) combined.getGraphics();
+                 // Write QR code to new image at position 0/0
+                 g.drawImage(qrImage, 0, 0, null);
+                 g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+                 // Write logo into combine image at position (deltaWidth / 2) and
+                 // (deltaHeight / 2). Background: Left/Right and Top/Bottom must be
+                 // the same space for the logo to be centered
+                 g.drawImage(logoImage, (int) Math.round(deltaWidth / 2), (int) Math.round(deltaHeight / 2), null);
+                 // Write combined image as PNG to OutputStream
+                 ImageIO.write(combined, "png", new File("C:\\qr\\QR.png"));
+                 //System.out.println("done");
+             } catch (IOException ex) {
+                 Logger.getLogger(AfficherLocalisationController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+           
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Choose a row !");
+            alert.show();
+        }
     }
 }

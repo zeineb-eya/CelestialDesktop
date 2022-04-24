@@ -127,5 +127,12 @@ public class Planinng {
     public String toString() {
         return "Planinng{" + "id=" + id + ", periodePlanning=" + periodePlanning + ", prixPlanning=" + prixPlanning +", nomPlanning=" + nomPlanning + ", dateDebutPlanning=" + dateDebutPlanning +", dateFinPlanning=" + dateFinPlanning +", destinationPlanning=" + destinationPlanning + ", descriptionPlanning=" + descriptionPlanning +",img=" + img +"\n";
     }
-
+    
+    
+public static Comparator<Planinng> DateComparator = new Comparator<Planinng>() {
+        @Override
+        public int compare(Planinng o1, Planinng o2) {
+            return (int) (o1.getDateDebutPlanning().compareTo(o2.getDateFinPlanning()));
+        }
+    };
 }

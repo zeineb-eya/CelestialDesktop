@@ -40,5 +40,6 @@
             <Font name="Comic Sans MS Bold Italic" size="25.0" />
          </font>
       </Label>
+      <Button fx:id="qr" layoutX="492.0" layoutY="29.0" mnemonicParsing="false" onAction="#generateqr" prefHeight="25.0" prefWidth="135.0" stylesheets="@elements/css/mainStyle.css" text="Generer QR" />
    </children>
 </AnchorPane>
