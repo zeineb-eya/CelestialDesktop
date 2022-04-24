@@ -70,13 +70,13 @@ public class AjouPlaninngController implements Initializable {
         public void setUsername(String s) {
         description_planning.setText(s);
     }
-        private boolean ValidchampDate(){
+        private boolean ValidDate(){
          
         if (dateDebut_planning.getValue().compareTo(LocalDate.now()) < 0 ){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur de champ");
             alert.setHeaderText(null);
-            alert.setContentText("La date debut ne peut pas etre avant la date d'aujourd'hui!!");
+            alert.setContentText("La date debut ne doit pas fixer avant la date actuelle");
             alert.showAndWait();
             return false;
                      
@@ -84,7 +84,7 @@ public class AjouPlaninngController implements Initializable {
          Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur de champ");
             alert.setHeaderText(null);
-            alert.setContentText("La date de fin ne peut pas etre avant la date de debut!!");
+            alert.setContentText("La date de fin ne doivent pas etre inférieur a la date de début");
             alert.showAndWait();  
        
     return false;
@@ -92,7 +92,7 @@ public class AjouPlaninngController implements Initializable {
          Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur de champ");
             alert.setHeaderText(null);
-            alert.setContentText("La date de fin ne peut pas etre la meme que la date de debut!!");
+            alert.setContentText("La date de début et la date de fin ne doivent pas etre identiques");
             alert.showAndWait();  
        
     return false;
@@ -112,7 +112,7 @@ public class AjouPlaninngController implements Initializable {
 }
     @FXML
        private void Ajouter(ActionEvent event) {
-            if( Validchamp() &&  Validchamp()&& ValidchampDate()){    
+            if( Validchamp() &&  Validchamp()&& ValidDate()){    
         Planinng p = new Planinng();
         p.setNomPlanning(nom_planning.getText());
         p.setDateDebutPlanning(Date.valueOf(dateDebut_planning.getValue()));

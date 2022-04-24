@@ -44,6 +44,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
@@ -79,6 +80,7 @@ public class AfficherLocalisationController implements Initializable {
     private Button refreshButton;
     @FXML
     private Button qr;
+    private Button map;
     /**
      * Initializes the controller class.
      */
@@ -251,4 +253,6 @@ if(l==null){
             alert.show();
         }
     }
+
+
 }

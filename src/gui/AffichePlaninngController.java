@@ -341,7 +341,7 @@ public void showCustomerDialog(Localisation localisation) throws IOException {
 
 
     @FXML
-    private void pdf(ActionEvent event) throws SQLException {
+    private void pdf(ActionEvent event) throws SQLException, IOException {
         PlaninngService ps = new PlaninngService();
               
         ObservableList<Planinng> Planinngs = FXCollections.observableArrayList(ps.afficherPlaninng());
@@ -388,7 +388,7 @@ public void showCustomerDialog(Localisation localisation) throws IOException {
 
             file.close();
 
-        } catch (DocumentException | IOException e) {
+        } catch (DocumentException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setContentText("Cannot export data!");
