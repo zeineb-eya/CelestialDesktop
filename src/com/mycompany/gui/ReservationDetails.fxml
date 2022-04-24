@@ -1,17 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.gui.ReservationDetailsController">
    <children>
-      <Label layoutX="50.0" layoutY="122.0" text="Date reservation" />
-      <Label layoutX="50.0" layoutY="169.0" text="Etat reservation" />
-      <Label layoutX="50.0" layoutY="217.0" text="User" />
-      <Label layoutX="50.0" layoutY="270.0" text="Billet" />
-      <Label fx:id="date_reservation" layoutX="219.0" layoutY="122.0" prefHeight="17.0" prefWidth="163.0" />
-      <Label fx:id="etat_reservation" layoutX="219.0" layoutY="169.0" prefHeight="17.0" prefWidth="163.0" />
-      <Label fx:id="user" layoutX="219.0" layoutY="217.0" prefHeight="17.0" prefWidth="163.0" />
-      <Label fx:id="billet" layoutX="202.0" layoutY="270.0" prefHeight="17.0" prefWidth="163.0" />
+      <ImageView fitHeight="438.0" fitWidth="648.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/backg.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="117.0" layoutY="116.0" text="Date reservation" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="117.0" layoutY="163.0" text="Etat reservation" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="117.0" layoutY="211.0" text="User" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="117.0" layoutY="264.0" text="Billet" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="date_reservation" layoutX="286.0" layoutY="116.0" prefHeight="17.0" prefWidth="163.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="etat_reservation" layoutX="286.0" layoutY="163.0" prefHeight="17.0" prefWidth="163.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="user" layoutX="286.0" layoutY="211.0" prefHeight="17.0" prefWidth="163.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="billet" layoutX="269.0" layoutY="264.0" prefHeight="17.0" prefWidth="163.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
    </children>
 </AnchorPane>

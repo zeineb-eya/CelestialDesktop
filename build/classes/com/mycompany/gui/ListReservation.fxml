@@ -5,12 +5,19 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.gui.ListReservationController">
    <children>
-      <TableView fx:id="tabReservation" layoutX="4.0" layoutY="61.0" prefHeight="257.0" prefWidth="594.0">
+      <ImageView fitHeight="413.0" fitWidth="664.0" layoutX="-33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/backg.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tabReservation" layoutX="17.0" layoutY="78.0" prefHeight="257.0" prefWidth="594.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;">
          <columns>
             <TableColumn fx:id="id" prefWidth="59.0" text="id" />
             <TableColumn fx:id="date_reservation" prefWidth="213.0" text="date_reservation" />
@@ -19,14 +26,32 @@
             <TableColumn fx:id="billet" prefWidth="63.0" text="billet" />
          </columns>
       </TableView>
-      <Button fx:id="Reserver" layoutX="366.0" layoutY="347.0" mnemonicParsing="false" onAction="#Reserver" text="Ajouter" />
-      <Button fx:id="SupprimerReservation" layoutX="175.0" layoutY="347.0" mnemonicParsing="false" onAction="#SupprimerReservation" text="Supprimer" />
-      <Button fx:id="ModifierReservation" layoutX="95.0" layoutY="347.0" mnemonicParsing="false" onAction="#ModifierReservation" text="Modifier" />
-      <Button fx:id="ActualiserReservation" layoutX="267.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActualiserReservation" text="Actualiser" />
-      <Button fx:id="StatistiqueReservation" layoutX="476.0" layoutY="347.0" mnemonicParsing="false" onAction="#StatistiqueReservation" text="Statistique" />
-      <Button fx:id="showDetails" layoutX="25.0" layoutY="347.0" mnemonicParsing="false" onAction="#showDetails" text="Details" />
+      <Button fx:id="Reserver" layoutX="402.0" layoutY="358.0" mnemonicParsing="false" onAction="#Reserver" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 40%;" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="SupprimerReservation" layoutX="210.0" layoutY="358.0" mnemonicParsing="false" onAction="#SupprimerReservation" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 40%;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="ModifierReservation" layoutX="125.0" layoutY="358.0" mnemonicParsing="false" onAction="#ModifierReservation" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 40%;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="ActualiserReservation" layoutX="304.0" layoutY="358.0" mnemonicParsing="false" onAction="#ActualiserReservation" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 40%;" text="Actualiser" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="StatistiqueReservation" layoutX="483.0" layoutY="358.0" mnemonicParsing="false" onAction="#StatistiqueReservation" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 40%;" text="Statistique" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="showDetails" layoutX="53.0" layoutY="358.0" mnemonicParsing="false" onAction="#showDetails" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 40%;" text="Details" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
       <TextField fx:id="filterField" layoutX="98.0" layoutY="26.0" onAction="#search" prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: #E5E7E9;" />
-      <Label layoutX="17.0" layoutY="29.0" prefHeight="20.0" prefWidth="108.0" text="Search Box">
+      <Label layoutX="17.0" layoutY="29.0" prefHeight="20.0" prefWidth="108.0" text="Search Box" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
