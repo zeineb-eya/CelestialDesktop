@@ -133,7 +133,7 @@ public class ModifierReservationController implements Initializable {
             String to ="zeinebeyarahmani@gmail.com";
             String from ="pawp6703@gmail.com";
             String subject = "!Etat de votre Réservation!";
-            String messageText = "Bonjour cher client  , votre réservation à la date "+String.valueOf(r.getDateReservation())+" est "+r.getEtatReservation()+". Cordialemment";
+            String messageText = "Bonjour cher client  , votre réservation est "+r.getEtatReservation()+". Cordialemment";
             boolean sessionDebug = false;
 
             Properties props = System.getProperties();

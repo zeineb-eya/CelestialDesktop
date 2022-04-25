@@ -29,19 +29,19 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Label fx:id="date_reservation" layoutX="286.0" layoutY="116.0" prefHeight="17.0" prefWidth="163.0" textFill="WHITE">
+      <Label fx:id="date_reservation" layoutX="286.0" layoutY="116.0" prefHeight="20.0" prefWidth="201.0" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Label fx:id="etat_reservation" layoutX="286.0" layoutY="163.0" prefHeight="17.0" prefWidth="163.0" textFill="WHITE">
+      <Label fx:id="etat_reservation" layoutX="286.0" layoutY="163.0" prefHeight="20.0" prefWidth="214.0" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Label fx:id="user" layoutX="286.0" layoutY="211.0" prefHeight="17.0" prefWidth="163.0" textFill="WHITE">
+      <Label fx:id="user" layoutX="286.0" layoutY="211.0" prefHeight="20.0" prefWidth="201.0" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Label fx:id="billet" layoutX="269.0" layoutY="264.0" prefHeight="17.0" prefWidth="163.0" textFill="WHITE">
+      <Label fx:id="billet" layoutX="269.0" layoutY="264.0" prefHeight="20.0" prefWidth="214.0" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
