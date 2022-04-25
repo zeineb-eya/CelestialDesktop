@@ -30,10 +30,13 @@ public class nlpPipeline {
     static StanfordCoreNLP pipeline;
     public static void init() throws IOException 
     {
+        
         Properties props = new Properties();
       //  props.load(IOUtils.readerFromString("StanfordCoreNLP-french.properties"));
 /*Properties frenchProperties = StringUtils.argsToProperties(new String[]
 {"-props", "StanfordCoreNLP-french.properties"});*/
+
+//properties of the pipline 
       props.setProperty("annotators", "tokenize, ssplit, parse, sentiment");
         //props.setProperty( "annotators", "tokenize,ssplit,pos,lemma,ner,parse,depparse,coref,kbp,quote");
        

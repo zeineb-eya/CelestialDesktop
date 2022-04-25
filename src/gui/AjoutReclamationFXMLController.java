@@ -124,12 +124,7 @@ public class AjoutReclamationFXMLController implements Initializable {
      ServiceReclamation pst = new ServiceReclamation();
         pst.ajouterReclamation2(r);
             sendMail();
-      /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("réclamer");
-            alert.setHeaderText(null);
-            alert.setContentText("Votre réclamation a ete bien ajoute");
-            alert.showAndWait();*/
-      
+  
         Image img = new Image("/images/tick.png", 50, 50, false, false);
       Notifications notificationBuilder  = Notifications.create()
             
@@ -138,8 +133,7 @@ public class AjoutReclamationFXMLController implements Initializable {
                     .graphic(new ImageView(img) )
                     .hideAfter(Duration.seconds(8))
                     .position(Pos.CENTER);
-     // notificationBuilder.darkStyle();
-      notificationBuilder.show();
+             notificationBuilder.show();
          
           //StanfordCoreNLP pipeline = new StanfordCoreNLP("frensh");
             String re = description_reclamation.getText();

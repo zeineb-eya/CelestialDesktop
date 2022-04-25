@@ -9,6 +9,7 @@ import com.mycompany.entities.Reclamation;
 import com.mycompany.services.ServiceReclamation;
 import com.mycompany.utils.MyConnection;
 import static edu.stanford.nlp.util.ArgumentParser.host;
+import static java.awt.Color.blue;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -240,7 +241,7 @@ stage.show();
     private void exportexcel(javafx.event.ActionEvent event) throws IOException {
         
         Workbook workbook = new HSSFWorkbook();
-        org.apache.poi.ss.usermodel.Sheet spreadsheet = workbook.createSheet("sample");
+        org.apache.poi.ss.usermodel.Sheet spreadsheet = workbook.createSheet("new Sheet");
 
         org.apache.poi.ss.usermodel.Row row = spreadsheet.createRow(0);
 
@@ -264,6 +265,16 @@ stage.show();
 
         workbook.write(fileOut);
         fileOut.close();
+        
+             Image img = new Image("/images/tick.png", 50, 50, false, false);
+   Notifications notificationBuilder  = Notifications.create()
+            
+                    .title("Exportation excel")
+                    .text("Votre fichier a été exorté avec succés avec le nom classeur1")
+                    .graphic(new ImageView(img) )
+                    .hideAfter(Duration.seconds(8))
+                    .position(Pos.CENTER);
+      notificationBuilder.show();
     }
 
      
@@ -274,8 +285,10 @@ stage.show();
         ObservableList<PieChart.Data> T = FXCollections.observableArrayList(
              new PieChart.Data("Traitée", sr.getTraitee()),
              new PieChart.Data("Non Traitée", sr.getNonTraitee())
-         );        
+           );
+         
         TraiteeNonTraitee.setData(T);
+      
         //System.out.println("mochekla inisialize");
         //barC= new BarChart<>();
         try{
@@ -306,7 +319,7 @@ stage.show();
                     barChartData.add(b);
                     
                 });           
-                BarChart<String,Integer> m = new BarChart(xAxis, yAxis,barChartData);
+               // BarChart<String,Integer> m = new BarChart(xAxis, yAxis,barChartData);
 //                barC.setData(new BarChart(xAxis, yAxis, barChartData).getData());
 //                //barC.setData(new BarChart(xAxis, yAxis, barChartData, 25.0d).getData());
                // recl.getChildren().add(new BarChart(xAxis, yAxis, barChartData,25.0d));

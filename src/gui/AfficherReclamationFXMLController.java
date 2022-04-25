@@ -251,9 +251,16 @@ int page = pageIndex * itemsPerPage();
          
             if(r.getDescription_reclamation().length() != 0){
        
-         alert.setContentText("Votre réclamation a ete bien supprime");
-         JOptionPane.showMessageDialog(null,"reclamation supprime");
-             }//ca est pour recharger la list des stagiaire
+            Image img = new Image("/images/tick.png", 50, 50, false, false);
+   Notifications notificationBuilder  = Notifications.create()
+            
+                    .title("Suppression de réclamation ")
+                    .text("Votre réclamation a été supprimé avec succés")
+                    .graphic(new ImageView(img) )
+                    .hideAfter(Duration.seconds(8))
+                    .position(Pos.CENTER);
+      notificationBuilder.show();
+             }
             else { JOptionPane.showMessageDialog(null,"veuillez remplire le champ id !");}
         
         }catch (Exception e){JOptionPane.showMessageDialog(null,"erreur de supprimer \n"+e.getMessage());} 
@@ -263,32 +270,8 @@ int page = pageIndex * itemsPerPage();
                   
     
     }
+
     
- /*     @FXML
-    private void deleteReclam(MouseEvent event) {
-       
-         if(ValidateFields() ){
-         ServiceReclamation sr = new ServiceReclamation();
-        Reclamation r = (Reclamation) tableaureclam.getSelectionModel().getSelectedItem();
-        sr.deleteReclamation(r);
-        sr.refreshReclam();
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                 try {
-             if(JOptionPane.showConfirmDialog(null,"attention vous allez supprimer votre reclamation,est ce que tu et sure?"
-                     ,"supprimer reclamation",JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION)
-         
-            if(r.getDescription_reclamation().length() != 0){
-       
-         alert.setContentText("Votre réclamation a ete bien supprime");
-         JOptionPane.showMessageDialog(null,"reclamation supprime");
-             }//ca est pour recharger la list des stagiaire
-            else { JOptionPane.showMessageDialog(null,"veuillez remplire le champ id !");}
-        
-        }catch (Exception e){JOptionPane.showMessageDialog(null,"erreur de supprimer \n"+e.getMessage());} 
-       
-         }
-    
-    }*/
 
 //afficherReclam blasetha
     }
