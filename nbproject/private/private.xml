@@ -5,8 +5,9 @@
         <group>
             <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/AjoutReclamationFXMLController.java</file>
             <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/test/MainFx.java</file>
+            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/ReclamationAdminController.java</file>
             <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/AfficherReclamationFXMLController.java</file>
-            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/AjoutOffreFXMLController.java</file>
+            <file>file:/C:/wamp64/www/CelestialDesktop-gestionService/src/gui/nlpPipeline.java</file>
         </group>
     </open-files>
 </project-private>

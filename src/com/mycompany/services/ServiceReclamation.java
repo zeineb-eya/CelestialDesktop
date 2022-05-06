@@ -59,6 +59,8 @@ public class ServiceReclamation {
     public void ajouterReclamation2(Reclamation r){
         String requete2 = "INSERT INTO reclamation (description_reclamation,etat_reclamation,date_reclamation,user_id) "
                  + "VALUES(?,'envoye',?,?) ";
+        
+  
        try {
           PreparedStatement pst = cnx2.prepareStatement(requete2);  //utilise pour les requete dynamique
           //pst.setInt(1, GlobalConfig.getInstance().getSession());
@@ -67,7 +69,10 @@ public class ServiceReclamation {
            pst.setString(1, r.getDescription_reclamation());
         java.sql.Date date_reclamation = getCurrentDatetime(); 
          pst.setDate(2, date_reclamation);
-         pst.setInt(3,r.getUser_id()) ;
+       pst.setInt(3,r.getUser_id()) ;
+        
+      //   pst.setString(3,r.getNomUtilisateur());
+        
           // pst.setString(4,r.getExperiencee()) ;
      //  pst.setInt(3, user.getId());
         // pst.setUser(3, user);
@@ -84,9 +89,11 @@ public class ServiceReclamation {
         try {
         // String requete3 = "SELECT * FROM reclamation  ORDER BY etat_reclamation ASC";
         
-        String requete3 = "SELECT * FROM user join reclamation  on user.id=reclamation.user_id ORDER BY etat_reclamation ASC ";
+       // String requete3 = "SELECT * FROM user join reclamation  on user.id=reclamation.user_id ORDER BY etat_reclamation ASC ";
+        
+         String requete3 = "SELECT * FROM user join reclamation  on user.id=reclamation.user_id ORDER BY etat_reclamation ASC ";
        
-        Statement st = cnx2.createStatement();;
+        Statement st = cnx2.createStatement();
         ResultSet rs =  st.executeQuery(requete3);
         while(rs.next()){
             Reclamation r = new Reclamation();
@@ -97,7 +104,9 @@ public class ServiceReclamation {
             //User user = new User();
          //  r.setUser_id(user.getId());
              //r.setUser_id(rs.getInt(user.getId()));
-            r.setUser_id(rs.getInt(5));//temchii
+           r.setUser_id(rs.getInt(5));//temchii
+          //    r.setNomUtilisateur(rs.getString("user_id"));
+            
           // r.setExperiencee(rs.getString("experiencee"));
           
     myList.add(r);

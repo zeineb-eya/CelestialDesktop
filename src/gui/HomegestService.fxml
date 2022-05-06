@@ -14,11 +14,11 @@
             <Image url="@../images/backg.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="187.0" layoutY="130.0" mnemonicParsing="false" onAction="#GestionReclam" prefHeight="39.0" prefWidth="441.0" style="-fx-background-color: transparent; -fx-border-color: #e5655a;" text="Réclamations" textFill="WHITE">
+      <Button layoutX="66.0" layoutY="125.0" mnemonicParsing="false" onAction="#GestionReclam" prefHeight="44.0" prefWidth="225.0" style="-fx-background-color: transparent; -fx-border-color: #e5655a;" text="Réclamations" textFill="WHITE">
          <font>
             <Font name="Arial" size="22.0" />
          </font></Button>
-      <Button layoutX="187.0" layoutY="308.0" mnemonicParsing="false" onAction="#GestionOffre" prefHeight="39.0" prefWidth="441.0" style="-fx-background-color: transparent; -fx-border-color: #e5655a;" text="Offres" textFill="WHITE">
+      <Button layoutX="66.0" layoutY="307.0" mnemonicParsing="false" onAction="#GestionOffre" prefHeight="44.0" prefWidth="225.0" style="-fx-background-color: transparent; -fx-border-color: #e5655a;" text="Offres" textFill="WHITE">
          <font>
             <Font name="Arial" size="22.0" />
          </font>
@@ -37,5 +37,15 @@
             <Image url="@../images/logo.png" />
          </image>
       </ImageView>
+      <Button layoutX="433.0" layoutY="129.0" mnemonicParsing="false" onAction="#GestionPlaninng" prefHeight="37.0" prefWidth="246.0" stylesheets="@elements/css/mainStyle.css" text="Gestion Planinngs" textFill="#f82222">
+         <font>
+            <Font name="System Italic" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="433.0" layoutY="307.0" mnemonicParsing="false" onAction="#GestionLoca" prefHeight="37.0" prefWidth="246.0" stylesheets="@elements/css/mainStyle.css" text="Gestion Localisations" textFill="#1df206">
+         <font>
+            <Font name="System Italic" size="22.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

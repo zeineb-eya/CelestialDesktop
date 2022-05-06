@@ -118,9 +118,13 @@ public class AjoutReclamationFXMLController implements Initializable {
              // User user =id_user.getSelectionModel().getSelectedItem();   
       Reclamation r = new Reclamation();
        r.setDescription_reclamation(description_reclamation.getText());
-      r.setUser_id(Integer.parseInt(id_user.getText()));//temchi
+      r.setUser_id(Integer.parseInt(id_user.getText()));
+   //  r.setNomUtilisateur(id_user.getText());
+    
+    
+//r.setUser_id(user);//temchi
       //r.setUser(id_user.getText());
- //  r.setExperiencee(experience);
+
      ServiceReclamation pst = new ServiceReclamation();
         pst.ajouterReclamation2(r);
             sendMail();
@@ -172,7 +176,7 @@ public class AjoutReclamationFXMLController implements Initializable {
     }
     
     public boolean FindTextLine(){
-        String[] words = {"mauvaise", "mauvais","insatisfait","décu"};
+        String[] words = {"Bad", "bad"};
         String experience_des = description_reclamation.getText();
         CharSequence c = words.toString();
         if(experience_des.contains(c)){
@@ -182,8 +186,6 @@ public class AjoutReclamationFXMLController implements Initializable {
     }return true;
         
 }
-    
-    
     //getTfEmail().getText()
     public void sendMail(){
       try{
