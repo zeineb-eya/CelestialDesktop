@@ -96,7 +96,7 @@ public class AffichFXMLController implements Initializable {
          try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterFXML.fxml"));
             Parent root = loader.load();
-            AjouterFXMLController controller = loader.getController();
+            AjouterUserFXMLController controller = loader.getController();
             idsupp.getScene().setRoot(root);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
