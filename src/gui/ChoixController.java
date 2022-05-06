@@ -53,4 +53,27 @@ public class ChoixController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
+      @FXML
+
+     private void Equipement(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddFXML.fxml"));
+            Parent root = loader.load();
+            AddFXMLController controller = loader.getController();
+            tfmailU.getScene().setRoot(root); 
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+     @FXML
+      private void CatEquipement(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCFXML.fxml"));
+            Parent root = loader.load();
+            AddCFXMLController controller = loader.getController();
+            tfmailU.getScene().setRoot(root); 
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }

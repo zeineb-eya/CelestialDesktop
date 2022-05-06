@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.ModifierCFXMLController">
+  <children>
+    <ImageView fitHeight="395.2083129519123" fitWidth="632.3333129882812" layoutX="0.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../image/cosmos.jpg" />
+      </image>
+    </ImageView>
+    <Label layoutX="86.0" layoutY="119.0" prefWidth="91.0" text="Categorie" />
+    <TextField id="tfnomU" fx:id="tfcatU" layoutX="318.0" layoutY="119.0" prefWidth="200.0" />
+    <Button layoutX="498.0" layoutY="327.0" mnemonicParsing="false" onAction="#Update" text="Update" />
+    <Label layoutX="88.0" layoutY="92.0" text="ID" />
+    <TextField fx:id="tfidU" layoutX="318.0" layoutY="89.0" prefWidth="200.0" />
+    <Button layoutX="53.0" layoutY="327.0" mnemonicParsing="false" onAction="#RetourAjout" text="Retour" />
+    <Label layoutX="277.0" layoutY="27.0" prefWidth="154.0" text="Categorie" textFill="#66edff">
+      <font>
+        <Font size="34.0" />
+      </font>
+    </Label>
+  </children>
+</AnchorPane>

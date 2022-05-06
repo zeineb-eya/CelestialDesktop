@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minWidth="1909.0001220703125" prefHeight="1200.0001220703125" prefWidth="1909.0001220703125" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherEqFXMLController">
+  <children>
+      
+                        
+    <ImageView fitHeight="1200.0000999999975" fitWidth="1920.000159999996" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../image/cosmos.jpg" />
+      </image>
+    </ImageView>
+    <TableView fx:id="TVuser" layoutX="113.0" layoutY="248.0" onMouseClicked="#research" prefHeight="509.0" prefWidth="1487.0">
+      <columns>
+        <TableColumn fx:id="colidU" maxWidth="5000.0" minWidth="10.0" prefWidth="95.0" text="ID" />
+        <TableColumn fx:id="colnomU" maxWidth="5000.0" minWidth="10.0" prefWidth="203.0" text="Categorie" />
+        <TableColumn fx:id="colprenomU" maxWidth="5000.0" minWidth="10.0" prefWidth="203.0" text="Nom" />
+        <TableColumn fx:id="coladresseU" maxWidth="5000.0" minWidth="10.0" prefWidth="172.0" text="Etat" />
+        <TableColumn fx:id="colmailU" maxWidth="5000.0" minWidth="10.0" prefWidth="740.0" text="Description" />
+      </columns>
+    </TableView>
+    <Button layoutX="440.0" layoutY="810.0" mnemonicParsing="false" onAction="#RetourAjout" text="Traitement" />
+    <Button layoutX="760.0" layoutY="853.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
+        <Button layoutX="837.0" layoutY="853.0" mnemonicParsing="false" onAction="#exportPDF" text="pdff" />
+    <TextField fx:id="idsupp" layoutX="744.0" layoutY="811.0" prefWidth="100.0" />
+    <Label layoutX="709.0" layoutY="781.0" prefWidth="220.0" text="Id de l'element à Supprimer" />
+    <Label layoutX="700.0" layoutY="66.0" prefWidth="349.0" text="Liste equipements" textFill="#66edff">
+        
+        
+      <font>
+        <Font size="34.0" />
+      </font>
+    </Label>
+    <TextField fx:id="filterField" layoutX="343.0" layoutY="201.0" onKeyPressed="#research" prefWidth="486.0" />
+    <ImageView fx:id="btnpdf" fitHeight="48.0" fitWidth="50.0" layoutX="981.0" layoutY="787.0" onMouseClicked="#exportPDF">
+                           <image>
+                              <Image url="@../image/pdf-file.png" />
+                           </image>
+                        </ImageView>
+                        <ComboBox fx:id="combomag" layoutX="1087.0" layoutY="810.0" onAction="#trimag" prefHeight="25.0" prefWidth="158.0" />
+                        <Button fx:id="DESC" layoutX="1087.0" layoutY="850.0" mnemonicParsing="false" onAction="#ordremag1" text="Decroissant" />
+                        <Button fx:id="ASC" layoutX="1087.0" layoutY="870.0" mnemonicParsing="false" onAction="#ordremag" text="Croissant" />
+                         <Button alignment="TOP_LEFT" layoutX="1087.0" layoutY="970.0" mnemonicParsing="false" onAction="#showchart" prefHeight="39.0" prefWidth="131.0" style="-fx-background-color: b3c4f0;" text="Stat">
+               <font>
+                  <Font name="Cooper Black" size="19.0" />
+               </font>
+            </Button>
+  </children>
+</AnchorPane>

@@ -11,8 +11,8 @@
     <Button layoutX="38.0" layoutY="26.0" mnemonicParsing="false" onAction="#User" prefHeight="55.0" prefWidth="163.0" text="User" />
     <Button layoutX="388.0" layoutY="26.0" mnemonicParsing="false" onAction="#Role" prefHeight="55.0" prefWidth="163.0" text="Roles" />
     <TextField fx:id="tfmailU" layoutX="229.0" layoutY="373.0" minWidth="0.0" prefWidth="0.0" />
-    <Button layoutX="38.0" layoutY="112.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="163.0" text="Reclamation" />
-    <Button layoutX="388.0" layoutY="112.0" mnemonicParsing="false" onAction="#Role" prefHeight="55.0" prefWidth="163.0" text="Service" />
+    <Button layoutX="38.0" layoutY="112.0" mnemonicParsing="false" onAction="#Equipement" prefHeight="55.0" prefWidth="163.0" text="Equipement" />
+    <Button layoutX="388.0" layoutY="112.0" mnemonicParsing="false" onAction="#CatEquipement" prefHeight="55.0" prefWidth="163.0" text="Categorie Equipement" />
     <Button layoutX="388.0" layoutY="200.0" mnemonicParsing="false" onAction="#Role" prefHeight="55.0" prefWidth="163.0" text="Billet" />
     <Button layoutX="38.0" layoutY="200.0" mnemonicParsing="false" onAction="#Role" prefHeight="55.0" prefWidth="163.0" text="Offre" />
     <Button layoutX="38.0" layoutY="291.0" mnemonicParsing="false" onAction="#Role" prefHeight="55.0" prefWidth="163.0" text="Posts" />
