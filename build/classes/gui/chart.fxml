@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="523.0" prefWidth="693.0" xmlns:fx="http://javafx.com/fxml/1" styleClass="blue-panel" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.ChartController">
+  <children>
+    <BarChart fx:id="barChart" layoutX="62.0" layoutY="108.0" prefHeight="358.0" prefWidth="570.0">
+      <xAxis>
+        <CategoryAxis fx:id="xAxis" side="BOTTOM" styleClass="axis-label" tickLabelFill="WHITE" />
+      </xAxis>
+      <yAxis>
+        <NumberAxis fx:id="numberAxis" side="LEFT" styleClass="axis-label" tickLabelFill="WHITE" />
+      </yAxis>
+    </BarChart>
+  </children>
+</AnchorPane>
