@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.AffichRoleController">
+  <children>
+    <TableView fx:id="TVrole" layoutX="124.0" layoutY="51.0" prefHeight="245.0" prefWidth="365.0">
+      <columns>
+        <TableColumn prefWidth="75.0" text="ID" fx:id="colidR" />
+        <TableColumn minWidth="10.0" prefWidth="75.0" text="Nom Role" fx:id="colnomR" />
+        <TableColumn prefWidth="75.0" text="Nom Role" fx:id="coldesR" />
+      </columns>
+    </TableView>
+    <TextField fx:id="idsuppR" layoutX="207.0" layoutY="313.0" prefWidth="200.0" />
+    <Button layoutX="271.0" layoutY="348.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
+    <Button layoutX="45.0" layoutY="25.0" mnemonicParsing="false" onAction="#RetourAjout" text="Retour" />
+  </children>
+</AnchorPane>

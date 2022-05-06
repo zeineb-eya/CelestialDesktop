@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.InformationUserController">
+  <children>
+    <Label fx:id="colpasswordU" layoutX="64.0" layoutY="167.0" text="Label" />
+    <Label fx:id="colnomU" layoutX="377.0" layoutY="171.0" text="Label" />
+    <Label fx:id="colmailU" layoutX="134.0" layoutY="171.0" text="Label" />
+    <Label fx:id="colnumtelU" layoutX="182.0" layoutY="177.0" text="Label" />
+    <Label fx:id="colprenomU" layoutX="239.0" layoutY="186.0" text="Label" />
+    <Label id="coladressU" fx:id="coladresseU" layoutX="311.0" layoutY="190.0" text="Label" />
+  </children>
+</AnchorPane>

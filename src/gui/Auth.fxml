@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0"  styleClass="blue-panel" stylesheets="@styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.AuthController">
+  <children>
+    <Button id="button" fx:id="auth" layoutX="173.0" layoutY="228.0" mnemonicParsing="false" onAction="#authUser" styleClass="blue-btn" text="Authentificate with Facebook" />
+    <Label fx:id="message" layoutX="202.0" layoutY="110.0" text="Label" textFill="WHITE">
+      <font>
+        <Font size="25.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Label font="$x1" layoutX="231.0" layoutY="64.0" text="Welcome" textFill="WHITE" />
+  </children>
+</AnchorPane>
