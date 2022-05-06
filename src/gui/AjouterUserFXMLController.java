@@ -165,14 +165,6 @@ System.out.println(tfpasswordU.getText().length());
                  String content = String.format("Num tel ne doit pas contenir de Lettress.");
         a.setContentText(content);
                   a.show();
-} else if (tfpasswordU.getText().length()<6)
-               
-               
-           {Alert a = new Alert(Alert.AlertType.ERROR);
-        a.setTitle("Mot de passe de taille invalide");
-                 String content = String.format("Le mot de passe doit se former d'au moins 6 caractères.");
-        a.setContentText(content);
-                  a.show();
 }
        } 
       

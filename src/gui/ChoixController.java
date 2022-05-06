@@ -34,7 +34,7 @@ public class ChoixController implements Initializable {
 
      private void User(ActionEvent event) {
          try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterFXML.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterUserFXML.fxml"));
             Parent root = loader.load();
             AjouterUserFXMLController controller = loader.getController();
             tfmailU.getScene().setRoot(root); 

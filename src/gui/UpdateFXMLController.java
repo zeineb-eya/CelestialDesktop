@@ -100,7 +100,7 @@ public class UpdateFXMLController implements Initializable {
     private void RetourAjout(ActionEvent event) {
          
          try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterFXML.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterUserFXML.fxml"));
             Parent root = loader.load();
             AjouterUserFXMLController controller = loader.getController();
             tfprenomU.getScene().setRoot(root);

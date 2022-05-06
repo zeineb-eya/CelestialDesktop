@@ -94,7 +94,7 @@ public class AffichFXMLController implements Initializable {
     private void RetourAjout(ActionEvent event) {
          
          try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterFXML.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterUserFXML.fxml"));
             Parent root = loader.load();
             AjouterUserFXMLController controller = loader.getController();
             idsupp.getScene().setRoot(root);
@@ -123,7 +123,7 @@ public class AffichFXMLController implements Initializable {
            UserService p = new UserService();
            List<User> lp=p.recuperer();
     ObservableList<User> data=FXCollections.observableArrayList(lp);
-            FXMLLoader chart= new FXMLLoader(getClass().getResource("chart.fxml"));
+            FXMLLoader chart= new FXMLLoader(getClass().getResource("chartAdress.fxml"));
             Parent root = chart.load();
             ChartController mc = chart.getController();
            
