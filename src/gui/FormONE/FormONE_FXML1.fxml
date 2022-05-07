@@ -41,6 +41,11 @@
                      <font>
                         <Font name="Cambria" size="14.0" />
                      </font></Button>
+                  <Button layoutX="582.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#Billet_button_Click" style="-fx-background-color: transparent;" text="Billet" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font>
+                  </Button>
                   <Button mnemonicParsing="false" onMouseClicked="#Reservation_button_Click" style="-fx-background-color: transparent;" text="Reservation" textAlignment="CENTER">
                      <font>
                         <Font name="Cambria" size="14.0" />
