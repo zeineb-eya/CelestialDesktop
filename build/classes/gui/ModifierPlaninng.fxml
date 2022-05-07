@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierPlaninngController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@elements/278029069_731369684975471_4667161473849045072_n.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="331.0" layoutY="204.0" mnemonicParsing="false" onAction="#modifier" prefHeight="54.0" prefWidth="143.0" stylesheets="@elements/css/mainStyle.css" text="Modifier" textAlignment="CENTER" textFill="#e80a0a">
+         <font>
+            <Font name="Gabriola" size="23.0" />
+         </font></Button>
+      <TextField fx:id="nomplanningmodif" layoutX="57.0" layoutY="98.0" prefHeight="25.0" prefWidth="174.0" promptText="Nom Planinng" />
+      <TextField fx:id="periodeplanningmodif" layoutX="57.0" layoutY="324.0" prefHeight="25.0" prefWidth="174.0" promptText="Periode " />
+      <TextField fx:id="prixplanningmodif" layoutX="57.0" layoutY="359.0" prefHeight="25.0" prefWidth="174.0" promptText="Prix" />
+      <DatePicker fx:id="dateDebutplanningmodif" layoutX="57.0" layoutY="134.0" promptText="Date Debut" />
+      <DatePicker fx:id="dateFinplanningmodif" layoutX="57.0" layoutY="167.0" promptText="Date Fin " />
+      <TextField fx:id="destinationplanningmodif" layoutX="57.0" layoutY="289.0" prefHeight="25.0" prefWidth="174.0" promptText="Destination" />
+      <TextArea fx:id="descriptionplanningmodif" layoutX="57.0" layoutY="206.0" prefHeight="70.0" prefWidth="174.0" promptText="Description du Planinng" />
+      <Label fx:id="idp" layoutX="10.0" layoutY="10.0" text="id" visible="false" />
+      <Button fx:id="SwitchToGestionPlanBTN" layoutX="331.0" layoutY="277.0" mnemonicParsing="false" onAction="#SwitchToGestionplaninng" prefHeight="54.0" prefWidth="143.0" stylesheets="@elements/css/mainStyle.css" text="Annulez" />
+      <Label layoutX="187.0" layoutY="27.0" text="Modifier planinng" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
