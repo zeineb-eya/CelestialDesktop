@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Cipher/Documents/GitHub/CelestialDesktop/src/gui/AuthController.java</file>
-            <file>file:/C:/Users/Cipher/Documents/GitHub/CelestialDesktop/src/test/Main.java</file>
+            <file>file:/C:/xampp/htdocs/CelestialDesktopIntegrationFinal/src/gui/FormONE/FormONE_FXMLController.java</file>
+            <file>file:/C:/xampp/htdocs/CelestialDesktopIntegrationFinal/src/gui/ChoixController.java</file>
+            <file>file:/C:/xampp/htdocs/CelestialDesktopIntegrationFinal/src/com/mycompany/gui/BilletFrontController.java</file>
+            <file>file:/C:/xampp/htdocs/CelestialDesktopIntegrationFinal/src/com/mycompany/gui/ListBilletController.java</file>
         </group>
     </open-files>
 </project-private>

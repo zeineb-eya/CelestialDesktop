@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="410.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReclamationAdminController">
+   <children>
+      <ImageView fitHeight="410.0" fitWidth="826.0">
+         <image>
+            <Image url="@../images/backg.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="161.0" layoutY="14.0" prefHeight="36.0" prefWidth="504.0" text="Réclamations des clients " textFill="#e5655a">
+         <font>
+            <Font name="Arial" size="30.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableaureclam" layoutX="294.0" layoutY="171.0" prefHeight="181.0" prefWidth="489.0">
+         <columns>
+            <TableColumn fx:id="description_reclamcol" prefWidth="145.0" text="Objet reclamation" />
+            <TableColumn fx:id="etat_reclamcol" prefWidth="115.0" text="etat reclamation" />
+            <TableColumn fx:id="date_reclamcol" minWidth="0.0" prefWidth="113.0" text="date reclamation" />
+            <TableColumn fx:id="user" minWidth="0.0" prefWidth="113.0" text="user" />
+         </columns>
+      </TableView>
+      <TextField fx:id="rechercher" layoutX="33.0" layoutY="104.0" prefHeight="25.0" prefWidth="232.0" promptText="rechercher" />
+      <FontAwesomeIconView fill="#e5655a" glyphName="SEARCH" layoutX="245.0" layoutY="120.0" />
+      <FontAwesomeIconView fill="#e5655a" glyphName="EDIT" layoutX="758.0" layoutY="40.0" onMouseClicked="#traiterReclam" size="25" />
+      <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="790.0" layoutY="39.0" onMouseClicked="#refresh" size="25" text="" />
+      <ImageView fitHeight="57.0" fitWidth="148.0" layoutX="25.0" layoutY="2.0">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

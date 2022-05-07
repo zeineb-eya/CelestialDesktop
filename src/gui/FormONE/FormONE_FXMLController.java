@@ -9,14 +9,19 @@ import gui.FormONE.InstanceHolder.ClassElementsControllers;
 import gui.FormONE.LoadingCenter.Blog_Pannel.ListItemPost.BlogPost_FXMLController;
 import gui.FormONE.LoadingCenter.Blog_Pannel.ListView.ListBlog_FXMLController;
 import Libs.Page;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -63,6 +68,18 @@ public class FormONE_FXMLController implements Initializable {
 
     @FXML
     private void Service_button_Click(MouseEvent event) {
+            try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/FrontOffreFXML.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     @FXML
@@ -71,6 +88,19 @@ public class FormONE_FXMLController implements Initializable {
 
     @FXML
     private void Reservation_button_Click(MouseEvent event) {
+         try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/mycompany/gui/ReservationFront.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
     }
 
     @FXML
@@ -95,6 +125,18 @@ public class FormONE_FXMLController implements Initializable {
 
     @FXML
     private void Reclamer_button_Click(MouseEvent event) {
+         try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/AjoutReclamationFXML.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     
@@ -108,4 +150,20 @@ public class FormONE_FXMLController implements Initializable {
                 catch (Exception e ){System.out.println(e.getMessage());}
                 bp.setCenter ( root );
                 }*/
+
+    @FXML
+    private void Billet_button_Click(MouseEvent event) {
+         try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/mycompany/gui/BilletFront.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }

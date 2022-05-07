@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="Offre" prefHeight="428.0" prefWidth="884.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherOffreFXMLController">
+   <children>
+      <ImageView fitHeight="428.0" fitWidth="884.0">
+         <image>
+            <Image url="@../images/backg.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tableauOffre" layoutX="181.0" layoutY="136.0" prefHeight="278.0" prefWidth="689.0">
+        <columns>
+          <TableColumn fx:id="nom_offrecol" prefWidth="99.0" text="Nom Offre" />
+            <TableColumn fx:id="description_offrecol" prefWidth="145.0" text="Details offre" />
+            <TableColumn fx:id="prix_offrecol" prefWidth="78.0" text="Prix" />
+            <TableColumn fx:id="reductioncol" prefWidth="104.0" text="Reduction" />
+            <TableColumn fx:id="date_debut_offrecol" prefWidth="95.0" text="Date debut" />
+            <TableColumn fx:id="date_fin_offrecol" prefWidth="85.0" text="Date fin" />
+        </columns>
+      </TableView>
+      <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="845.0" layoutY="28.0" onMouseClicked="#actualiserOffre" size="20" text="" wrappingWidth="31.285714149475098" />
+      <FontAwesomeIconView fill="WHITE" glyphName="MINUS" layoutX="736.0" layoutY="28.0" onMouseClicked="#deleteOffre" size="22" wrappingWidth="24.428571701049805" />
+      <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="809.0" layoutY="29.0" onMouseClicked="#OnModif" size="21" />
+      <TextField fx:id="rechercher" layoutX="16.0" layoutY="81.0" prefHeight="25.0" prefWidth="254.0" promptText="recherhcer une offre..." />
+      <FontAwesomeIconView fill="#e5655a" glyphName="SEARCH" layoutX="248.0" layoutY="97.0" />
+      <FontAwesomeIconView fill="#fffdfd" glyphName="PLUS" layoutX="771.0" layoutY="28.0" onMouseClicked="#ajouterOffre" size="20" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="13.0" prefHeight="36.0" prefWidth="282.0" text="Gestion des Offres" textAlignment="CENTER" textFill="#e5655a">
+         <font>
+            <Font name="Arial" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="67.0" fitWidth="113.0" layoutX="14.0" layoutY="-12.0">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,99 @@
+.root{
+	-fx-background-color:  #FFFFFF;
+	-fx-font: 15px "Arial";
+	-fx-font-weight: bold;
+	-fx-text-fill: #6c8ba0;
+}
+
+.text-field{
+	-fx-background-color:  #FFFFFF;
+	-fx-border-color: #6c8ba0;
+	-fx-border-radius: 5 5 5 5;
+	-fx-font: 10px "Arial Black"; 	
+}
+
+.button{
+	-fx-background-color: #306b92;
+	-fx-text-fill: #FFFFFF;
+	-fx-border-radius: 5 5 5 5;
+	-fx-font: 11px "Arial Black";
+
+}
+
+.button:hover{
+	-fx-background-color: #6c8ba0;
+	-fx-text-fill: #FFFFFF;	 
+}
+
+.combo-box{
+	-fx-background-color:  #FFFFFF;
+	-fx-border-radius: 5 5 5 5;
+	-fx-border-color: #6c8ba0;
+    -fx-font: 11px "Arial Black"; 
+    
+}
+
+.combo-box-popup .list-view 
+{
+    -fx-background-color:  #FFFFFF;
+	-fx-border-radius: 5 5 5 5;
+	-fx-border-color: #6c8ba0;
+    -fx-font: 11px "Arial Black";   
+}    
+
+.combo-box:hover{
+	-fx-background-color: #f4f6f7;
+}
+
+#profilMB {
+	-fx-font: 11px "Arial Black";
+	-fx-background-color:   transparent;
+}
+
+#profilMB .menu-item{
+	-fx-font: 11px "Arial ";
+	-fx-font-weight: bold;
+	-fx-background-color:   #070430;
+}
+
+#profilMB .menu-item:hover{
+	-fx-background-color: #6c8ba0;
+}
+
+#profilMB .menu-item .label{
+	-fx-text-fill: white;
+}
+
+#categorieMB {
+	-fx-font: 20px "Arial Black";
+	-fx-background-color:   #FFFFFF;
+	-fx-alignment: center ;
+
+}
+
+#categorieMB .label{
+	-fx-font: 20px "Arial ";
+	-fx-text-fill: #306b92;
+	-fx-padding-left: 100px;
+	
+}
+
+#categorieMB .button{
+	-fx-padding-left: 100px;
+}
+
+#categorieMB .menu:hover{
+	-fx-background-color: #306b92;
+}
+
+#categorieMB .menu:hover > .label{
+	-fx-text-fill: white;
+}
+
+#categorieMB .menu:active{
+	-fx-background-color: #306b92;
+}
+
+#categorieMB .menu:active > .label{
+	-fx-text-fill: white;
+}
