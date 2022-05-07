@@ -5,6 +5,9 @@
  */
 package gui;
 
+import gui.CategoriePost.CategoriePost_FXMLController;
+import gui.Commentaire.Commentaire_FXMLController;
+import gui.Post.Post_FXMLController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -76,4 +79,18 @@ public class ChoixController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
+       @FXML
+
+     private void catPost(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Commentaire_FXML.fxml"));
+            
+            Parent root = loader.load();
+            Commentaire_FXMLController controller = loader.getController();
+            tfmailU.getScene().setRoot(root); 
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+     
 }

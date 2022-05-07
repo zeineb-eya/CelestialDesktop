@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1274.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FormONE.LoadingCenter.Blog_Pannel.ListItemPost.BlogPost_FXMLController">
+   <children>
+      <BorderPane prefHeight="668.0" prefWidth="899.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="670.0" prefWidth="350.0" styleClass="right-bar" stylesheets="@../../../../../css/style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="74.0" prefWidth="349.0">
+                     <children>
+                        <Label text="Post" textFill="#4b4f51">
+                           <font>
+                              <Font name="Cambria Bold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" stylesheets="@../../../../../css/style.css">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <TextField fx:id="searchPost" onKeyReleased="#rechercherOnKeyReleased" prefHeight="40.0" prefWidth="219.0" promptText="Type here search" styleClass="transparent" stylesheets="@../../../../../css/style.css">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass="search-box" stylesheets="@../../../../../css/style.css">
+                           <graphic>
+                              <ImageView fitHeight="41.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../img/loupe_search.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="search-box" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </HBox>
+                  <Pane prefHeight="50.0" prefWidth="349.0" />
+                  <VBox prefHeight="570.0" prefWidth="249.0" stylesheets="@../../../../../css/style.css">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <HBox prefHeight="49.0" prefWidth="249.0">
+                           <children>
+                              <Label fx:id="TitleChosen" prefHeight="30.0" prefWidth="271.0" text="Title" textFill="WHITE">
+                                 <font>
+                                    <Font name="Cambria" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="ImageChosen" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../img/empty_file_icon.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="38.0" prefWidth="249.0">
+                           <children>
+                              <Label fx:id="DescriptionChosen" text="description" textFill="#828282">
+                                 <font>
+                                    <Font name="Cambria" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="304.0" prefHeight="109.0" prefWidth="249.0">
+                           <children>
+                              <VBox prefHeight="87.0" prefWidth="269.0">
+                                 <children>
+                                    <TextArea fx:id="ListMessagesCommentairesChosen" prefHeight="87.0" prefWidth="200.0" promptText="Messge commentaire" styleClass="list-messages-commentaires-chosen" stylesheets="@../../../../../css/style.css">
+                                       <font>
+                                          <Font name="Cambria" size="14.0" />
+                                       </font>
+                                    </TextArea>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" right="15.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="342.0" prefHeight="38.0" prefWidth="249.0">
+                           <children>
+                              <TextField fx:id="SaiseCommentaire" prefHeight="28.0" prefWidth="268.0" promptText="Saisie commentaire" stylesheets="@../../../../../css/style.css">
+                                 <styleClass>
+                                    <String fx:value="saisie-commentaire-textfield" />
+                                    <String fx:value="transparent" />
+                                 </styleClass>
+                                 <font>
+                                    <Font name="Cambria" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" prefHeight="49.0" prefWidth="249.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="53.0" prefWidth="237.0">
+                                 <children>
+                                    <Label text="Note" textFill="WHITE">
+                                       <font>
+                                          <Font name="Cambria" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Rating fx:id="RatingCommentChosen" prefHeight="45.0" prefWidth="176.0" rating="0.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="374.0" prefHeight="38.0" prefWidth="249.0">
+                           <children>
+                              <Button fx:id="ButtonCommentaire" mnemonicParsing="false" onMouseClicked="#ButtonCommentaire_OnClick" prefHeight="28.0" prefWidth="162.0" styleClass="comment-card-btn" stylesheets="@../../../../../css/style.css" text="Comment" textFill="#828282">
+                                 <font>
+                                    <Font name="Cambria Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <styleClass>
+                        <String fx:value="chosen-post-commentaire-card" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </VBox>
+                  <Pane prefHeight="50.0" prefWidth="349.0" />
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ScrollPane fx:id="scroll" prefHeight="670.0" prefWidth="918.0" style="-fx-background-color: transparent;">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                     <content>
+                        <GridPane fx:id="grid">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

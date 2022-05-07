@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FormONE.FormONE_FXMLController">
+   <children>
+      <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1274.0">
+         <center>
+            <AnchorPane fx:id="defaultAnchorPane" prefHeight="401.0" prefWidth="467.0" style="-fx-background-color: #F5F6F7;" BorderPane.alignment="CENTER">
+               <children>
+                  <Text layoutX="460.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="default" AnchorPane.bottomAnchor="313.7216796875" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="311.7060546875">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </center>
+         <top>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1196.0" style="-fx-background-color: #E8F0F5;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#home_button_click" style="-fx-background-color: transparent;" text="Home" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#Account_button_Click" style="-fx-background-color: transparent;" text="Account" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#Service_button_Click" style="-fx-background-color: transparent;" text="Services" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#Trips_button_Click" style="-fx-background-color: transparent;" text="Trips" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#Reservation_button_Click" style="-fx-background-color: transparent;" text="Reservation" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#Equipement_button_Click" style="-fx-background-color: transparent;" text="Equipement" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#Blog_button_Click" prefHeight="35.0" prefWidth="50.0" style="-fx-background-color: transparent;" text="Blog" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#Contact_button_Click" style="-fx-background-color: transparent;" text="Contact" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#Reclamer_button_Click" style="-fx-background-color: transparent;" text="Reclamer" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</StackPane>

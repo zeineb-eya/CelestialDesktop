@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="607.0" prefWidth="855.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CategoriePost.CategoriePost_FXMLController">
+  
+    
+    
+    
+    <children>
+      <Label layoutX="71.0" layoutY="48.0" text="Categorie">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="ajout_CategoriePost" layoutX="596.0" layoutY="105.0" mnemonicParsing="false" onAction="#onClickAjoutCategorie" prefHeight="62.0" prefWidth="80.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="44.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="img/add.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="Modifier_CategoriePost" layoutX="596.0" layoutY="176.0" mnemonicParsing="false" onAction="#onClickUpdateCategorie" prefHeight="62.0" prefWidth="80.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="img/update.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="suprimer_CategoriePost" layoutX="705.0" layoutY="105.0" mnemonicParsing="false" onAction="#onClickDeleteCategorie" prefHeight="62.0" prefWidth="80.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="53.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="img/delete.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ListView fx:id="List_CategoriePost" layoutX="75.0" layoutY="273.0" onMouseClicked="#ListViewCategorie_OnMouseClicked" prefHeight="269.0" prefWidth="708.0" />
+      <TextField fx:id="recherche_CategoriePost" layoutX="71.0" layoutY="105.0" onKeyReleased="#recherche_CategorieOnKeyReleased" prefHeight="31.0" prefWidth="463.0" promptText="recherchee..." />
+      <Button fx:id="lire_CategoriePost" layoutX="705.0" layoutY="178.0" mnemonicParsing="false" onAction="#onClickLireCategorie" prefHeight="62.0" prefWidth="80.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="51.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="img/read.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <VBox layoutX="71.0" layoutY="156.0" prefHeight="82.0" prefWidth="171.0" spacing="15.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom de catégorie : ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Label text="Id catégorie :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="227.0" layoutY="156.0" prefHeight="82.0" prefWidth="306.0" spacing="10.0">
+         <children>
+            <TextField fx:id="nom_CategoriePost" prefHeight="31.0" prefWidth="239.0" />
+            <TextField fx:id="id_CategoriePost" prefHeight="31.0" prefWidth="239.0" />
+         </children>
+      </VBox>
+   </children>
+   
+     
+       
+           
+</AnchorPane>

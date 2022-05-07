@@ -1,0 +1,50 @@
+.ListBlog_FXML{
+    -fx-background-color: #E3E4E6; /*#00000025*/
+    -fx-background-radius: 30;
+}
+.ListBlog-listview{
+    -fx-background-color: transparent; /*#00000025*/ 
+}
+
+.search-box{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 100;
+}
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+.search-button{
+    -fx-background-color: #828282;
+    -fx-background-radius: 30;
+}
+.right-bar{
+    -fx-background-color: #E4F0FC;
+}
+.shadow{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+}
+.chosen-post-commentaire-card{
+    -fx-background-color: #8BE3C9;
+    -fx-background-radius: 30;
+}
+.saisie-commentaire-textfield{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 100;
+}
+.comment-card-btn{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+}
+
+.list-messages-commentaires-chosen{ 
+  /*-fx-highlight-fill: #00ff00;
+  -fx-highlight-text-fill: #000000;
+  -fx-text-fill: #00ff00;
+  -fx-background-color: black;*/
+  /*-fx-display-caret:true;*/
+  -fx-background-radius: 20;
+}
+ .list-messages-commentaires-chosen .content {
+    -fx-background-color: #FFFFFF;
+      -fx-background-radius: 20;
+}

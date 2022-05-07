@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="711.0" prefWidth="855.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Post.Post_FXMLController">
+
+  <children>
+      <Label layoutX="74.0" layoutY="25.0" text="Post">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="ajout_Post" layoutX="576.0" layoutY="162.0" mnemonicParsing="false" onAction="#onClickAjoutPost" prefHeight="62.0" prefWidth="80.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="43.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="img/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="Modifier_Post" layoutX="576.0" layoutY="233.0" mnemonicParsing="false" onAction="#onClickUpdatePost" prefHeight="62.0" prefWidth="80.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="49.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="img/update.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="suprimer_Post" layoutX="685.0" layoutY="162.0" mnemonicParsing="false" onAction="#onClickDeletePost" prefHeight="62.0" prefWidth="80.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="img/delete.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ListView fx:id="List_Post" layoutX="74.0" layoutY="388.0" onMouseClicked="#ListViewPost_OnMouseClicked" prefHeight="301.0" prefWidth="708.0" />
+      <TextField fx:id="recherche_Post" layoutX="74.0" layoutY="82.0" onKeyReleased="#recherche_CommentaireOnKeyReleased" prefHeight="31.0" prefWidth="463.0" promptText="recherchee..." />
+      <Button fx:id="lire_Post" layoutX="685.0" layoutY="235.0" mnemonicParsing="false" onAction="#onClickLirePost" prefHeight="62.0" prefWidth="80.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="51.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="img/read.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <VBox layoutX="74.0" layoutY="133.0" prefHeight="158.0" prefWidth="230.0" spacing="15.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id : ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Label text="User Id :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Categorie Post Id :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Nom :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Image Post :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Description Post :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <TextField fx:id="IdPost" layoutX="404.0" layoutY="133.0" prefHeight="31.0" prefWidth="123.0" />
+      <TextField fx:id="NomPost" layoutX="298.0" layoutY="260.0" prefHeight="31.0" prefWidth="230.0" />
+      <ChoiceBox fx:id="CategoriePostIDPost" layoutX="405.0" layoutY="217.0" prefHeight="25.0" prefWidth="123.0" />
+      <TextField fx:id="UserIdPost" layoutX="404.0" layoutY="171.0" prefHeight="31.0" prefWidth="123.0" />
+      <TextField fx:id="DescriptionPost" layoutX="224.0" layoutY="342.0" prefHeight="31.0" prefWidth="303.0" />
+      <Button fx:id="ImagePostSelection" layoutX="431.0" layoutY="301.0" mnemonicParsing="false" onAction="#ImagePostSelectionOnClick" prefHeight="31.0" prefWidth="98.0" text="Selectionner" />
+      <ImageView fx:id="imagekkkk" fitHeight="99.0" fitWidth="146.0" layoutX="583.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
+   </children>  
+      
+</AnchorPane>
