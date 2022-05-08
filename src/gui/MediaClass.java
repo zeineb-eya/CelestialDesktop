@@ -19,13 +19,18 @@ import javafx.stage.Stage;
 
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 
 public class MediaClass implements Initializable {
 
-    @FXML
-    private Label lblMediaTitle;
 
     @FXML
     private MediaView mainMediaView;
@@ -35,8 +40,11 @@ public class MediaClass implements Initializable {
 
     MediaPlayer mediaPlayer;
     Stage stage;
-
     @FXML
+    private Button GestionBillet;
+    @FXML
+    private Button GestionReservation;
+
     public void openMediaFile(){
 
 
@@ -44,6 +52,7 @@ public class MediaClass implements Initializable {
 
 
             String MEDIA_URL = "C:\\Users\\Cipher\\Music\\Pub.mp4";
+            // String MEDIA_URL = "G:\\Pub.mp4";
             // The regex below only extracts the Tittle part of the media
 
             /* On Windows OS
@@ -94,7 +103,7 @@ System.out.print(MEDIA_URL);
     @Override
     public void initialize(URL Location, ResourceBundle resources) {
             String MEDIA_URL = "C:\\Users\\Cipher\\Pictures\\Pub.mp4";
-
+          //  String MEDIA_URL = "G:\\Pub.mp4";
             Media media = new Media(new File(MEDIA_URL).toURI().toString());
 
             mediaPlayer = new MediaPlayer(media);
@@ -113,7 +122,6 @@ System.out.print(MEDIA_URL);
     }
 
 
-    @FXML
     MenuBar menuBar;
 
     @FXML
@@ -133,5 +141,102 @@ System.out.print(MEDIA_URL);
     private void restart(){
         mediaPlayer.seek(mediaPlayer.getStartTime());
         mediaPlayer.play();
+    }
+
+    @FXML
+    private void GestionBillet(ActionEvent event) {
+        try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/mycompany/gui/BilletFront.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void GestionReservation(ActionEvent event) {
+           try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/mycompany/gui/ReservationFront.fxml"));
+           // loader.setLocation(getClass().getResource("Reslisttest.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void GestionReclam(ActionEvent event) {
+           try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/AjoutReclamationFXML.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void GestionOffre(ActionEvent event) {
+        try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/FrontOffreFXML.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void GestionPlaninng(ActionEvent event) {
+        try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/AjouPlaninng.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void GestionLoca(ActionEvent event) {
+        try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/AjoutLocalisation.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }
