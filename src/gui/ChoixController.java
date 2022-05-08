@@ -50,48 +50,24 @@ public class ChoixController implements Initializable {
      @FXML
 
      private void User(ActionEvent event) {
-         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterUserFXML.fxml"));
-            Parent root = loader.load();
-            AjouterUserFXMLController controller = loader.getController();
-            tfmailU.getScene().setRoot(root); 
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+                                            this.getForm ("AjouterUserFXML.fxml");
+
     }
      @FXML
       private void Role(ActionEvent event) {
-         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterRoleFXML.fxml"));
-            Parent root = loader.load();
-            AjouterRoleFXMLController controller = loader.getController();
-            tfmailU.getScene().setRoot(root); 
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+                                   this.getForm ("AjouterRoleFXML.fxml");
+
     }
       @FXML
 
      private void Equipement(ActionEvent event) {
-         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddFXML.fxml"));
-            Parent root = loader.load();
-            AddFXMLController controller = loader.getController();
-            tfmailU.getScene().setRoot(root); 
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+                                this.getForm ("AddFXML.fxml");
+
     }
      @FXML
       private void CatEquipement(ActionEvent event) {
-         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCFXML.fxml"));
-            Parent root = loader.load();
-            AddCFXMLController controller = loader.getController();
-            tfmailU.getScene().setRoot(root); 
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+                         this.getForm ("AddCFXML.fxml");
+
     }
         
     
