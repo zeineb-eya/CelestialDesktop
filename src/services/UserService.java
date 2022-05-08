@@ -85,15 +85,12 @@ public class UserService implements Iservice<User> {
    
 
    
-    public boolean Update(User t) {
+    public void Update(User t) {
 
       
             String req1 = "UPDATE user SET nom_utilisateur =?,prenom_utilisateur=?,adresse_utilisateur=?,mail_utilisateur=?,password=?,numero_utilisateur=?WHERE id= ?";
-             Boolean updated=false;
 
-            System.out.print(t);
   try {
-System.out.print(t);
             ps = connection.prepareStatement(req1);
                         ps.setInt(7, t.getId());
             ps.setString(1, t.getNom_utilisateur());
@@ -102,14 +99,12 @@ System.out.print(t);
                        ps.setString(5, t.getPassword());
             ps.setString(4, t.getMail_utilisateur());
             ps.setString(3, t.getAdresse_utilisateur());
-            
-            updated=ps.executeUpdate()>0; 
+            ps.executeUpdate();
             System.out.print(t);
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } 
-return updated;
     }
     
     
@@ -124,6 +119,19 @@ String req1 = "DELETE FROM user WHERE id= " + id;
 
            ps= connection.prepareStatement(req1);
                         
+            ps.executeUpdate(); 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+      public void Delete(User u) {
+        try {
+//            
+String req1 = "DELETE FROM user WHERE id= ?";
+
+           ps= connection.prepareStatement(req1);
+                         ps.setInt(1, u.getId());
             ps.executeUpdate(); 
             
         } catch (SQLException ex) {

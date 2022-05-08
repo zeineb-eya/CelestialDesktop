@@ -4,25 +4,25 @@
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.UpdateFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" stylesheets="@styles.css" styleClass="blue-panel"  prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.UpdateFXMLController">
   <children>
-    <Label layoutX="86.0" layoutY="119.0" text="Nom" />
-    <Label layoutX="86.0" layoutY="147.0" text="Prenom" />
-    <Label layoutX="88.0" layoutY="175.0" text="Adresse" />
-    <Label layoutX="85.0" layoutY="205.0" text="Mail" />
-    <Label layoutX="85.0" layoutY="230.0" text="Password" />
-    <Label layoutX="83.0" layoutY="258.0" text="Num Telephone" />
-    <TextField fx:id="tfnomU" layoutX="318.0" layoutY="119.0" prefWidth="200.0" />
-    <TextField fx:id="tfprenomU" layoutX="318.0" layoutY="145.0" prefWidth="200.0" />
-    <TextField fx:id="tfadresseU" layoutX="318.0" layoutY="168.0" prefWidth="200.0" />
-    <TextField fx:id="tfmailU" layoutX="318.0" layoutY="195.0" prefWidth="200.0" />
-    <TextField fx:id="tfpasswordU" layoutX="318.0" layoutY="227.0" prefWidth="200.0" />
-    <TextField fx:id="tfnumtelU" layoutX="318.0" layoutY="255.0" prefWidth="200.0" />
-    <Button layoutX="247.0" layoutY="327.0" mnemonicParsing="false" onAction="#Update" text="Update" />
-    <Label layoutX="88.0" layoutY="92.0" text="ID" />
-    <TextField fx:id="tfidU" layoutX="318.0" layoutY="89.0" prefWidth="200.0" />
-    <Button layoutX="53.0" layoutY="40.0" mnemonicParsing="false" onAction="#RetourAjout" text="Retour" />
+    <ImageView fitHeight="644.5000610351562" fitWidth="631.346935651812" layoutX="0.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@background_image3.jpg" />
+      </image>
+    </ImageView>
+    <Label layoutX="109.0" layoutY="199.0" text="Adresse" />
+    <Label layoutX="106.0" layoutY="229.0" text="Mail" />
+    <TextField fx:id="tfnomU" layoutX="221.0" layoutY="145.0" prefWidth="200.0" />
+    <TextField fx:id="tfprenomU" layoutX="221.0" layoutY="186.0" prefWidth="200.0" />
+    <TextField fx:id="tfadresseU" layoutX="221.0" layoutY="225.0" prefWidth="200.0" />
+    <TextField fx:id="tfmailU" layoutX="221.0" layoutY="350.0" prefWidth="200.0" />
+    <TextField fx:id="tfpasswordU" layoutX="221.0" layoutY="264.0" prefWidth="200.0" />
+    <TextField fx:id="tfnumtelU" layoutX="221.0" layoutY="308.0" prefWidth="200.0" />
+    <Button layoutX="284.0" layoutY="403.0" mnemonicParsing="false" styleClass="blue-btn"  onAction="#Update" text="Update" />
+    <Button layoutX="102.0" layoutY="64.0" mnemonicParsing="false"  styleClass="blue-btn"  onAction="#RetourAjout" text="Retour" />
   </children>
 </AnchorPane>

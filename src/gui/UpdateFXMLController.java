@@ -42,13 +42,16 @@ public class UpdateFXMLController implements Initializable {
     private TextField tfpasswordU;
     @FXML
     private TableView<User> TVuser;
-    
+                    User p = new User();
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+                User p = new User();
+
          tfpasswordU.setText(null);
               tfprenomU.setText(null);
          tfnomU.setText(null);
@@ -59,6 +62,7 @@ public class UpdateFXMLController implements Initializable {
     
  @FXML
     private void Update(ActionEvent event) {
+
         if ((tfnomU.getText()== null) || (tfprenomU.getText()== null)|| (tfmailU.getText()== null)|| (tfpasswordU.getText()== null)|| (tfnumtelU.getText()== null)|| (tfadresseU.getText()== null)) {
                                     
                                 Alert a = new Alert(Alert.AlertType.ERROR);
@@ -66,11 +70,20 @@ public class UpdateFXMLController implements Initializable {
                  String content = String.format("Tout les champs doivent etre remplies.");
         a.setContentText(content);
         a.show();   }
+        if (p == null) {
+
+            System.out.println("Choisir un User");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Modifier User");
+            alert.setHeaderText(null);
+            alert.setContentText("Le User n'est pas modifié!");
+
+            alert.showAndWait();
+        }
                 else {if((tfmailU.getText().matches("^(.+)@(.+)$")))
      
-       { User p = new User();
-        int x = Integer.parseInt(tfidU.getText());
-        p.setId(x);
+       { 
+       
         p.setNom_utilisateur(tfnomU.getText());
         p.setPrenom_utilisateur(tfprenomU.getText());
         p.setAdresse_utilisateur(tfadresseU.getText());    
@@ -78,6 +91,8 @@ public class UpdateFXMLController implements Initializable {
         p.setNumero_utilisateur(tfnumtelU.getText());
         p.setPassword(tfpasswordU.getText());
            UserService ps = new UserService();
+                  System.out.println(p);
+
         ps.Update(p);   
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle("Personne Updated");
@@ -95,6 +110,17 @@ public class UpdateFXMLController implements Initializable {
        } 
       
     }  
+         @FXML
+
+     void setData(int id,String c,String v,String t, String x, String y,/* Date e,*/String l) {
+        p.setId(id);
+        tfnomU.setText(String.valueOf(c));
+       tfprenomU.setText(String.valueOf(v));
+        tfadresseU.setText(String.valueOf(t));
+        tfmailU.setText(String.valueOf(y));
+        tfnumtelU.setText(String.valueOf(x));
+        tfpasswordU.setText(String.valueOf(l));
+    }
     
      @FXML
     private void RetourAjout(ActionEvent event) {
