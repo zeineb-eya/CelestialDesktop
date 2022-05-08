@@ -9,14 +9,22 @@ import com.mycompany.entities.Reclamation;
 
 import com.mycompany.entities.User;
 import com.mycompany.services.ServiceReclamation;
+import com.mycompany.utils.MyConnection;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import static java.util.Arrays.asList;
 import java.util.List;
 import java.util.Properties;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -72,6 +80,8 @@ public class AjoutReclamationFXMLController implements Initializable {
   static String experience = "";
 
   Reclamation r = new Reclamation();
+    @FXML
+    private ComboBox<String> usercombo;
     /**
      * Initializes the controller class.
      */
@@ -118,13 +128,31 @@ public class AjoutReclamationFXMLController implements Initializable {
              // User user =id_user.getSelectionModel().getSelectedItem();   
       Reclamation r = new Reclamation();
        r.setDescription_reclamation(description_reclamation.getText());
-      r.setUser_id(Integer.parseInt(id_user.getText()));
+      //r.setUser_id(Integer.parseInt(id_user.getText()));
    //  r.setNomUtilisateur(id_user.getText());
     
     
 //r.setUser_id(user);//temchi
       //r.setUser(id_user.getText());
+ r.setUser_id(Integer.parseInt(usercombo.getValue().toString().split("_")[0]));
+         String userid =  usercombo.getValue().toString();
 
+         String sql2="select reclamation.user_id from reclamation join user ON reclamation.user_id = user.id where user.id";
+                int user_id=0;
+                  try {
+                Statement ste2;
+                Connection cnx2;
+                cnx2 = MyConnection.getInstance().getCnx();
+                ste2 = cnx2.prepareStatement(sql2);
+                ResultSet rs2 = ste2.executeQuery(sql2);
+                if(rs2.next())
+                {
+                  user_id=rs2.getInt("user_id");
+                    
+                }
+            } catch (SQLException ex) {
+               System.out.println(ex.getMessage());
+            }
      ServiceReclamation pst = new ServiceReclamation();
         pst.ajouterReclamation2(r);
             sendMail();
@@ -299,6 +327,27 @@ return experience;
         setExperience();
        
         sendMail();
+    }
+
+    @FXML
+    private void remplirCB(MouseEvent event) {
+          try {
+            String sql="select id from user ";
+            List<String> nm =new ArrayList<String>();
+            PreparedStatement ste;
+            Statement st;
+            Connection cnx;
+            cnx = MyConnection.getInstance().getCnx();
+            st = cnx.prepareStatement(sql);
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next())
+            {
+                nm.add(rs.getString("id"));
+                   usercombo.setItems(FXCollections.observableArrayList(nm));
+            }
+        } catch (SQLException ex) {
+             System.out.println(ex.getMessage());
+        }
     }
  
      
