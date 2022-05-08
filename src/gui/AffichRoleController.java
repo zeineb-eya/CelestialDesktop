@@ -16,12 +16,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import services.RoleService;
 import services.UserService;
 
@@ -42,6 +45,8 @@ public class AffichRoleController implements Initializable {
      @FXML
     private TableColumn<Role,String> coldesR;
          ObservableList list ;
+                             Role p = new Role();
+
     /**
      * Initializes the controller class.
      */
@@ -72,16 +77,59 @@ public class AffichRoleController implements Initializable {
     
     @FXML
      private void Delete(ActionEvent event) {
-         
-          RoleService ps = new RoleService();
-           int x = Integer.parseInt(idsuppR.getText());
-        System.out.println(x);
+                          Role b = (Role) TVrole.getSelectionModel().getSelectedItem();
 
-        ps.Delete(x);  
+          RoleService ps = new RoleService();
+          
+        ps.Delete(b);  
 
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle(" Role Supprimé!");
         a.show();
-        }}
+        }
+
+
+ 
+    @FXML
+     private void Modifier(ActionEvent event) {
+                          Role b = (Role) TVrole.getSelectionModel().getSelectedItem();
+
+   if(b==null){
+        
+           System.out.println("Aucun Role séléctionné");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Aucun Role séléctionné");
+            alert.showAndWait();
+        }else {
+          try {   
+        FXMLLoader loader = new FXMLLoader
+                        (getClass().getResource("RoleUpdate.fxml"));
+        Scene scene=new Scene(loader.load());
+        
+       RoleUpdateController Bc = loader.getController();
+        
+        Stage stageAff=new Stage();
+        stageAff.setScene(scene);
+        stageAff.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+           int as=TVrole.getSelectionModel().getSelectedItem().getId();
+              String c = TVrole.getSelectionModel().getSelectedItem().getNom_role();
+           String v = TVrole.getSelectionModel().getSelectedItem().getDescription_role();
+                     
+           
+                   Bc.setData(TVrole.getSelectionModel().getSelectedItem().getId(),
+                           TVrole.getSelectionModel().getSelectedItem().getNom_role(),
+                           TVrole.getSelectionModel().getSelectedItem().getDescription_role()
+                            
+                           
+                   );
+
+        } catch(IOException ex)
+            {
+            System.err.println("eer");
+            }
+        } }}
 
 

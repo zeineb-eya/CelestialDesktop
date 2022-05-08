@@ -154,7 +154,7 @@ public class AffichFXMLController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur");
             alert.setHeaderText(null);
-            alert.setContentText("Aucun billet séléctionné");
+            alert.setContentText("Aucun User séléctionné");
             alert.showAndWait();
         }else {
           try {   

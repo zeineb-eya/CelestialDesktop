@@ -23,7 +23,7 @@
         <TableColumn prefWidth="75.0" text="Mail" fx:id="colmailU" />
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Password" fx:id="colpasswordU" />
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Num tel" fx:id="colnumtelU" />
-        <TableColumn prefWidth="75.0" text="Role" fx:id="colRoleU" />
+        <TableColumn prefWidth="75.0" text="Role" fx:id="colRoleU" visible="false" />
       </columns>
     </TableView>
     <Button layoutX="63.0" layoutY="23.0" styleClass="blue-btn"   mnemonicParsing="false" onAction="#RetourAjout" text="Retour" />
