@@ -64,13 +64,14 @@ System.out.println(p);
         return list;
     }
    
-   public void Delete(int id) {
+   public void Delete(Role u) {
         try {
 //            
-String req1 = "DELETE FROM role WHERE id= " + id;
+String req1 = "DELETE FROM role WHERE id= ?";
 
            ps= connection.prepareStatement(req1);
-                        
+                                                 ps.setInt(1, u.getId());
+
             ps.executeUpdate(); 
             
         } catch (SQLException ex) {

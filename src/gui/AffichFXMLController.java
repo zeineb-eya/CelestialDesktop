@@ -23,6 +23,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -104,12 +105,12 @@ public class AffichFXMLController implements Initializable {
          @FXML
 
      private void Delete(ActionEvent event) {
-         
-          UserService ps = new UserService();
-           int x = Integer.parseInt(idsupp.getText());
-        System.out.println(x);
+                 User b = (User) TVuser.getSelectionModel().getSelectedItem();
 
-        ps.Delete(x);  
+          UserService ps = new UserService();
+       
+
+        ps.Delete(b);  
         initialize(url,rb);
 
 
@@ -144,5 +145,57 @@ public class AffichFXMLController implements Initializable {
             Logger.getLogger(AffichFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+     @FXML
+    private void Modifier(ActionEvent event){
+    User b = (User) TVuser.getSelectionModel().getSelectedItem();
+   if(b==null){
+        
+           System.out.println("Aucun User séléctionné");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Aucun billet séléctionné");
+            alert.showAndWait();
+        }else {
+          try {   
+        FXMLLoader loader = new FXMLLoader
+                        (getClass().getResource("UpdateFXML.fxml"));
+        Scene scene=new Scene(loader.load());
+        
+       UpdateFXMLController Bc = loader.getController();
+        
+        Stage stageAff=new Stage();
+        stageAff.setScene(scene);
+        stageAff.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+     
+           int as=TVuser.getSelectionModel().getSelectedItem().getId();
+              String c = TVuser.getSelectionModel().getSelectedItem().getNom_utilisateur();
+           String v = TVuser.getSelectionModel().getSelectedItem().getPrenom_utilisateur();
+                      String t  = TVuser.getSelectionModel().getSelectedItem().getMail_utilisateur();
+
+           String x = TVuser.getSelectionModel().getSelectedItem().getPassword();
+           String p  = TVuser.getSelectionModel().getSelectedItem().getNumero_utilisateur();
+          // Date e  = TVuser.getSelectionModel().getSelectedItem().getEmbarquement();
+          String l  = TVuser.getSelectionModel().getSelectedItem().getAdresse_utilisateur();
+           
+                   Bc.setData(TVuser.getSelectionModel().getSelectedItem().getId(),
+                           TVuser.getSelectionModel().getSelectedItem().getNom_utilisateur(),
+                           TVuser.getSelectionModel().getSelectedItem().getPrenom_utilisateur(),
+                            TVuser.getSelectionModel().getSelectedItem().getMail_utilisateur(),
+
+            TVuser.getSelectionModel().getSelectedItem().getPassword(),
+           TVuser.getSelectionModel().getSelectedItem().getNumero_utilisateur(),
+          TVuser.getSelectionModel().getSelectedItem().getAdresse_utilisateur()
+           
+                           
+                   );
+                           initialize(url,rb);
+
+        } catch(IOException ex)
+            {
+            System.err.println("eer");
+            }
+        } }
 }
 
