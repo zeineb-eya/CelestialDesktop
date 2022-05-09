@@ -127,7 +127,7 @@ import util.MyDB;
  *
  * @author Cipher
  */
-public class AfficherEqFXMLController implements Initializable {
+public class AfficherEqFrontFXMLController implements Initializable {
  @FXML
     private TableView<Equipement> TVuser;
  @FXML
@@ -199,17 +199,7 @@ private ObservableList<Equipement> masterData = FXCollections.observableArrayLis
 
 
     }    
-     @FXML
-    private void RetourAjout(ActionEvent event) {
-         
-         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddFXML.fxml"));
-            Parent root = loader.load();
-            AddFXMLController controller = loader.getController();
-            idsupp.getScene().setRoot(root);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }}
+
          @FXML
 
      private void Delete(ActionEvent event) {
