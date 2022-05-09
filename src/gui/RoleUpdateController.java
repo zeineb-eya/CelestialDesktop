@@ -32,6 +32,9 @@ public class RoleUpdateController implements Initializable {
     private TextField tfnomR;
     @FXML
     private TextField tfdesR;
+                        Role p = new Role();
+
+            ;
     /**
      * Initializes the controller class.
      */
@@ -41,25 +44,32 @@ public class RoleUpdateController implements Initializable {
     }    
      @FXML
     private void Update(ActionEvent event) {
-        Role p = new Role();
-        int x = Integer.parseInt(tfidR.getText());
-        p.setId(x);
-          
-                  p.setDescription_role(tfdesR.getText());
+       if (p == null) {
+
+            System.out.println("Choisir un Role");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Modifier Role");
+            alert.setHeaderText(null);
+            alert.setContentText("Le Role n'est pas modifié!");
+
+            alert.showAndWait();
+        }     
+       else { 
+       
         p.setNom_role(tfnomR.getText());
+        p.setDescription_role(tfdesR.getText());
+        
+           RoleService ps = new RoleService();
+                  System.out.println(p);
 
-
-        //User e=new User(7,"ab","ba","ba","ba","ba","ab");
-        us.Update(p);
-        //UserService ps = new UserService();
-                              //ps.ajouter(p);
+        ps.Update(p);   
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-        a.setTitle("Role Modifié");
-                 String content = String.format("L'Ajout du Role est éffectué avec succés.");
-        a.setContentText(content);
-                              
+        a.setTitle("Personne Updated");
+       System.out.println(tfnomR.getText());
         a.show();
-    }
+      
+    }}
+    
       @FXML
     private void RetourAjout(ActionEvent event) {
          
@@ -71,4 +81,12 @@ public class RoleUpdateController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }}
+    @FXML
+
+     void setData(int id,String c,String v) {
+        p.setId(id);
+        tfnomR.setText(String.valueOf(c));
+       tfdesR.setText(String.valueOf(v));
+        
+    }
 }

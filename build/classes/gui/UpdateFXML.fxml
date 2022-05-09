@@ -7,7 +7,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" stylesheets="@styles.css" styleClass="blue-panel"  prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.UpdateFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.UpdateFXMLController">
   <children>
     <ImageView fitHeight="644.5000610351562" fitWidth="631.346935651812" layoutX="0.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
       <image>
@@ -18,11 +18,11 @@
     <Label layoutX="106.0" layoutY="229.0" text="Mail" />
     <TextField fx:id="tfnomU" layoutX="221.0" layoutY="145.0" prefWidth="200.0" />
     <TextField fx:id="tfprenomU" layoutX="221.0" layoutY="186.0" prefWidth="200.0" />
-    <TextField fx:id="tfadresseU" layoutX="221.0" layoutY="225.0" prefWidth="200.0" />
-    <TextField fx:id="tfmailU" layoutX="221.0" layoutY="350.0" prefWidth="200.0" />
-    <TextField fx:id="tfpasswordU" layoutX="221.0" layoutY="264.0" prefWidth="200.0" />
-    <TextField fx:id="tfnumtelU" layoutX="221.0" layoutY="308.0" prefWidth="200.0" />
-    <Button layoutX="284.0" layoutY="403.0" mnemonicParsing="false" styleClass="blue-btn"  onAction="#Update" text="Update" />
-    <Button layoutX="102.0" layoutY="64.0" mnemonicParsing="false"  styleClass="blue-btn"  onAction="#RetourAjout" text="Retour" />
+    <TextField fx:id="tfadresseU" layoutX="222.0" layoutY="270.0" prefWidth="200.0" />
+    <TextField fx:id="tfmailU" layoutX="222.0" layoutY="226.0" prefWidth="200.0" />
+    <TextField fx:id="tfpasswordU" layoutX="222.0" layoutY="312.0" prefWidth="200.0" />
+    <TextField fx:id="tfnumtelU" layoutX="221.0" layoutY="353.0" prefWidth="200.0" />
+    <Button layoutX="284.0" layoutY="403.0" mnemonicParsing="false" onAction="#Update" styleClass="blue-btn" text="Update" />
+    <Button layoutX="102.0" layoutY="64.0" mnemonicParsing="false" onAction="#RetourAjout" styleClass="blue-btn" text="Retour" />
   </children>
 </AnchorPane>

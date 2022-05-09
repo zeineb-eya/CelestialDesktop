@@ -79,7 +79,7 @@ public class CategoriePost_FXMLController  extends LibMessageBox implements Init
 
     @FXML
     private void onClickAjoutCategorie(ActionEvent event) {
-                objCategoriePost.setNom_categorie_post(    nom_CategoriePost.getText());
+                objCategoriePost.setNom_categorie_post(nom_CategoriePost.getText());
            
        if ((objCategoriePost.getNom_categorie_post().length() == 0 )|| (objCategoriePost.getNom_categorie_post() == null)){
                Alert ("Erreur saisir nom Categorie " , " Champs nom Categorie est vide  ") ; 

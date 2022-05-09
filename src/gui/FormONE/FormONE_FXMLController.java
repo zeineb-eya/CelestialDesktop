@@ -43,10 +43,10 @@ public class FormONE_FXMLController implements Initializable {
         // TODO 
          objPage = new Page (  ) ; 
          // ClassControllerSpeach.getInstance().Str_text = "AAAAAAAAAAAAA";
-         ClassElementsControllers.FormONEBorderPane = bp;
-         ClassElementsControllers.Str_text = "AAA";
+         //ClassElementsControllers.FormONEBorderPane = bp;
+         //ClassElementsControllers.Str_text = "AAA";
             // ClassControllerSpeach.getInstance().SetText("AAAAAAAAAAAAA");
-            new Page (  ).loadpage (   ClassElementsControllers.FormONEBorderPane ,  BlogPost_FXMLController.URL_FORM  );
+            //  new Page (  ).loadpage (   ClassElementsControllers.FormONEBorderPane ,  BlogPost_FXMLController.URL_FORM  );
       
     }    
 
@@ -58,7 +58,7 @@ public class FormONE_FXMLController implements Initializable {
     @FXML
     private void home_button_click(MouseEvent event) {
           //bp.setCenter(ap);
-          objPage. loadpage ( ClassElementsControllers.FormONEBorderPane ,"/GUI/FormONE/LoadingCenter/Blog_Pannel/Home_FXML.fxml"  );
+          objPage. loadpage ( ClassElementsControllers.FormONEBorderPane ,"/gui/FormONE/LoadingCenter/Blog_Pannel/Home_FXML.fxml"  );
     }
     
     @FXML

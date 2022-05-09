@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class ClassElementsControllers implements InterfaceElementsControllers {  
        static public String Str_text = "Class";
        static public BorderPane FormONEBorderPane = null;
-       static public final String URL_ListBLog = "/GUI/FormONE/LoadingCenter/Blog_Pannel/ListView/ListBlog_FXML.fxml";
+       static public final String URL_ListBLog = "/gui/FormONE/LoadingCenter/Blog_Pannel/ListView/ListBlog_FXML.fxml";
        static public Stage FormOne_ListBLog = null;
-       static public final String URL_BLogPost = "/GUI/FormONE/LoadingCenter/Blog_Pannel/ListItemPost/BlogPost_FXML.fxml"; 
+       static public final String URL_BLogPost = "/gui/FormONE/LoadingCenter/Blog_Pannel/ListItemPost/BlogPost_FXML.fxml"; 
 }

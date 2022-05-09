@@ -4,11 +4,17 @@
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.RoleUpdateController">
+<AnchorPane id="AnchorPane" minWidth="554.0" prefHeight="442.5" prefWidth="582.0" xmlns:fx="http://javafx.com/fxml/1"  stylesheets="@styles.css" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.RoleUpdateController">
   <children>
+    <ImageView fitHeight="451.5" fitWidth="722.3999871975038" layoutX="-32.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@background_image3.png" />
+      </image>
+    </ImageView>
     <TextField fx:id="tfnomR" layoutX="199.0" layoutY="152.0" prefWidth="200.0" />
     <TextField fx:id="tfdesR" layoutX="199.0" layoutY="206.0" prefWidth="200.0" />
     <Text layoutX="282.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
@@ -17,9 +23,8 @@
       </font>
     </Text>
     <Label layoutX="266.0" layoutY="132.0" text="Nom Role" />
-    <Label layoutX="246.0" layoutY="186.0" text="Description Role" />
-    <Button layoutX="263.0" layoutY="256.0" mnemonicParsing="false" onAction="#Update" text="Update" />
-    <Button layoutX="46.0" layoutY="44.0" mnemonicParsing="false" onAction="#RetourAjout" text="Retour" />
-    <TextField id="tfnomR" fx:id="tfidR" layoutX="199.0" layoutY="106.0" prefWidth="200.0" />
+    <Label layoutX="246.0" layoutY="186.0" text="Description Role" textFill="BLACK" />
+    <Button layoutX="263.0" layoutY="256.0"  styleClass="blue-btn"  mnemonicParsing="false" onAction="#Update" text="Update" />
+    <Button layoutX="46.0" layoutY="44.0"  styleClass="blue-btn"  mnemonicParsing="false" onAction="#RetourAjout" text="Retour" />
   </children>
 </AnchorPane>

@@ -48,22 +48,22 @@ public class ListViewPost  extends PostService  {
     }*/
               
               
-                     public List<Post> recuperer() {
-            List<Post> list =new ArrayList<>();
+              //       public List<Post> recuperer() {
+            /*List<Post> list =new ArrayList<>();
            for ( int i = 1 ; i< 15 ; i++){ 
-                /* Post p = new Post();
+                Post p = new Post();
                  p.setId(i); 
                   p.setNom("Nom "+i);
                   //p.setImg_post(new Image( "img/481px-Cat03.png" )); 
                   p.setImgLink_post("img/481px-Cat03.jpg"); // p.setImgLink_post("//img"+i);
                   p.setDescription_post("Description_post"+i); 
                   p.setCategoriePost_ID(i); 
-                   list.add(p);*/
-              
-    list.add(  new Post(i,i,i, "France " + i,  new FileManagement(). readImageAsBytes(   new Image("img/empty_file_icon.png") )    , "description_post "+i  ));
-           }
-           return list;
+                   list.add(p);
+            
+   list.add(  new Post(i,i,i, "France " + i,  new FileManagement(). readImageAsBytes(   new Image("img/empty_file_icon.png") )    , "description_post "+i  ));
     }
+           return list;
+    }*/
        public void refrechListView() {  
                
                this.ListePost =this.recuperer();  
