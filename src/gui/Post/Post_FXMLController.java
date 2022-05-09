@@ -87,6 +87,7 @@ public class Post_FXMLController extends LibMessageBox implements Initializable 
                  listviewpostCustom = new ListViewPost ( List_Post) ;  
                  listviewpostCustom.refrechListView( );
                   CategoriePostIDPost.getItems().addAll(this.getListChoiceBox()); 
+                   System.out.println( CategoriePostIDPost.getItems().addAll(this.getListChoiceBox()));
                  obj_FileManagement = new FileManagement();
                  
                  // System.out.println("SSS"+ obj_FileManagement.readImageAsBytes(new Image("img/empty_file_icon.png")).length); 

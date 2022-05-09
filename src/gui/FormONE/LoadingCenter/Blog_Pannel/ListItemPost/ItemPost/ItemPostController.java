@@ -32,7 +32,7 @@ public class ItemPostController implements Initializable {
   //   private Post post ;  
     static public Post static_post  ;
     public Post post  ;
-    static public final String URL_FORM = "/GUI/FormONE/LoadingCenter/Blog_Pannel/ListItemPost/ItemPost/ItemPost_FXML.fxml";
+    static public final String URL_FORM = "/gui/FormONE/LoadingCenter/Blog_Pannel/ListItemPost/ItemPost/ItemPost_FXML.fxml";
     private ListenerItemPostController mylistener ;
     static public ListenerItemPostController  listener ;
   @Override

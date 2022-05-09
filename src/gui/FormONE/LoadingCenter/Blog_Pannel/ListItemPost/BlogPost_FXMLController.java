@@ -53,7 +53,7 @@ public class BlogPost_FXMLController extends LibMessageBox implements Initializa
     @FXML
     private ScrollPane scroll;
     private List <String> POST_items = new ArrayList<>();
-    static public final String URL_FORM = "/GUI/FormONE/LoadingCenter/Blog_Pannel/ListItemPost/BlogPost_FXML.fxml";
+    static public final String URL_FORM = "/gui/FormONE/LoadingCenter/Blog_Pannel/ListItemPost/BlogPost_FXML.fxml";
     private Commentaire objCommentaire ;
     private List <Post> ListPost = new ArrayList<>(); 
     @FXML
@@ -91,13 +91,13 @@ public class BlogPost_FXMLController extends LibMessageBox implements Initializa
     
     
     private void refreshContent(){ 
-       this.ListPost = new  PostService().recuperer(); // POST = new ListViewPost().recuperer();
-        this.setDataItems ( this.ListPost ) ;
-      /* if (ListBlog_FXMLController.ChoiceCategoriePost != null) 
+      // this.ListPost = new  PostService().recuperer(); // POST = new ListViewPost().recuperer();
+       // this.setDataItems ( this.ListPost ) ;
+       if (ListBlog_FXMLController.ChoiceCategoriePost != null) 
            {
             ListPost =  new  PostService().RechercherWithCathegorieId(ListBlog_FXMLController.ChoiceCategoriePost.getId());
             this.setDataItems ( ListPost ) ;
-           }*/
+           }
     }
     
     

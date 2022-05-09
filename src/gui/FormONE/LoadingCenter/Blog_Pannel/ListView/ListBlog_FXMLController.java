@@ -35,7 +35,7 @@ public class ListBlog_FXMLController implements Initializable {
     @FXML
     private Text textListBloc;
     
-    static public final String URL_FORM = "/GUI/FormONE/LoadingCenter/Blog_Pannel/ListView/ListBlog_FXML.fxml";
+    static public final String URL_FORM = "/gui/FormONE/LoadingCenter/Blog_Pannel/ListView/ListBlog_FXML.fxml";
     static public  CategoriePost ChoiceCategoriePost = null;
     List<CategoriePost> list_Categorie ;
     /**
@@ -66,7 +66,7 @@ public class ListBlog_FXMLController implements Initializable {
                     { 
                       if (Categorie.getNom_categorie_post() ==   ChoiceNomCategorie  ) { ChoiceCategoriePost = Categorie; }
                     }                 
-                 new Page (  ).loadpage (   ClassElementsControllers.FormONEBorderPane ,  BlogPost_FXMLController.URL_FORM   );
+                 new Page (  ).loadpage (ClassElementsControllers.FormONEBorderPane ,  BlogPost_FXMLController.URL_FORM   );
                  ClassElementsControllers.FormOne_ListBLog.close(); 
                  //methode pour fermer fasade de ListBlog 
                  // Stage stage = (Stage)  ListBlogPane.getScene().getWindow();
