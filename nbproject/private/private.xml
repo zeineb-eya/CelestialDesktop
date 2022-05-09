@@ -3,9 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/CelestialDesktopIntegrationFinal/src/com/mycompany/gui/ListReservationController.java</file>
-            <file>file:/C:/xampp/htdocs/CelestialDesktopIntegrationFinal/src/com/mycompany/gui/ReservationDetailsController.java</file>
-            <file>file:/C:/xampp/htdocs/CelestialDesktopIntegrationFinal/src/com/mycompany/gui/ReservationFrontController.java</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/AfficherEqFXML.fxml</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/ModifierCFXML.fxml</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/AfficherEqFXMLController.java</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/AfficherEqFrontFXML.fxml</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/chartAdress.fxml</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/AfficherCFrontFXMLController.java</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/AfficherEqFrontFXMLController.java</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/ChartEqController.java</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/AfficherCFXMLController.java</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/MediaClass.java</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/AfficherCFXML.fxml</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/AddFXML.fxml</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/services/ServiceEquipement.java</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/AfficherCFrontFXML.fxml</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/ChartController.java</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/MediaHome.fxml</file>
+            <file>file:/C:/Users/21628/Documents/CelestialDesktop/src/gui/chartt.fxml</file>
         </group>
     </open-files>
 </project-private>

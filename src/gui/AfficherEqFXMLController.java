@@ -385,7 +385,7 @@ JOptionPane.showMessageDialog(null, "Impression effectuée");
     ObservableList<Equipement> data=FXCollections.observableArrayList(lp);
             FXMLLoader chart= new FXMLLoader(getClass().getResource("chartt.fxml"));
             Parent root = chart.load();
-            ChartController mc = chart.getController();
+            ChartEqController mc = chart.getController();
            
            
             Scene scene = new Scene(root);
@@ -395,7 +395,7 @@ JOptionPane.showMessageDialog(null, "Impression effectuée");
             modifStage.setScene(scene);
             modifStage.show();
             
-             ChartController controller = chart.getController();
+             ChartEqController controller = chart.getController();
         controller.setReclamationData();
             
             

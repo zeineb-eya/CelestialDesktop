@@ -10,7 +10,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="808.0" maxWidth="947.0" minHeight="500.0" minWidth="680.0" prefHeight="808.0" prefWidth="947.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MediaClass">
+
+<Pane maxHeight="808.0" maxWidth="947.0" minHeight="500.0" minWidth="680.0" prefHeight="808.0" prefWidth="947.0" styleClass="pane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MediaClass">
   <children>
     <MediaView fx:id="mainMediaView" fitHeight="400.0" fitWidth="670.0" layoutX="129.0" layoutY="9.0" preserveRatio="false" />
     <ImageView fitHeight="20.0" fitWidth="24.0" layoutX="318.0" layoutY="441.0" onMouseClicked="#pause" pickOnBounds="true" preserveRatio="true">
@@ -67,6 +68,16 @@
          </font>
       </Button>
       <Button layoutX="552.0" layoutY="530.0" mnemonicParsing="false" onAction="#GestionLoca" prefHeight="14.0" prefWidth="129.0" style="-fx-background-color: transparent;" stylesheets="@../../../CelestialDesktop-Gest_Service-Gest_Voyage/src/gui/elements/css/mainStyle.css" text="Localisations" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="661.0" layoutY="530.0" mnemonicParsing="false" onAction="#GestionEq" prefHeight="14.0" prefWidth="129.0" style="-fx-background-color: transparent;" stylesheets="@../../../CelestialDesktop-Gest_Service-Gest_Voyage/src/gui/elements/css/mainStyle.css" text="Equipement" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="784.0" layoutY="530.0" mnemonicParsing="false" onAction="#GestionCEq" prefHeight="14.0" prefWidth="129.0" style="-fx-background-color: transparent;" stylesheets="@../../../CelestialDesktop-Gest_Service-Gest_Voyage/src/gui/elements/css/mainStyle.css" text="Equipement" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

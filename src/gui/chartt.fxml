@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ChartController">
-   <children>
-      <BarChart fx:id="barChart" layoutX="-5.0" prefHeight="400.0" prefWidth="600.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" fx:id="xAxis" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis fx:id="numberAxis" side="LEFT" />
-        </yAxis>
-      </BarChart>
-   </children>
+<AnchorPane id="AnchorPane" prefHeight="523.0" prefWidth="693.0" xmlns:fx="http://javafx.com/fxml/1" styleClass="blue-panel" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.ChartEqController">
+  <children>
+    <BarChart fx:id="barChart" layoutX="62.0" layoutY="108.0" prefHeight="358.0" prefWidth="570.0">
+      <xAxis>
+        <CategoryAxis fx:id="xAxis" side="BOTTOM" styleClass="axis-label" tickLabelFill="WHITE" />
+      </xAxis>
+      <yAxis>
+        <NumberAxis fx:id="numberAxis" side="LEFT" styleClass="axis-label" tickLabelFill="WHITE" />
+      </yAxis>
+    </BarChart>
+  </children>
 </AnchorPane>

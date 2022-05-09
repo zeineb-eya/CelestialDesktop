@@ -102,7 +102,7 @@ System.out.print(MEDIA_URL);
 
     @Override
     public void initialize(URL Location, ResourceBundle resources) {
-           String MEDIA_URL = "C:\\Users\\Cipher\\Pictures\\Pub.mp4";
+           String MEDIA_URL = "C:\\Users\\21628\\Pictures\\aziz.mp4";
            //  String MEDIA_URL = "G:\\Pub.mp4";
             Media media = new Media(new File(MEDIA_URL).toURI().toString());
 
@@ -207,7 +207,36 @@ System.out.print(MEDIA_URL);
             System.out.println(ex.getMessage());
         }
     }
-
+@FXML
+    private void GestionEq(ActionEvent event) {
+           try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/AfficherEqFrontFXML.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    @FXML
+    private void GestionCEq(ActionEvent event) {
+           try {
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/gui/AfficherCFrontFXML.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(rootLayout);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     @FXML
     private void GestionPlaninng(ActionEvent event) {
         try {

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="454.0" prefWidth="614.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherEqFrontFXMLController">
+  <children>
+<ImageView fitHeight="456.0" fitWidth="729.5999879775243" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@background_image3.png" />
+      </image>
+    </ImageView>
+    <TableView fx:id="TVuser" layoutX="67.0" layoutY="116.0" prefHeight="240.0" prefWidth="596.0">
+      <columns>
+        <TableColumn fx:id="colidU" maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="ID" />
+        <TableColumn fx:id="colnomU" maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Categorie" />
+        <TableColumn fx:id="colprenomU" maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Nom" />
+        <TableColumn fx:id="coladresseU" maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Etat" />
+        <TableColumn fx:id="colmailU" maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Description" />
+      </columns>
+    </TableView>
+    <Label layoutX="187.0" layoutY="362.0" prefWidth="220.0" text="Id de l'element à Supprimer" textFill="WHITE" />
+    <Label layoutX="22.0" layoutY="22.0" prefWidth="349.0" text="Liste equipements" textFill="#66edff">
+        
+        
+      <font>
+        <Font size="34.0" />
+      </font>
+    </Label>
+    <TextField fx:id="filterField" layoutX="67.0" layoutY="79.0" onKeyPressed="#research" prefWidth="486.0" />
+    <ImageView fx:id="btnpdf" fitHeight="48.0" fitWidth="50.0" layoutX="94.0" layoutY="369.0" onMouseClicked="#exportPDF">
+                           <image>
+                              <Image url="@../image/pdf-file.png" />
+                           </image>
+                        </ImageView>
+                        <ComboBox fx:id="combomag" layoutX="215.0" layoutY="380.0" onAction="#trimag" prefHeight="25.0" prefWidth="158.0" />
+                        <Button fx:id="DESC" layoutX="217.0" layoutY="412.0" mnemonicParsing="false" onAction="#ordremag1" text="Decroissant" />
+                        <Button fx:id="ASC" layoutX="310.0" layoutY="412.0" mnemonicParsing="false" onAction="#ordremag" text="Croissant" />
+                         <Button alignment="TOP_LEFT" layoutX="439.0" layoutY="373.0" mnemonicParsing="false" onAction="#showchart" prefHeight="39.0" prefWidth="131.0" style="-fx-background-color: b3c4f0;" text="Stat">
+               <font>
+                  <Font name="Cooper Black" size="19.0" />
+               </font>
+            </Button>
+  </children>
+</AnchorPane>
