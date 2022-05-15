@@ -41,6 +41,9 @@
 <ComboBox fx:id="tfetat" layoutX="272" layoutY="120" prefWidth="150.0" />
 <TextField fx:id="tfdes" layoutX="272.0" layoutY="147.0" prefWidth="200.0" />
     <TextField fx:id="tfimage" layoutX="272.0" layoutY="179.0" prefWidth="200.0" />
+    <TextField fx:id="imgEfld" layoutX="272.0" layoutY="210.0" minWidth="-Infinity" prefHeight="35.0" prefWidth="0.0" />
+     <Button fx:id="imgSbtn" layoutX="272.0" layoutY="240" mnemonicParsing="false" onAction="#getImgS" text="parcourir" />
+     <ImageView fx:id="imgSV" fitHeight="272.0" fitWidth="270" layoutX="467.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" />
     <Button id="btninsertU" layoutX="220.0" layoutY="278.0" mnemonicParsing="false" onAction="#Ajouter" text="Insert" />
     <Label layoutX="272.0" layoutY="26.0" text="Equipement" textFill="#66ffed">
       <font>
