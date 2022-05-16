@@ -241,7 +241,7 @@ public void research()
 @FXML
     private void exportPDF(MouseEvent event)throws ClassNotFoundException, ClassNotFoundException, SQLException, IOException, URISyntaxException, DocumentException {
         try {
-        String file_name="C:/Users/21628/Desktop/xxx.pdf";
+        String file_name="C:/Users/Cipher/Desktop/xxx.pdf";
         Document doc=new Document();
         PdfWriter.getInstance(doc, new FileOutputStream(file_name));
         doc.open();

@@ -102,8 +102,13 @@ System.out.print(MEDIA_URL);
 
     @Override
     public void initialize(URL Location, ResourceBundle resources) {
+<<<<<<< HEAD
          //  String MEDIA_URL = "C:\\Users\\21628\\Pictures\\aziz.mp4";
              String MEDIA_URL = "G:\\Pub.mp4";
+=======
+           String MEDIA_URL = "C:\\Users\\Cipher\\Pictures\\Pub.mp4";
+           //  String MEDIA_URL = "G:\\Pub.mp4";
+>>>>>>> 1c39cdba47f671da5e76f39d5ab6684c178d8591
             Media media = new Media(new File(MEDIA_URL).toURI().toString());
 
             mediaPlayer = new MediaPlayer(media);
