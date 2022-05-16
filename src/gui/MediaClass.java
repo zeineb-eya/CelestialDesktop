@@ -51,8 +51,8 @@ public class MediaClass implements Initializable {
 
 
 
-           String MEDIA_URL = "C:\\Users\\Cipher\\Music\\Pub.mp4";
-           //   String MEDIA_URL = "G:\\Pub.mp4";
+            // String MEDIA_URL = "C:\\Users\\Cipher\\Music\\Pub.mp4";
+            String MEDIA_URL = "G:\\Pub.mp4";
             // The regex below only extracts the Tittle part of the media
 
             /* On Windows OS
@@ -102,8 +102,8 @@ System.out.print(MEDIA_URL);
 
     @Override
     public void initialize(URL Location, ResourceBundle resources) {
-           String MEDIA_URL = "C:\\Users\\21628\\Pictures\\aziz.mp4";
-           //  String MEDIA_URL = "G:\\Pub.mp4";
+         //  String MEDIA_URL = "C:\\Users\\21628\\Pictures\\aziz.mp4";
+             String MEDIA_URL = "G:\\Pub.mp4";
             Media media = new Media(new File(MEDIA_URL).toURI().toString());
 
             mediaPlayer = new MediaPlayer(media);
