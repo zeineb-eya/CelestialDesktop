@@ -7,6 +7,9 @@ package gui;
 
 import entities.Equipement;
 import entities.User;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -59,6 +62,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
+import javax.swing.JFileChooser;
 /**
  * FXML Controller class
  *
@@ -78,6 +84,10 @@ public class AddFXMLController implements Initializable {
     @FXML
     private ComboBox<String> ceq;
    ServiceEquipement us=new ServiceEquipement();
+   @FXML
+    private TextField imgEfld;
+    @FXML
+    private ImageView imgSV;
     
     
     /**
@@ -108,7 +118,7 @@ public class AddFXMLController implements Initializable {
         String nom = tfnom.getText();
         String des = tfdes.getText();
         String etat = tfetat.getSelectionModel().getSelectedItem();
-        String img = tfimage.getText();
+        String img = imgEfld.getText();
         
        ;
  String nomrole =  ceq.getValue();
@@ -202,6 +212,22 @@ public class AddFXMLController implements Initializable {
         }
        
         
-    }  
+    }
+    @FXML
+    private void getImgS(ActionEvent event) {
+        
+       JFileChooser chooser=new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f=chooser.getSelectedFile();
+        String filename=f.getAbsolutePath();
+        imgEfld.setText(filename);
+        Image image;
+          try {
+              image = new Image(new FileInputStream(filename));
+               imgSV.setImage(image);
+          } catch (FileNotFoundException ex) {
+              Logger.getLogger(AjouterEqFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+          }
+    }
 
 }

@@ -216,7 +216,7 @@ public void ajouter(Planinng p) {
         while(rs.next()){
            Localisation l = new Localisation();
                 l.setId(rs.getInt(1));
-                l.setHeureDepartLocalisation(rs.getString("localisation.heuredepartlocalisation"));
+                l.setHeureDepartLocalisation(rs.getString("localisation.heure_depart_localisation"));
                 l.setHeureArriveeLoacalisation(rs.getString("localisation.heure_arrivee_loacalisation"));
                 l.setPositionDepartLocalisation(rs.getString("localisation.position_depart_localisation"));
                 l.setPositionAriveePlanning(rs.getString("localisation.position_arivee_planning"));
